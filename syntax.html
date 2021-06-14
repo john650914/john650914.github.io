@@ -1,0 +1,2078 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta property="og:title" content="Javascript字典，語法及API總覽" />
+<meta property="og:description" content="Javascript字典中所有的語法及API列表" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://javascript.john650914.com" />
+<meta property="og:image" content="http://javascript.john650914.com/images/fb.jpg" />
+<meta name="keywords" content="javascript,物件,object,運算子,Operator,條件式,condition,迴圈,looping,宣告,statement,陣列,array,布林,boolean,函式,function,字串,string,規則運算式,regexp,BOM,DOM" />
+<meta name="description" content="Javascript字典中所有的語法及API列表" />
+<title>Javascript語法與API文件．Javascript字典</title>
+<link type="text/css" rel="stylesheet" href="css/default.css"/>
+
+<script src="/js/jquery-1.11.3.min.js"></script>
+<script src="js/default.js"></script>
+<script>
+	$(function(){
+		if(location.href.match('yellow')){
+			$('.top-menu li a').css({'color':'yellow'});
+		}
+	});
+</script>
+</head>
+<body>
+
+<main class="main" style="padding-left:0; padding-right:0;">
+	<h1>Javascript語法及API總覽</h1>
+	<table class="api-table">
+		<CAPTION>Basic Syntax</CAPTION>
+		<tr>
+			<td rowspan="7">Operators</td>
+			<td>算術運算子</td>
+			<td>
+				<a href="/documentation/Operators.html">+</a>
+				<a href="/documentation/Operators.html">-</a>
+				<a href="/documentation/Operators.html">*</a>
+				<a href="/documentation/Operators.html">/</a>
+				<a href="/documentation/Operators.html">%</a>
+				<a href="/documentation/Operators.html">++</a>
+				<a href="/documentation/Operators.html">--</a>
+				<a href="/documentation/Operators.html">(-)</a>
+				<a href="/documentation/Operators.html">(+)</a>
+			</td>
+		</tr>
+		<tr>
+			<td>展開運算子</td>
+			<td>
+				<a href="/documentation/Operators.html">...</a>
+			</td>
+		</tr>
+		<tr>
+			<td>指派運算子</td>
+			<td>
+				<a href="/documentation/Operators.html">=</a>
+				<a href="/documentation/Operators.html">+=</a>
+				<a href="/documentation/Operators.html">-=</a>
+				<a href="/documentation/Operators.html">*=</a>
+				<a href="/documentation/Operators.html">/=</a>
+				<a href="/documentation/Operators.html">%=</a>
+				<a href="/documentation/Operators.html">&lt;&lt;=</a>
+				<a href="/documentation/Operators.html">&gt;&gt;=</a>
+				<a href="/documentation/Operators.html">&gt;&gt;&gt;=</a>
+				<a href="/documentation/Operators.html">&amp;=</a>
+				<a href="/documentation/Operators.html">|=</a>
+				<a href="/documentation/Operators.html">^=</a>
+			</td>
+		</tr>
+		<tr>
+			<td>邏輯運算子</td>
+			<td>
+				<a href="/documentation/Operators.html">&amp;&amp;</a>
+				<a href="/documentation/Operators.html">||</a>
+				<a href="/documentation/Operators.html">!</a>
+			</td>
+		</tr>
+		<tr>
+			<td>比較運算子</td>
+			<td>
+				<a href="/documentation/Operators.html">==</a>
+				<a href="/documentation/Operators.html">===</a>
+				<a href="/documentation/Operators.html">!=</a>
+				<a href="/documentation/Operators.html">!==</a>
+				<a href="/documentation/Operators.html">&gt;</a>
+				<a href="/documentation/Operators.html">&gt;=</a>
+				<a href="/documentation/Operators.html">&lt;</a>
+				<a href="/documentation/Operators.html">&lt;=</a>
+			</td>
+		</tr>
+		<tr>
+			<td>位元運算子</td>
+			<td>
+				<a href="/documentation/Operators.html">&amp;</a>
+				<a href="/documentation/Operators.html">|</a>
+				<a href="/documentation/Operators.html">^</a>
+				<a href="/documentation/Operators.html">~</a>
+				<a href="/documentation/Operators.html">&lt;&lt;</a>
+				<a href="/documentation/Operators.html">&gt;&gt;</a>
+				<a href="/documentation/Operators.html">&gt;&gt;&gt;</a>
+			</td>
+		</tr>
+		<tr>
+			<td>特殊運算子</td>
+			<td>
+				<a href="/documentation/Operators.html">,</a>
+				<a href="/documentation/Operators.html">()?:</a>
+				<a href="/documentation/Operators.html">delete</a>
+				<a href="/documentation/Operators.html">in</a>
+				<a href="/documentation/Operators.html">instanceof</a>
+				<a href="/documentation/Operators.html">new</a>
+				<a href="/documentation/Operators.html">this</a>
+				<a href="/documentation/Operators.html">try-catch-finally</a>
+				<a href="/documentation/Operators.html">throw</a>
+				<a href="/documentation/Operators.html">typeof</a>
+				<a href="/documentation/Operators.html">void</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Statements</td>
+			<td>關鍵字</td>
+			<td>
+				<a href="/documentation/Statements.html">var</a>
+				<a href="/documentation/Statements.html">with</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Conditionals</td>
+			<td>關鍵字</td>
+			<td>
+				<a href="/documentation/Conditionals.html">if</a>
+				<a href="/documentation/Conditionals.html">if / else</a>
+				<a href="/documentation/Conditionals.html">switch-case-break-default</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Looping</td>
+			<td>關鍵字</td>
+			<td>
+				<a href="/documentation/Looping.html">for</a>
+				<a href="/documentation/Looping.html">for-in</a>
+				<a href="/documentation/Looping.html">for-of</a>
+				<a href="/documentation/Looping.html">while</a>
+				<a href="/documentation/Looping.html">do/while</a>
+				<a href="/documentation/Looping.html">break</a>
+				<a href="/documentation/Looping.html">continue</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Global Functions</td>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/Global-Functions.html">decodeURI()</a>
+				<a href="/documentation/Global-Functions.html">decodeURIComponent()</a>
+				<a href="/documentation/Global-Functions.html">encodeURI()</a>
+				<a href="/documentation/Global-Functions.html">encodeURIComponent()</a>
+				<a href="/documentation/Global-Functions.html">escape()</a>
+				<a href="/documentation/Global-Functions.html">eval()</a>
+				<a href="/documentation/Global-Functions.html">isFinite()</a>
+				<a href="/documentation/Global-Functions.html">isNaN()</a>
+				<a href="/documentation/Global-Functions.html">Number()</a>
+				<a href="/documentation/Global-Functions.html">parseFloat()</a>
+				<a href="/documentation/Global-Functions.html">parseInt()</a>
+				<a href="/documentation/Global-Functions.html">String()</a>
+				<a href="/documentation/Global-Functions.html">toString()</a>
+				<a href="/documentation/Global-Functions.html">unescape()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="4">Others</td>
+			<td>特殊字元</td>
+			<td>
+				<a href="/documentation/Others.html">\</a>
+				<a href="/documentation/Others.html">\\</a>
+				<a href="/documentation/Others.html">\&apos;</a>
+				<a href="/documentation/Others.html">\&quot;</a>
+				<a href="/documentation/Others.html">\n</a>
+			</td>
+		</tr>
+		<tr>
+			<td>資料類形</td>
+			<td>
+				<a href="/documentation/Others.html">Boolean</a>
+				<a href="/documentation/Others.html">NaN</a>
+				<a href="/documentation/Others.html">Null</a>
+				<a href="/documentation/Others.html">Number</a>
+				<a href="/documentation/Others.html">Object</a>
+				<a href="/documentation/Others.html">String</a>
+				<a href="/documentation/Others.html">Undefined</a>
+			</td>
+		</tr>
+		<tr>
+			<td>括號</td>
+			<td>
+				<a href="/documentation/Others.html">()</a>
+				<a href="/documentation/Others.html">[]</a>
+				<a href="/documentation/Others.html">{}</a>
+			</td>
+		</tr>
+		<tr>
+			<td>綜合知識</td>
+			<td>
+				<a href="/documentation/Others.html">綜合知識</a>
+			</td>
+		</tr>
+	</table>
+	<table class="api-table">
+		<CAPTION>JS Objects</CAPTION>
+		<tr>
+			<td rowspan="3">Array</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/Array.html">Array</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/Array.html">constructor</a>
+				<a href="/documentation/Array.html">length</a>
+				<a href="/documentation/Array.html">prototype</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/Array.html">concat()</a>
+				<a href="/documentation/Array.html">every()</a>
+				<a href="/documentation/Array.html">filter()</a>
+				<a href="/documentation/Array.html">fill()</a>
+				<a href="/documentation/Array.html">forEach()</a>
+				<a href="/documentation/Array.html">indexOf()</a>
+				<a href="/documentation/Array.html">join()</a>
+				<a href="/documentation/Array.html">lastIndexOf()</a>
+				<a href="/documentation/Array.html">map()</a>
+				<a href="/documentation/Array.html">pop()</a>
+				<a href="/documentation/Array.html">push()</a>
+				<a href="/documentation/Array.html">reverse()</a>
+				<a href="/documentation/Array.html">shift()</a>
+				<a href="/documentation/Array.html">slice()</a>
+				<a href="/documentation/Array.html">some()</a>
+				<a href="/documentation/Array.html">sort()</a>
+				<a href="/documentation/Array.html">splice()</a>
+				<a href="/documentation/Array.html">toSource()</a>
+				<a href="/documentation/Array.html">toString()</a>
+				<a href="/documentation/Array.html">unshift()</a>
+				<a href="/documentation/Array.html">valueOf()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">Boolean</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/Boolean.html">Boolean</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/Boolean.html">constructor</a>
+				<a href="/documentation/Boolean.html">prototype</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/Boolean.html">toString()</a>
+				<a href="/documentation/Boolean.html">valueOf()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">Date</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/Date.html">Date</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/Date.html">constructor</a>
+				<a href="/documentation/Date.html">prototype</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/Date.html">getDate()</a>
+				<a href="/documentation/Date.html">getDay()</a>
+				<a href="/documentation/Date.html">getFullYear()</a>
+				<a href="/documentation/Date.html">getHours()</a>
+				<a href="/documentation/Date.html">getMilliseconds()</a>
+				<a href="/documentation/Date.html">getMinutes()</a>
+				<a href="/documentation/Date.html">getMonth()</a>
+				<a href="/documentation/Date.html">getSeconds()</a>
+				<a href="/documentation/Date.html">getTime()</a>
+				<a href="/documentation/Date.html">getTimezoneOffset()</a>
+				<a href="/documentation/Date.html">getUTCDate()</a>
+				<a href="/documentation/Date.html">getUTCDay()</a>
+				<a href="/documentation/Date.html">getUTCFullYear()</a>
+				<a href="/documentation/Date.html">getUTCHours()</a>
+				<a href="/documentation/Date.html">getUTCMilliseconds()</a>
+				<a href="/documentation/Date.html">getUTCMinutes()</a>
+				<a href="/documentation/Date.html">getUTCMonth()</a>
+				<a href="/documentation/Date.html">getUTCSeconds()</a>
+				<a href="/documentation/Date.html">getYear()</a>
+				<a href="/documentation/Date.html">parse()</a>
+				<a href="/documentation/Date.html">setDate()</a>
+				<a href="/documentation/Date.html">setFullYear()</a>
+				<a href="/documentation/Date.html">setHours()</a>
+				<a href="/documentation/Date.html">setMilliseconds()</a>
+				<a href="/documentation/Date.html">setMinutes()</a>
+				<a href="/documentation/Date.html">setMonth()</a>
+				<a href="/documentation/Date.html">setSeconds()</a>
+				<a href="/documentation/Date.html">setTime()</a>
+				<a href="/documentation/Date.html">setUTCDate()</a>
+				<a href="/documentation/Date.html">setUTCFullYear()</a>
+				<a href="/documentation/Date.html">setUTCHours()</a>
+				<a href="/documentation/Date.html">setUTCMilliseconds()</a>
+				<a href="/documentation/Date.html">setUTCMinutes()</a>
+				<a href="/documentation/Date.html">setUTCMonth()</a>
+				<a href="/documentation/Date.html">setUTCSeconds()</a>
+				<a href="/documentation/Date.html">setYear()</a>
+				<a href="/documentation/Date.html">toDateString()</a>
+				<a href="/documentation/Date.html">toGMTString()</a>
+				<a href="/documentation/Date.html">toLocaleDateString()</a>
+				<a href="/documentation/Date.html">toLocaleTimeString()</a>
+				<a href="/documentation/Date.html">toLocaleString()</a>
+				<a href="/documentation/Date.html">toString()</a>
+				<a href="/documentation/Date.html">toTimeString()</a>
+				<a href="/documentation/Date.html">toUTCString()</a>
+				<a href="/documentation/Date.html">UTC()</a>
+				<a href="/documentation/Date.html">valueOf()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">Error</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/Error.html">Error</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/Error.html">constructor</a>
+				<a href="/documentation/Error.html">description</a>
+				<a href="/documentation/Error.html">message</a>
+				<a href="/documentation/Error.html">name</a>
+				<a href="/documentation/Error.html">toSource</a>
+				<a href="/documentation/Error.html">toString</a>
+				<a href="/documentation/Error.html">valueOf</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="5">Function</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/Function.html">Function</a>
+			</td>
+		</tr>
+		<tr>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/Function.html">arguments</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/Function.html">caller</a>
+				<a href="/documentation/Function.html">length</a>
+				<a href="/documentation/Function.html">prototype</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/Function.html">apply()</a>
+				<a href="/documentation/Function.html">call()</a>
+				<a href="/documentation/Function.html">toString()</a>
+			</td>
+		</tr>
+		<tr>
+			<td>關鍵字</td>
+			<td>
+				<a href="/documentation/Function.html">return</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">JSON</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/JSON.html">JSON</a>
+			</td>
+		</tr>
+		<tr>
+			<td>JSON方法</td>
+			<td>
+				<a href="/documentation/JSON.html">stringify(obj, [replacer], [space])</a>
+				<a href="/documentation/JSON.html">parse(string, [reviver])</a>
+				<a href="/documentation/JSON.html">toJSON()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="4">Map</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/Map.html">Map</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/Map.html">size</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/Map.html">clear()</a>
+				<a href="/documentation/Map.html">delete()</a>
+				<a href="/documentation/Map.html">get()</a>
+				<a href="/documentation/Map.html">has()</a>
+				<a href="/documentation/Map.html">set()</a>
+			</td>
+		</tr>
+		<tr>
+			<td>遍歷方法</td>
+			<td>
+				<a href="/documentation/Map.html">entries()</a>
+				<a href="/documentation/Map.html">forEach()</a>
+				<a href="/documentation/Map.html">keys()</a>
+				<a href="/documentation/Map.html">values()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">Math</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/Math.html">Math</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/Math.html">Math.E</a>
+				<a href="/documentation/Math.html">Math.PI</a>
+				<a href="/documentation/Math.html">Math.SQRT2</a>
+				<a href="/documentation/Math.html">Math.SQRT1-2</a>
+				<a href="/documentation/Math.html">Math.LN2</a>
+				<a href="/documentation/Math.html">Math.LN10</a>
+				<a href="/documentation/Math.html">Math.LOG2E</a>
+				<a href="/documentation/Math.html">Math.LOG10E</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/Math.html">Math.max()</a>
+				<a href="/documentation/Math.html">Math.min()</a>
+				<a href="/documentation/Math.html">Math.ceil()</a>
+				<a href="/documentation/Math.html">Math.floor()</a>
+				<a href="/documentation/Math.html">Math.round()</a>
+				<a href="/documentation/Math.html">Math.random()</a>
+				<a href="/documentation/Math.html">Math.abs()</a>
+				<a href="/documentation/Math.html">Math.acos()</a>
+				<a href="/documentation/Math.html">Math.asin()</a>
+				<a href="/documentation/Math.html">Math.atan()</a>
+				<a href="/documentation/Math.html">Math.atan2()</a>
+				<a href="/documentation/Math.html">Math.cos()</a>
+				<a href="/documentation/Math.html">Math.exp()</a>
+				<a href="/documentation/Math.html">Math.log()</a>
+				<a href="/documentation/Math.html">Math.pow()</a>
+				<a href="/documentation/Math.html">Math.sin()</a>
+				<a href="/documentation/Math.html">Math.sqrt()</a>
+				<a href="/documentation/Math.html">Math.tan()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">Number</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/Number.html">Number</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/Number.html">constructor</a>
+				<a href="/documentation/Number.html">MAX-VALUE</a>
+				<a href="/documentation/Number.html">MIN-VALUE</a>
+				<a href="/documentation/Number.html">NEGATIVE-INFINITY</a>
+				<a href="/documentation/Number.html">POSITIVE-INFINITY</a>
+				<a href="/documentation/Number.html">prototype</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/Number.html">toExponential()</a>
+				<a href="/documentation/Number.html">toFixed()</a>
+				<a href="/documentation/Number.html">toPrecision()</a>
+				<a href="/documentation/Number.html">toString()</a>
+				<a href="/documentation/Number.html">valueOf()</a>
+			</td>
+		</tr>
+		
+		<tr>
+			<td rowspan="3">Object</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/object-object.html">Object</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/object-object.html">constructor</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/object-object.html">hasOwnProperty()</a>
+				<a href="/documentation/object-object.html">isPrototypeOf()</a>
+				<a href="/documentation/object-object.html">Object.keys()</a>
+				<a href="/documentation/object-object.html">Object.getOwnPropertyNames()</a>
+				<a href="/documentation/object-object.html">propertyIsEnumerable(prop)</a>
+				<a href="/documentation/object-object.html">toLocaleString()</a>
+				<a href="/documentation/object-object.html">toString()</a>
+				<a href="/documentation/object-object.html">valueOf()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="4">Set</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/Set.html">Set</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/Set.html">size</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/Set.html">add()</a>
+				<a href="/documentation/Set.html">clear()</a>
+				<a href="/documentation/Set.html">delete()</a>
+				<a href="/documentation/Set.html">has()</a>
+			</td>
+		</tr>
+		<tr>
+			<td>遍歷方法</td>
+			<td>
+				<a href="/documentation/Set.html">entries()</a>
+				<a href="/documentation/Set.html">forEach()</a>
+				<a href="/documentation/Set.html">keys()</a>
+				<a href="/documentation/Set.html">values()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="4">String</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/String.html">String</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/String.html">constructor</a>
+				<a href="/documentation/String.html">length</a>
+				<a href="/documentation/String.html">prototype</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/String.html">charAt()</a>
+				<a href="/documentation/String.html">charCodeAt()</a>
+				<a href="/documentation/String.html">concat()</a>
+				<a href="/documentation/String.html">fromCharCode()</a>
+				<a href="/documentation/String.html">indexOf()</a>
+				<a href="/documentation/String.html">lastIndexOf()</a>
+				<a href="/documentation/String.html">match()</a>
+				<a href="/documentation/String.html">replace()</a>
+				<a href="/documentation/String.html">search()</a>
+				<a href="/documentation/String.html">slice()</a>
+				<a href="/documentation/String.html">split()</a>
+				<a href="/documentation/String.html">substr()</a>
+				<a href="/documentation/String.html">substring()</a>
+				<a href="/documentation/String.html">toLowerCase()</a>
+				<a href="/documentation/String.html">toUpperCase()</a>
+				<a href="/documentation/String.html">trim()</a>
+				<a href="/documentation/String.html">valueOf()</a>
+			</td>
+		</tr>
+		<tr>
+			<td>html方法</td>
+			<td>
+				<a href="/documentation/String.html">anchor()</a>
+				<a href="/documentation/String.html">big()</a>
+				<a href="/documentation/String.html">blink()</a>
+				<a href="/documentation/String.html">bold()</a>
+				<a href="/documentation/String.html">fixed()</a>
+				<a href="/documentation/String.html">fontcolor()</a>
+				<a href="/documentation/String.html">fontsize()</a>
+				<a href="/documentation/String.html">italics()</a>
+				<a href="/documentation/String.html">link()</a>
+				<a href="/documentation/String.html">small()</a>
+				<a href="/documentation/String.html">strike()</a>
+				<a href="/documentation/String.html">sub()</a>
+				<a href="/documentation/String.html">sup()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="10">RegExp</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/RegExp.html">RegExp</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Pattern flag 屬性</td>
+			<td>
+				<a href="/documentation/RegExp.html">i</a>
+				<a href="/documentation/RegExp.html">g</a>
+				<a href="/documentation/RegExp.html">gi</a>
+				<a href="/documentation/RegExp.html">m</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Position Matching 符號</td>
+			<td>
+				<a href="/documentation/RegExp.html">^</a>
+				<a href="/documentation/RegExp.html">$</a>
+				<a href="/documentation/RegExp.html">\</a>
+				<a href="/documentation/RegExp.html">\b</a>
+				<a href="/documentation/RegExp.html">\B</a>
+				<a href="/documentation/RegExp.html">(?=pattern)</a>
+				<a href="/documentation/RegExp.html">(?!pattern)</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Literals 符號</td>
+			<td>
+				<a href="/documentation/RegExp.html">Alphanumeric</a>
+				<a href="/documentation/RegExp.html">\0</a>
+				<a href="/documentation/RegExp.html">\n</a>
+				<a href="/documentation/RegExp.html">\f</a>
+				<a href="/documentation/RegExp.html">\r</a>
+				<a href="/documentation/RegExp.html">\t</a>
+				<a href="/documentation/RegExp.html">\v</a>
+				<a href="/documentation/RegExp.html">\xxx</a>
+				<a href="/documentation/RegExp.html">\xdd</a>
+				<a href="/documentation/RegExp.html">\uxxx</a>
+				<a href="/documentation/RegExp.html">[\b]</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Character Classes 符號</td>
+			<td>
+				<a href="/documentation/RegExp.html">[xyz]</a>
+				<a href="/documentation/RegExp.html">[^xyz]</a>
+				<a href="/documentation/RegExp.html">.</a>
+				<a href="/documentation/RegExp.html">\w</a>
+				<a href="/documentation/RegExp.html">\W</a>
+				<a href="/documentation/RegExp.html">\d</a>
+				<a href="/documentation/RegExp.html">\D</a>
+				<a href="/documentation/RegExp.html">\s</a>
+				<a href="/documentation/RegExp.html">\S</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Repetition 符號</td>
+			<td>
+				<a href="/documentation/RegExp.html">{n}</a>
+				<a href="/documentation/RegExp.html">{n,}</a>
+				<a href="/documentation/RegExp.html">{n,x}</a>
+				<a href="/documentation/RegExp.html">?</a>
+				<a href="/documentation/RegExp.html">*</a>
+				<a href="/documentation/RegExp.html">+</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Alternation &amp; Grouping 符號</td>
+			<td>
+				<a href="/documentation/RegExp.html">()</a>
+				<a href="/documentation/RegExp.html">()</a>
+				<a href="/documentation/RegExp.html">(?:x)</a>
+				<a href="/documentation/RegExp.html">x(?=y)</a>
+				<a href="/documentation/RegExp.html">x(?!y)</a>
+				<a href="/documentation/RegExp.html">|</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Back references 符號</td>
+			<td>
+				<a href="/documentation/RegExp.html">( )\n</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/RegExp.html">global</a>
+				<a href="/documentation/RegExp.html">ignoreCase</a>
+				<a href="/documentation/RegExp.html">lastIndex</a>
+				<a href="/documentation/RegExp.html">multiline</a>
+				<a href="/documentation/RegExp.html">source</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/RegExp.html">compile()</a>
+				<a href="/documentation/RegExp.html">exec()</a>
+				<a href="/documentation/RegExp.html">match()</a>
+				<a href="/documentation/RegExp.html">replace()</a>
+				<a href="/documentation/RegExp.html">search()</a>
+				<a href="/documentation/RegExp.html">split()</a>
+				<a href="/documentation/RegExp.html">test()</a>
+			</td>
+		</tr>
+	</table>
+	<table class="api-table">
+		<CAPTION>BOM Objects</CAPTION>
+		<tr>
+			<td rowspan="4">window</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/window.html">window</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/window.html">onblur</a>
+				<a href="/documentation/window.html">onerror</a>
+				<a href="/documentation/window.html">onfocus</a>
+				<a href="/documentation/window.html">onload</a>
+				<a href="/documentation/window.html">onresize</a>
+				<a href="/documentation/window.html">onscroll</a>
+				<a href="/documentation/window.html">onbeforeunload</a>
+				<a href="/documentation/window.html">onunload</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/window.html">closed</a>
+				<a href="/documentation/window.html">defaultStatus</a>
+				<a href="/documentation/window.html">document</a>
+				<a href="/documentation/window.html">frames</a>
+				<a href="/documentation/window.html">history</a>
+				<a href="/documentation/window.html">innerWidth</a>
+				<a href="/documentation/window.html">innerHeight</a>
+				<a href="/documentation/window.html">length</a>
+				<a href="/documentation/window.html">location</a>
+				<a href="/documentation/window.html">name</a>
+				<a href="/documentation/window.html">opener</a>
+				<a href="/documentation/window.html">outerWidth</a>
+				<a href="/documentation/window.html">outerHeight</a>
+				<a href="/documentation/window.html">pageXOffset</a>
+				<a href="/documentation/window.html">pageYOffset</a>
+				<a href="/documentation/window.html">parent</a>
+				<a href="/documentation/window.html">screen</a>
+				<a href="/documentation/window.html">screenX</a>
+				<a href="/documentation/window.html">screenY</a>
+				<a href="/documentation/window.html">screenLeft</a>
+				<a href="/documentation/window.html">screenTop</a>
+				<a href="/documentation/window.html">scrollX</a>
+				<a href="/documentation/window.html">scrollY</a>
+				<a href="/documentation/window.html">self</a>
+				<a href="/documentation/window.html">status</a>
+				<a href="/documentation/window.html">top</a>
+				<a href="/documentation/window.html">window</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/window.html">addEventListener()</a>
+				<a href="/documentation/window.html">alert()</a>
+				<a href="/documentation/window.html">attachEvent()</a>
+				<a href="/documentation/window.html">blur()</a>
+				<a href="/documentation/window.html">clearInterval()</a>
+				<a href="/documentation/window.html">clearTimeout()</a>
+				<a href="/documentation/window.html">close()</a>
+				<a href="/documentation/window.html">confirm()</a>
+				<a href="/documentation/window.html">detachEvent()</a>
+				<a href="/documentation/window.html">dispatchEvent()</a>
+				<a href="/documentation/window.html">execscript()</a>
+				<a href="/documentation/window.html">find()</a>
+				<a href="/documentation/window.html">fireEvent()</a>
+				<a href="/documentation/window.html">focus()</a>
+				<a href="/documentation/window.html">getComputedStyle()</a>
+				<a href="/documentation/window.html">home()</a>
+				<a href="/documentation/window.html">moveBy()</a>
+				<a href="/documentation/window.html">moveTo()</a>
+				<a href="/documentation/window.html">navigate()</a>
+				<a href="/documentation/window.html">open()</a>
+				<a href="/documentation/window.html">opener()</a>
+				<a href="/documentation/window.html">print()</a>
+				<a href="/documentation/window.html">prompt()</a>
+				<a href="/documentation/window.html">removeEventListener()</a>
+				<a href="/documentation/window.html">resizeBy()</a>
+				<a href="/documentation/window.html">resizeTo()</a>
+				<a href="/documentation/window.html">scrollBy()</a>
+				<a href="/documentation/window.html">scrollByLines()</a>
+				<a href="/documentation/window.html">scrollByPages()</a>
+				<a href="/documentation/window.html">scrollTo()</a>
+				<a href="/documentation/window.html">setInterval()</a>
+				<a href="/documentation/window.html">setTimeout()</a>
+				<a href="/documentation/window.html">showhelp()</a>
+				<a href="/documentation/window.html">showmodaldialog()</a>
+				<a href="/documentation/window.html">sizeToContent()</a>
+				<a href="/documentation/window.html">stop()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">navigator</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/navigator.html">navigator</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/navigator.html">appCodeName</a>
+				<a href="/documentation/navigator.html">appMinorVersion</a>
+				<a href="/documentation/navigator.html">appName</a>
+				<a href="/documentation/navigator.html">appVersion</a>
+				<a href="/documentation/navigator.html">browserLanguage</a>
+				<a href="/documentation/navigator.html">cookieEnabled</a>
+				<a href="/documentation/navigator.html">cpuClass</a>
+				<a href="/documentation/navigator.html">onLine</a>
+				<a href="/documentation/navigator.html">platform</a>
+				<a href="/documentation/navigator.html">plugins</a>
+				<a href="/documentation/navigator.html">systemLanguage</a>
+				<a href="/documentation/navigator.html">userAgent</a>
+				<a href="/documentation/navigator.html">userLanguage</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/navigator.html">javaEnabled()</a>
+				<a href="/documentation/navigator.html">taintEnabled()</a>
+				<a href="/documentation/navigator.html">plugins.refresh()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">screen</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/screen.html">screen</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/screen.html">availHeight</a>
+				<a href="/documentation/screen.html">availWidth</a>
+				<a href="/documentation/screen.html">colorDepth</a>
+				<a href="/documentation/screen.html">height</a>
+				<a href="/documentation/screen.html">pixelDepth</a>
+				<a href="/documentation/screen.html">width</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">history</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/history.html">history</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/history.html">length</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/history.html">back()</a>
+				<a href="/documentation/history.html">forward()</a>
+				<a href="/documentation/history.html">go(whereTo)</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">location</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/location.html">location</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/location.html">hash</a>
+				<a href="/documentation/location.html">host</a>
+				<a href="/documentation/location.html">hostname</a>
+				<a href="/documentation/location.html">href</a>
+				<a href="/documentation/location.html">pathname</a>
+				<a href="/documentation/location.html">port</a>
+				<a href="/documentation/location.html">protocol</a>
+				<a href="/documentation/location.html">search</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/location.html">reload()</a>
+				<a href="/documentation/location.html">replace()</a>
+			</td>
+		</tr>
+	</table>
+	<table class="api-table">
+		<CAPTION>DOM Objects</CAPTION>
+		<tr>
+			<td rowspan="3">document</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/document.html">document</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/document.html">alinkColor</a>
+				<a href="/documentation/document.html">body</a>
+				<a href="/documentation/document.html">all</a>
+				<a href="/documentation/document.html">anchors</a>
+				<a href="/documentation/document.html">applets</a>
+				<a href="/documentation/document.html">bgColor</a>
+				<a href="/documentation/document.html">compatMode</a>
+				<a href="/documentation/document.html">cookie</a>
+				<a href="/documentation/document.html">doctype</a>
+				<a href="/documentation/document.html">documentElement</a>
+				<a href="/documentation/document.html">domain</a>
+				<a href="/documentation/document.html">embeds</a>
+				<a href="/documentation/document.html">fgColor</a>
+				<a href="/documentation/document.html">fileSize</a>
+				<a href="/documentation/document.html">forms</a>
+				<a href="/documentation/document.html">images</a>
+				<a href="/documentation/document.html">implementation</a>
+				<a href="/documentation/document.html">lastModified</a>
+				<a href="/documentation/document.html">linkColor</a>
+				<a href="/documentation/document.html">links</a>
+				<a href="/documentation/document.html">plugins</a>
+				<a href="/documentation/document.html">readyState</a>
+				<a href="/documentation/document.html">referrer</a>
+				<a href="/documentation/document.html">styleSheets</a>
+				<a href="/documentation/document.html">title</a>
+				<a href="/documentation/document.html">URL</a>
+				<a href="/documentation/document.html">vlinkColor</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/document.html">close()</a>
+				<a href="/documentation/document.html">createAttribute()</a>
+				<a href="/documentation/document.html">createComment()</a>
+				<a href="/documentation/document.html">createDocumentFragment()</a>
+				<a href="/documentation/document.html">createElement()</a>
+				<a href="/documentation/document.html">createTextNode()</a>
+				<a href="/documentation/document.html">elementFromPoint()</a>
+				<a href="/documentation/document.html">getComputedStyle()</a>
+				<a href="/documentation/document.html">getElementById()</a>
+				<a href="/documentation/document.html">getElementsByClassName()</a>
+				<a href="/documentation/document.html">getElementsByName()</a>
+				<a href="/documentation/document.html">getElementsByTagName()</a>
+				<a href="/documentation/document.html">open()</a>
+				<a href="/documentation/document.html">querySelector()</a>
+				<a href="/documentation/document.html">querySelectorAll()</a>
+				<a href="/documentation/document.html">write()</a>
+				<a href="/documentation/document.html">writeln()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="6">Events</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/Events.html">Event</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/Events.html">altKey</a>
+				<a href="/documentation/Events.html">bubbles</a>
+				<a href="/documentation/Events.html">button</a>
+				<a href="/documentation/Events.html">cancelBubble</a>
+				<a href="/documentation/Events.html">cancelable</a>
+				<a href="/documentation/Events.html">charCode</a>
+				<a href="/documentation/Events.html">clientX</a>
+				<a href="/documentation/Events.html">clientY</a>
+				<a href="/documentation/Events.html">ctrlKey</a>
+				<a href="/documentation/Events.html">currentTarget</a>
+				<a href="/documentation/Events.html">detail</a>
+				<a href="/documentation/Events.html">eventPhase</a>
+				<a href="/documentation/Events.html">fromeElement</a>
+				<a href="/documentation/Events.html">isChar</a>
+				<a href="/documentation/Events.html">keyCode</a>
+				<a href="/documentation/Events.html">layerX</a>
+				<a href="/documentation/Events.html">layerY</a>
+				<a href="/documentation/Events.html">metaKey</a>
+				<a href="/documentation/Events.html">offsetX</a>
+				<a href="/documentation/Events.html">offsetY</a>
+				<a href="/documentation/Events.html">pageX</a>
+				<a href="/documentation/Events.html">pageY</a>
+				<a href="/documentation/Events.html">relatedTarget</a>
+				<a href="/documentation/Events.html">returnValue</a>
+				<a href="/documentation/Events.html">screenX</a>
+				<a href="/documentation/Events.html">screenY</a>
+				<a href="/documentation/Events.html">shiftKey</a>
+				<a href="/documentation/Events.html">srcElement</a>
+				<a href="/documentation/Events.html">target</a>
+				<a href="/documentation/Events.html">timestamp</a>
+				<a href="/documentation/Events.html">toElement</a>
+				<a href="/documentation/Events.html">type</a>
+				<a href="/documentation/Events.html">which</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性(滑鼠)</td>
+			<td>
+				<a href="/documentation/Events.html">click</a>
+				<a href="/documentation/Events.html">dblclick</a>
+				<a href="/documentation/Events.html">mousedown</a>
+				<a href="/documentation/Events.html">mouseout</a>
+				<a href="/documentation/Events.html">mouseover</a>
+				<a href="/documentation/Events.html">mouseup</a>
+				<a href="/documentation/Events.html">mousemove</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性(鍵盤)</td>
+			<td>
+				<a href="/documentation/Events.html">keydown</a>
+				<a href="/documentation/Events.html">keypress</a>
+				<a href="/documentation/Events.html">keyup</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性(html)</td>
+			<td>
+				<a href="/documentation/Events.html">blur</a>
+				<a href="/documentation/Events.html">change</a>
+				<a href="/documentation/Events.html">error</a>
+				<a href="/documentation/Events.html">focus</a>
+				<a href="/documentation/Events.html">load</a>
+				<a href="/documentation/Events.html">select</a>
+				<a href="/documentation/Events.html">submit</a>
+				<a href="/documentation/Events.html">unload</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/Events.html">preventDefault()</a>
+				<a href="/documentation/Events.html">stopPropagation()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">DOM Elements</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/DOM-Elements.html">DOM</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/DOM-Elements.html">accessKey</a>
+				<a href="/documentation/DOM-Elements.html">attributes</a>
+				<a href="/documentation/DOM-Elements.html">childNodes</a>
+				<a href="/documentation/DOM-Elements.html">className</a>
+				<a href="/documentation/DOM-Elements.html">clientHeight</a>
+				<a href="/documentation/DOM-Elements.html">clientWidth</a>
+				<a href="/documentation/DOM-Elements.html">dataset</a>
+				<a href="/documentation/DOM-Elements.html">dir</a>
+				<a href="/documentation/DOM-Elements.html">disabled</a>
+				<a href="/documentation/DOM-Elements.html">firstChild</a>
+				<a href="/documentation/DOM-Elements.html">height</a>
+				<a href="/documentation/DOM-Elements.html">id</a>
+				<a href="/documentation/DOM-Elements.html">innerHTML</a>
+				<a href="/documentation/DOM-Elements.html">innerText</a>
+				<a href="/documentation/DOM-Elements.html">lang</a>
+				<a href="/documentation/DOM-Elements.html">lastChild</a>
+				<a href="/documentation/DOM-Elements.html">length</a>
+				<a href="/documentation/DOM-Elements.html">localName</a>
+				<a href="/documentation/DOM-Elements.html">namespaceURI</a>
+				<a href="/documentation/DOM-Elements.html">nextSibling</a>
+				<a href="/documentation/DOM-Elements.html">nodeName</a>
+				<a href="/documentation/DOM-Elements.html">nodeType</a>
+				<a href="/documentation/DOM-Elements.html">nodeValue</a>
+				<a href="/documentation/DOM-Elements.html">offsetHeight</a>
+				<a href="/documentation/DOM-Elements.html">offsetLeft</a>
+				<a href="/documentation/DOM-Elements.html">offsetParent</a>
+				<a href="/documentation/DOM-Elements.html">offsetTop</a>
+				<a href="/documentation/DOM-Elements.html">offsetWidth</a>
+				<a href="/documentation/DOM-Elements.html">outerHTML</a>
+				<a href="/documentation/DOM-Elements.html">ownerDocument</a>
+				<a href="/documentation/DOM-Elements.html">parentNode</a>
+				<a href="/documentation/DOM-Elements.html">prefix</a>
+				<a href="/documentation/DOM-Elements.html">previousSibling</a>
+				<a href="/documentation/DOM-Elements.html">scrollHeight</a>
+				<a href="/documentation/DOM-Elements.html">scrollLeft</a>
+				<a href="/documentation/DOM-Elements.html">scrollTop</a>
+				<a href="/documentation/DOM-Elements.html">scrollWidth</a>
+				<a href="/documentation/DOM-Elements.html">tabIndex</a>
+				<a href="/documentation/DOM-Elements.html">tagName</a>
+				<a href="/documentation/DOM-Elements.html">textContent</a>
+				<a href="/documentation/DOM-Elements.html">title</a>
+				<a href="/documentation/DOM-Elements.html">width</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/DOM-Elements.html">appendChild()</a>
+				<a href="/documentation/DOM-Elements.html">blur()</a>
+				<a href="/documentation/DOM-Elements.html">click()</a>
+				<a href="/documentation/DOM-Elements.html">cloneNode()</a>
+				<a href="/documentation/DOM-Elements.html">dispatchEvent()</a>
+				<a href="/documentation/DOM-Elements.html">fireEvent()</a>
+				<a href="/documentation/DOM-Elements.html">focus()</a>
+				<a href="/documentation/DOM-Elements.html">getAttribute()</a>
+				<a href="/documentation/DOM-Elements.html">getAttributeNS()</a>
+				<a href="/documentation/DOM-Elements.html">getAttributeNode()</a>
+				<a href="/documentation/DOM-Elements.html">getAttributeNodeNS()</a>
+				<a href="/documentation/DOM-Elements.html">getElementsByTagNameNS()</a>
+				<a href="/documentation/DOM-Elements.html">hasAttribute()</a>
+				<a href="/documentation/DOM-Elements.html">hasAttributeNS()</a>
+				<a href="/documentation/DOM-Elements.html">hasAtrributes()</a>
+				<a href="/documentation/DOM-Elements.html">hasChildNodes()</a>
+				<a href="/documentation/DOM-Elements.html">insertAfter()</a>
+				<a href="/documentation/DOM-Elements.html">insertBefore()</a>
+				<a href="/documentation/DOM-Elements.html">item()</a>
+				<a href="/documentation/DOM-Elements.html">normalize()</a>
+				<a href="/documentation/DOM-Elements.html">querySelector()</a>
+				<a href="/documentation/DOM-Elements.html">querySelectorAll()</a>
+				<a href="/documentation/DOM-Elements.html">removeAttribute()</a>
+				<a href="/documentation/DOM-Elements.html">removeAttributeNode()</a>
+				<a href="/documentation/DOM-Elements.html">removeAttributeNS()</a>
+				<a href="/documentation/DOM-Elements.html">removeChild()</a>
+				<a href="/documentation/DOM-Elements.html">replaceChild()</a>
+				<a href="/documentation/DOM-Elements.html">scrollIntoView()</a>
+				<a href="/documentation/DOM-Elements.html">setAttribute()</a>
+				<a href="/documentation/DOM-Elements.html">setAttributeNS()</a>
+				<a href="/documentation/DOM-Elements.html">setAttributeNode()</a>
+				<a href="/documentation/DOM-Elements.html">supports()</a>
+				<a href="/documentation/DOM-Elements.html">toString()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">body</td>
+			<td>屬性</td>
+			<td>
+			<a href="/documentation/body.html">aLink</a>
+			<a href="/documentation/body.html">background</a>
+			<a href="/documentation/body.html">bgColor</a>
+			<a href="/documentation/body.html">link</a>
+			<a href="/documentation/body.html">offsetHeight</a>
+			<a href="/documentation/body.html">offsetWidth</a>
+			<a href="/documentation/body.html">text</a>
+			<a href="/documentation/body.html">vLink</a>
+		</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/body.html">onload</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="4">form</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/form.html">form</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/form.html">acceptCharset</a>
+				<a href="/documentation/form.html">action</a>
+				<a href="/documentation/form.html">elements</a>
+				<a href="/documentation/form.html">enctype</a>
+				<a href="/documentation/form.html">length</a>
+				<a href="/documentation/form.html">method</a>
+				<a href="/documentation/form.html">name</a>
+				<a href="/documentation/form.html">target</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/form.html">onreset</a>
+				<a href="/documentation/form.html">onsubmit</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/form.html">reset()</a>
+				<a href="/documentation/form.html">submit()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">button</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/button.html">accessKey</a>
+				<a href="/documentation/button.html">disabled</a>
+				<a href="/documentation/button.html">form</a>
+				<a href="/documentation/button.html">name</a>
+				<a href="/documentation/button.html">type</a>
+				<a href="/documentation/button.html">value</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/button.html">onClick</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/button.html">blur()</a>
+				<a href="/documentation/button.html">click()</a>
+				<a href="/documentation/button.html">focus()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">Input(button)</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/input-button.html">accessKey</a>
+				<a href="/documentation/input-button.html">disabled</a>
+				<a href="/documentation/input-button.html">form</a>
+				<a href="/documentation/input-button.html">name</a>
+				<a href="/documentation/input-button.html">type</a>
+				<a href="/documentation/input-button.html">value</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/input-button.html">onClick</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/input-button.html">blur()</a>
+				<a href="/documentation/input-button.html">click()</a>
+				<a href="/documentation/input-button.html">focus()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="4">input(checkbox)</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/input-checkbox.html">checkbox</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/input-checkbox.html">accessKey</a>
+				<a href="/documentation/input-checkbox.html">checked</a>
+				<a href="/documentation/input-checkbox.html">defaultChecked</a>
+				<a href="/documentation/input-checkbox.html">disabled</a>
+				<a href="/documentation/input-checkbox.html">form</a>
+				<a href="/documentation/input-checkbox.html">name</a>
+				<a href="/documentation/input-checkbox.html">type</a>
+				<a href="/documentation/input-checkbox.html">value</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/input-checkbox.html">onBlur</a>
+				<a href="/documentation/input-checkbox.html">onClick</a>
+				<a href="/documentation/input-checkbox.html">onFocus</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/input-checkbox.html">blur()</a>
+				<a href="/documentation/input-checkbox.html">click()</a>
+				<a href="/documentation/input-checkbox.html">focus()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">input(file)</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/input-file.html">accept</a>
+				<a href="/documentation/input-file.html">accessKey</a>
+				<a href="/documentation/input-file.html">disabled</a>
+				<a href="/documentation/input-file.html">form</a>
+				<a href="/documentation/input-file.html">name</a>
+				<a href="/documentation/input-file.html">type</a>
+				<a href="/documentation/input-file.html">value</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/input-file.html">onBlur</a>
+				<a href="/documentation/input-file.html">onChange</a>
+				<a href="/documentation/input-file.html">onFocus</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/input-file.html">blur()</a>
+				<a href="/documentation/input-file.html">focus()</a>
+				<a href="/documentation/input-file.html">select()</a>
+			</td>
+		</tr>
+		<tr>
+			<td>input(hidden)</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/input-hidden.html">form</a>
+				<a href="/documentation/input-hidden.html">name</a>
+				<a href="/documentation/input-hidden.html">type</a>
+				<a href="/documentation/input-hidden.html">value</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">input(password)</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/input-password.html">defaultValue</a>
+				<a href="/documentation/input-password.html">disabled</a>
+				<a href="/documentation/input-password.html">form</a>
+				<a href="/documentation/input-password.html">maxLength</a>
+				<a href="/documentation/input-password.html">name</a>
+				<a href="/documentation/input-password.html">readOnly</a>
+				<a href="/documentation/input-password.html">size</a>
+				<a href="/documentation/input-password.html">type</a>
+				<a href="/documentation/input-password.html">value</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/input-password.html">onBlur</a>
+				<a href="/documentation/input-password.html">onFocus</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/input-password.html">blur()</a>
+				<a href="/documentation/input-password.html">focus()</a>
+				<a href="/documentation/input-password.html">select()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="4">input(radio)</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/input-radio.html">radio</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/input-radio.html">checked</a>
+				<a href="/documentation/input-radio.html">defaultChecked</a>
+				<a href="/documentation/input-radio.html">form</a>
+				<a href="/documentation/input-radio.html">name</a>
+				<a href="/documentation/input-radio.html">type</a>
+				<a href="/documentation/input-radio.html">value</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/input-radio.html">onBlur</a>
+				<a href="/documentation/input-radio.html">onClick</a>
+				<a href="/documentation/input-radio.html">onFocus</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/input-radio.html">blur()</a>
+				<a href="/documentation/input-radio.html">click()</a>
+				<a href="/documentation/input-radio.html">focus()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">input(reset)</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/input-reset.html">disabled</a>
+				<a href="/documentation/input-reset.html">form</a>
+				<a href="/documentation/input-reset.html">name</a>
+				<a href="/documentation/input-reset.html">type</a>
+				<a href="/documentation/input-reset.html">value</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/input-reset.html">onClick</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="4">select</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/select.html">select</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/select.html">disabled</a>
+				<a href="/documentation/select.html">form</a>
+				<a href="/documentation/select.html">length</a>
+				<a href="/documentation/select.html">multiple</a>
+				<a href="/documentation/select.html">name</a>
+				<a href="/documentation/select.html">options</a>
+				<a href="/documentation/select.html">selectedIndex</a>
+				<a href="/documentation/select.html">size</a>
+				<a href="/documentation/select.html">type</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/select.html">onBlur</a>
+				<a href="/documentation/select.html">onChange</a>
+				<a href="/documentation/select.html">onFocus</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/select.html">add()</a>
+				<a href="/documentation/select.html">remove()</a>
+				<a href="/documentation/select.html">blur()</a>
+				<a href="/documentation/select.html">focus()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">option</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/option.html">option</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/option.html">defaultSelected</a>
+				<a href="/documentation/option.html">form</a>
+				<a href="/documentation/option.html">index</a>
+				<a href="/documentation/option.html">selected</a>
+				<a href="/documentation/option.html">text</a>
+				<a href="/documentation/option.html">value</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">input(submit)</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/input-submit.html">disabled</a>
+				<a href="/documentation/input-submit.html">form</a>
+				<a href="/documentation/input-submit.html">name</a>
+				<a href="/documentation/input-submit.html">type</a>
+				<a href="/documentation/input-submit.html">value</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/input-submit.html">onClick</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">input(text)</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/input-text.html">accessKey</a>
+				<a href="/documentation/input-text.html">defaultValue</a>
+				<a href="/documentation/input-text.html">disabled</a>
+				<a href="/documentation/input-text.html">form</a>
+				<a href="/documentation/input-text.html">maxLength</a>
+				<a href="/documentation/input-text.html">name</a>
+				<a href="/documentation/input-text.html">readOnly</a>
+				<a href="/documentation/input-text.html">size</a>
+				<a href="/documentation/input-text.html">type</a>
+				<a href="/documentation/input-text.html">value</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/input-text.html">onBlur</a>
+				<a href="/documentation/input-text.html">onChange</a>
+				<a href="/documentation/input-text.html">onFocus</a>
+				<a href="/documentation/input-text.html">onKeyDown</a>
+				<a href="/documentation/input-text.html">onKeyPress</a>
+				<a href="/documentation/input-text.html">onKeyUp</a>
+				<a href="/documentation/input-text.html">onSelect</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/input-text.html">blur()</a>
+				<a href="/documentation/input-text.html">focus()</a>
+				<a href="/documentation/input-text.html">select()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="4">Textarea</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/textarea.html">textarea</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/textarea.html">accessKey</a>
+				<a href="/documentation/textarea.html">cols</a>
+				<a href="/documentation/textarea.html">defaultValue</a>
+				<a href="/documentation/textarea.html">disabled</a>
+				<a href="/documentation/textarea.html">form</a>
+				<a href="/documentation/textarea.html">name</a>
+				<a href="/documentation/textarea.html">readOnly</a>
+				<a href="/documentation/textarea.html">rows</a>
+				<a href="/documentation/textarea.html">type</a>
+				<a href="/documentation/textarea.html">value</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/textarea.html">onBlur</a>
+				<a href="/documentation/textarea.html">onChange</a>
+				<a href="/documentation/textarea.html">onFocus</a>
+				<a href="/documentation/textarea.html">onKeyDown</a>
+				<a href="/documentation/textarea.html">onKeyPress</a>
+				<a href="/documentation/textarea.html">onKeyUp</a>
+				<a href="/documentation/textarea.html">onSelect</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/textarea.html">blur()</a>
+				<a href="/documentation/textarea.html">focus()</a>
+				<a href="/documentation/textarea.html">select()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">Table</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/table.html">table</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/table.html">caption</a>
+				<a href="/documentation/table.html">cellPadding</a>
+				<a href="/documentation/table.html">cells</a>
+				<a href="/documentation/table.html">cellSpacing</a>
+				<a href="/documentation/table.html">frame</a>
+				<a href="/documentation/table.html">rows</a>
+				<a href="/documentation/table.html">rules</a>
+				<a href="/documentation/table.html">summary</a>
+				<a href="/documentation/table.html">tBodies</a>
+				<a href="/documentation/table.html">tFoot</a>
+				<a href="/documentation/table.html">tHead</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+			<a href="/documentation/table.html">createCaption()</a>
+				<a href="/documentation/table.html">createTFoot()</a>
+				<a href="/documentation/table.html">createTHead()</a>
+				<a href="/documentation/table.html">deleteCaption()</a>
+				<a href="/documentation/table.html">deleteRow()</a>
+				<a href="/documentation/table.html">deleteTFoot()</a>
+				<a href="/documentation/table.html">deleteTHead()</a>
+				<a href="/documentation/table.html">insertRow()</a>
+			</td>
+		</tr>
+		<tr>
+			<td>td / th</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/td-th.html">abbr</a>
+				<a href="/documentation/td-th.html">axis</a>
+				<a href="/documentation/td-th.html">cellIndex</a>
+				<a href="/documentation/td-th.html">ch</a>
+				<a href="/documentation/td-th.html">chOff</a>
+				<a href="/documentation/td-th.html">colSpan</a>
+				<a href="/documentation/td-th.html">headers</a>
+				<a href="/documentation/td-th.html">rowSpan</a>
+				<a href="/documentation/td-th.html">vAlign</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">tr</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/tr.html">cells</a>
+				<a href="/documentation/tr.html">ch</a>
+				<a href="/documentation/tr.html">chOff</a>
+				<a href="/documentation/tr.html">rowIndex</a>
+				<a href="/documentation/tr.html">sectionRowIndex</a>
+				<a href="/documentation/tr.html">vAlign</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/tr.html">deleteCell()</a>
+				<a href="/documentation/tr.html">insertCell()</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Anchor</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/anchor.html">charset</a>
+				<a href="/documentation/anchor.html">href</a>
+				<a href="/documentation/anchor.html">hreflang</a>
+				<a href="/documentation/anchor.html">name</a>
+				<a href="/documentation/anchor.html">rel</a>
+				<a href="/documentation/anchor.html">rev</a>
+				<a href="/documentation/anchor.html">target</a>
+				<a href="/documentation/anchor.html">type</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Area</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/area.html">alt</a>
+				<a href="/documentation/area.html">coords</a>
+				<a href="/documentation/area.html">hash</a>
+				<a href="/documentation/area.html">host</a>
+				<a href="/documentation/area.html">hostname</a>
+				<a href="/documentation/area.html">href</a>
+				<a href="/documentation/area.html">noHref</a>
+				<a href="/documentation/area.html">pathname</a>
+				<a href="/documentation/area.html">port</a>
+				<a href="/documentation/area.html">protocol</a>
+				<a href="/documentation/area.html">search</a>
+				<a href="/documentation/area.html">shape</a>
+				<a href="/documentation/area.html">target</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Base</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/base.html">href</a>
+				<a href="/documentation/base.html">target</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">frame/iFrame</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/frame-iFrame.html">align</a>
+				<a href="/documentation/frame-iFrame.html">contentDocument</a>
+				<a href="/documentation/frame-iFrame.html">contentWindow</a>
+				<a href="/documentation/frame-iFrame.html">frameBorder</a>
+				<a href="/documentation/frame-iFrame.html">height</a>
+				<a href="/documentation/frame-iFrame.html">longDesc</a>
+				<a href="/documentation/frame-iFrame.html">marginHeight</a>
+				<a href="/documentation/frame-iFrame.html">marginWidth</a>
+				<a href="/documentation/frame-iFrame.html">name</a>
+				<a href="/documentation/frame-iFrame.html">noResize</a>
+				<a href="/documentation/frame-iFrame.html">scrolling</a>
+				<a href="/documentation/frame-iFrame.html">src</a>
+				<a href="/documentation/frame-iFrame.html">width</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/frame-iFrame.html">onload</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">frameset</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/frameset.html">cols</a>
+				<a href="/documentation/frameset.html">rows</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/frameset.html">onload</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">image</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/image.html">align</a>
+				<a href="/documentation/image.html">alt</a>
+				<a href="/documentation/image.html">border</a>
+				<a href="/documentation/image.html">complete</a>
+				<a href="/documentation/image.html">height</a>
+				<a href="/documentation/image.html">hspace</a>
+				<a href="/documentation/image.html">longDesc</a>
+				<a href="/documentation/image.html">lowsrc</a>
+				<a href="/documentation/image.html">name</a>
+				<a href="/documentation/image.html">src</a>
+				<a href="/documentation/image.html">useMap</a>
+				<a href="/documentation/image.html">vspace</a>
+				<a href="/documentation/image.html">width</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/image.html">onabort</a>
+				<a href="/documentation/image.html">onerror</a>
+				<a href="/documentation/image.html">onload</a>
+			</td>
+		</tr>
+		<tr>
+			<td>link</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/link.html">charset</a>
+				<a href="/documentation/link.html">href</a>
+				<a href="/documentation/link.html">hreflang</a>
+				<a href="/documentation/link.html">media</a>
+				<a href="/documentation/link.html">rel</a>
+				<a href="/documentation/link.html">rev</a>
+				<a href="/documentation/link.html">type</a>
+			</td>
+		</tr>
+		<tr>
+			<td>meta</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/meta.html">content</a>
+				<a href="/documentation/meta.html">httpEquiv</a>
+				<a href="/documentation/meta.html">name</a>
+				<a href="/documentation/meta.html">scheme</a>
+			</td>
+		</tr>
+		<tr>
+			<td>object</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/object.html">align</a>
+				<a href="/documentation/object.html">archive</a>
+				<a href="/documentation/object.html">border</a>
+				<a href="/documentation/object.html">code</a>
+				<a href="/documentation/object.html">codeBase</a>
+				<a href="/documentation/object.html">codeType</a>
+				<a href="/documentation/object.html">data</a>
+				<a href="/documentation/object.html">declare</a>
+				<a href="/documentation/object.html">form</a>
+				<a href="/documentation/object.html">height</a>
+				<a href="/documentation/object.html">hspace</a>
+				<a href="/documentation/object.html">name</a>
+				<a href="/documentation/object.html">standby</a>
+				<a href="/documentation/object.html">type</a>
+				<a href="/documentation/object.html">useMap</a>
+				<a href="/documentation/object.html">vspace</a>
+				<a href="/documentation/object.html">width</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">style</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/style.html">style</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/style.html">cssText</a>
+			</td>
+		</tr>
+		<tr>
+			<td>CSS屬性</td>
+			<td>
+				<a href="/documentation/style.html">background</a>
+				<a href="/documentation/style.html">backgroundAttachment</a>
+				<a href="/documentation/style.html">backgroundColor</a>
+				<a href="/documentation/style.html">backgroundImage</a>
+				<a href="/documentation/style.html">backgroundPosition</a>
+				<a href="/documentation/style.html">backgroundRepeat</a>
+				<a href="/documentation/style.html">border</a>
+				<a href="/documentation/style.html">borderBottom</a>
+				<a href="/documentation/style.html">borderBottomColor</a>
+				<a href="/documentation/style.html">borderBottomStyle</a>
+				<a href="/documentation/style.html">borderBottomWidth</a>
+				<a href="/documentation/style.html">borderCollapse</a>
+				<a href="/documentation/style.html">borderColor</a>
+				<a href="/documentation/style.html">borderLeft</a>
+				<a href="/documentation/style.html">borderLeftColor</a>
+				<a href="/documentation/style.html">borderLeftStyle</a>
+				<a href="/documentation/style.html">borderLeftWidth</a>
+				<a href="/documentation/style.html">borderRight</a>
+				<a href="/documentation/style.html">borderRightColor</a>
+				<a href="/documentation/style.html">borderRightStyle</a>
+				<a href="/documentation/style.html">borderRightWidth</a>
+				<a href="/documentation/style.html">borderSpacing</a>
+				<a href="/documentation/style.html">borderStyle</a>
+				<a href="/documentation/style.html">borderTop</a>
+				<a href="/documentation/style.html">borderTopColor</a>
+				<a href="/documentation/style.html">borderTopStyle</a>
+				<a href="/documentation/style.html">borderTopWidth</a>
+				<a href="/documentation/style.html">borderWidth</a>
+				<a href="/documentation/style.html">bottom</a>
+				<a href="/documentation/style.html">clear</a>
+				<a href="/documentation/style.html">clip</a>
+				<a href="/documentation/style.html">color</a>
+				<a href="/documentation/style.html">cssFloat</a>
+				<a href="/documentation/style.html">cursor</a>
+				<a href="/documentation/style.html">direction</a>
+				<a href="/documentation/style.html">display</a>
+				<a href="/documentation/style.html">emptyCells</a>
+				<a href="/documentation/style.html">filter</a>
+				<a href="/documentation/style.html">font</a>
+				<a href="/documentation/style.html">fontFamily</a>
+				<a href="/documentation/style.html">fontSize</a>
+				<a href="/documentation/style.html">fontSizeAdjust</a>
+				<a href="/documentation/style.html">fontVariant</a>
+				<a href="/documentation/style.html">fontWeight</a>
+				<a href="/documentation/style.html">height</a>
+				<a href="/documentation/style.html">left</a>
+				<a href="/documentation/style.html">letterSpacing</a>
+				<a href="/documentation/style.html">lineHeight</a>
+				<a href="/documentation/style.html">listStyle</a>
+				<a href="/documentation/style.html">listStyleImage</a>
+				<a href="/documentation/style.html">listStylePosition</a>
+				<a href="/documentation/style.html">listStyleType</a>
+				<a href="/documentation/style.html">margin</a>
+				<a href="/documentation/style.html">marginBottom</a>
+				<a href="/documentation/style.html">marginLeft</a>
+				<a href="/documentation/style.html">marginRight</a>
+				<a href="/documentation/style.html">marginTop</a>
+				<a href="/documentation/style.html">orphans</a>
+				<a href="/documentation/style.html">outline</a>
+				<a href="/documentation/style.html">outlineColor</a>
+				<a href="/documentation/style.html">outlineStyle</a>
+				<a href="/documentation/style.html">outlineWidth</a>
+				<a href="/documentation/style.html">overflow</a>
+				<a href="/documentation/style.html">padding</a>
+				<a href="/documentation/style.html">paddingBottom</a>
+				<a href="/documentation/style.html">paddingLeft</a>
+				<a href="/documentation/style.html">paddingRight</a>
+				<a href="/documentation/style.html">paddingTop</a>
+				<a href="/documentation/style.html">pageBreakAfter</a>
+				<a href="/documentation/style.html">pageBreakBefore</a>
+				<a href="/documentation/style.html">position</a>
+				<a href="/documentation/style.html">quotes</a>
+				<a href="/documentation/style.html">right</a>
+				<a href="/documentation/style.html">styleFloat</a>
+				<a href="/documentation/style.html">tableLayout</a>
+				<a href="/documentation/style.html">textAlign</a>
+				<a href="/documentation/style.html">textDecoration</a>
+				<a href="/documentation/style.html">textDecorationBlink</a>
+				<a href="/documentation/style.html">textDecorationLineThrough</a>
+				<a href="/documentation/style.html">textDecorationNone</a>
+				<a href="/documentation/style.html">textDecorationOverline</a>
+				<a href="/documentation/style.html">textDecorationUnderline</a>
+				<a href="/documentation/style.html">textIndent</a>
+				<a href="/documentation/style.html">textShadow</a>
+				<a href="/documentation/style.html">textTransform</a>
+				<a href="/documentation/style.html">top</a>
+				<a href="/documentation/style.html">unicodeBidi</a>
+				<a href="/documentation/style.html">verticalAlign</a>
+				<a href="/documentation/style.html">visibility</a>
+				<a href="/documentation/style.html">whiteSpace</a>
+				<a href="/documentation/style.html">width</a>
+				<a href="/documentation/style.html">widows</a>
+				<a href="/documentation/style.html">wordSpacing</a>
+				<a href="/documentation/style.html">zIndex</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">styleSheets</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/styleSheets.html">styleSheets</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/styleSheets.html">cssRules</a>
+				<a href="/documentation/styleSheets.html">cssText</a>
+				<a href="/documentation/styleSheets.html">disabled</a>
+				<a href="/documentation/styleSheets.html">href</a>
+				<a href="/documentation/styleSheets.html">length</a>
+				<a href="/documentation/styleSheets.html">media</a>
+				<a href="/documentation/styleSheets.html">ownerNode</a>
+				<a href="/documentation/styleSheets.html">ownerRule</a>
+				<a href="/documentation/styleSheets.html">owningElement</a>
+				<a href="/documentation/styleSheets.html">parentStyleSheet</a>
+				<a href="/documentation/styleSheets.html">rules</a>
+				<a href="/documentation/styleSheets.html">title</a>
+				<a href="/documentation/styleSheets.html">type</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/styleSheets.html">addRule()</a>
+				<a href="/documentation/styleSheets.html">removeRule()</a>
+				<a href="/documentation/styleSheets.html">deleteRule()</a>
+				<a href="/documentation/styleSheets.html">insertRule()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2">cssRules</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/cssRules.html">cssRules</a>
+				<a href="/documentation/cssRules.html">rules</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/cssRules.html">cssText</a>
+				<a href="/documentation/cssRules.html">length</a>
+				<a href="/documentation/cssRules.html">parentStyleSheet</a>
+				<a href="/documentation/cssRules.html">selectorText</a>
+				<a href="/documentation/cssRules.html">style</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3">Video</td>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/video.html">error</a>
+				<a href="/documentation/video.html">src</a>
+				<a href="/documentation/video.html">currentSrc</a>
+				<a href="/documentation/video.html">networkState</a>
+				<a href="/documentation/video.html">preload</a>
+				<a href="/documentation/video.html">buffered</a>
+				<a href="/documentation/video.html">readyState</a>
+				<a href="/documentation/video.html">seeking</a>
+				<a href="/documentation/video.html">controls</a>
+				<a href="/documentation/video.html">volume</a>
+				<a href="/documentation/video.html">muted</a>
+				<a href="/documentation/video.html">tracks</a>
+				<a href="/documentation/video.html">currentTime</a>
+				<a href="/documentation/video.html">startTime</a>
+				<a href="/documentation/video.html">duration</a>
+				<a href="/documentation/video.html">paused</a>
+				<a href="/documentation/video.html">defaultPlaybackRate</a>
+				<a href="/documentation/video.html">playbackRate</a>
+				<a href="/documentation/video.html">played</a>
+				<a href="/documentation/video.html">seedable</a>
+				<a href="/documentation/video.html">ended</a>
+				<a href="/documentation/video.html">autoplay</a>
+				<a href="/documentation/video.html">loop</a>
+				<a href="/documentation/video.html">width</a>
+				<a href="/documentation/video.html">height</a>
+				<a href="/documentation/video.html">videoWidth</a>
+				<a href="/documentation/video.html">videoHeight</a>
+				<a href="/documentation/video.html">poster</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/video.html">loadstart</a>
+				<a href="/documentation/video.html">progress</a>
+				<a href="/documentation/video.html">suspend</a>
+				<a href="/documentation/video.html">abort</a>
+				<a href="/documentation/video.html">error</a>
+				<a href="/documentation/video.html">emptied</a>
+				<a href="/documentation/video.html">stalled</a>
+				<a href="/documentation/video.html">play</a>
+				<a href="/documentation/video.html">pause</a>
+				<a href="/documentation/video.html">loadedmetadata</a>
+				<a href="/documentation/video.html">loadeddata</a>
+				<a href="/documentation/video.html">waiting</a>
+				<a href="/documentation/video.html">playing</a>
+				<a href="/documentation/video.html">canplay</a>
+				<a href="/documentation/video.html">canplaythrough</a>
+				<a href="/documentation/video.html">seeking</a>
+				<a href="/documentation/video.html">seeked</a>
+				<a href="/documentation/video.html">timeupdate</a>
+				<a href="/documentation/video.html">ended</a>
+				<a href="/documentation/video.html">ratechange</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/video.html">load()</a>
+				<a href="/documentation/video.html">canPlayType()</a>
+				<a href="/documentation/video.html">play()</a>
+				<a href="/documentation/video.html">pause()</a>
+				<a href="/documentation/video.html">addTrack()</a>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="4">Ajax</td>
+			<td>物件</td>
+			<td>
+				<a href="/documentation/ajax.html">XMLHTTP</a>
+				<a href="/documentation/ajax.html">XMLHttpRequest</a>
+			</td>
+		</tr>
+		<tr>
+			<td>屬性</td>
+			<td>
+				<a href="/documentation/ajax.html">contentType</a>
+				<a href="/documentation/ajax.html">readyState</a>
+				<a href="/documentation/ajax.html">responseText</a>
+				<a href="/documentation/ajax.html">responseXML</a>
+				<a href="/documentation/ajax.html">status</a>
+				<a href="/documentation/ajax.html">statusText</a>
+				<a href="/documentation/ajax.html">timeout</a>
+			</td>
+		</tr>
+		<tr>
+			<td>事件屬性</td>
+			<td>
+				<a href="/documentation/ajax.html">onreadystatechange</a>
+				<a href="/documentation/ajax.html">onerror</a>
+				<a href="/documentation/ajax.html">onload</a>
+				<a href="/documentation/ajax.html">onprogress</a>
+				<a href="/documentation/ajax.html">ontimeout</a>
+			</td>
+		</tr>
+		<tr>
+			<td>方法</td>
+			<td>
+				<a href="/documentation/ajax.html">abort()</a>
+				<a href="/documentation/ajax.html">getResponseHeader()</a>
+				<a href="/documentation/ajax.html">getAllResponseHeaders()</a>
+				<a href="/documentation/ajax.html">open()</a>
+				<a href="/documentation/ajax.html">send()</a>
+				<a href="/documentation/ajax.html">setRequestHeader()</a>
+			</td>
+		</tr>
+	</table>
+</main>
+</body>
+</html>
