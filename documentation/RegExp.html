@@ -27,23 +27,23 @@
 	<tr>
 		<td>RegExp</td>
 		<td>物件</td>
-		<td>A regular expression is an object that describes a pattern of characters.<br />
-		Regular expressions are used to perform pattern-matching and "search-and-replace" functions on text.<br />
-		語法：var patt=new RegExp(pattern,modifiers);<br />
-		或是更簡單的：var patt=/pattern/modifiers;<br />
-		說明：pattern specifies the pattern of an expression<br />
-		modifiers specify if a search should be global, case-sensitive, etc.
-		<hr />
-		「正規表示法」或「正規式」或「規則運算式」…（Regular expressions）是在 UNIX 世界中發展出來的字串比對技巧，其基本概念是用一套<span class="u">簡單（但功能強大）的符號來比對字串</span>，<span class="u">並可對符合比對條件的字串進行修改或其他運算</span>。<br />
-		Netscape 及 IE 在第四版後都支援 JavaScript 的正規表示法，特別適用於表單資料的驗證與修改。事實上，JavaScript 的正規表示法和 Perl 幾乎一模一樣，因此，學會JavaScript的正規表示法，也可以完全適用於 Perl。<br />
-		JavaScript 的正規式（Regular expressions）是一個內建的物件，其建構函式（Constructor function）為 RegExp，典型用法如下：<br />
-		re = new RegExp("pattern", "flag");<br />
-		上述用法也可以寫成：re = /pattern/flag;<br />
-		其中，pattern 代表以正規表示法來顯示的字串，flag 則是比對的方式。flag 的值可能有三種，分別解釋如下：<br />
-		　g：全域比對（Global match）<br />
-		　i：忽略大小寫（Ignore case）<br />
-		　gi：全域比對並忽略大小寫<br />
-		舉例來說，我們的身份證字號的格式是由一個英文字母加上九個數字組合而成，如果我們要求使用者輸入身份證字號，就可以使用 JavaScript 的正規表示法來驗證其格式的正確性。例如，我們可用一個&lt;input&gt;來要求使用者輸入身份證字號，並在onblur的時候進行驗證，範例如下：<br />
+		<td>
+			正規式(Regular Expression)是描述字元組成規則(pattern)的物件，其建構函式(Constructor function)為RegExp，它被用來比對文字是否相符，還有執行尋找/取代等的方法。<br><br>
+			語法：var patt = new RegExp(pattern,modifiers);<br>
+			或是：var patt = /pattern/modifiers; //pattern包在兩個「/」之中<br><br>
+			第一種方法只能使用常值的pattern，我們不能用斜線包住一個變數或一個字串運算結果。如果pattern保存在變數之中，則必須使用第二種方式。<br>
+			modifiers(也有人稱flag)可以指派如果搜尋時是全域或是符合大小寫等的設定；常用的值有以下幾種：<br>
+			　g：全域比對（Global match）<br>
+			　i：忽略大小寫（Case insensitive）<br>
+			　m：執行多行匹配（Multi line）<br><br>
+			先來看幾個基本的例子來理解RegExp：<br>
+			/a/匹配含字母"a"的字串，例如"ab", "bac", "cba"，而"xyz"則比對不成立。<br>
+			/The/i 匹配"the"、"The"以及"tHe"<br>
+			/^A/中的「^」放在字串開頭位置，表示必須是一個開頭為A的字串，如"Adam"符合此一規則，而"JACK"則不符合。<br><br>
+			Pattern中可搭配許多特定功能的符號來使用，例如上例中的「^」，以及「$、\、\b、[]…」等等的符號，網頁下方皆有各符號的說明。<br>
+			「RegExr」是一個線上編輯測試正規式的工具，對於開發時的測試非常方便：<a href="http://gskinner.com/RegExr" target="_blank">http://gskinner.com/RegExr</a>。<br><br>
+			<h3>接下來以認證身份證字號的範例來幫助理解Regular Expression的運作：</h3>
+			身份證字號的格式是由一個英文字母加上九個數字組合而成，可以用/^[A-Z]\d{9}$/來匹配，[A-Z]代表由A至Z的所有可能英文字母，\d代表由0至9的數目字（事實上也可以寫成[0-9]），{9}則代表需要有九個數目字，^代表字串開始位置，$代表字串結束位置，因此/^[A-Z]\d{9}$/就代表可以比對身份證字號的正規式；若要不限定是大寫英文字母，只需將正規式改成 /^[a-zA-Z]\d{9}$/g 就可以了。<br>
 <pre>
 &lt;script&gt;
 function checkID(formElement){
@@ -56,50 +56,36 @@ function checkID(formElement){
 身份證字號：&lt;input type="text" value="A000000000" onblur="checkID(this)"&gt;（第一個英文字母需大寫）
 &lt;/form&gt;
 </pre>
-		在上述原始碼中，/^[A-Z]\d{9}$/ 就是一個正規式，[A-Z] 代表由 A 至 Z 的所有可能英文字母，\d 代表由 0 至 9 的數目字（事實上也可以寫成 [0-9]），{9} 則代表需要有九個數目字，^ 代表字串開始位置，$ 代表字串結束位置，因此 /^[A-Z]\d{9}$/ 就代表可以比對身份證字號的正規式。formElement.value 代表使用者輸入的字串，re.test() 則會傳回 true 或 false，代表比對是否成功。若要不限定是大寫英文字母，只需將正規式改成 /^[a-zA-Z]\d{9}$/g 就可以了！（注意：若不加入 ^ 和 $，那麼 /[A-Z]\d{9}/ 就會比對到其他不合法的身份證字號，例如 AGF123456789 或是 F1234567890 等。因此，加入 ^ 和 $ 可保證比對正確的字串一定是由由一個大寫英文字母加上九個數字所構成。）<br />
-		另一個簡單的例子，是要求使用者輸入信用卡號碼，這是一組16個數字的號碼，例如：<br />
+			<h3>Regular Expression不常用很快就忘了，下面列出一些常用的範例方便記憶及應用：</h3>
 <pre>
-&lt;script&gt;
-function checkCreditCard(control){
-	re = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
-	if (!re.test(control.value))
-		alert("你的信用卡號碼不符合「xxxx-xxxx-xxxx-xxxx」的格式！");
-}
-&lt;/script&gt;
-&lt;form&gt;
-信用卡號碼：&lt;input type="text" value="xxxx-xxxx-xxxx-xxxx" onblur="checkCreditCard(this)"&gt;（格式：xxxx-xxxx-xxxx-xxxx）
-&lt;/form&gt;
+英文姓名：
+/^[A-Za-z\-]+\s+[A-Za-z\-]+$/;
+/^[A-Za-z\-]+\s+[A-Za-z\-]+\s+[A-Za-z\-]+$/;
+
+信用卡號：
+/^\d{4}-\d{4}-\d{4}-\d{4}$/;
+
+數字及小數點：
+/^\d+(\.\d+)*$/;
+
+只允許英數：
+/^[a-zA-Z0-9]+$/;
+
+電話號碼：
+/^[+]?[(]?[\d]{1,4}[)]?([\d]?[-\s]?[\d]+){2,}$/;
+
+Email：
+/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+中英數：
+/^[^\u0000-\u002F\u003A-\u0040\u005B-\u0060\u007B-\u00FF]+$/;
+
+中英數限20字內：
+/^[^\u0000-\u002F\u003A-\u0040\u005B-\u0060\u007B-\u00FF]{1,20}$/;
 </pre>
-		在上例中，很顯然地，/^\d{4}-\d{4}-\d{4}-\d{4}$/ 就代表正確的信用卡格式。<br />
-		下一個例子，則是用正規表示法來驗證使用者的英文名字，例如：
-<pre>
-&lt;script&gt;
-function checkEnglishName(control) {
-	re1 = /^[A-Za-z\-]+\s+[A-Za-z\-]+$/;
-	re2 = /^[A-Za-z\-]+\s+[A-Za-z\-]+\s+[A-Za-z\-]+$/;
-	if (!re1.test(control.value) && !re2.test(control.value))
-		alert("你的英文名字格式不對！");
-}
-&lt;/script&gt;
-&lt;form&gt;
-你的英文全名：&lt;input type="text" value="" onblur="checkEnglishName(this)"&gt;（格式：First Last 或 First Middle Last）
-&lt;/form&gt;
-</pre>
-		Note: 如果比對的資料是應用在表單驗證，在進行表單資料驗證之前，我們應先進行表單資料修改，例如拿掉不必要的空格、英文字母大小寫轉換等，這些工作也可以由字串的 replace() 方法或正規式的 exec() 方法來達成。<br /><br />
-		Note2: The backslash (\) is also used when you wish to match a special character literally. For example, if you wish to match the symbol "$" literally instead of have it signal the end of the string, backslash it: /\$/<br /><br />
-		資料來源：http://neural.cs.nthu.edu.tw/jang/books/webprog/03jscript/reg1.asp?SessionCount=13<br />
-		http://www.javascriptkit.com/jsref/regexp.shtml<br />
-		<hr />
-		Regular Expression (以下簡稱 REGEX) 是以一組特定字元符號描述字串樣式規則的記述語法。簡單地說， REGEX 用於表達字元符號在字串中出現的規則。舉個例子說明，在 REGEX 中，字元 '^' 放在第一個位置表示字串開頭位置，當我寫下 ^A 的記述時，便表示必須是一個開頭為 A 的字串，如 Adam，才符合此一規則。這個表達規則通常稱為 pattern 。 ECMAScript/JavaScript 以內建的 RegExp Object 提供 REGEX 功能。See also: ECMA-262 15.10 - RegExp Objects。<br /><br />
-		要產生一個 RegExp 個體有兩種方式。第一種是直接以斜線 (/) 包住 pattern ，例如 /^A/ 。注意不要再用單引號或雙引號包在斜線外圍，一但用了引號圍住，就只是一個 String 而非 RegExp 個體。 "/^A/" 就是錯誤寫法，這只是一個普通字串。第二種是向系統要求建立一個 RegExp 個體，即 new RegExp(pattern) ，引數 pattern 可以是一個字串也可以是另一個 RegExp 個體。第一種方法只能使用常值的 pattern ，我們不能用斜線包住一個變數或一個字串運算結果。如果 pattern 保存在變數之中，則必須使用第二種方式。<br /><br />
-		RegExp 個體提供兩個主要行為，即 exec() 和 test() 。 exec() 會對引數字串進行比對運算，並將匹配的字串內容記錄在陣列中回傳。而 test() 則僅僅測試引數字串是否符合規則，只回傳 true 或 false 。此外，RegExp 個體也可以作為 String 個體的 match(), search(), replace(), split() 之引數。 String 的 match() 其實就是調用 RegExp 的 exec() ，兩者的結果相同。<br /><br />
-		ECMAScript/JavaScript 的 REGEX 規則是以 Perl 的規則為範本 (PHP 中稱為 PCRE 的內容) ，本文僅簡短說明幾個常見的字元意義。想了解更多用法者，請參看 Perl/PHP 的相關書籍，以及 ECMA-262 15.10 的內容。<br /><br />
-		資料來源：http://azraelwren.blogspot.com/2009/08/regular-expression-regexp-in-javascript.html
-		<hr />
-		/a/匹配含字母"a"的字串，例如"ab", "bac", "cba"，而"xyz"則比對不成立。
-		<hr />
-		RegExr是一款在線編輯測試正則表達式的工具，它擁有一個簡潔的界面，提供了一個可以實時查看查找與替換正則表達式的文本框。還提供了一些正則表達式的實例以供參考，讓學習和使用正則表達式變地輕鬆點。<br />
-		網址：<a href="http://gskinner.com/RegExr" target="_blank">http://gskinner.com/RegExr</a>。</td>
+			Note: The backslash (\) is also used when you wish to match a special character literally. For example, if you wish to match the symbol "$" literally instead of have it signal the end of the string, backslash it: /\$/<br><br>
+			Note2: RegExp 個體提供兩個主要行為，即 exec() 和 test() 。 exec() 會對引數字串進行比對運算，並將匹配的字串內容記錄在陣列中回傳。而 test() 則僅僅測試引數字串是否符合規則，只回傳 true 或 false 。此外，RegExp 個體也可以作為 String 個體的 match(), search(), replace(), split() 之引數。 String 的 match() 其實就是調用 RegExp 的 exec() ，兩者的結果相同。
+		</td>
 	</tr>
 	<tr>
 		<td>i</td>

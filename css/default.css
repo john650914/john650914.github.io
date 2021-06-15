@@ -12,7 +12,7 @@ input[type="submit"]::-moz-focus-inner,input[type="reset"]::-moz-focus-inner,inp
 /*basic theme*/
 body{font-size:14px; color:#000;}
 h1{font-size:22px; font-weight:bold; margin-bottom:15px;}
-h3{font-weight:bold;}
+h3{font-weight:bold; text-shadow: 0 0 0 black;}
 a{font:inherit; color:#0087FF;}
 p{margin-bottom:20px;}
 strong{font-weight:bold;}
@@ -58,7 +58,8 @@ ol, ul{margin-left:15px;}
 .api-table a:after{border-left:1px solid #dadada; content:""; position:absolute; right:-8px; top:3px; height:11px;}
 .api-table a:last-child:after{display:none;}
 .api-table a:hover{color:orange;}
-.doc-table pre hr{border-bottom:1px solid gray;}
+.doc-table hr{margin:20px 0;border-bottom:1px solid #d0d0d0;}
+.doc-table pre hr{margin:0; border-bottom:1px solid gray;}
 .index-h1{font-size:30px; font-weight:normal; margin-bottom:20px;}
 .intro_{font-size:13px;}
 .intro_ pre{white-space:pre-wrap; tab-size:4; padding:10px 0; color:#8A8A8A;}

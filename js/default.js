@@ -1,7 +1,7 @@
 $(function(){
 	var headerAndSidemenu = `
 	<div class="header">
-		<div class="logo"><a href="http://javascript.john650914.com"><span>&#128218;</span> Javascript字典</a></div>
+		<div class="logo"><a href="/index.html"><span>&#128218;</span> Javascript字典</a></div>
 	</div>
 	<div class="all-menus">
 		<div class="top-div">
@@ -10,7 +10,7 @@ $(function(){
 					<li><a href="/syntax.html">語法及API總覽</a></li>
 					<li><a href="/js-library.html">JS函式庫</a></li>
 					<li><a href="/author.html">關於作者</a></li>
-					<li><a href="http://www.john650914.com">作品網站</a></li>
+					<li><a href="/portfolio/">作品網站</a></li>
 				</ul>
 			</nav>
 		</div>
