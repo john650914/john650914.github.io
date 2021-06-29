@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>HTML5</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" type="text/css" href="style/default.css">
+<script src="script/jquery-1.12.4.min.js"></script>
+<script src="script/isMobile.min.js"></script>
+<script src="script/default.js"></script>
+</head>
+<body>
+
+
+<div class="item">
+	<h3>矩形</h3>
+	<canvas id="myCanvas1" width="200" height="200"></canvas>
+</div>
+<script>
+var ctx1 = document.getElementById('myCanvas1').getContext('2d');
+ctx1.fillStyle = 'red';
+ctx1.fillRect(50, 50, 100, 100);
+</script>
+
+
+<div class="item">
+	<h3>直線</h3>
+	<canvas id="myCanvas2" width="200" height="200"></canvas>
+</div>
+<script>
+var ctx2 = document.getElementById('myCanvas2').getContext('2d');
+ctx2.moveTo(50, 50);
+ctx2.lineTo(150, 150);
+ctx2.stroke();
+</script>
+
+
+<div class="item">
+	<h3>圓形</h3>
+	<canvas id="myCanvas3" width="200" height="200"></canvas>
+</div>
+<script>
+var ctx3 = document.getElementById('myCanvas3').getContext('2d');
+ctx3.beginPath();
+ctx3.arc(100, 100, 50, 0, 2*Math.PI);
+ctx3.stroke();
+// arc(x,y,r,startangle,endangle)
+// 如果要畫圓，將startangle設為0，endangle設為2*Math.PI
+// x, y代表圓心的座標
+// r代表圓的半徑
+</script>
+
+
+<div class="item">
+	<h3>直線漸層</h3>
+	<canvas id="myCanvas4" width="200" height="200"></canvas>
+</div>
+<script>
+var ctx4 = document.getElementById('myCanvas4').getContext('2d');
+var grd4 = ctx4.createLinearGradient(50, 50, 150, 50);
+grd4.addColorStop(0, 'red');
+grd4.addColorStop(1, 'white');
+ctx4.fillStyle = grd4;
+ctx4.fillRect(50, 50, 100, 100);
+// createLinearGradient(x0,y0,x1,y1);
+// x0,y0漸層開始的座標
+// x1,y1漸層結束的座標
+</script>
+
+
+<div class="item">
+	<h3>放射漸層</h3>
+	<canvas id="myCanvas5" width="200" height="200"></canvas>
+</div>
+<script>
+var ctx5 = document.getElementById('myCanvas5').getContext('2d');
+var grd5 = ctx5.createRadialGradient(100, 100, 0, 100, 100, 50);
+grd5.addColorStop(0, 'yellow');
+grd5.addColorStop(1, 'green');
+ctx5.fillStyle = grd5;
+ctx5.fillRect(50, 50, 100, 100);
+// createRadialGradient(x0,y0,r0,x1,y1,r1);
+// x0,y0放射漸層中心開始的座標
+// x1,y1放射漸層中心結束的座標
+// r0, r1放射漸層半徑的起點和終點
+</script>
+
+
+<div class="item">
+	<h3>文字</h3>
+	<canvas id="myCanvas6" width="200" height="200"></canvas>
+</div>
+<script>
+var ctx6 = document.getElementById('myCanvas6').getContext('2d');
+ctx6.font = 'bold 24px arial';
+ctx6.fillText('Hello World!', 75, 75);
+</script>
+
+
+<div class="item">
+	<h3>線框文字</h3>
+	<canvas id="myCanvas7" width="200" height="200"></canvas>
+</div>
+<script>
+var ctx7 = document.getElementById('myCanvas7').getContext('2d');
+ctx7.font = 'bold 24px arial';
+ctx7.strokeText('Hello World!', 75, 75);
+</script>
+
+
+<div class="item">
+	<h3>文字置中</h3>
+	<canvas id="myCanvas8" width="200" height="200"></canvas>
+</div>
+<script>
+var canvas = document.getElementById("myCanvas8");
+var ctx8 = document.getElementById('myCanvas8').getContext('2d');
+ctx8.fillStyle = 'purple';
+ctx8.font = 'bold 24px arial';
+ctx8.textAlign = 'center';
+ctx8.fillText('Hello World!', canvas.width/2, 75);
+</script>
+
+
+<div class="item">
+	<h3>圖片</h3>
+	<canvas id="myCanvas9" width="200" height="200"></canvas>
+</div>
+<script>
+var ctx9 = document.getElementById('myCanvas9').getContext('2d');
+var myImg9 = new Image();
+myImg9.src = 'images/dora.png';
+myImg9.onload = function(){
+	ctx9.drawImage(myImg9, 50, 50);
+}
+</script>
+</body>
+</html>
