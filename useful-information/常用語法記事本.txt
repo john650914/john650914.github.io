@@ -32,6 +32,30 @@
 }
 
 
+################################## css常用設定 ##################################
+body, input, button, textarea, select, optgroup{
+	font-family: "PingFangTC-Regular", "Heiti TC", "Noto Sans TC", "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+	color: #000;
+	line-height: 1;
+}
+body{
+	line-height: 1.4;
+}
+input, button, textarea, select, optgroup{
+	padding: 0;
+	margin: 0;
+	outline: none;
+	border: none;
+	appearance: none;
+	background: none;
+}
+
+
+################################## -ms-設定 ##################################
+
+
+
 ################################## 漸層 ##################################
 .selector{
 	background-image: linear-gradient(red, yellow); /*寫background-image應該是個選項吧，直接寫background也可以*/
@@ -103,6 +127,15 @@ order			// 數值，預設為0
 註：IE9不支援；網路上好像說IE10要寫-ms-？
 
 
+################################## css placeholder ##################################
+input::placeholder{
+	color: #f9daac;
+}
+input:-ms-input-placeholder{ /*IE要分開寫*/
+	color: #f9daac;
+}
+
+
 ################################## input 及 select 清樣式 ##################################
 // 基本清樣式：
 input, select, button, textarea{
@@ -135,6 +168,11 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 // IE清除 select 箭頭：
 select::-ms-expand{
+	display: none;
+}
+
+// IE清除 input 打叉：
+input::-ms-clear {
 	display: none;
 }
 
@@ -179,6 +217,7 @@ input[type=checkbox]:checked, input[type=radio]:checked{
 	text-decoration: none;
 	text-align: center;
 	line-height: 1;
+	outline: 0;
 	border: none;
 	border-radius: 200px;
 	box-sizing: border-box;
@@ -314,6 +353,23 @@ ol{
 			}
 		}
 	}
+}
+
+//css version：
+#gbox .gbox-wrap{
+	width: auto;
+	max-width: none;
+	margin: 0;
+	padding: 0;
+}
+#gbox .gbox-wrap .gbox-content{
+	padding: 0;
+}
+#gbox .gbox-wrap .gbox-close{
+	font-size: 0;
+}
+#gbox .gbox-wrap .gbox-action .gbox-btn{
+	margin: 0;
 }
 
 
