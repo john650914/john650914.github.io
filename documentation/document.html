@@ -99,7 +99,34 @@ if (document.compatMode=="CSS1Compat"); // execute code for page with a valid do
 	<tr>
 		<td>cookie</td>
 		<td>屬性</td>
-		<td></td>
+		<td>
+建立cookie：
+<pre>
+document.cookie = "username=John Doe"; //預設在關掉瀏覽器後就消失
+</pre>
+加上到期時間(UTC time)：
+<pre>
+document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+</pre>
+設置path參數；預設為當前頁面：
+<pre>
+document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+</pre>
+取得cookie：
+<pre>
+var x = document.cookie; //會得到一個像這樣的字串："cookie1=value; cookie2=value; cookie3=value;"
+</pre>
+改變cookie的值：
+<pre>
+document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC;";
+</pre>
+刪除cookie：
+<pre>
+document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; //將時間設為過去
+</pre>
+註：
+我們應該要指派cookie的path值，以免我們刪錯cookie；如果沒有指派，有的瀏覽器會不讓我們刪cookie
+		</td>
 	</tr>
 	<tr>
 		<td>doctype</td>

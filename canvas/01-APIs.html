@@ -1,0 +1,1597 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>HTML5</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" type="text/css" href="style/default.css">
+<script src="script/jquery-1.12.4.min.js"></script>
+<script src="script/isMobile.min.js"></script>
+<script src="script/default.js"></script>
+</head>
+<body>
+
+<div class="hr">Colors, Styles, and Shadows</div>
+
+<api>
+	<h2>fillStyle</h2>
+	<p>The fillStyle property sets or returns the color, gradient, or pattern used to fill the drawing.</p>
+	<h3>Syntax:</h3>
+	<p>context.fillStyle=color | gradient | pattern;</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		color: A CSS color value that indicates the fill color of the drawing. Default value is #000000<br>
+		gradient: A gradient object (linear or radial) used to fill the drawing<br>
+		pattern: A pattern object to use to fill the drawing
+	</p>
+	<example>
+		<h3>矩形</h3>
+		<canvas id="canvas1" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx1 = document.getElementById('canvas1').getContext('2d');
+		cx1.fillStyle = 'green';
+		cx1.fillRect(50, 50, 100, 100);
+	</script>
+</api>
+
+<api>
+	<h2>strokeStyle</h2>
+	<p>The strokeStyle property sets or returns the color, gradient, or pattern used for strokes.</p>
+	<h3>Syntax:</h3>
+	<p>context.strokeStyle=color | gradient | pattern;</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		color: A CSS color value that indicates the stroke color of the drawing. Default value is #000000<br>
+		gradient: A gradient object (linear or radial) used to create a gradient stroke<br>
+		pattern: A pattern object used to create a pattern stroke
+	</p>
+	<example>
+		<h3>單色外框</h3>
+		<canvas id="canvas6" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx6 = document.getElementById('canvas6').getContext('2d');
+		cx6.strokeStyle = 'green';
+		cx6.strokeRect(50, 50, 100, 100);
+	</script>
+	<example>
+		<h3>漸層外框</h3>
+		<canvas id="canvas7" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx7 = document.getElementById('canvas7').getContext('2d');
+		var grd7 = cx7.createLinearGradient(50, 50, 50, 150);
+		grd7.addColorStop(0, 'green');
+		grd7.addColorStop(1, 'yellow');
+		cx7.strokeStyle = grd7;
+		cx7.lineWidth = 10;
+		cx7.strokeRect(50, 50, 100, 100);
+	</script>
+	<example>
+		<h3>文字漸層外框</h3>
+		<canvas id="canvas8" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var c8 = document.getElementById('canvas8');
+		var cx8 = c8.getContext('2d');
+		var grd8 = cx8.createLinearGradient(0, 50, c8.width, 50);
+		grd8.addColorStop(0, 'green');
+		grd8.addColorStop(1, 'yellow');
+		cx8.strokeStyle = grd8;
+		cx8.lineWidth = 2;
+		cx8.font = 'bold 30px arial';
+		cx8.textAlign = 'center';
+		cx8.strokeText('Gradient', c8.width/2, c8.height/2);
+	</script>
+</api>
+
+<api>
+	<h2>shadowColor, shadowBlur, shadowOffsetX, shadowOffsetY</h2>
+	<p>shadowColor: Sets or returns the color to use for shadows. Value: css color (default: #000000)</p>
+	<p>shadowBlur: Sets or returns the blur level for shadows. Value: number (default: 0)</p>
+	<p>shadowOffsetX: Sets or returns the horizontal distance of the shadow from the shape. Value: number (default: 0)</p>
+	<p>shadowOffsetY: Sets or returns the vertical distance of the shadow from the shape. Value: number (default: 0)</p>
+	<example>
+		<h3>陰影的各種屬性</h3>
+		<canvas id="canvas9" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx9 = document.getElementById('canvas9').getContext('2d');
+		cx9.shadowColor = 'green';
+		cx9.shadowBlur = 4;
+		cx9.shadowOffsetX = 12;
+		cx9.shadowOffsetY = 12;
+		cx9.fillStyle = 'yellow';
+		cx9.fillRect(50, 50, 100, 100);
+	</script>
+</api>
+
+<api>
+	<h2>createLinearGradient()</h2>
+	<p>The createLinearGradient() method creates a linear gradient object.</p>
+	<p>The gradient can be used to fill rectangles, circles, lines, text, etc.</p>
+	<p>Use this object as the value to the strokeStyle or fillStyle properties.</p>
+	<h3>Syntax:</h3>
+	<p>context.createLinearGradient(x0,y0,x1,y1);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		x0 (The x-coordinate of the start point of the gradient)<br>
+		y0 (The y-coordinate of the start point of the gradient)<br>
+		x1 (The x-coordinate of the end point of the gradient)<br>
+		y1 (The y-coordinate of the end point of the gradient)
+	</p>
+	<example>
+		<h3>漸層(上到下)</h3>
+		<canvas id="canvas2" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx2 = document.getElementById('canvas2').getContext('2d');
+		var grd2 = cx2.createLinearGradient(50, 50, 50, 150);
+		grd2.addColorStop(0, 'green')
+		grd2.addColorStop(1, 'yellow')
+		cx2.fillStyle = grd2;
+		cx2.fillRect(50, 50, 100, 100);
+	</script>
+	<example>
+		<h3>漸層(左到右)</h3>
+		<canvas id="canvas3" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx3 = document.getElementById('canvas3').getContext('2d');
+		var grd3 = cx3.createLinearGradient(50, 50, 150, 50);
+		grd3.addColorStop(0, 'green')
+		grd3.addColorStop(1, 'yellow')
+		cx3.fillStyle = grd3;
+		cx3.fillRect(50, 50, 100, 100);
+	</script>
+</api>
+
+<api>
+	<h2>createRadialGradient()</h2>
+	<p>The createRadialGradient() method creates a radial/circular gradient object.</p>
+	<p>The gradient can be used to fill rectangles, circles, lines, text, etc.</p>
+	<p>Use this object as the value to the strokeStyle or fillStyle properties.</p>
+	<h3>Syntax:</h3>
+	<p>context.createRadialGradient(x0,y0,r0,x1,y1,r1);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		x0 (The x-coordinate of the starting circle of the gradient)<br>
+		y0 (The y-coordinate of the starting circle of the gradient)<br>
+		r0 (The radius of the starting circle)<br>
+		x1 (The x-coordinate of the ending circle of the gradient)<br>
+		y1 (The y-coordinate of the ending circle of the gradient)<br>
+		r1 (The radius of the ending circle)
+	</p>
+	<example>
+		<h3>放射漸層</h3>
+		<canvas id="canvas10" width="200" height="200"></canvas>
+	</example>
+	<script>
+		// x0,y0放射漸層中心開始的座標
+		// x1,y1放射漸層中心結束的座標
+		// r0, r1放射漸層半徑的起點和終點
+		var cx10 = document.getElementById('canvas10').getContext('2d');
+		var grd10 = cx10.createRadialGradient(100, 100, 0, 100, 100, 50);
+		grd10.addColorStop(0, 'yellow');
+		grd10.addColorStop(1, 'green');
+		cx10.fillStyle = grd10;
+		cx10.fillRect(50, 50, 100, 100);
+	</script>
+</api>
+
+<api>
+	<h2>addColorStop()</h2>
+	<p>The addColorStop() method specifies the colors and position in a gradient object.</p>
+	<p>The addColorStop() method is used together with createLinearGradient() or createRadialGradient().</p>
+	<p>You can call the addColorStop() method multiple times to change a gradient. If you omit this method for gradient objects, the gradient will not be visible. You need to create at least one color stop to have a visible gradient.</p>
+	<h3>Syntax:</h3>
+	<p>gradient.addColorStop(stop,color);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		Value: stop (A value between 0.0 and 1.0 that represents the position between start and end in a gradient)<br>
+		Value: color (A CSS color value to display at the stop position)
+	</p>
+
+	<example>
+		<h3>漸層(多個顏色)</h3>
+		<canvas id="canvas4" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx4 = document.getElementById('canvas4').getContext('2d');
+		var grd4 = cx4.createLinearGradient(50, 50, 50, 150);
+		grd4.addColorStop(0, '#c09b05');
+		grd4.addColorStop(.49, '#fff2a9');
+		grd4.addColorStop(.50, '#baa635');
+		grd4.addColorStop(1, '#74640d');
+		cx4.fillStyle = grd4;
+		cx4.fillRect(50, 50, 100, 100);
+	</script>
+</api>
+
+<api>
+	<h2>createPattern()</h2>
+	<p>The createPattern() method repeats the specified element in the specified direction.</p>
+	<p>The element can be an image, video, or another &lt;canvas&gt; element.</p>
+	<p>The repeated element can be used to draw/fill rectangles, circles, lines etc.</p>
+	<h3>Syntax:</h3>
+	<p>context.createPattern(image,"repeat|repeat-x|repeat-y|no-repeat");</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		image (Specifies the image, canvas, or video element of the pattern to use)<br>
+		repeat (Default. The pattern repeats both horizontally and vertically)<br>
+		repeat-x (The pattern repeats only horizontally)<br>
+		repeat-y (The pattern repeats only vertically)<br>
+		no-repeat (The pattern will be displayed only once (no repeat))
+	</p>
+
+	<example>
+		<h3>貼上圖樣</h3>
+		<canvas id="canvas5" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx5 = document.getElementById('canvas5').getContext('2d');
+		var img5 = new Image();
+		img5.src = 'images/pattern.png';
+		img5.onload = function(){
+			var pat5 = cx5.createPattern(img5, 'repeat');
+			cx5.fillStyle = pat5;
+			cx5.fillRect(50, 50, 100, 100);
+		};
+	</script>
+</api>
+
+<div class="hr">Line Styles</div>
+
+<api>
+	<h2>lineCap</h2>
+	<p>The lineCap property sets or returns the style of the end caps for a line.</p>
+	<h3>Syntax:</h3>
+	<p>context.lineCap="butt | round | square";</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		butt (Default. A flat edge is added to each end of the line)<br>
+		round (A rounded end cap is added to each end of the line)<br>
+		square (A square end cap is added to each end of the line)
+	</p>
+	<example>
+		<h3>線條端點的樣式</h3>
+		<canvas id="canvas11" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx11 = document.getElementById('canvas11').getContext('2d');
+		cx11.lineWidth = 10;
+		cx11.lineCap = 'round';
+		cx11.moveTo(50, 100);
+		cx11.lineTo(150, 100);
+		cx11.stroke();
+	</script>
+</api>
+
+<api>
+	<h2>lineJoin</h2>
+	<p>The lineCap property sets or returns the style of the end caps for a line.</p>
+	<h3>Syntax:</h3>
+	<p>context.lineJoin="bevel|round|miter";</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		bevel (Creates a beveled corner)<br>
+		round (Creates a rounded corner)<br>
+		miter (Default. Creates a sharp corner)
+	</p>
+	<example>
+		<h3>線條接點的樣式</h3>
+		<canvas id="canvas12" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx12 = document.getElementById('canvas12').getContext('2d');
+		cx12.lineWidth = 10;
+		cx12.lineJoin = 'round';
+		cx12.moveTo(150, 50);
+		cx12.lineTo(50, 100);
+		cx12.lineTo(150, 150);
+		cx12.stroke();
+	</script>
+</api>
+
+<api>
+	<h2>lineWidth</h2>
+	<p>The lineWidth property sets or returns the current line width, in pixels.</p>
+	<h3>Parameter / Values:</h3>
+	<p>number (The current line width, in pixels, default: 1)</p>
+	<example>
+		<h3>線條的寬度</h3>
+		<canvas id="canvas13" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx12 = document.getElementById('canvas13').getContext('2d');
+		cx12.lineWidth = 10;
+		cx12.strokeRect(50, 50, 100, 100);
+		cx12.stroke();
+	</script>
+</api>
+
+<api>
+	<h2>miterLimit</h2>
+	<p>The miterLimit property sets or returns the maximum miter length.</p>
+	<h3>Parameter / Values:</h3>
+	<p>number (A positive number that specifies the maximum miter length. If the current miter length exceeds the miterLimit, the corner will display as lineJoin "bevel". default: 10)</p>
+	<example>
+		<h3>線條接點尖角的設定</h3>
+		<canvas id="canvas14" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx14 = document.getElementById('canvas14').getContext('2d');
+		cx14.moveTo(150, 75);
+		cx14.lineTo(50, 100);
+		cx14.lineTo(150, 125);
+		cx14.lineWidth = 10;
+		cx14.miterLimit = 2;
+		cx14.stroke();
+	</script>
+</api>
+
+<div class="hr">Rectangles</div>
+
+<api>
+	<h2>rect()</h2>
+	<p>The rect() method creates a rectangle.</p>
+	<p>Use the stroke() or the fill() method to actually draw the rectangle on the canvas.</p>
+	<h3>Syntax:</h3>
+	<p>context.rect(x,y,width,height);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		x (The x-coordinate of the upper-left corner of the rectangle)<br>
+		y (The y-coordinate of the upper-left corner of the rectangle)<br>
+		width (The width of the rectangle, in pixels)<br>
+		height (The height of the rectangle, in pixels)
+	</p>
+	<example>
+		<h3>畫一個矩形框</h3>
+		<canvas id="canvas15" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx15 = document.getElementById('canvas15').getContext('2d');
+		cx15.beginPath();
+		cx15.rect(50, 50, 100, 100);
+		cx15.stroke();
+	</script>
+</api>
+
+<api>
+	<h2>fillRect()</h2>
+	<p>The fillRect() method draws a "filled" rectangle. The default color of the fill is black.</p>
+	<p>Use the fillStyle property to set a color, gradient, or pattern used to fill the drawing.</p>
+	<h3>Syntax:</h3>
+	<p>context.fillRect(x,y,width,height);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		x (The x-coordinate of the upper-left corner of the rectangle)<br>
+		y (The y-coordinate of the upper-left corner of the rectangle)<br>
+		width (The width of the rectangle, in pixels)<br>
+		height (The height of the rectangle, in pixels)
+	</p>
+	<example>
+		<h3>畫一個矩形色塊</h3>
+		<canvas id="canvas16" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx15 = document.getElementById('canvas16').getContext('2d');
+		cx15.fillRect(50, 50, 100, 100);
+	</script>
+</api>
+
+<api>
+	<h2>strokeRect()</h2>
+	<p>The strokeRect() method draws a rectangle (no fill). The default color of the stroke is black.</p>
+	<p>Use the strokeStyle property to set a color, gradient, or pattern to style the stroke.</p>
+	<h3>Syntax:</h3>
+	<p>context.strokeRect(x,y,width,height);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		x (The x-coordinate of the upper-left corner of the rectangle)<br>
+		y (The y-coordinate of the upper-left corner of the rectangle)<br>
+		width (The width of the rectangle, in pixels)<br>
+		height (The height of the rectangle, in pixels)
+	</p>
+	<example>
+		<h3>畫一個矩形框</h3>
+		<canvas id="canvas17" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx15 = document.getElementById('canvas17').getContext('2d');
+		cx15.strokeRect(50, 50, 100, 100);
+	</script>
+</api>
+
+<api>
+	<h2>clearRect()</h2>
+	<p>The clearRect() method clears the specified pixels within a given rectangle.</p>
+	<h3>Syntax:</h3>
+	<p>context.clearRect(x,y,width,height);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		x (The x-coordinate of the upper-left corner of the rectangle to clear)<br>
+		y (The y-coordinate of the upper-left corner of the rectangle to clear)<br>
+		width (The width of the rectangle to clear, in pixels)<br>
+		height (The height of the rectangle to clear, in pixels)
+	</p>
+	<example>
+		<h3>清除綠色矩形的部份區塊</h3>
+		<canvas id="canvas18" width="200" height="200" style="background-color:yellow;"></canvas>
+	</example>
+	<script>
+		var cx18 = document.getElementById('canvas18').getContext('2d');
+		cx18.fillStyle = 'green';
+		cx18.fillRect(0, 0, 200, 200);
+		cx18.clearRect(50, 50, 100, 100);
+	</script>
+</api>
+
+<div class="hr">Paths</div>
+
+<api>
+	<h2>fill()</h2>
+	<p>The fill() method fills the current drawing (path). The default color is black. Use the fillStyle property to fill with another color/gradient.</p>
+	<p>If the path is not closed, the fill() method will add a line from the last point to the startpoint of the path to close the path (like closePath()), and then fill the path.</p>
+	<example>
+		<h3>畫兩個矩形</h3>
+		<canvas id="canvas19" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx19 = document.getElementById('canvas19').getContext('2d');
+		cx19.beginPath();
+		cx19.fillStyle = 'green';
+		cx19.rect(40, 40, 100, 100);
+		cx19.fill();
+		
+		cx19.beginPath();
+		cx19.fillStyle = 'yellow';
+		cx19.rect(60, 60, 100, 100);
+		cx19.fill();
+	</script>
+</api>
+
+<api>
+	<h2>stroke()</h2>
+	<p>The stroke() method actually draws the path you have defined with all those moveTo() and lineTo() methods. The default color is black. Use the strokeStyle property to draw with another color/gradient.</p>
+	<example>
+		<h3>畫一個ㄇ形路徑</h3>
+		<canvas id="canvas20" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx20 = document.getElementById('canvas20').getContext('2d');
+		cx20.beginPath();
+		cx20.moveTo(50, 150);
+		cx20.strokeStyle = 'green';
+		cx20.lineWidth = 4;
+		cx20.lineTo(50, 50);
+		cx20.lineTo(150, 50);
+		cx20.lineTo(150, 150);
+		cx20.stroke();
+	</script>
+</api>
+
+<api>
+	<h2>beginPath()</h2>
+	<p>The beginPath() method begins a path, or resets the current path.</p>
+	<p>Use moveTo(), lineTo(), quadricCurveTo(), bezierCurveTo(), arcTo(), and arc(), to create paths.</p>
+	<p>Use the stroke() method to actually draw the path on the canvas.</p>
+	<example>
+		<h3>畫兩條路徑</h3>
+		<canvas id="canvas21" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx21 = document.getElementById('canvas21').getContext('2d');
+		cx21.beginPath();
+		cx21.strokeStyle = 'green';
+		cx21.lineWidth = 10;
+		cx21.moveTo(50, 50);
+		cx21.lineTo(150, 150);
+		cx21.stroke();
+		
+		cx21.beginPath();
+		cx21.strokeStyle = 'yellow';
+		cx21.lineWidth = 10;
+		cx21.moveTo(150, 50);
+		cx21.lineTo(50, 150);
+		cx21.stroke();
+	</script>
+</api>
+
+<api>
+	<h2>moveTo()</h2>
+	<p>The moveTo() method moves the path to the specified point in the canvas, without creating a line. Use the stroke() method to actually draw the path on the canvas.</p>
+	<h3>Syntax:</h3>
+	<p>context.moveTo(x,y);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		x (The x-coordinate of where to move the path to)<br>
+		y (The y-coordinate of where to move the path to)
+	</p>
+	<example>
+		<h3>畫一條路徑</h3>
+		<canvas id="canvas22" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx22 = document.getElementById('canvas22').getContext('2d');
+		cx22.beginPath();
+		cx22.moveTo(50, 100);
+		cx22.lineTo(150, 100);
+		cx22.strokeStyle = 'green';
+		cx22.lineWidth = 5;
+		cx22.stroke();
+	</script>
+</api>
+
+<api>
+	<h2>closePath()</h2>
+	<p>The closePath() method creates a path from the current point back to the starting point. Use the stroke() method to actually draw the path on the canvas.</p>
+	<p>Use the fill() method to fill the drawing (black is default). Use the fillStyle property to fill with another color/gradient.</p>
+	<example>
+		<h3>畫一個三角形</h3>
+		<canvas id="canvas23" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx23 = document.getElementById('canvas23').getContext('2d');
+		cx23.beginPath();
+		cx23.moveTo(100, 50);
+		cx23.lineTo(50, 150);
+		cx23.lineTo(150, 150);
+		cx23.closePath();
+		cx23.strokeStyle = 'green';
+		cx23.lineWidth = 10;
+		cx23.fillStyle = 'yellow';
+		cx23.lineJoin = 'round';
+		cx23.fill();
+		cx23.stroke();
+	</script>
+</api>
+
+<api>
+	<h2>lineTo()</h2>
+	<p>The lineTo() method adds a new point and creates a line TO that point FROM the last specified point in the canvas (this method does not draw the line).</p>
+	<p>Use the stroke() method to actually draw the path on the canvas.</p>
+	<h3>Syntax:</h3>
+	<p>context.lineTo(x,y);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		x (The x-coordinate of where to create the line to)<br>
+		y (The y-coordinate of where to create the line to)
+	</p>
+	<example>
+		<h3>畫一個L形路徑</h3>
+		<canvas id="canvas24" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx24 = document.getElementById('canvas24').getContext('2d');
+		cx24.beginPath();
+		cx24.moveTo(50, 50);
+		cx24.lineTo(50, 150);
+		cx24.lineTo(150, 150);
+		cx24.strokeStyle = 'green';
+		cx24.lineWidth = 5;
+		cx24.stroke();
+	</script>
+</api>
+
+<api>
+	<h2>clip()</h2>
+	<p>The clip() method clips a region of any shape and size from the original canvas.</p>
+	<p>Once a region is clipped, all future drawing will be limited to the clipped region (no access to other regions on the canvas). You can however save the current canvas region using the save() method before using the clip() method, and restore it (with the restore() method) any time in the future.</p>
+	<example>
+		<h3>裁剪一個方形的區域</h3>
+		<canvas id="canvas25" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx25 = document.getElementById('canvas25').getContext('2d');
+		cx25.rect(50.5, 50.5, 100, 100);
+		cx25.stroke();
+		cx25.clip();
+
+		cx25.fillStyle = 'yellow';
+		cx25.fillRect(0, 0, 100, 100);
+	</script>
+</api>
+
+<api>
+	<h2>quadraticCurveTo()</h2>
+	<p>The quadraticCurveTo() method adds a point to the current path by using the specified control points that represent a quadratic Bézier curve.</p>
+	<p>A quadratic Bézier curve requires two points. The first point is a control point that is used in the quadratic Bézier calculation and the second point is the ending point for the curve. The starting point for the curve is the last point in the current path. If a path does not exist, use the beginPath() and moveTo() methods to define a starting point.</p>
+	<p><img src="images/img_quadraticcurve.gif" /></p>
+	<p>
+		<span style="color:orange;">■</span> Start point: moveTo(20,20)<br>
+		<span style="color:red;">■</span> Control: point:quadraticCurveTo(20,100,200,20)<br>
+		<span style="color:lime;">■</span> End point: quadraticCurveTo(20,100,200,20)
+	</p>
+	<p>Demo: <a href="https://blogs.sitepointstatic.com/examples/tech/canvas-curves/quadratic-curve.html">https://blogs.sitepointstatic.com/examples/tech/canvas-curves/quadratic-curve.html</a></p>
+	<h3>Syntax:</h3>
+	<p>context.quadraticCurveTo(cpx,cpy,x,y);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		cpx (The x-coordinate of the Bézier control point)<br>
+		cpy (The y-coordinate of the Bézier control point)<br>
+		x (The x-coordinate of the ending point)<br>
+		y (The y-coordinate of the ending point)
+	</p>
+	<example>
+		<h3>畫一個二次方曲線</h3>
+		<canvas id="canvas26" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx26 = document.getElementById('canvas26').getContext('2d');
+		cx26.beginPath();
+		cx26.moveTo(50, 50);
+		cx26.quadraticCurveTo(100, 100, 150, 50);
+		cx26.stroke();
+	</script>
+</api>
+
+<api>
+	<h2>bezierCurveTo()</h2>
+	<p>The bezierCurveTo() method adds a point to the current path by using the specified control points that represent a cubic Bézier curve.</p>
+	<p>A cubic bezier curve requires three points. The first two points are control points that are used in the cubic Bézier calculation and the last point is the ending point for the curve.  The starting point for the curve is the last point in the current path. If a path does not exist, use the beginPath() and moveTo() methods to define a starting point.</p>
+	<p><img src="images/img_beziercurve.gif" /></p>
+	<p>
+		<span style="color:orange;">■</span> Start point: moveTo(20,20)<br>
+		<span style="color:red;">■</span> Control point1: bezierCurveTo(<u><b>20,100</b></u>,200,100,200,20)<br>
+		<span style="color:red;">■</span> Control point2: bezierCurveTo(20,100,<u><b>200,100</b></u>,200,20)<br>
+		<span style="color:lime;">■</span> End point: bezierCurveTo(20,100,200,100,<u><b>200,20</b></u>)
+	</p>
+	<p>
+		<a href="https://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html">https://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html</a>
+	</p>
+	<h3>Syntax:</h3>
+	<p>context.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		cp1x (The x-coordinate of the first Bézier control point)<br>
+		cp1y (The y-coordinate of the first Bézier control point)<br>
+		cp2x (The x-coordinate of the second Bézier control point)<br>
+		cp2y (The y-coordinate of the second Bézier control point)<br>
+		x (The x-coordinate of the ending point)<br>
+		y (The y-coordinate of the ending point)
+	</p>
+	<example>
+		<h3>畫一個三次方曲線</h3>
+		<canvas id="canvas27" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx27 = document.getElementById('canvas27').getContext('2d');
+		cx27.beginPath();
+		cx27.moveTo(50, 50);
+		cx27.bezierCurveTo(50, 100, 150, 100, 150, 50);
+		cx27.stroke();
+	</script>
+</api>
+
+<api>
+	<h2>arc()</h2>
+	<p>The arc() method creates an arc/curve (used to create circles, or parts of circles).</p>
+	<p>To create a circle with arc(): Set start angle to 0 and end angle to 2*Math.PI.</p>
+	<p>Use the stroke() or the fill() method to actually draw the arc on the canvas.</p>
+	<p><img src="images/img_arc.gif" /></p>
+	<p>
+		<span style="color:lime;">■</span> Center: arc(<u><b>100, 75</b></u>, 50, 0*Math.PI, 1.5*Math.PI)<br>
+		<span style="color:red;">■</span> Start angle: arc(100, 75, 50, <u><b>0</b></u>, 1.5*Math.PI)<br>
+		<span style="color:blue;">■</span> End angle: arc(100, 75, 50, 0*Math.PI, <u><b>1.5*Math.PI</b></u>)
+	</p>
+	<h3>Syntax:</h3>
+	<p>	context.arc(x,y,r,sAngle,eAngle,counterclockwise);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		x (The x-coordinate of the center of the circle)<br>
+		y (The y-coordinate of the center of the circle)<br>
+		r (The radius of the circle)<br>
+		sAngle (The starting angle, in radians (0 is at the 3 o'clock position of the arc's circle))<br>
+		eAngle (The ending angle, in radians)<br>
+		counterclockwise (Optional. Specifies whether the drawing should be counterclockwise or clockwise. False is default, and indicates clockwise, while true indicates counter-clockwise.)
+	</p>
+	<example>
+		<h3>畫一個圓形框</h3>
+		<canvas id="canvas28" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx28 = document.getElementById('canvas28').getContext('2d');
+		cx28.beginPath();
+		cx28.arc(100, 100, 50, 0, 2*Math.PI);
+		cx28.stroke();
+	</script>
+</api>
+
+<api>
+	<h2>arcTo()</h2>
+	<p>The arcTo() method creates an arc/curve between two tangents on the canvas.</p>
+	<p>Use the stroke() method to actually draw the arc on the canvas.</p>
+	<p><img src="images/img_canvas_arcto.png" /></p>
+	<h3>Syntax:</h3>
+	<p>context.arcTo(x1,y1,x2,y2,r);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		x1 (The x-coordinate of the first tangent)<br>
+		y1 (The y-coordinate of the first tangent)<br>
+		x2 (The x-coordinate of the second tangent)<br>
+		y2 (The y-coordinate of the second tangent)<br>
+		r (The radius of the arc)
+	</p>
+	<example>
+		<h3>在兩個接點中畫一個弧</h3>
+		<canvas id="canvas29" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx29 = document.getElementById('canvas29').getContext('2d');
+		cx29.beginPath();
+		cx29.moveTo(50, 50);
+		cx29.lineTo(100, 50);
+		cx29.arcTo(150, 50, 150, 100, 50);
+		cx29.lineTo(150, 150);
+		cx29.lineWidth = 3;
+		cx29.stroke();
+	</script>
+</api>
+
+<api>
+	<h2>isPointInPath()</h2>
+	<p>The isPointInPath() method returns true if the specified point is in the current path, otherwise false.</p>
+	<h3>Syntax:</h3>
+	<p>context.isPointInPath(x,y);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		x (The x-coordinate to test)<br>
+		y (The y-coordinate to test)
+	</p>
+	<example>
+		<h3>指定的座標是否在目前的路徑內</h3>
+		<canvas id="canvas30" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx30 = document.getElementById('canvas30').getContext('2d');
+		cx30.rect(50, 50, 100, 100);
+		cx30.stroke();
+		if(cx30.isPointInPath(100, 100)){
+			cx30.fillStyle = 'yellow';
+			cx30.fill();
+		}
+	</script>
+</api>
+
+<div class="hr">Transformations</div>
+
+<api>
+	<h2>scale()</h2>
+	<p>The scale() method scales the current drawing, bigger or smaller.</p>
+	<p>If you scale a drawing, all future drawings will also be scaled. The positioning will also be scaled. If you scale(2,2); drawings will be positioned twice as far from the left and top of the canvas as you specify.</p>
+	<h3>Syntax:</h3>
+	<p>context.scale(scalewidth,scaleheight);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		scalewidth (Scales the width of the current drawing (1=100%, 0.5=50%, 2=200%, etc.))<br>
+		scaleheight (Scales the height of the current drawing (1=100%, 0.5=50%, 2=200%, etc.))
+	</p>
+	<example>
+		<h3>先畫一個框，將contex放大到2倍，然後再畫一次</h3>
+		<canvas id="canvas31" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx31 = document.getElementById('canvas31').getContext('2d');
+		cx31.strokeStyle = 'green';
+		cx31.strokeRect(25.5, 25.5, 25, 25);
+		cx31.scale(2, 2);
+		cx31.strokeRect(25.5, 25.5, 25, 25);
+	</script>
+</api>
+
+<api>
+	<h2>rotate()</h2>
+	<p>The rotate() method rotates the current drawing. The rotation angle, clockwise in radians. You can use degree * Math.PI / 180 to calculate a radian from a degree.</p>
+	<p>The rotation center point is always the canvas origin (the top-left corner of the canvas, and not a location relative to any shape.). To change the center point, you will need to move the canvas by using the translate() method.</p>
+	<p><img src="images/img_rotate.png" /></p>
+	<p>The rotation will only affect drawings made AFTER the rotation is done.</p>
+	<h3>Syntax:</h3>
+	<p>context.rotate(angle);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		angle (The rotation angle, in radians.)<br><br>
+		To calculate from degrees to radians: degrees*Math.PI/180.<br>
+		Example: to rotate 5 degrees, specify the following: 5*Math.PI/180
+	</p>
+	<example>
+		<h3>將contex旋轉20度</h3>
+		<canvas id="canvas32" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx32 = document.getElementById('canvas32').getContext('2d');
+		cx32.beginPath();
+		cx32.strokeStyle = 'yellow';
+		cx32.lineWidth = 10;
+		cx32.moveTo(50, 0);
+		cx32.lineTo(150, 0);
+		cx32.stroke();
+
+		cx32.rotate(45 * Math.PI/180);
+		
+		cx32.beginPath();
+		cx32.strokeStyle = 'green';
+		cx32.moveTo(50, 0);
+		cx32.lineTo(150, 0);
+		cx32.stroke();
+	</script>
+</api>
+
+<api>
+	<h2>translate()</h2>
+	<p>The translate() method remaps the (0,0) position on the canvas.</p>
+	<p>When you call a method such as fillRect() after translate(), the value is added to the x- and y-coordinate values.</p>
+	<p><img src="images/img_translate.gif" /></p>
+	<h3>Syntax:</h3>
+	<p>context.translate(x,y);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		x (The value to add to horizontal (x) coordinates)<br>
+		y (The value to add to vertical (y) coordinates)
+	</p>
+	<example>
+		<h3>先畫一個框，使用translate()，然後再畫一次</h3>
+		<canvas id="canvas33" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx33 = document.getElementById('canvas33').getContext('2d');
+		cx33.strokeStyle = 'yellow';
+		cx33.lineWidth = 5;
+		cx33.strokeRect(0, 0, 50, 50);
+
+		cx33.translate(100, 100);
+		cx33.strokeStyle = 'green';
+		cx33.strokeRect(0, 0, 50, 50);
+	</script>
+</api>
+
+<api>
+	<h2>transform()</h2>
+	<p>Each object on the canvas has a current transformation matrix.</p>
+	<p>The transform() method replaces the current transformation matrix. It multiplies the current transformation matrix with the matrix described by:</p>
+	<p style="font-family:monospace; font-weight:bold;">
+		&nbsp;&nbsp;a c e<br>
+		&nbsp;&nbsp;b d f<br>
+		&nbsp;&nbsp;0 0 1
+	</p>
+	<p>In other words, the transform() method lets you scale, rotate, move, and skew the current context.</p>
+	<p>The transformation will only affect drawings made after the transform() method is called.</p>
+	<p>The transform() method behaves relatively to other transformations made by rotate(), scale(), translate(), or transform(). Example: If you already have set your drawing to scale by two, and the transform() method scales your drawings by two, your drawings will now scale by four.</p>
+	<p>Check out the setTransform() method, which does not behave relatively to other transformations.</p>
+	<h3>Syntax:</h3>
+	<p>context.setTransform(a, b, c, d, e, f);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		a (Horizontal scaling)<br>
+		b (Horizontal skewing)<br>
+		c (Vertical skewing)<br>
+		d (Vertical scaling)<br>
+		e (Horizontal moving)<br>
+		f (Vertical moving)
+	</p>
+	<example>
+		<h3>將畫布垂直傾斜0.1</h3>
+		<canvas id="canvas34" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx34 = document.getElementById('canvas34').getContext('2d');
+		cx34.transform(1, .1, 0, 1, 0, 0);
+		cx34.fillRect(50, 50, 100, 100);
+	</script>
+</api>
+
+<api>
+	<h2>setTransform()</h2>
+	<p>Each object on the canvas has a current transformation matrix.</p>
+	<p>The setTransform() method resets the current transform to the identity matrix, and then runs transform() with the same arguments.</p>
+	<p>In other words, the setTransform() method lets you scale, rotate, move, and skew the current context.</p>
+	<p>The transformation will only affect drawings made after the setTransform method is called.</p>
+	<h3>Syntax:</h3>
+	<p>context.setTransform(a,b,c,d,e,f);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		a (Horizontal scaling)<br>
+		b (Horizontal skewing)<br>
+		c (Vertical skewing)<br>
+		d (Vertical scaling)<br>
+		e (Horizontal moving)<br>
+		f (Vertical moving)
+	</p>
+	<example>
+		<h3>使用setTransform將藍色矩形維持在上一次transform位置</h3>
+		<canvas id="canvas36" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx36 = document.getElementById('canvas36').getContext('2d');
+		
+		cx36.fillStyle = "yellow";
+		cx36.fillRect(0, 0, 100, 50)
+
+		cx36.transform(1, 0.5, -0.5, 1, 30, 30);
+		cx36.strokeStyle = 'red';
+		cx36.lineWidth = 4;
+		cx36.strokeRect(0, 0, 100, 50);
+
+		cx36.setTransform(1, 0.5, -0.5, 1, 30, 30);
+		cx36.fillStyle = "blue";
+		cx36.fillRect(0, 0, 100, 50);
+	</script>
+</api>
+
+<div class="hr">Text</div>
+
+<api>
+	<h2>font</h2>
+	<p>The font property sets or returns the current font properties for text content on the canvas.</p>
+	<p>The font property uses the same syntax as the CSS font property.</p>
+	<h3>Syntax:</h3>
+	<p>context.font="italic small-caps bold 12px arial";<br>Default value is "10px sans-serif"</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		font-style (normal, italic, oblique)<br>
+		font-variant (normal, small-caps)<br>
+		font-weight (normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900)<br>
+		font-size/line-height (Specifies the font size and the line-height, in pixels)<br>
+		font-family (Specifies the font family)<br>
+		caption (Use the font captioned controls (like buttons, drop-downs, etc.))<br>
+		icon (Use the font used to label icons)<br>
+		menu (Use the font used in menus (drop-down menus and menu apis))<br>
+		message-box (Use the font used in dialog boxes)<br>
+		small-caption (Use the font used for labeling small controls)<br>
+		status-bar (Use the fonts used in window status bar)
+	</p>
+	<example>
+		<h3>設定文字尺寸為粗體、20px、Arial字型</h3>
+		<canvas id="canvas37" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx37 = document.getElementById('canvas37').getContext('2d');
+		cx37.font = 'bold 20px Arial';
+		cx37.fillText("Hello World!", 100, 100);
+	</script>
+</api>
+
+<api>
+	<h2>textAlign</h2>
+	<p>The textAlign property sets or returns the current alignment for text content, according to the anchor point.</p>
+	<p>Normally, the text will START in the position specified, however, if you set textAlign="right" and place the text in position 150, it means that the text should END in position 150.</p>
+	<p>Use the fillText() or the strokeText() method to actually draw and position the text on the canvas.</p>
+	<h3>Syntax:</h3>
+	<p>context.textAlign="center|end|left|right|start";</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		start (Default. The text starts at the specified position)<br>
+		end (The text ends at the specified position)<br>
+		center (The center of the text is placed at the specified position)<br>
+		left (The text starts at the specified position)<br>
+		right (The text ends at the specified position)
+	</p>
+	<example>
+		<h3>各種文字對齊</h3>
+		<canvas id="canvas38" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx38 = document.getElementById('canvas38').getContext('2d');
+		cx38.fillStyle = 'green';
+		cx38.font = 'bold 15px Arial';
+		cx38.fillText('START', 100, 30);
+		cx38.textAlign = 'end';
+		cx38.fillText('END', 100, 60);
+		cx38.textAlign = 'center';
+		cx38.fillText('CENTER', 100, 90);
+		cx38.textAlign = 'left';
+		cx38.fillText('LEFT', 100, 120);
+		cx38.textAlign = 'right';
+		cx38.fillText('RIGHT', 100, 150);
+	</script>
+</api>
+
+<api>
+	<h2>textBaseline</h2>
+	<p>The textBaseline property sets or returns the current text baseline used when drawing text. The illustration below demonstrates the various baselines supported by the textBaseline attribute:</p>
+	<p><img src="images/img_textbaseline.gif" /></p>
+	<p>The fillText() and strokeText() methods will use the specified textBaseline value when positioning the text on the canvas.</p>
+	<h3>Syntax:</h3>
+	<p>context.textBaseline="alphabetic|top|hanging|middle|ideographic|bottom";</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		alphabetic (Default. The text baseline is the normal alphabetic baseline)<br>
+		top (The text baseline is the top of the em square)<br>
+		hanging (The text baseline is the hanging baseline)<br>
+		middle (The text baseline is the middle of the em square)<br>
+		ideographic (The text baseline is the ideographic baseline)<br>
+		bottom (The text baseline is the bottom of the bounding box)
+	</p>
+	<example>
+		<h3>各種文字基線設定</h3>
+		<canvas id="canvas39" width="400" height="200"></canvas>
+	</example>
+	<script>
+		var cx39 = document.getElementById('canvas39').getContext('2d');
+		cx39.fillStyle = 'green';
+		cx39.font = 'bold 20px Arial';
+		cx39.textBaseline = 'alphabetic';
+		cx39.fillText('alp', 50, 100);
+		cx39.textBaseline = 'top';
+		cx39.fillText('top', 100, 100);
+		cx39.textBaseline = 'hanging';
+		cx39.fillText('han', 150, 100);
+		cx39.textBaseline = 'middle';
+		cx39.fillText('mid', 200, 100);
+		cx39.textBaseline = 'ideographic';
+		cx39.fillText('ide', 250, 100);
+		cx39.textBaseline = 'bottom';
+		cx39.fillText('bot', 300, 100);
+	</script>
+</api>
+
+<api>
+	<h2>fillText()</h2>
+	<p>The fillText() method draws filled text on the canvas. The default color of the text is black.</p>
+	<p>Use the font property to specify font and font size, and use the fillStyle property to render the text in another color/gradient.</p>
+	<h3>Syntax:</h3>
+	<p>context.fillText(text,x,y,maxWidth);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		text (Specifies the text that will be written on the canvas)<br>
+		x (The x coordinate where to start painting the text (relative to the canvas))<br>
+		y (The y coordinate where to start painting the text (relative to the canvas))<br>
+		maxWidth (Optional. The maximum allowed width of the text, in pixels)
+	</p>
+	<example>
+		<h3>用fillText()寫一些字</h3>
+		<canvas id="canvas40" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var c40 = document.getElementById('canvas40');
+		var cx40 = c40.getContext('2d');
+		cx40.font = 'bold 16px Georgia';
+		cx40.fillText('Hello World!', 50, 50);
+		cx40.font = '30px Verdana';
+		var grd40 = cx40.createLinearGradient(0, 0, c40.width, 0);
+		grd40.addColorStop(0, 'yellow');
+		grd40.addColorStop(1, 'green');
+		cx40.fillStyle = grd40;
+		cx40.fillText('Big Smile!', 50, 100);
+	</script>
+</api>
+
+<api>
+	<h2>strokeText()</h2>
+	<p>The strokeText() method draws text (with no fill) on the canvas. The default color of the text is black.</p>
+	<p>Use the font property to specify font and font size, and use the strokeStyle property to render the text in another color/gradient.</p>
+	<h3>Syntax:</h3>
+	<p>context.strokeText(text,x,y,maxWidth);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		text (Specifies the text that will be written on the canvas)<br>
+		x (The x coordinate where to start painting the text (relative to the canvas))<br>
+		y (The y coordinate where to start painting the text (relative to the canvas))<br>
+		maxWidth (Optional. The maximum allowed width of the text, in pixels)
+	</p>
+	<example>
+		<h3>strokeText()寫一些外框字</h3>
+		<canvas id="canvas41" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var c41 = document.getElementById('canvas41');
+		var cx41 = c41.getContext('2d');
+		cx41.font = 'bold 16px Georgia';
+		cx41.strokeText('Hello World!', 50, 50);
+		cx41.font = '30px Verdana';
+		var grd41 = cx41.createLinearGradient(0, 0, c41.width, 0);
+		grd41.addColorStop(0, 'yellow');
+		grd41.addColorStop(1, 'green');
+		cx41.strokeStyle = grd41;
+		cx41.strokeText('Big Smile!', 50, 100);
+	</script>
+</api>
+
+<api>
+	<h2>measureText()</h2>
+	<p>The measureText() method returns an object that contains the width of the specified text, in pixels.</p>
+	<p>Use this method if you need to know the width of a text, before writing it on the canvas.</p>
+	<h3>Syntax:</h3>
+	<p>context.measureText(text).width;</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		text (The text to be measured)
+	</p>
+	<example>
+		<h3>在寫上文字之前顯示全文的寬度</h3>
+		<canvas id="canvas42" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx42 = document.getElementById('canvas42').getContext('2d');
+		cx42.fillStyle = 'green';
+		cx42.font = "bold 20px Arial";
+		var txt42 = "Hello World!";
+		cx42.fillText('width=' + cx42.measureText(txt42).width, 50, 50);
+		cx42.fillText(txt42, 50, 100);
+	</script>
+</api>
+
+<div class="hr">Image Drawing</div>
+
+<api>
+	<h2>drawImage()</h2>
+	<p>The drawImage() method draws an image, canvas, or video onto the canvas. It can also draw parts of an image, and/or increase/reduce the image size.</p>
+	<p>You cannot call the drawImage() method before the image has loaded. To ensure that the image has been loaded, you can call drawImage() from window.onload() or from document.getElementById("imageID").onload.</p>
+	<h3>Syntax:</h3>
+	<p>
+		Position the image on the canvas:<br>
+		context.drawImage(img,x,y);
+	</p>
+	<p>
+		Position the image on the canvas, and specify width and height of the image:<br>
+		context.drawImage(img,x,y,width,height);
+	</p>
+	<p>
+		Clip the image and position the clipped part on the canvas:<br>
+		context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
+	</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		img (Specifies the image, canvas, or video element to use)<br>
+		sx (Optional. The x coordinate where to start clipping)<br>
+		sy (Optional. The y coordinate where to start clipping)<br>
+		swidth (Optional. The width of the clipped image)<br>
+		sheight (Optional. The height of the clipped image)<br>
+		x (The x coordinate where to place the image on the canvas)<br>
+		y (The y coordinate where to place the image on the canvas)<br>
+		width (Optional. The width of the image to use (stretch or reduce the image))<br>
+		height (Optional. The height of the image to use (stretch or reduce the image))
+	</p>
+	<p>
+		DOM取得圖片要用的範例圖：<br>
+		<img id="img43" src="images/dora.png" />
+	</p>
+	<p>
+		截取影片要用的控制按鈕：<br>
+		<a id="vdo46play" href="javascript:;">播放</a>
+		<a id="vdo46pause" href="javascript:;">暫停</a>
+	</p>
+	<example>
+		<h3>DOM取得圖片</h3>
+		<canvas id="canvas43" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx43 = document.getElementById('canvas43').getContext('2d');
+		window.onload = function(){
+			var img43 = document.getElementById('img43');
+			cx43.drawImage(img43, 50, 50); //(img,x,y)
+		}
+	</script>
+	<example>
+		<h3>Javascript載入圖片</h3>
+		<canvas id="canvas44" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx44 = document.getElementById('canvas44').getContext('2d');
+		var img44 = new Image();
+		img44.src='images/dora.png';
+		img44.onload = function(){
+			cx44.drawImage(img44, 75, 75, 50, 50); //(img,x,y,width,height)
+		}
+	</script>
+	<example>
+		<h3>裁切圖片</h3>
+		<canvas id="canvas45" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx45 = document.getElementById('canvas45').getContext('2d');
+		var img45 = new Image();
+		img45.src='images/dora.png';
+		img45.onload = function(){
+			cx45.drawImage(img44, 25, 25, 50, 50, 75, 75, 50, 50); //(img,sx,sy,swidth,sheight,x,y,width,height)
+		}
+	</script>
+	<example>
+		<h3>截取影片圖素</h3>
+		<canvas id="canvas46" width="300" height="200"></canvas>
+	</example>
+	<script>
+		var c46 = document.getElementById('canvas46');
+		var cx46 = c46.getContext('2d');
+		var vdo46 = document.createElement('video');
+		var vdo46width = 200;
+		var vdo46height = vdo46width * 0.55;
+		vdo46.setAttribute('src', 'videos/big-buck-bunny.mp4');
+		vdo46play.onclick = function(){
+			vdo46.play();
+		}
+		vdo46pause.onclick = function(){
+			vdo46.pause();
+		}
+		vdo46.addEventListener('play', function(){
+			setInterval(function(){
+				cx46.drawImage(vdo46, c46.width / 2 - vdo46width / 2,  c46.height / 2 - vdo46height / 2, vdo46width, vdo46height);
+				//(img,x,y,width,height)
+			}, 40);
+		});
+	</script>
+</api>
+
+<div class="hr">Pixel Manipulation</div>
+
+<api>
+	<h2>createImageData()</h2>
+	<p>使用createImageData()方法可以建立一個新的ImageData物件，這個物件包含了一個「記錄色彩/透明度資訊的陣列，以及寬度、高度」等三個屬性。</p>
+	<p>ImageData物件的內容看起來像這樣：{data:Array, width:number, height:number}</p>
+	<p>新建立的ImageData物件裡data屬性的陣列記載著每一個相像素的資訊，裡都存有R、G、B、A等四個值，其顏色預設為透明的黑色，物件所以透明的黑色即為：0, 0, 0, 0。</p>
+	<p>這個記載相像素資訊的陣列可以使用ImageData.data.length來取得它的長度，例如createImageData(10, 10)，該陣列的長度即為400，是以「寬度*高度*RGBA四項資訊」計算出來的。</p>
+	<p>以下示範將第一個相像素改為紅色：</p>
+	<p>
+		　imgData.data[0]=255;<br>
+		　imgData.data[1]=0;<br>
+		　imgData.data[2]=0;<br>
+		　imgData.data[3]=255;
+	</p>
+	<p>ImageData物件本身也搭配了一系列的操作方法：createImageData()、getImageData()、putImageData()。</p>
+	<h3>Syntax:</h3>
+	<p>
+		var imgData=context.createImageData(width,height);<br>
+		var imgData=context.createImageData(imageData);
+	</p>
+	<p>第一種方式：直接輸入物件的寬、高<br>第二種方式：指定一個已經存在的ImageData其寬和高（這種方式不會拷貝像素資訊）</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		width (The width of the new ImageData object, in pixels)<br>
+		height (The height of the new ImageData object, in pixels)<br>
+		imageData (anotherImageData object)
+	</p>
+	<example>
+		<h3>建立一個ImageData物件並置入Canvas</h3>
+		<canvas id="canvas47" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx47 = document.getElementById('canvas47').getContext('2d');
+		var imgData47 = cx47.createImageData(100, 100);
+		for(var i=0; i < imgData47.data.length; i+=4){
+			imgData47.data[i+0] = i/100;
+			imgData47.data[i+1] = 255;
+			imgData47.data[i+2] = 0;
+			imgData47.data[i+3] = 255;
+		}
+		cx47.putImageData(imgData47, 50, 50);
+	</script>
+</api>
+
+<api>
+	<h2>putImageData()</h2>
+	<p>The putImageData() method puts the image data (from a specified ImageData object) back onto the canvas.</p>
+	<h3>Syntax:</h3>
+	<p>context.putImageData(imgData,x,y,dirtyX,dirtyY,dirtyWidth,dirtyHeight);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		imgData (Specifies the ImageData object to put back onto the canvas)<br>
+		x (The x-coordinate, in pixels, of the upper-left corner of the ImageData object)<br>
+		y (The y-coordinate, in pixels, of the upper-left corner of the ImageData object)<br>
+		dirtyX (Optional. The horizontal (x) value, in pixels, where to place the image on the canvas)<br>
+		dirtyY (Optional. The vertical (y) value, in pixels, where to place the image on the canvas)<br>
+		dirtyWidth (Optional. The width to use to draw the image on the canvas)<br>
+		dirtyHeight (Optional. The height to use to draw the image on the canvas)<br>
+		(後面四個參數同時都要設定才會有效果)
+	</p>
+	<example>
+		<h3>取得Canvas上的圖像，再將取得的部份置入Canvas中</h3>
+		<canvas id="canvas48" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx48 = document.getElementById('canvas48').getContext('2d');
+		cx48.beginPath();
+		cx48.fillStyle = 'green';
+		cx48.rect(0, 0, 50, 50);
+		cx48.fill();
+
+		cx48.beginPath();
+		cx48.fillStyle = 'yellow';
+		cx48.rect(50, 50, 50, 50);
+		cx48.fill();
+
+		var imgData48 = cx48.getImageData(25, 25, 50, 50);
+		cx48.putImageData(imgData48, 100, 0);
+		cx48.putImageData(imgData48, 100, 50, 10, 10, 30, 30);
+	</script>
+</api>
+
+<api>
+	<h2>getImageData()</h2>
+	<p>The getImageData() method returns an ImageData object that copies the pixel data for the specified rectangle on a canvas.</p>
+	<h3>Syntax:</h3>
+	<p>context.getImageData(x,y,width,height);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		x (The x coordinate (in pixels) of the upper-left corner to start copy from)<br>
+		y (The y coordinate (in pixels) of the upper-left corner to start copy from)<br>
+		width (The width of the rectangular area you will copy)<br>
+		height (The height of the rectangular area you will copy)
+	</p>
+	<p>
+		範例要用的圖片：<br>
+		<img id="dora49" src="images/dora.png" />
+	</p>
+	<p class="cx49-color-info">第一個範例中第一個像素的色彩資訊為：</p>
+	<example>
+		<h3>顯示第一個像素色彩資訊</h3>
+		<canvas id="canvas49" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx49 = document.getElementById('canvas49').getContext('2d');
+		cx49.beginPath();
+		cx49.fillStyle = 'green';
+		cx49.rect(0, 0, 100, 100);
+		cx49.fill();
+
+		var imgData49 = cx49.getImageData(50, 50, 50, 50);
+		var r49 = imgData49.data[0];
+		var g49 = imgData49.data[1];
+		var b49 = imgData49.data[2];
+		var a49 = imgData49.data[3];
+		$('.cx49-color-info').append('R:'+r49+' / G:'+g49+' / B:'+b49+' / A:'+a49);
+	</script>
+	<example>
+		<h3>將圖片的顏色反轉並置於canvas中</h3>
+		<canvas id="canvas50" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx50 = document.getElementById('canvas50').getContext('2d');
+		cx50.drawImage($('#dora49')[0], 50, 50);
+
+		var imgData50 = cx50.getImageData(50, 50, 100, 100);
+		for(var i=0; i<imgData50.data.length; i+=4){
+			imgData50.data[i] = 255-imgData50.data[i];
+			imgData50.data[i+1] = 255-imgData50.data[i+1];
+			imgData50.data[i+2] = 255-imgData50.data[i+2];
+			imgData50.data[i+3] = 255;
+		}
+		cx50.putImageData(imgData50, 25, 25);
+	</script>
+</api>
+
+<api>
+	<h2>ImageData.data</h2>
+	<p>The data property returns an object that contains image data of the specified ImageData object.<br>createImageData()那邊有詳細說明及範例</p>
+	<h3>Syntax:</h3>
+	<p>imageData.data;</p>
+</api>
+
+<api>
+	<h2>ImageData.width</h2>
+	<p>The property returns the width of an ImageData object, in pixels.<br>createImageData()那邊有詳細說明及範例</p>
+	<h3>Syntax:</h3>
+	<p>imgData.width;</p>
+</api>
+
+<api>
+	<h2>ImageData.height</h2>
+	<p>The property returns the height of an ImageData object, in pixels.<br>createImageData()那邊有詳細說明及範例</p>
+	<h3>Syntax:</h3>
+	<p>imgData.height;</p>
+</api>
+
+<div class="hr">Compositing</div>
+
+<api>
+	<h2>globalAlpha</h2>
+	<p>The globalAlpha property sets or returns the current alpha or transparency value of the drawing.</p>
+	<h3>Syntax:</h3>
+	<p>context.globalAlpha=number;</p>
+	<h3>Parameter / Values:</h3>
+	<p>number (The transparency value. Must be a number between 0.0 (fully transparent) and 1.0 (no transparancy))</p>
+	<example>
+		<h3>設定繪圖的透明度</h3>
+		<canvas id="canvas51" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx51 = document.getElementById('canvas51').getContext('2d');
+		cx51.fillStyle = 'green';
+		cx51.fillRect(0, 0, 100, 100);
+
+		cx51.globalAlpha = .5;
+		cx51.fillStyle = 'blue';
+		cx51.fillRect(50, 50, 100, 100);
+		cx51.fillStyle = 'yellow';
+		cx51.fillRect(100, 100, 100, 100);
+	</script>
+</api>
+
+<api>
+	<h2>globalCompositeOperation</h2>
+	<p>The globalCompositeOperation property sets or returns how a source (new) image are drawn onto a destination (existing) image.</p>
+	<p>
+		source image = drawings you are about to place onto the canvas.(新圖的意思)<br>
+		destination image = drawings that are already placed onto the canvas.(舊圖的意思)
+	</p>
+	<h3>Syntax:</h3>
+	<p>context.globalCompositeOperation="source-over";</p>
+	<h3>Parameter / Values:</h3>
+	<table class="horiz-line gco">
+		<tr>
+			<th style="width:140px;">
+				source-over<img src="images/gco-sov.png" />
+			</th>
+			<td>預設值。將新圖形畫在舊圖形之上。<br>Default. Displays the source image over the destination image)</td>
+		</tr>
+		<tr>
+			<th>
+				source-atop<img src="images/gco-sat.png" />
+			</th>
+			<td>新圖形只繪製在新、舊圖形重疊的新圖形區域，然後蓋在舊圖形之上。<br>Displays the source image on top of the destination image. The part of the source image that is outside the destination image is not shown)</td>
+		</tr>
+		<tr>
+			<th>
+				source-in<img src="images/gco-sin.png" />
+			</th>
+			<td>只保留新、舊圖形重疊的新圖形區域，其餘皆變為透明。<br>Displays the source image in to the destination image. Only the part of the source image that is INSIDE the destination image is shown, and the destination image is transparent)</td>
+		</tr>
+		<tr>
+			<th>
+				source-out<img src="images/gco-sot.png" />
+			</th>
+			<td>只保留新、舊圖形非重疊的新圖形區域，其餘皆變為透明。<br>Displays the source image out of the destination image. Only the part of the source image that is OUTSIDE the destination image is shown, and the destination image is transparent)</td>
+		</tr>
+		<tr>
+			<th>
+				destination-over<img src="images/gco-dov.png" />
+			</th>
+			<td>將新圖形畫在舊圖形之下。<br>Displays the destination image over the source image)</td>
+		</tr>
+		<tr>
+			<th>
+				destination-atop<img src="images/gco-dat.png" />
+			</th>
+			<td>舊圖形只保留在新、舊圖形重疊的舊圖形區域，然後蓋在新圖形之上。<br>Displays the destination image on top of the source image. The part of the destination image that is outside the source image is not shown)</td>
+		</tr>
+		<tr>
+			<th>
+				destination-in<img src="images/gco-din.png" />
+			</th>
+			<td>只保留新、舊圖形重疊的舊圖形區域，其餘皆變為透明。<br>Displays the destination image in to the source image. Only the part of the destination image that is INSIDE the source image is shown, and the source image is transparent)</td>
+		</tr>
+		<tr>
+			<th>
+				destination-out<img src="images/gco-dot.png" />
+			</th>
+			<td>只保留新、舊圖形非重疊的舊圖形區域，其餘皆變為透明。<br>Displays the destination image out of the source image. Only the part of the destination image that is OUTSIDE the source image is shown, and the source image is transparent)</td>
+		</tr>
+		<tr>
+			<th>
+				lighter<img src="images/gco-ltr.png" />
+			</th>
+			<td>新舊圖形重疊區域的顏色，由新、舊圖形的顏色碼相加而得。<br>Displays the source image + the destination image)</td>
+		</tr>
+		<tr>
+			<th>
+				copy<img src="images/gco-cpy.png" />
+			</th>
+			<td>移除其他圖形，只保留新圖形。<br>Displays the source image. The destination image is ignored)</td>
+		</tr>
+		<tr>
+			<th>
+				xor<img src="images/gco-xor.png" />
+			</th>
+			<td>新舊圖形重疊區域設為透明。<br>The source image is combined by using an exclusive OR with the destination image)</td>
+		</tr>
+	</table>
+	<!-- <p>
+		source-over (預設值。將新圖形畫在舊圖形之上。Default. Displays the source image over the destination image)<br>
+		source-atop (新圖形只繪製在新、舊圖形重疊的新圖形區域，然後蓋在舊圖形之上。Displays the source image on top of the destination image. The part of the source image that is outside the destination image is not shown)<br>
+		source-in (只保留新、舊圖形重疊的新圖形區域，其餘皆變為透明。Displays the source image in to the destination image. Only the part of the source image that is INSIDE the destination image is shown, and the destination image is transparent)<br>
+		source-out (只保留新、舊圖形非重疊的新圖形區域，其餘皆變為透明。Displays the source image out of the destination image. Only the part of the source image that is OUTSIDE the destination image is shown, and the destination image is transparent)<br>
+		destination-over (將新圖形畫在舊圖形之下。Displays the destination image over the source image)<br>
+		destination-atop (舊圖形只保留在新、舊圖形重疊的舊圖形區域，然後蓋在新圖形之上。Displays the destination image on top of the source image. The part of the destination image that is outside the source image is not shown)<br>
+		destination-in (只保留新、舊圖形重疊的舊圖形區域，其餘皆變為透明。Displays the destination image in to the source image. Only the part of the destination image that is INSIDE the source image is shown, and the source image is transparent)<br>
+		destination-out (只保留新、舊圖形非重疊的舊圖形區域，其餘皆變為透明。Displays the destination image out of the source image. Only the part of the destination image that is OUTSIDE the source image is shown, and the source image is transparent)<br>
+		lighter (新舊圖形重疊區域的顏色，由新、舊圖形的顏色碼相加而得。Displays the source image + the destination image)<br>
+		copy (移除其他圖形，只保留新圖形。Displays the source image. The destination image is ignored)<br>
+		xor (新舊圖形重疊區域設為透明。The source image is combined by using an exclusive OR with the destination image)
+	</p>
+	<h3>各個屬性值的示意圖：</h3>
+	<img src="images/globalCompositeOperation.png" /> -->
+	<example>
+		<h3>新繪製的圖形置於後方</h3>
+		<canvas id="canvas52" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx52 = document.getElementById('canvas52').getContext('2d');
+		cx52.fillStyle = 'yellow';
+		cx52.fillRect(0, 0, 100, 100);
+
+		cx52.globalCompositeOperation = "destination-over";
+
+		cx52.fillStyle = 'green';
+		cx52.fillRect(50, 50, 100, 100);
+	</script>
+</api>
+
+<div class="hr">Other</div>
+
+<api>
+	<h2>save()</h2>
+	<p>儲存現階段畫布狀態。每一次呼叫save()，畫布狀態便會存進一個堆疊(stack)之中。畫布狀態包含了：</p>
+	<ul>
+		<li>曾經套用過的變形效果，如translate, rotate和scale。</li>
+		<li>strokeStyle, fillStyle, globalAlpha, lineWidth, lineCap, lineJoin, miterLimit, shadowOffsetX, shadowOffsetY, shadowBlur, shadowColor, globalCompositeOperation 屬性的屬性值</li>
+		<li>目前截圖路徑。</li>
+	</ul>
+	<p>我們可以呼叫save()的次數不限，而每一次呼叫restore()，最近一次儲存的畫布狀態便會從堆疊中被取出，然後還原畫布到此畫布狀態。</p>
+	<h3>Syntax:</h3>
+	<p>context.save();</p>
+	<example>
+		<h3>新繪製的圖形置於後方</h3>
+		<canvas id="canvas53" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx53 = document.getElementById('canvas53').getContext('2d');
+		cx53.fillRect(0, 0, 200, 200);
+		cx53.save();
+
+		cx53.fillStyle = 'green';
+		cx53.fillRect(20, 20, 160, 160);
+		cx53.save();
+
+		cx53.fillStyle = 'white';
+		cx53.globalAlpha = .5;
+		cx53.fillRect(40, 40, 120, 120);
+
+		cx53.restore();
+		cx53.fillRect(60, 60, 80, 80);
+
+		cx53.restore();
+		cx53.fillRect(80, 80, 40, 40);
+	</script>
+</api>
+
+<api>
+	<h2>restore()</h2>
+	<p>復原最近一次儲存的畫布狀態。每一次呼叫save()，畫布狀態便會存進一個堆疊(stack)之中。畫布狀態包含了：</p>
+	<ul>
+		<li>曾經套用過的變形效果，如translate, rotate和scale。</li>
+		<li>strokeStyle, fillStyle, globalAlpha, lineWidth, lineCap, lineJoin, miterLimit, shadowOffsetX, shadowOffsetY, shadowBlur, shadowColor, globalCompositeOperation 屬性的屬性值</li>
+		<li>目前截圖路徑。</li>
+	</ul>
+	<p>我們可以呼叫save()的次數不限，而每一次呼叫restore()，最近一次儲存的畫布狀態便會從堆疊中被取出，然後還原畫布到此畫布狀態。</p>
+	<h3>Syntax:</h3>
+	<p>context.restore();</p>
+	<example>
+		<h3>新繪製的圖形置於後方</h3>
+		<canvas id="canvas54" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cx54 = document.getElementById('canvas54').getContext('2d');
+		cx54.fillRect(0, 0, 200, 200);
+		cx54.save();
+
+		cx54.fillStyle = 'green';
+		cx54.fillRect(20, 20, 160, 160);
+		cx54.save();
+
+		cx54.fillStyle = 'white';
+		cx54.globalAlpha = .5;
+		cx54.fillRect(40, 40, 120, 120);
+
+		cx54.restore();
+		cx54.fillRect(60, 60, 80, 80);
+
+		cx54.restore();
+		cx54.fillRect(80, 80, 40, 40);
+	</script>
+</api>
+
+<api>
+	<h2>toDataURL()</h2>
+	<p>傳回含有圖像和參數設置特定格式的data URIs(預設為PNG)。回傳的圖像解析度為96 dpi。</p>
+	<h3>Syntax:</h3>
+	<p>canvas.toDataURL(type, encoderOptions);</p>
+	<h3>Parameter / Values:</h3>
+	<p>
+		type (非必填，圖像格式的DOMString，預設為image/png)<br>
+		encoderOptions (非必填，表示image/jpeg或是image/webp的圖像品質，為0到1之間的Number，如果值不在上述範圍中，將會使用預設值，其他的會忽略)
+	</p>
+</api>
+
+</body> 
+</html>

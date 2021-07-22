@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>HTML5</title>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<!-- <link rel="stylesheet" type="text/css" href="default.css"> -->
+<script src="https://tw.hicdn.beanfun.com/jquery/jquery.min.js"></script>
+<script src="https://tw.hicdn.beanfun.com/jquery/jquery-migrate.min.js"></script>
+<script src="https://tw.hicdn.beanfun.com/plugins/isMobile/isMobile.min.js"></script>
+<script src="https://tw.hicdn.beanfun.com/plugins/gsap/3.4.0/gsap.min.js"></script>
+<script src="https://tw.hicdn.beanfun.com/plugins/jquery.mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+
+<style>
+*{
+	padding: 0;
+	margin: 0;
+}
+html, body{
+	height: 100%;
+	overflow: hidden;
+}
+.btns{
+	position: absolute;
+	right: 20px;
+	bottom: 24px;
+}
+.btn{
+	padding: 10px;
+	margin: 0 3px;
+	border: 1px solid black;
+	border-radius: 10px;
+	color: #000;
+	text-decoration: none;
+	background: #fff;
+	display: inline-block;
+}
+.viewport{
+	width: 100%;
+	height: 100%;
+	perspective: 400px;
+	perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+	position: relative;
+}
+.frame{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+.frame div{
+	width: 100vh;
+	height: 100vh;
+	margin: 0 auto;
+	transform-style: preserve-3d;
+}
+.frame1 div{background:#77DDFF;}
+.frame2 div{background:#FFFF77;}
+.frame3 div{background:#66FF66;}
+.frame4 div{background:#D1BBFF;}
+.frame5 div{background:#FF8888;}
+.frame6 div{background:#AAAAAA;}
+</style>
+
+</head>
+<body>
+<div class="viewport">
+	<div class="frame frame1" style="z-index:6; transform:translateZ(0px)"><div>1</div></div>
+	<div class="frame frame2" style="z-index:5; transform:translateZ(-1000px)"><div>2</div></div>
+	<div class="frame frame3" style="z-index:4; transform:translateZ(-2000px)"><div>3</div></div>
+	<div class="frame frame4" style="z-index:3; transform:translateZ(-3000px)"><div>4</div></div>
+	<div class="frame frame5" style="z-index:2; transform:translateZ(-4000px)"><div>5</div></div>
+	<div class="frame frame6" style="z-index:1; transform:translateZ(-5000px)"><div>6</div></div>
+</div>
+<div class="btns">
+	<a class="btn increase" href="javascript:;">setFramePos(1);</a>
+	<a class="btn decrease" href="javascript:;">setFramePos(2);</a>
+</div>
+
+<script>
+$('.btn.increase').on('click', function(){
+	setFramePos(1);
+});
+$('.btn.decrease').on('click', function(){
+	setFramePos(2);
+});
+
+function setFramePos(gotoFrame){
+	var goto = gotoFrame;
+	var currentFrame = null;
+	$('.frame').show(0);
+	$('.frame').each(function(i){
+		if($(this).css('transform').indexOf('matrix3d') == -1){
+			currentFrame = i+1;
+		}else if(Number($(this).css('transform').split(',')[14]) == 0){
+			currentFrame = i+1;
+		}
+	});
+
+	var frameLength = $('.frame').length;
+	var sum = zoomAmount = 25;
+	var total = 1000;
+	var interval = 15;
+	var gap = sharedAmount = null;
+	
+	if(goto > frameLength ){
+		gap = frameLength - 1;
+	}else if(goto == currentFrame || goto < 1){
+		gap = 0;
+	}else{
+		gap = goto - currentFrame;
+	}
+
+	function timeoutFunction(goto){
+		if(sum <= total){
+			var myTimeout = setTimeout(function(){timeoutFunction(goto)}, interval);
+			sum += zoomAmount;
+			$('.frame').each(function(){
+				var currentZ = Number($(this).css('transform').split(',')[14]);
+				if($(this).css('transform').indexOf('matrix3d')==-1){currentZ=0;}
+				sharedAmount = currentZ+(zoomAmount*gap);
+				$(this).css({
+					transform: 'translateZ('+sharedAmount+'px)',
+					opacity: 1 - (sharedAmount / 1000)
+				});
+			});
+		}else{
+			sum = zoomAmount;
+			$('.frame').hide(0);
+			$('.frame').eq(goto-1).show(0);
+			console.log(goto);
+			clearTimeout(myTimeout);
+		}
+	};
+	timeoutFunction(gotoFrame);
+}
+
+
+
+/* var currentFrame = Number($('.frame.on').attr('class').split(/\s+/)[1].slice(5)); */
+
+/* $('body').on('mousewheel', function(e){
+	console.log(e.deltaY);
+}); */
+
+/* var myGsap = gsap.to('.frame', {
+	z: 100,
+	stagger: {
+		each: 1
+	},
+	onUpdate: function(){
+		var mymymy = gsap.getProperty('.frame6', 'z');
+		console.log(mymymy);
+		if(mymymy >= -1){
+			myGsap.pause();
+		}
+	}
+}); */
+
+</script>
+</body>
+</html>
