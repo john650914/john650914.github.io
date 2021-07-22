@@ -32,6 +32,30 @@
 		例：alert(window.document == document);</td>
 	</tr>
 	<tr>
+		<td>DOMContentLoaded</td>
+		<td>事件屬性</td>
+		<td>
+			DOMContentLoaded事件是當文件中的Dom tree建立完成並能被script存取後被觸發；<br>
+			它不像load事件需要等所有外部資源（images, iframe, plugins...）載入後才觸發，但有一個例外的特性，就是當&lt;script&gt;被放在&lt;link rel="stylesheet" ...&gt;後面的話，須等到前面的stylesheet載入並完成解析，此時DOMContentLoaded才會被觸發。<br><br>
+			注意一定要用addEventListener來接這個事件，不能寫成document.onDOMContentLoaded = ...喔<br><br>
+			IE8不支援DOMContentLoaded，但可以使用readystatechange事件來做降解，如下例：
+<pre>
+if(document.addEventListener){
+	document.addEventListener('DOMContentLoaded',function(){
+		console.log('支援DOMContentLoaded事件');
+	});
+}else{
+	document.onreadystatechange=function(){
+		if(document.readyState=='complete'){
+			console.log('不支援DOMContentLoaded事件');
+		}
+	}
+}
+console.log('程式走到這裡就先執行了');
+</pre>
+		</td>
+	</tr>
+	<tr>
 		<td>alinkColor</td>
 		<td>屬性</td>
 		<td></td>
