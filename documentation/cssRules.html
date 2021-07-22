@@ -24,7 +24,7 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="cssRules">
 		<td>cssRules</td>
 		<td>物件</td>
 		<td>cssRules物件是styleSheets的屬性之一，是DOM2的標準物件，IE中請使用rules；<br />
@@ -51,7 +51,7 @@ else if(document.styleSheets[0].rules){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="rules">
 		<td>rules</td>
 		<td>物件</td>
 		<td>rules物件是styleSheets的屬性之一，在Firefox、Chrome、Opera、Safari等非IE瀏覽器請使用cssRules；<br />
@@ -78,7 +78,7 @@ else if(document.styleSheets[0].rules){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="cssText">
 		<td>cssText</td>
 		<td>屬性</td>
 		<td>傳回指定css規則的內容，包括選擇器名稱、屬性及其屬性值。<br />
@@ -226,7 +226,7 @@ else if(document.styleSheets[0].rules){
 			註2：寫成p,a{color:red;}的規則會傳回p。
 		</td>
 	</tr>
-	<tr>
+	<tr id="length">
 		<td>length</td>
 		<td>屬性</td>
 		<td>傳回一個樣式表中規則的數量，各瀏覽器支援度差異相當大，下面兩個範例做說明：<br /><br />
@@ -239,7 +239,7 @@ alert(document.styleSheets[0].rules.length); //IE browsers
 			另外要注意的是，使用&lt;style&gt;和&lt;link&gt;載入的cssRules在各瀏覽狀況又不同，非常麻煩。
 		</td>
 	</tr>
-	<tr>
+	<tr id="parentStyleSheet">
 		<td>parentStyleSheet</td>
 		<td>屬性</td>
 		<td>傳回包含指定規則的樣式表物件，如下例：
@@ -252,7 +252,7 @@ alert(document.styleSheets[1].rules[0].parentStyleSheet); //IE browsers
 			IE8及IE7傳回undefined
 		</td>
 	</tr>
-	<tr>
+	<tr id="selectorText">
 		<td>selectorText</td>
 		<td>屬性</td>
 		<td>讀/寫指定規則的選擇器名稱；這又是一個每個瀏覽器都有不同結果的屬性…有點懶的寫了…有需要的時候再看範例去測吧。<br />
@@ -264,7 +264,7 @@ alert(document.styleSheets[1].rules[0].selectorText); //IE browsers
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="style">
 		<td>style</td>
 		<td>屬性</td>
 		<td>讀/寫指定規則的屬性值，使用方法和DOM物件中的Style類似；只有IE7、8不支援。<br />

@@ -28,7 +28,7 @@ http://rocksaying.tw/archives/2015/ES6_for-of_and_iterator.html
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="for">
 		<td>for</td>
 		<td>關鍵字</td>
 		<td>for迴圈是前測試迴圈(代表是否終止迴圈的條件判斷是在執行內部程式碼之前，因此迴圈的主體可能根本不被執行)，在進入迴圈之前能夠初始化變數，並且定義迴圈後要執行的程式碼，其語法如下：<br>
@@ -48,7 +48,7 @@ alert(sum);
 </pre>
 </td>
 	</tr>
-	<tr>
+	<tr id="while">
 		<td>while</td>
 		<td>關鍵字</td>
 		<td>while迴圈是前測試迴圈，這代表是否終止迴圈的條件判斷是在執行內部程式碼之前，因此迴圈的主體可能根本不被執行，其語法如下：<br>
@@ -66,7 +66,7 @@ alert(sum);
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="do/while">
 		<td>do/while</td>
 		<td>關鍵字</td>
 		<td>do ... while 迴圈它是一種先斬後奏型的迴圈結構，無論如何 do {...} 之間的程式至少會被執行一次，如果while裡面的條件式結果為true，它會繼續執行do{}裡面的程式，直到 while 條件式為false。語法：do{statement1; statement2; ...}while(expression);<br>
@@ -97,7 +97,7 @@ window.onload = function(){
 }
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="for-in">
 		<td>for-in</td>
 		<td>關鍵字</td>
 		<td>for...in通常用來列舉物件的屬性。語法如下：
@@ -136,7 +136,7 @@ c: 789*/
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="for-of">
 		<td>for-of</td>
 		<td>關鍵字</td>
 		<td>
@@ -175,7 +175,7 @@ for (var key of Object.keys(Obj)) {
 …<br>
 		</td>
 	</tr>
-	<tr>
+	<tr id="break">
 		<td>break</td>
 		<td>關鍵字</td>
 		<td>使用break可以立即跳出迴圈，阻止再次執行循環體中的任何程式碼，或是像switch條件式中斷程式區塊。<br>
@@ -222,7 +222,7 @@ window.onload = function(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="continue">
 		<td>continue</td>
 		<td>關鍵字</td>
 		<td>退出一次的迴圈，根據控制運算式還允許進行下一次迴圈。<br>

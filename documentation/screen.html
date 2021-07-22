@@ -24,7 +24,7 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="screen">
 		<td>screen</td>
 		<td>物件</td>
 		<td>screen物件是window物件的屬性之一，主要用來獲取使用者的螢幕資訊，因為有時需要根據使用者燭幕的解析度來調節新開視窗的大小。如下例所示：
@@ -37,41 +37,41 @@ function openGoogle(){wor = window.open("http://google.com","_blank","width="+my
 &lt;a href='javascript:wor.close()'&gt;關閉 GOOGLE&lt;/a&gt;
 </pre>
 	</tr>
-	<tr>
+	<tr id="availHeight">
 		<td>availHeight</td>
 		<td>屬性</td>
 		<td>原文：Returns the width of the screen, in pixels, minus interface features such as the taskbar in Windows. In other words, the usable width available to your browser window.<br>
 		螢幕可用範圍的高度，即當前螢幕解析度的高度設定，再扣掉作業系統元素(如windows工具列)所得到的值。
 		</td>
 	</tr>
-	<tr>
+	<tr id="availWidth">
 		<td>availWidth</td>
 		<td>屬性</td>
 		<td>原文：Returns the height of the screen, in pixels, minus interface features such as the taskbar in Windows. In other words, the usable height available to your browser window.<br>
 		螢幕可用範圍的寬度，即當前螢幕解析度的寬度設定，再扣掉作業系統元素(如windows工具列)所得到的值。
 		</td>
 	</tr>
-	<tr>
+	<tr id="colorDepth">
 		<td>colorDepth</td>
 		<td>屬性</td>
 		<td>原文：The bit depth of the color palette available for displaying images in bits per pixel.<br>
 		用戶顯示顏色的位數，每個瀏覽器傳回的值好像都不太一樣…。
 		</td>
 	</tr>
-	<tr>
+	<tr id="height">
 		<td>height</td>
 		<td>屬性</td>
 		<td>原文：The total height of the screen, in pixels.<br>
 		當前螢幕解析度所設定的高度。
 		</td>
 	</tr>
-	<tr>
+	<tr id="pixelDepth">
 		<td>pixelDepth</td>
 		<td>屬性</td>
 		<td>原文：Display screen color resolution (bits per pixel). NS/Firefox exclusive property.
 		</td>
 	</tr>
-	<tr>
+	<tr id="width">
 		<td>width</td>
 		<td>屬性</td>
 		<td>原文：The total width of the screen, in pixels.<br>

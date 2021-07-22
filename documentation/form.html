@@ -24,7 +24,7 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="form">
 		<td>form</td>
 		<td>物件</td>
 		<td>form物件是document的一個屬性，可以用document.forms[]等各種方式拜訪文件中&lt;form&gt;標籤構成的表單。<br>
@@ -97,17 +97,17 @@ form1.submit();
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="acceptCharset">
 		<td>acceptCharset</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="action">
 		<td>action</td>
 		<td>屬性</td>
 		<td>表單所要提交到的URL地址</td>
 	</tr>
-	<tr>
+	<tr id="elements[]">
 		<td>elements[]</td>
 		<td>屬性</td>
 		<td>傳回表單中所有表單欄位的集合；每個表單中的元素，無論是文字方塊、選項按鈕、下拉式清單方塊等等的元素，都包含在form的elements集合中。可以利用元素在集合中的位置或者元素的name屬性來獲得該元素的引用，範例如下：
@@ -123,12 +123,12 @@ var inputSubmit = form1.elements.sb;  //使用name屬性拜訪表單元素較直
 			<span style="display:inline-block; width:130px; vertical-align: top;">elements[i].property</span><span style="display:inline-block; width:510px;">除了type之外…現在懶的翻：原文：Apart from "type", all properties available to the accessed form element is also available when accessed via the elements object, such as "name", "value" etc.</span>
 		</td>
 	</tr>
-	<tr>
+	<tr id="enctype">
 		<td>enctype</td>
 		<td>屬性</td>
 		<td>表單向伺服器發送資料時，資料應該使用的編碼方法，預設為application/x-www-form-urlencoded，如果你要上傳檔，則應該使用multipart/form-data</td>
 	</tr>
-	<tr>
+	<tr id="length">
 		<td>length</td>
 		<td>屬性</td>
 		<td>1.傳回文件中所有&lt;form&gt;元素的數量，如下例：
@@ -141,37 +141,37 @@ document.forms[0].length; //傳回文件中的第一個表單內所有表單元�
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="method">
 		<td>method</td>
 		<td>屬性</td>
 		<td>瀏覽器發送GET請求或是POST請求</td>
 	</tr>
-	<tr>
+	<tr id="name">
 		<td>name</td>
 		<td>屬性</td>
 		<td>表單的名稱，即&lt;form&gt;標記中的name屬性</td>
 	</tr>
-	<tr>
+	<tr id="target">
 		<td>target</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="onreset">
 		<td>onreset</td>
 		<td>事件屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="onsubmit">
 		<td>onsubmit</td>
 		<td>事件屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="reset()">
 		<td>reset()</td>
 		<td>方法</td>
 		<td>重置表單中的各項到初始值，相當於按一下reset按鈕</td>
 	</tr>
-	<tr>
+	<tr id="submit()">
 		<td>submit()</td>
 		<td>方法</td>
 		<td>提交表單到指定頁面，相當於按一下submit按鈕</td>

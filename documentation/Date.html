@@ -24,7 +24,7 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="Date">
 		<td>Date</td>
 		<td>物件</td>
 		<td>
@@ -278,57 +278,57 @@ alert(new Date(2016, 9, 24, 08, 30, 20, 500));
 			http://jiaolonghuang.github.io/2015/03/12/shiqu/
 		</td>
 	</tr>
-	<tr>
+	<tr id="constructor">
 		<td>constructor</td>
 		<td>屬性</td>
 		<td>Returns the function that created the Date object's prototype</td>
 	</tr>
-	<tr>
+	<tr id="prototype">
 		<td>prototype</td>
 		<td>屬性</td>
 		<td>Allows you to add properties and methods to an object</td>
 	</tr>
-	<tr>
+	<tr id="getDate()">
 		<td>getDate()</td>
 		<td>方法</td>
 		<td>返迴日期從1到31。</td>
 	</tr>
-	<tr>
+	<tr id="getDay()">
 		<td>getDay()</td>
 		<td>方法</td>
 		<td>返回星期幾，從0(星期日)到6(星期六)。</td>
 	</tr>
-	<tr>
+	<tr id="getFullYear()">
 		<td>getFullYear()</td>
 		<td>方法</td>
 		<td>返回四位數的年份(如2011)。</td>
 	</tr>
-	<tr>
+	<tr id="getHours()">
 		<td>getHours()</td>
 		<td>方法</td>
 		<td>返回小時數，從0到23(24小時制)。</td>
 	</tr>
-	<tr>
+	<tr id="getMilliseconds()">
 		<td>getMilliseconds()</td>
 		<td>方法</td>
 		<td>返回毫秒，從0到999。</td>
 	</tr>
-	<tr>
+	<tr id="getMinutes()">
 		<td>getMinutes()</td>
 		<td>方法</td>
 		<td>返回分鐘數，從0到59。</td>
 	</tr>
-	<tr>
+	<tr id="getMonth()">
 		<td>getMonth()</td>
 		<td>方法</td>
 		<td>返迴用整數表示的月份，從0(1月)到11(12月)。</td>
 	</tr>
-	<tr>
+	<tr id="getSeconds()">
 		<td>getSeconds()</td>
 		<td>方法</td>
 		<td>返回秒數，從0到59。</td>
 	</tr>
-	<tr>
+	<tr id="getTime()">
 		<td>getTime()</td>
 		<td>方法</td>
 		<td>返回從GMT時間1970年1月1日0點0分0秒起經過的毫秒數，如下例：
@@ -338,7 +338,7 @@ alert(dt.getTime()); // 傳回1474694812000
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="getTimezoneOffset()">
 		<td>getTimezoneOffset()</td>
 		<td>方法</td>
 		<td>
@@ -353,22 +353,22 @@ alert("所在地時區： UTC/GMT " + (d.getTimezoneOffset()>0?"-":"+") +(d.getT
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="getUTCDate()">
 		<td>getUTCDate()</td>
 		<td>方法</td>
 		<td>根據國際時間從Date()物件傳回一個月中的某一天(1~31)</td>
 	</tr>
-	<tr>
+	<tr id="getUTCDay()">
 		<td>getUTCDay()</td>
 		<td>方法</td>
 		<td>根據國際時間從Date()物件傳回一週中的某一天(0~6)</td>
 	</tr>
-	<tr>
+	<tr id="getUTCFullYear()">
 		<td>getUTCFullYear()</td>
 		<td>方法</td>
 		<td>根據國際時間從Date()物件傳回四位數的年份</td>
 	</tr>
-	<tr>
+	<tr id="getUTCHours()">
 		<td>getUTCHours()</td>
 		<td>方法</td>
 		<td>
@@ -384,37 +384,37 @@ alert(dt.getUTCHours()); // 傳回1(反正就是(加)減掉本地的時區)
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="getUTCMilliseconds()">
 		<td>getUTCMilliseconds()</td>
 		<td>方法</td>
 		<td>根據國際時間傳回Date()物件中的毫秒(0~999)</td>
 	</tr>
-	<tr>
+	<tr id="getUTCMinutes()">
 		<td>getUTCMinutes()</td>
 		<td>方法</td>
 		<td>根據國際時間傳回Date()物件中的分鐘(0~59)</td>
 	</tr>
-	<tr>
+	<tr id="getUTCMonth()">
 		<td>getUTCMonth()</td>
 		<td>方法</td>
 		<td>根據國際時間從Date()物件傳回月份(0~11)</td>
 	</tr>
-	<tr>
+	<tr id="getUTCSeconds()">
 		<td>getUTCSeconds()</td>
 		<td>方法</td>
 		<td>根據國際時間傳回Date()物件中的秒(0~59)</td>
 	</tr>
-	<tr>
+	<tr id="getYear()">
 		<td>getYear()</td>
 		<td>方法</td>
 		<td>[棄用] 根據瀏覽器的不同返迴兩位或是四位數的年份，因此不推薦使用。</td>
 	</tr>
-	<tr>
+	<tr id="now()">
 		<td>now()</td>
 		<td>方法</td>
 		<td>Returns the number of milliseconds since midnight Jan 1, 1970</td>
 	</tr>
-	<tr>
+	<tr id="parse()">
 		<td>parse()</td>
 		<td>方法</td>
 		<td>
@@ -427,142 +427,142 @@ alert(Date.parse('2016/09/24 13:26:52'));
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="setDate()">
 		<td>setDate()</td>
 		<td>方法</td>
 		<td>設置日期從1到31。</td>
 	</tr>
-	<tr>
+	<tr id="setDay()">
 		<td>setDay()</td>
 		<td>方法</td>
 		<td>設置星期幾，從0(星期日)到6(星期六)。</td>
 	</tr>
-	<tr>
+	<tr id="setFullYear(yyyy)">
 		<td>setFullYear(yyyy)</td>
 		<td>方法</td>
 		<td>設置日期為某一年。</td>
 	</tr>
-	<tr>
+	<tr id="setHours()">
 		<td>setHours()</td>
 		<td>方法</td>
 		<td>設置小時數，從0到23(24小時制)。</td>
 	</tr>
-	<tr>
+	<tr id="setMilliseconds()">
 		<td>setMilliseconds()</td>
 		<td>方法</td>
 		<td>設置毫秒，從0到999。</td>
 	</tr>
-	<tr>
+	<tr id="setMinutes()">
 		<td>setMinutes()</td>
 		<td>方法</td>
 		<td>設置分鐘數，從0到59。</td>
 	</tr>
-	<tr>
+	<tr id="setMonth()">
 		<td>setMonth()</td>
 		<td>方法</td>
 		<td>設置用整數表示的月份，從0(1月)到11(12月)。</td>
 	</tr>
-	<tr>
+	<tr id="setSeconds()">
 		<td>setSeconds()</td>
 		<td>方法</td>
 		<td>設置秒數，從0到59。</td>
 	</tr>
-	<tr>
+	<tr id="setTime()">
 		<td>setTime()</td>
 		<td>方法</td>
 		<td>設置從GMT時間1970年1月1日0點0分0秒起經過的毫秒數，可以為負值。</td>
 	</tr>
-	<tr>
+	<tr id="setUTCDate()">
 		<td>setUTCDate()</td>
 		<td>方法</td>
 		<td>Sets the day of the month of a date object, according to universal time</td>
 	</tr>
-	<tr>
+	<tr id="setUTCFullYear()">
 		<td>setUTCFullYear()</td>
 		<td>方法</td>
 		<td>Sets the year of a date object, according to universal time</td>
 	</tr>
-	<tr>
+	<tr id="setUTCHours()">
 		<td>setUTCHours()</td>
 		<td>方法</td>
 		<td>Sets the hour of a date object, according to universal time</td>
 	</tr>
-	<tr>
+	<tr id="setUTCMilliseconds()">
 		<td>setUTCMilliseconds()</td>
 		<td>方法</td>
 		<td>Sets the milliseconds of a date object, according to universal time</td>
 	</tr>
-	<tr>
+	<tr id="setUTCMinutes()">
 		<td>setUTCMinutes()</td>
 		<td>方法</td>
 		<td>Set the minutes of a date object, according to universal time</td>
 	</tr>
-	<tr>
+	<tr id="setUTCMonth()">
 		<td>setUTCMonth()</td>
 		<td>方法</td>
 		<td>Sets the month of a date object, according to universal time</td>
 	</tr>
-	<tr>
+	<tr id="setUTCSeconds()">
 		<td>setUTCSeconds()</td>
 		<td>方法</td>
 		<td>Set the seconds of a date object, according to universal time</td>
 	</tr>
-	<tr>
+	<tr id="setYear()">
 		<td>setYear()</td>
 		<td>方法</td>
 		<td>[棄用] 設置日期為某一年，可以接受四位或者兩位參數，如果為兩位則表示1900~1999年之間的年份，不推薦使用。</td>
 	</tr>
-	<tr>
+	<tr id="toDateString()">
 		<td>toDateString()</td>
 		<td>方法</td>
 		<td>Converts the date portion of a Date object into a readable string</td>
 	</tr>
-	<tr>
+	<tr id="toGMTString()">
 		<td>toGMTString()</td>
 		<td>方法</td>
 		<td>[棄用] Use the toUTCString() method instead</td>
 	</tr>
-	<tr>
+	<tr id="toISOString()">
 		<td>toISOString()</td>
 		<td>方法</td>
 		<td>Returns the date as a string, using the ISO standard</td>
 	</tr>
-	<tr>
+	<tr id="toJSON()">
 		<td>toJSON()</td>
 		<td>方法</td>
 		<td>Returns the date as a string, formatted as a JSON date</td>
 	</tr>
-	<tr>
+	<tr id="toLocaleDateString()">
 		<td>toLocaleDateString()</td>
 		<td>方法</td>
 		<td>	Returns the date portion of a Date object as a string, using locale conventions</td>
 	</tr>
-	<tr>
+	<tr id="toLocaleTimeString()">
 		<td>toLocaleTimeString()</td>
 		<td>方法</td>
 		<td>Returns the time portion of a Date object as a string, using locale conventions</td>
 	</tr>
-	<tr>
+	<tr id="toLocaleString()">
 		<td>toLocaleString()</td>
 		<td>方法</td>
 		<td>Converts a Date object to a string, using locale conventions</td>
 	</tr>
-	<tr>
+	<tr id="toString()">
 		<td>toString()</td>
 		<td>方法</td>
 		<td>Converts a Date object to a string</td>
 	</tr>
-	<tr>
+	<tr id="toTimeString()">
 		<td>toTimeString()</td>
 		<td>方法</td>
 		<td>Converts the time portion of a Date object to a string</td>
 	</tr>
-	<tr>
+	<tr id="toUTCString()">
 		<td>toUTCString()</td>
 		<td>方法</td>
 		<td>Converts a Date object to a string, according to universal time</td>
 	</tr>
-	<tr>
+	<tr id="UTC()">
 		<td>UTC()</td>
 		<td>方法</td>
 		<td>
@@ -573,7 +573,7 @@ document.write(d);
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="valueOf()">
 		<td>valueOf()</td>
 		<td>方法</td>
 		<td>Returns the primitive value of a Date object</td>

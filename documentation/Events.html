@@ -24,7 +24,7 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="Event">
 		<td>Event</td>
 		<td>物件</td>
 		<td>Javascript裡事件被當作物件來處理，標準DOM中規定event物件必需作為唯一的參數指定給事件處理函數，而在IE中必需以新增變數的方式建立一個事件物件，語法如下：
@@ -64,7 +64,7 @@ $testImg.onmouseout = eFunction;
 		<div class="red">***還有一件事，嗯…我也不太會講…就是許多的事件屬性，如keypress加上on變成onkeypress就可以直接和函數使用，如window.onkeypress=function();，就和許多其它事件屬性一樣，如onblur、onerror、onload、onresize，這件事我也不太知道要怎麼形容…把什麼都加上on看看，因為每個物件支援的情形不同…，總之就多試試囉***</div>
 		</td>
 	</tr>
-	<tr>
+	<tr id="altKey">
 		<td>altKey</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：yes, R/W<br>
@@ -75,12 +75,12 @@ $testImg.onmouseout = eFunction;
 			範例：
 		</td>
 	</tr>
-	<tr>
+	<tr id="bubbles">
 		<td>bubbles</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="button">
 		<td>button</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：yes, R/W<br>
@@ -114,7 +114,7 @@ window.onload = function(){
 			　7：同時按下左、中、右鍵<br>
 		</td>
 	</tr>
-	<tr>
+	<tr id="cancelBubble">
 		<td>cancelBubble</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：yes, R<br>
@@ -140,12 +140,12 @@ document.getElementsByTagName('div')[0].onclick = function(e){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="cancelable">
 		<td>cancelable</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="charCode">
 		<td>charCode</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：yes, R<br>
@@ -169,7 +169,7 @@ document.onkeypress=function(e){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="ctrlKey">
 		<td>ctrlKey</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：yes, R<br>
@@ -180,12 +180,12 @@ document.onkeypress=function(e){
 			範例：
 		</td>
 	</tr>
-	<tr>
+	<tr id="currentTarget">
 		<td>currentTarget</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="detail">
 		<td>detail</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：yes, R<br>
@@ -195,12 +195,12 @@ document.onkeypress=function(e){
 			範例：
 		</td>
 	</tr>
-	<tr>
+	<tr id="eventPhase">
 		<td>eventPhase</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="fromeElement">
 		<td>fromeElement</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：no<br>
@@ -210,7 +210,7 @@ document.onkeypress=function(e){
 			範例：
 		</td>
 	</tr>
-	<tr>
+	<tr id="isChar">
 		<td>isChar</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：<br>
@@ -221,7 +221,7 @@ document.onkeypress=function(e){
 			範例：
 		</td>
 	</tr>
-	<tr>
+	<tr id="keyCode">
 		<td>keyCode</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：yes, R/W<br>
@@ -276,7 +276,7 @@ window.onload = function(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="metaKey">
 		<td>metaKey</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：<br>
@@ -287,7 +287,7 @@ window.onload = function(){
 			範例：
 		</td>
 	</tr>
-	<tr>
+	<tr id="relatedTarget">
 		<td>relatedTarget</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：yes, R<br>
@@ -297,7 +297,7 @@ window.onload = function(){
 			範例：
 		</td>
 	</tr>
-	<tr>
+	<tr id="returnValue">
 		<td>returnValue</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：no<br>
@@ -308,7 +308,7 @@ window.onload = function(){
 			範例：
 		</td>
 	</tr>
-	<tr>
+	<tr id="shiftKey">
 		<td>shiftKey</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：yes, R<br>
@@ -319,7 +319,7 @@ window.onload = function(){
 			範例：
 		</td>
 	</tr>
-	<tr>
+	<tr id="srcElement">
 		<td>srcElement</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：no<br>
@@ -344,7 +344,7 @@ window.onload = function(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="target">
 		<td>target</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：yes, R<br>
@@ -368,12 +368,12 @@ window.onload = function(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="timestamp">
 		<td>timestamp</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="toElement">
 		<td>toElement</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：no<br>
@@ -383,7 +383,7 @@ window.onload = function(){
 			範例：
 		</td>
 	</tr>
-	<tr>
+	<tr id="type">
 		<td>type</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：yes, R<br>
@@ -403,7 +403,7 @@ document.ondblclick = eventTypeTest;
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="which">
 		<td>which</td>
 		<td>屬性</td>
 		<td>標準DOM支援度：<br>
@@ -414,7 +414,7 @@ document.ondblclick = eventTypeTest;
 			範例：
 		</td>
 	</tr>
-	<tr>
+	<tr id="clientX">
 		<td>clientX</td>
 		<td>屬性(滑鼠座標)</td>
 		<td>事件屬性；當指定的事件發時，以整數傳回滑鼠在瀏覽器視窗內可視範圍的水平座標位置(viewport)，不包括工具列、捲軸等。<br>
@@ -430,7 +430,7 @@ document.ondblclick = eventTypeTest;
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="clientY">
 		<td>clientY</td>
 		<td>屬性(滑鼠座標)</td>
 		<td>事件屬性；當指定的事件發時，以整數傳回滑鼠在瀏覽器視窗內可視範圍的垂直座標位置(viewport)，不包括工具列、捲軸等。<br>
@@ -446,45 +446,45 @@ document.ondblclick = eventTypeTest;
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="layerX">
 		<td>layerX</td>
 		<td>屬性(滑鼠座標)</td>
 		<td>
 			Returns the mouse coordinates relative to a positioned (absolute or relative) element at the time of the event. If the event occurred outside a positioned element, than the upper left corner of the document is used instead. IE uses the properties offsetX and offsetY instead.
 		</td>
 	</tr>
-	<tr>
+	<tr id="layerY">
 		<td>layerY</td>
 		<td>屬性(滑鼠座標)</td>
 		<td>
 			Returns the mouse coordinates relative to a positioned (absolute or relative) element at the time of the event. If the event occurred outside a positioned element, than the upper left corner of the document is used instead. IE uses the properties offsetX and offsetY instead.
 		</td>
 	</tr>
-	<tr>
+	<tr id="offsetX">
 		<td>offsetX</td>
 		<td>屬性(滑鼠座標)</td>
 		<td>
 			Returns the mouse coordinates relative to a positioned (absolute or relative) element. If the event occurred outside a positioned element, than the upper left corner of the document is used instead. w3c standard uses layerX, layerY instead.
 		</td>
 	</tr>
-	<tr>
+	<tr id="offsetY">
 		<td>offsetY</td>
 		<td>屬性(滑鼠座標)</td>
 		<td>
 			Returns the mouse coordinates relative to a positioned (absolute or relative) element. If the event occurred outside a positioned element, than the upper left corner of the document is used instead. w3c standard uses layerX, layerY instead.
 		</td>
 	</tr>
-	<tr>
+	<tr id="pageX">
 		<td>pageX</td>
 		<td>屬性(滑鼠座標)</td>
 		<td>Returns the left and top coordinates of event relative to the top left corner of the visible page. pageY would return the same value as "window.pageYOffset+e.clientY", for example.</td>
 	</tr>
-	<tr>
+	<tr id="pageY">
 		<td>pageY</td>
 		<td>屬性(滑鼠座標)</td>
 		<td>Returns the left and top coordinates of event relative to the top left corner of the visible page. pageY would return the same value as "window.pageYOffset+e.clientY", for example.</td>
 	</tr>
-	<tr>
+	<tr id="screenX">
 		<td>screenX</td>
 		<td>屬性(滑鼠座標)</td>
 		<td>當指定的事件發時，以整數傳回滑鼠在整個電腦螢幕的水平座標值。<br>
@@ -500,7 +500,7 @@ document.ondblclick = eventTypeTest;
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="screenY">
 		<td>screenY</td>
 		<td>屬性(滑鼠座標)</td>
 		<td>當指定的事件發時，以整數傳回滑鼠在整個電腦螢幕的垂直座標值。<br>
@@ -516,22 +516,22 @@ document.ondblclick = eventTypeTest;
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="x">
 		<td>x</td>
 		<td>屬性(滑鼠座標)</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="x">
 		<td>x</td>
 		<td>屬性(滑鼠座標)</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="click">
 		<td>click</td>
 		<td>屬性(滑鼠)</td>
 		<td>按一下滑鼠左鍵時觸發。</td>
 	</tr>
-	<tr>
+	<tr id="dblclick">
 		<td>dblclick</td>
 		<td>屬性(滑鼠)</td>
 		<td>按兩下滑鼠左鍵時觸發。<br>
@@ -539,31 +539,31 @@ document.ondblclick = eventTypeTest;
 			如果程式設計時需要涉及按兩下事件，應當盡量避免使用它的觸發過程，原因就在於瀏覽器相容性不同。
 		</td>
 	</tr>
-	<tr>
+	<tr id="mousedown">
 		<td>mousedown</td>
 		<td>屬性(滑鼠)</td>
 		<td>按一下任意一個滑鼠按鍵時觸發。</td>
 	</tr>
-	<tr>
+	<tr id="mouseout">
 		<td>mouseout</td>
 		<td>屬性(滑鼠)</td>
 		<td>滑鼠指標在某個元素上，移出該元素邊界時觸發。</td>
 	</tr>
-	<tr>
+	<tr id="mouseover">
 		<td>mouseover</td>
 		<td>屬性(滑鼠)</td>
 		<td>滑鼠指標移到另一個素上時觸發。</td>
 	</tr>
-	<tr>
+	<tr id="mouseup">
 		<td>mouseup</td>
 		<td>屬性(滑鼠)</td>
 		<td>鬆開滑鼠任一個按鍵時觸發。</td>
 	</tr>
-	<tr>
+	<tr id="mousemove">
 		<td>mousemove</td>
 		<td>屬性(滑鼠)</td>
 		<td>滑鼠指標在某個元素上移動時持續觸發。</td>
-	</tr><tr>
+	</tr><t id="keydown"r>
 		<td>keydown</td>
 		<td>屬性(鍵盤)</td>
 		<td>按下鍵盤上某個按鍵時觸發，一值按住某鍵則會持續觸發，如下例：
@@ -582,7 +582,7 @@ window.onload = function(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="keypress">
 		<td>keypress</td>
 		<td>屬性(鍵盤)</td>
 		<td>按下某個按鍵並產生字元時觸發，即忽略Shift、Alt、Ctrl等功能鍵，如下例：
@@ -601,7 +601,7 @@ window.onload = function(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="keyup">
 		<td>keyup</td>
 		<td>屬性(鍵盤)</td>
 		<td>釋放某個鍵時觸發，如下例：
@@ -619,27 +619,27 @@ window.onload = function(){
 }
 </pre>
 		</td>
-	</tr><tr>
+	</tr><t id="blur"r>
 		<td>blur</td>
 		<td>屬性(dom元素)</td>
 		<td>任何元素或視窗失去焦點時觸發。</td>
 	</tr>
-	<tr>
+	<tr id="change">
 		<td>change</td>
 		<td>屬性(dom元素)</td>
 		<td>文字方塊失焦點時，並且在它擷取焦點後內容發生過改變時觸發。</td>
 	</tr>
-	<tr>
+	<tr id="error">
 		<td>error</td>
 		<td>屬性(dom元素)</td>
 		<td>腳本出錯時在window物件上觸發，圖像無法載入時在其上觸發。</td>
 	</tr>
-	<tr>
+	<tr id="focus">
 		<td>focus</td>
 		<td>屬性(dom元素)</td>
 		<td>任何元素或視窗擷取焦點時觸發。</td>
 	</tr>
-	<tr>
+	<tr id="load">
 		<td>load</td>
 		<td>屬性(dom元素)</td>
 		<td>頁面完全載入後在window物件上觸發，圖片載入完成後在其上觸發。載入事件是最常用的html事件之一，因為在頁面載入完成之前，DOM的框架還沒有搭建完畢，因此任何相關操作都不能發生。給window物件分配load、unload事件等同於&lt;body&gt;標籤的onload、onunload方法。<br>
@@ -661,21 +661,21 @@ window.onload = function(){
 			範例2在IE瀏覽器中運作正常，但非IE中完全沒反應，所以可能標準DOM中不是什麼都可以onload的，至於要達成這個範例應該是要用onreadystatechange事件來處理，但目前還不是很清楚做法…。
 		</td>
 	</tr>
-	<tr>
+	<tr id="select">
 		<td>select</td>
 		<td>屬性(dom元素)</td>
 		<td>選擇了文字方塊的一個或多個字元時觸發。</td>
 	</tr>
-	<tr>
+	<tr id="submit">
 		<td>submit</td>
 		<td>屬性(dom元素)</td>
 		<td>按一下"提交"按鈕時在表單form上觸發。</td>
 	</tr>
-	<tr>
+	<tr id="unload">
 		<td>unload</td>
 		<td>屬性(dom元素)</td>
 		<td>頁面完全卸載後在window物件上觸發，圖片卸載完成後在其上觸發。</td>
-	</tr><tr>
+	</tr><t id="preventDefault()"r>
 		<td>preventDefault()</td>
 		<td>方法</td>
 		<td>標準DOM支援度：yes<br>
@@ -699,7 +699,7 @@ myLink.onclick = function(e){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="stopPropagation()">
 		<td>stopPropagation()</td>
 		<td>方法</td>
 		<td>標準DOM支援度：yes<br>

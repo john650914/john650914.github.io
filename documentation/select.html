@@ -24,26 +24,26 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="select">
 		<td>select</td>
 		<td>物件</td>
 		<td>Javascript中的select物件代表HTML中的&lt;select&gt;標籤，以下拉選單的方式呈現，它是表單元素中比較特殊的一個類別，透過&lt;option&gt;來設置所有列表項。當它是單選時功能相當於&lt;radio&gt;元素，而當它是多選時(&lt;select multiple="multiple"&gt;)功能相當於&lt;checkbox&gt;元素，但是所佔用的頁面面積卻小很多。<br>
 			option物件詳細說明請見option目錄。
 		</td>
 	</tr>
-	<tr>
+	<tr id="disabled">
 		<td>disabled</td>
 		<td>屬性</td>
 		<td>Boolean value that sets/ returns whether this SELECT element is disabled.</td>
 	</tr>
-	<tr>
+	<tr id="form">
 		<td>form</td>
 		<td>屬性</td>
 		<td>指向表單元素所在的&lt;form&gt;<br>
 			References the form that contains the selection list in question.
 		</td>
 	</tr>
-	<tr>
+	<tr id="length">
 		<td>length</td>
 		<td>屬性</td>
 		<td>表示&lt;option&gt;選項的個數。<br>
@@ -53,26 +53,26 @@ document.getElementById("mymenu").length //returns number of options
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="multiple">
 		<td>multiple</td>
 		<td>屬性</td>
 		<td>Boolean that indicates whether this SELECT allows more than one option to be selected simultaneously.</td>
 	</tr>
-	<tr>
+	<tr id="name">
 		<td>name</td>
 		<td>屬性</td>
 		<td>讀取/設定表單元素name屬性的值<br>
 			Sets or returns the value of the name attribute of a form element.
 		</td>
 	</tr>
-	<tr>
+	<tr id="options[]">
 		<td>options[]</td>
 		<td>屬性</td>
 		<td>擷取選項的陣列，例如select01.options[2]表示該下拉式功能表中的第3個option項目。
 			An HTMLCollection of Options objects containing each option within this SELECT element.
 		</td>
 	</tr>
-	<tr>
+	<tr id="selectedIndex">
 		<td>selectedIndex</td>
 		<td>屬性</td>
 		<td>被選中的選項序號，如果沒有選項被選中則為-1。對於多選下拉式功能表而言，返回被選中的第一個選項序號。從0開始計數。<br>
@@ -120,12 +120,12 @@ function alertselected(selectobj){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="size">
 		<td>size</td>
 		<td>屬性</td>
 		<td>An integer reflecting the number of OPTIONs being displayed at once within this SELECT element.</td>
 	</tr>
-	<tr>
+	<tr id="type">
 		<td>type</td>
 		<td>屬性</td>
 		<td>設定/讀取表單元素type屬性的值；IE8(含)以下的瀏覽器只能讀取，不支援設定屬性的功能。<br>
@@ -161,12 +161,12 @@ for(var i=0; i&lt;myform.elements.length; i++){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="onBlur">
 		<td>onBlur</td>
 		<td>事件屬性</td>
 		<td>Code is fired whenever the focus is removed from the SELECT element.</td>
 	</tr>
-	<tr>
+	<tr id="onChange">
 		<td>onChange</td>
 		<td>事件屬性</td>
 		<td>Code is fired whenever an OPTION within SELECT changes, through the user selecting another option. This event handler is commonly used to create a SELECT element that reacts as soon as the user has selected an option manually. Here's a SELECT menu that navigates to a particular site upon user selection:<br>
@@ -194,12 +194,12 @@ selectmenu.onchange=function(){ //run some code when "onchange" event fires
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="onFocus">
 		<td>onFocus</td>
 		<td>事件屬性</td>
 		<td>Code is fired whenever the focus is set on the SELECT element.</td>
 	</tr>
-	<tr>
+	<tr id="add()(newoption, beforeoption*)">
 		<td>add()(newoption, beforeoption*)</td>
 		<td>方法</td>
 		<td>Dynamically adds a new OPTION to the SELECT element, where:
@@ -249,7 +249,7 @@ Note1: beforeoption should be an object reference to an option except in IE, whe
 Note2: An alternate, arguably simpler way of adding a new option to the SELECT element is simply to assign new Option() to one of the options within select.options[]. See Option object below for more info.<br>
 		</td>
 	</tr>
-	<tr>
+	<tr id="remove(optionindex)">
 		<td>remove(optionindex)</td>
 		<td>方法</td>
 		<td>Removes an existing option within SELECT at the specified position, where 0=1st option, 1=2nd option etc, for example:
@@ -260,14 +260,14 @@ myselect.remove(myselect.length-1) //removes last option within SELECT
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="blur()">
 		<td>blur()</td>
 		<td>方法</td>
 		<td>使焦點離開某個元素<br>
 			Removes focus away from the selection list.
 		</td>
 	</tr>
-	<tr>
+	<tr id="focus()">
 		<td>focus()</td>
 		<td>方法</td>
 		<td>聚焦到某個元素上<br>
