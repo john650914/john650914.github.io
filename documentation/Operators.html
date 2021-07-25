@@ -618,7 +618,8 @@ window.onload = function(){
 		<tr id="throw">
 			<td>throw</td>
 			<td>特殊運算子</td>
-			<td>JavaScript中的異常可以用try..catch..finally語句來處理，也可以手動的來拋出異常；手動異常拋出的語句是throw，其基本語法格式為：
+			<td>
+				JavaScript中的異常可以用try..catch..finally語句來處理，也可以手動的來拋出異常；手動異常拋出的語句是throw，其基本語法格式為：
 <pre>
 throw expression;
 </pre>
@@ -628,6 +629,17 @@ throw "Error2";
 throw 42;
 throw true;
 throw {toString: function(){return "I'm an object!";}};
+</pre>
+				這個功能好像有點危險，使用後發現throw在console.log拋出異常後，接下來的script就不執行了，要找時間來研究仔細一點：
+<pre>
+var aaa = a => {
+	if(!a){
+		throw new Error('a is required');
+	}
+	alert(a);
+}
+aaa(); //a is required
+alert('後面都不執行了');
 </pre>
 			</td>
 		</tr>
