@@ -96,6 +96,7 @@ selector{
 
 
 ################################## 多重背景 multi background ##################################
+//先設定的背景會疊在後設定的背景之上
 .container{
 	padding: 20px 0;
 	background-image: url(top.png), url(middle.png), url(bottom.png);
@@ -428,7 +429,8 @@ var slide = tns({
 	autoplayButtonOutput: false,
 	items: 1,
 	center: true,
-	nav: true,
+	controls: true,
+	nav: true, //點點點
 	slideBy: 'page',
 	fixedWidth: 400,
 	autoWidth: true,
@@ -437,15 +439,14 @@ var slide = tns({
 	axis: 'vertical',
 	speed: 200,
 	lazyload: true,
-	mouseDrag: true,
 	mouseDrag: false,
 	responsive: {
-		{
-			'350': items: 2,
-			'controls', true,
+		350: {
+			items: 2,
+			controls: true,
 		},
-		{'500': items: 3}
-	}
+		500: {items: 3}
+	},
 	prevButton: '.slide-prev',
 	nextButton: '.slide-next',
 	navContainer: '.slide-dots'
