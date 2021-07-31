@@ -24,7 +24,7 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="option">
 		<td>option</td>
 		<td>物件</td>
 		<td>在Javascript中Option物件代表&lt;select&gt;元素中的單一&lt;option&gt;選項，我們可以對它進行新增、刪除、替換等一系列操作，尤其是與資料庫鎖定的下拉式功能表。下列為動態新增選項的語法，這樣的建構函數可以直接新增value、text等資訊：
@@ -89,22 +89,22 @@ document.myform.master.options.length=0;
 			補充說明：It serves as an alternate method of adding/removing options to select.add() and select.remove(), with the main benefit being it works in all browsers out of the box, including in very old, non DOM2 legacy browsers.
 		</td>
 	</tr>
-	<tr>
+	<tr id="defaultSelected">
 		<td>defaultSelected</td>
 		<td>屬性</td>
 		<td>A Boolean specifying whether this option is initially selected.</td>
 	</tr>
-	<tr>
+	<tr id="form">
 		<td>form</td>
 		<td>屬性</td>
 		<td>指向表單元素所在的&lt;form&gt;</td>
 	</tr>
-	<tr>
+	<tr id="index">
 		<td>index</td>
 		<td>屬性</td>
 		<td>Returns the index of this option within the select.options[] property.</td>
 	</tr>
-	<tr>
+	<tr id="selected">
 		<td>selected</td>
 		<td>屬性</td>
 		<td>布林值，表示選項&lt;option&gt;是否被選中。<br>
@@ -153,13 +153,13 @@ for (var i=0; i&lt;myselect.options.length; i++){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="text">
 		<td>text</td>
 		<td>屬性</td>
 		<td>選項的文字。<br>
 			Specifies the text for the option.</td>
 	</tr>
-	<tr>
+	<tr id="value">
 		<td>value</td>
 		<td>屬性</td>
 		<td>存/取表單元素value屬性的值<br>

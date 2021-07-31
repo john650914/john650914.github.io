@@ -24,7 +24,7 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="Array">
 		<td>Array</td>
 		<td>物件</td>
 		<td>
@@ -178,7 +178,7 @@ if (test.constructor==String){alert("This is a String");}
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="length">
 		<td>length</td>
 		<td>屬性</td>
 		<td>
@@ -231,7 +231,7 @@ alert(bill.salary);
 			…範例也是有看沒有懂…
 		</td>
 	</tr>
-	<tr>
+	<tr id="concat()">
 		<td>concat()</td>
 		<td>方法</td>
 		<td>
@@ -248,7 +248,7 @@ alert(a2); //返回1,2,3,a,b,c
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="every()">
 		<td>every()</td>
 		<td>方法</td>
 		<td>
@@ -262,7 +262,7 @@ alert(a2.every(isNumber)); //傳回false
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="filter()">
 		<td>filter()</td>
 		<td>方法</td>
 		<td>
@@ -276,7 +276,7 @@ alert(a2); //傳回10,20,30
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="fill()">
 		<td>fill()</td>
 		<td>方法</td>
 		<td>
@@ -295,7 +295,7 @@ arrayObj.fill(value [ , start [ , end ] ]);
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="forEach()">
 		<td>forEach()</td>
 		<td>方法</td>
 		<td>
@@ -347,7 +347,7 @@ o.forEach(function(v, k, self){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="from()">
 		<td>from()</td>
 		<td>方法</td>
 		<td>
@@ -365,7 +365,7 @@ dedupe([1,1,2,3]) // [1, 2, 3]
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="indexOf()">
 		<td>indexOf()</td>
 		<td>方法</td>
 		<td>
@@ -382,7 +382,7 @@ alert(myArray.indexOf('z')); //返回-1，因爲找不到
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="join()">
 		<td>join()</td>
 		<td>方法</td>
 		<td>以指定的分隔字元將陣列連結成字串；不輸入參數的話就與toString()相同以逗號隔開，如下例：
@@ -395,7 +395,7 @@ alert(colors.join('-NEXT-')); //red-NEXT-green-NEXT-blue
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="lastIndexOf()">
 		<td>lastIndexOf()</td>
 		<td>方法</td>
 		<td>
@@ -408,7 +408,7 @@ alert(a.lastIndexOf('z')); //返回-1
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="map()">
 		<td>map()</td>
 		<td>方法</td>
 		<td>
@@ -454,7 +454,7 @@ console.log(doubledarray); // 傳回[-6, 10, 68, 38]
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="pop()">
 		<td>pop()</td>
 		<td>方法</td>
 		<td>
@@ -472,7 +472,7 @@ alert(lastElement); //返回Mary
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="push()">
 		<td>push()</td>
 		<td>方法</td>
 		<td>
@@ -490,17 +490,17 @@ alert(colors.toString()); //返回red,green,blue,brown
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="reduce()">
 		<td>reduce()</td>
 		<td>方法</td>
 		<td>Reduce the values of an array to a single value (going left-to-right)</td>
 	</tr>
-	<tr>
+	<tr id="reduceRight()">
 		<td>reduceRight()</td>
 		<td>方法</td>
 		<td>Reduce the values of an array to a single value (going right-to-left)</td>
 	</tr>
-	<tr>
+	<tr id="reverse()">
 		<td>reverse()</td>
 		<td>方法</td>
 		<td>
@@ -515,7 +515,7 @@ alert(myString.split("").reverse().join(",")); //返回GFEDCBA
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="shift()">
 		<td>shift()</td>
 		<td>方法</td>
 		<td>
@@ -528,7 +528,7 @@ alert(first); //返回1
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="slice()">
 		<td>slice()</td>
 		<td>方法</td>
 		<td>
@@ -547,7 +547,7 @@ alert(a1); //返回a,b,c,d,e
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="some()">
 		<td>some()</td>
 		<td>方法</td>
 		<td>
@@ -563,7 +563,7 @@ alert(a3.some(isNumber)); //傳回false
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="sort()">
 		<td>sort()</td>
 		<td>方法</td>
 		<td>
@@ -626,7 +626,7 @@ console.log(myAry);
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="splice()">
 		<td>splice()</td>
 		<td>方法</td>
 		<td>
@@ -655,7 +655,7 @@ alert(a); //返回a,f,g,h,i,e
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="toString()">
 		<td>toString()</td>
 		<td>方法</td>
 		<td>
@@ -666,7 +666,7 @@ alert(areas.toString()); 返回China,USA,UK
 </pre>
 			如果不希望用逗號來進行轉換的連接，請改用join()方法。</td>
 	</tr>
-	<tr>
+	<tr id="unshift()">
 		<td>unshift()</td>
 		<td>方法</td>
 		<td>

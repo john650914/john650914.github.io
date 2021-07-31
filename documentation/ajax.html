@@ -34,7 +34,7 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="XMLHTTP">
 		<td>XMLHTTP</td>
 		<td>物件</td>
 		<td>Ajax物件，在Web中非同步請求就是靠此物件來實現，XMLHTTP為IE特有(版本待補)，非IE瀏覽器則使用XMLHttpRequest物件進行非同步請求。<br><br>
@@ -50,7 +50,7 @@ if(window.ActiveXObject){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="XMLHttpRequest">
 		<td>XMLHttpRequest</td>
 		<td>物件</td>
 		<td>Ajax物件，在Web中非同步請求就是靠此物件來實現，IE不支援XMLHttpRequest(版本待補)，IE瀏覽器則使用XMLHTTP物件進行非同步請求。<br><br>
@@ -71,7 +71,7 @@ if(window.ActiveXObject){
 		<td>屬性</td>
 		<td>IE8 only. Supports this property if using the new XDomainRequest() object to create the Ajax request.</td>
 	</tr>
-	<tr>
+	<tr id="readyState">
 		<td>readyState</td>
 		<td>屬性</td>
 		<td>非同步請求的狀態，返回的值為整數，<br>
@@ -90,12 +90,12 @@ if(window.ActiveXObject){
 			當readyState是3的時候，onreadystatechange會被觸發好幾次(到底是幾次?)，讓我們當資料在下載時可以做出反應，例如製作進度條，但IE(版本待補)在readyState為3時只會觸發一次。
 		</td>
 	</tr>
-	<tr>
+	<tr id="responseText">
 		<td>responseText</td>
 		<td>屬性</td>
 		<td>伺服器返回的文字(字串)</td>
 	</tr>
-	<tr>
+	<tr id="responseXML">
 		<td>responseXML</td>
 		<td>屬性</td>
 		<td>伺服器返回的XML，可以當作DOM處理<br>
@@ -142,7 +142,7 @@ mygetrequest.send(null);
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="status">
 		<td>status</td>
 		<td>屬性</td>
 		<td>伺服器返回的HTTP請求狀態，返回值為整數(<a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status codes</a>)，常用的有：<br>
@@ -173,7 +173,7 @@ myrequest.onreadystatechange=function(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="statusText">
 		<td>statusText</td>
 		<td>屬性</td>
 		<td>相對於status，statusText以字串傳回當前的請求狀態而非數值，以下列出常見的回傳值及對應的「status碼」：<br>
@@ -199,7 +199,7 @@ if(myReq.statusText == "OK"){
 		<td>屬性</td>
 		<td>IE8 only. Supports this property if using the new XDomainRequest() object to create the Ajax request.</td>
 	</tr>
-	<tr>
+	<tr id="onreadystatechange">
 		<td>onreadystatechange</td>
 		<td>事件屬性</td>
 		<td>當readyState發生任何狀態變化時被觸發，讓我們可以針對非同步請求不同的階段做反應。</td>
@@ -224,19 +224,19 @@ if(myReq.statusText == "OK"){
 		<td>事件屬性</td>
 		<td>IE8 only. Supports this property if using the new XDomainRequest() object to create the Ajax request.</td>
 	</tr>
-	<tr>
+	<tr id="abort()">
 		<td>abort()</td>
 		<td>方法</td>
 		<td>取消現階段的Ajax請求，關閉連接並結束倀何未決的網路活動，同時該請求的readyState會重設為0。<br>
 		如果我們的請求用了太長時間，並且不再需要的時候，就可以使用此方法。
 		</td>
 	</tr>
-	<tr>
+	<tr id="getAllResponseHeaders()">
 		<td>getAllResponseHeaders()</td>
 		<td>方法</td>
 		<td>擷取回應的所有http頭；我們必須在請求完成後才能呼叫此方法(依據readyState)，否則會它傳回一個空的字串。</td>
 	</tr>
-	<tr>
+	<tr id="getResponseHeader()">
 		<td>getResponseHeader()</td>
 		<td>方法</td>
 		<td>擷取指定的http頭，例如"Content-Type"的值；這些參數值是不分大小寫的，要看server端設定它們是大寫還是小寫。我們必須在請求完成後才能呼叫此方法(依據readyState)，否則會它傳回一個空的字串。<br>
@@ -261,7 +261,7 @@ myrequest.onreadystatechange = function(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="open()">
 		<td>open()</td>
 		<td>方法</td>
 		<td>在Ajax請求被發送前，設定好該請求的內容，包含資料傳送方式、請求檔案的URL等，語法及參數說明如下：
@@ -288,7 +288,7 @@ myrequest.open("GET", myhostname+"/mydir/response.php", true);
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="send()">
 		<td>send()</td>
 		<td>方法</td>
 		<td>向伺服器發送請求，send()方法只有一個參數，它表示要向伺服器發送的資料，其格式為字串型式；如果以GET方式發送請求，這個參數必須為「null」，如果是POST方式則代入請求的參數。<br>
@@ -306,7 +306,7 @@ myrequest.send(parameters); //send POST request
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="setRequestHeader()">
 		<td>setRequestHeader()</td>
 		<td>方法</td>
 		<td>設定請求的http header，這個header會隨著請求一起被送到伺服器，不要把它跟伺服器傳回的header搞混了；setRequestHeader()方法一定要在open()和send()之中被呼叫。<br>

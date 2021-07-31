@@ -24,7 +24,7 @@
 			<th>類形</th>
 			<th>說明</th>
 		</tr>
-		<tr>
+		<tr id="+">
 			<td>+</td>
 			<td>算術運算子</td>
 			<td>
@@ -45,7 +45,7 @@ var outcome = 1+a.toString(); //結果為11
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="-">
 			<td>-</td>
 			<td>算術運算子</td>
 			<td>
@@ -58,7 +58,7 @@ x-7
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="*">
 			<td>*</td>
 			<td>算術運算子</td>
 			<td>
@@ -68,7 +68,7 @@ x-7
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="/">
 			<td>/</td>
 			<td>算術運算子</td>
 			<td>
@@ -78,7 +78,7 @@ y/x
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="%">
 			<td>%</td>
 			<td>算術運算子</td>
 			<td>
@@ -103,7 +103,7 @@ odd, even, even, odd, odd, even,
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="++">
 			<td>++</td>
 			<td>算術運算子</td>
 			<td>
@@ -121,7 +121,7 @@ Result: y=2
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="--">
 			<td>--</td>
 			<td>算術運算子</td>
 			<td>
@@ -131,7 +131,7 @@ x--
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="(-)">
 			<td>(-)</td>
 			<td>算術運算子</td>
 			<td>
@@ -143,7 +143,7 @@ x remains x
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="(+)">
 			<td>(+)</td>
 			<td>算術運算子</td>
 			<td>
@@ -155,7 +155,7 @@ x remains x
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="...">
 			<td>...</td>
 			<td>展開運算子</td>
 			<td>
@@ -303,67 +303,67 @@ console.log(n) // { x: 1, y: 2, a: 3, b: 4 }
 				https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/rest_spread.html
 			</td>
 		</tr>
-		<tr>
+		<tr id="=">
 			<td>=</td>
 			<td>指派運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="+=">
 			<td>+=</td>
 			<td>指派運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="-=">
 			<td>-=</td>
 			<td>指派運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="*=">
 			<td>*=</td>
 			<td>指派運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="/=">
 			<td>/=</td>
 			<td>指派運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="%=">
 			<td>%=</td>
 			<td>指派運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="&lt;&lt;=">
 			<td>&lt;&lt;=</td>
 			<td>指派運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id=">>=">
 			<td>>>=</td>
 			<td>指派運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id=">>>=">
 			<td>>>>=</td>
 			<td>指派運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="&amp;=">
 			<td>&amp;=</td>
 			<td>指派運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="|=">
 			<td>|=</td>
 			<td>指派運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="^=">
 			<td>^=</td>
 			<td>指派運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="&amp;&amp;">
 			<td>&amp;&amp;</td>
 			<td>邏輯運算子</td>
 			<td>
@@ -377,92 +377,92 @@ true &amp;&amp; alert(123);
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="||">
 			<td>||</td>
 			<td>邏輯運算子</td>
 			<td>數筆條件中只要有一個為真時傳回true。例：alert(2&lt;7 || 12&lt;8 || 2&lt;1); 傳回true。</td>
 		</tr>
-		<tr>
+		<tr id="!">
 			<td>!</td>
 			<td>邏輯運算子</td>
 			<td>將true轉變為false，或將false轉變為true。例：alert(!false); 傳回true。</td>
 		</tr>
-		<tr>
+		<tr id="==">
 			<td>==</td>
 			<td>比較運算子</td>
 			<td>等於，傳回true或false，例：alert("apple"=="apple"); 傳回true。(註：字串也是可以比較的)</td>
 		</tr>
-		<tr>
+		<tr id="===">
 			<td>===</td>
 			<td>比較運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="!=">
 			<td>!=</td>
 			<td>比較運算子</td>
 			<td>不等於，傳回true或false，例：alert("apple"!="orange"); 傳回true。(註：字串也是可以比較的)</td>
 		</tr>
-		<tr>
+		<tr id="!==">
 			<td>!==</td>
 			<td>比較運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id=">">
 			<td>></td>
 			<td>比較運算子</td>
 			<td>大於，傳回true或false，例：alert(100&gt;5); 傳回true。(註：字串也是可以比較的)</td>
 		</tr>
-		<tr>
+		<tr id=">=">
 			<td>>=</td>
 			<td>比較運算子</td>
 			<td>大於等於，不可寫成=&gt;，傳回true或false，例：alert(7&gt;=2); 傳回true。(註：字串也是可以比較的)</td>
 		</tr>
-		<tr>
+		<tr id="&lt;">
 			<td>&lt;</td>
 			<td>比較運算子</td>
 			<td>小於，傳回true或false，例：alert(100&lt;5); 傳回true。(註：字串也是可以比較的)</td>
 		</tr>
-		<tr>
+		<tr id="&lt;=">
 			<td>&lt;=</td>
 			<td>比較運算子</td>
 			<td>小於等於，不可寫成=&lt;，傳回true或false，例：alert(2&gt;=7); 傳回true。(註：字串也是可以比較的)</td>
 		</tr>
-		<tr>
+		<tr id="&amp;">
 			<td>&amp;</td>
 			<td>位元運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="|">
 			<td>|</td>
 			<td>位元運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="^">
 			<td>^</td>
 			<td>位元運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="~">
 			<td>~</td>
 			<td>位元運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="&lt;&lt;">
 			<td>&lt;&lt;</td>
 			<td>位元運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id=">>">
 			<td>>></td>
 			<td>位元運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id=">>>">
 			<td>>>></td>
 			<td>位元運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id=",">
 			<td>,</td>
 			<td>特殊運算子</td>
 			<td>逗號運算子 (,) 簡單的對他的兩個運算元求值，並返回第二個運算元的值。這個運算子主要用在 for 迴圈內部，使多個變數可在每一次的循環中更新。
@@ -473,7 +473,7 @@ for (var i=0, y=0; i&lt;5; i++, y+=2){
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="()?:">
 			<td>()?:</td>
 			<td>特殊運算子</td>
 			<td>
@@ -489,7 +489,7 @@ alert(isIE);
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="delete">
 			<td>delete</td>
 			<td>特殊運算子</td>
 			<td>delete 運算子可刪除物件、沒有使用var語法的變數、物件的屬性、陣列中指定索引的元素，如果操作成功的話delete運算子返回true；如果操作失敗，就返回false；見下範例：
@@ -508,7 +508,7 @@ delete y //returns true, since y is an undeclared variable
 </pre>
 				註：並非所有特性都可被delete刪除，有些內建特性可能無法被刪除，例如在瀏覽器中的一些特性。</td>
 		</tr>
-		<tr>
+		<tr id="in">
 			<td>in</td>
 			<td>特殊運算子</td>
 			<td>如果指定的屬性存在於指定的物件中，或指定的索引值存在於指定的陣列中，in運算子返回true。語法為︰<br>
@@ -537,7 +537,7 @@ mycar = {make:"Honda",model:"Accord",year:1998}
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="instanceof">
 			<td>instanceof</td>
 			<td>特殊運算子</td>
 			<td>如果指定的物件屬於指定的物件類型，instanceof運算子返回true。語法為︰
@@ -555,7 +555,7 @@ if(theDay instanceof Date){
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="new">
 			<td>new</td>
 			<td>特殊運算子</td>
 			<td>我們可以使用new運算子來建立使用者定義的物件類型的實體，或建立預先定義的物件類型，如Array、Boolean、Date、Function、Image、Number、Object、Option、RegExp、String 其中之一；它的語法如下︰
@@ -575,17 +575,17 @@ var bigtriangle=new triangle(200, 150); //create new instance of triangle object
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="new">
 			<td>new</td>
 			<td>特殊運算子</td>
 			<td></td>
 		</tr>
-		<tr>
+		<tr id="this">
 			<td>this</td>
 			<td>特殊運算子</td>
 			<td>this其實可以當作是一個物件，它是指當時正在使用中的物件。</td>
 		</tr>
-		<tr>
+		<tr id="try-catch-finally">
 			<td>try-catch-finally</td>
 			<td>特殊運算子</td>
 			<td>try catch finally是javascript語言提供的異常處理機制，我們可以使用try關鍵字來偵測程式中是否有發生錯誤，也可以說它捕捉一個需要測試的程式區塊是否有例外拋出，例如呼叫未定義的變數，不存在的Javascript方法等，但要注意的是，這些錯誤不包含語法錯誤，像是字串結尾忘記加引號等；如果有發生錯誤可以再使用catch來撰寫處理方式，一個try區塊可以包含零個或以上的catch關鍵字，其實，catch語句和finally語句都可以省略的，但是二者至少要保留其中之一和try語句結合使用。
@@ -615,10 +615,11 @@ window.onload = function(){
 				&nbsp;&nbsp;6.URIError：URI處理函數使用不當
 			</td>
 		</tr>
-		<tr>
+		<tr id="throw">
 			<td>throw</td>
 			<td>特殊運算子</td>
-			<td>JavaScript中的異常可以用try..catch..finally語句來處理，也可以手動的來拋出異常；手動異常拋出的語句是throw，其基本語法格式為：
+			<td>
+				JavaScript中的異常可以用try..catch..finally語句來處理，也可以手動的來拋出異常；手動異常拋出的語句是throw，其基本語法格式為：
 <pre>
 throw expression;
 </pre>
@@ -629,9 +630,20 @@ throw 42;
 throw true;
 throw {toString: function(){return "I'm an object!";}};
 </pre>
+				這個功能好像有點危險，使用後發現throw在console.log拋出異常後，接下來的script就不執行了，要找時間來研究仔細一點：
+<pre>
+var aaa = a => {
+	if(!a){
+		throw new Error('a is required');
+	}
+	alert(a);
+}
+aaa(); //a is required
+alert('後面都不執行了');
+</pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="typeof">
 			<td>typeof</td>
 			<td>特殊運算子</td>
 			<td>返回一個字串，指出資料、變數或運算式的資料類型。語法如下：
@@ -694,7 +706,7 @@ typeof String 返回的是 function
 </pre>
 			</td>
 		</tr>
-		<tr>
+		<tr id="void">
 			<td>void</td>
 			<td>特殊運算子</td>
 			<td>語法：void(expression);

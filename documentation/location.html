@@ -24,29 +24,29 @@
 		<th>類形</th>
 		<th>說明</th>執行GET請求的URL中問號(?)後的部份。
 	</tr>
-	<tr>
+	<tr id="location">
 		<td>location</td>
 		<td>物件</td>
 		<td>location物件是window和document物件的屬性，主要作用是分析和設置頁面的URL位址。</td>
 	</tr>
-	<tr>
+	<tr id="hash">
 		<td>hash</td>
 		<td>屬性</td>
 		<td>如果URL包含書籤#，則返回該符號後的內容。<br />
 		例：#section1</td>
 	</tr>
-	<tr>
+	<tr id="host">
 		<td>host</td>
 		<td>屬性</td>
 		<td>Specifies the hostname and port (if available) of a URL. (ie: "www.mysite.com" or "www.mysite.com:563").
 		</td>
 	</tr>
-	<tr>
+	<tr id="hostname">
 		<td>hostname</td>
 		<td>屬性</td>
 		<td>Specifies the hostname portion of the URL (ie: "www.mysite.com").</td>
 	</tr>
-	<tr>
+	<tr id="href">
 		<td>href</td>
 		<td>屬性</td>
 		<td>現在載入完整的URL。<br />
@@ -56,37 +56,37 @@
 		經測試後發現location.href對各個瀏覽器的相容性很好，而且新URL會記錄到瀏覽器的瀏覽歷史中，表示可以執行回上一頁的操作。<br />
 		另外要注意的是如果location.href="...";還有其它的程式是會繼續執行的。</td>
 	</tr>
-	<tr>
+	<tr id="pathname">
 		<td>pathname</td>
 		<td>屬性</td>
 		<td>URL中主機名稱後的部份。<br />
 		例：/isaacshun/LightningOverBeijing</td>
 	</tr>
-	<tr>
+	<tr id="port">
 		<td>port</td>
 		<td>屬性</td>
 		<td>URL中請求的埠號。<br />
 		例：8021</td>
 	</tr>
-	<tr>
+	<tr id="protocol">
 		<td>protocol</td>
 		<td>屬性</td>
 		<td>URL使用的協定。<br />
 		例：http:</td>
 	</tr>
-	<tr>
+	<tr id="search">
 		<td>search</td>
 		<td>屬性</td>
 		<td>返回GET請求的URL中問號(?)後的部份。<br />
 		例如http://www.yahoo.com.tw?keyword=isaac&randomNumber=19820624將傳回：?keyword=isaac&randomNumber=19820624</td>
 	</tr>
-	<tr>
+	<tr id="reload()">
 		<td>reload()</td>
 		<td>location方法</td>
 		<td>用來重新載入頁面，此方法接受一個布林值，如果是false則從瀏覽器的暫存中重載，如果為true則從伺服器上重載，預設值為false。下例則執行從伺服器上重載。<br />
 		例：location.reload(true);</td>
 	</tr>
-	<tr>
+	<tr id="replace()">
 		<td>replace()</td>
 		<td>location方法</td>
 		<td>用於設置目前視窗新的URL位置，類似location.href屬性，不同的是此方法不提供回上一頁的操作，像安全級別較高的銀行系統等就會需要這個方法。<br />

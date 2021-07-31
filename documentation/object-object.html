@@ -24,7 +24,7 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="Object">
 		<td>Object</td>
 		<td>物件</td>
 		<td>
@@ -460,7 +460,7 @@ function main() {
 			<span class="red">怎麼沒完沒了的感覺…</span>
 		</td>
 	</tr>
-	<tr>
+	<tr id="constructor">
 		<td>constructor</td>
 		<td>屬性</td>
 		<td>
@@ -471,7 +471,7 @@ document.write(o.constructor);
 			Specifies the function that's the constructor for the object.
 		</td>
 	</tr>
-	<tr>
+	<tr id="hasOwnProperty()">
 		<td>hasOwnProperty()</td>
 		<td>方法</td>
 		<td>
@@ -491,7 +491,7 @@ dog.hasOwnProperty("toString") //returns false, as toString property is inherite
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="isPrototypeOf()">
 		<td>isPrototypeOf()</td>
 		<td>方法</td>
 		<td>
@@ -535,7 +535,7 @@ Car.prototype.isPrototypeOf(Prius) //returns true, Prius is an instance of Toyot
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="Object.keys()">
 		<td>Object.keys()</td>
 		<td>方法</td>
 		<td>
@@ -555,7 +555,7 @@ alert(boxvolumn) //alerts 140000
 			Note: See Looping through an object's properties as well.
 		</td>
 	</tr>
-	<tr>
+	<tr id="Object.getOwnPropertyNames()">
 		<td>Object.getOwnPropertyNames()</td>
 		<td>方法</td>
 		<td>
@@ -574,7 +574,7 @@ var stringprops=Object.getOwnPropertyNames(Array)
 Note: See Looping through an object's properties as well.
 		</td>
 	</tr>
-	<tr>
+	<tr id="propertyIsEnumerable(prop)">
 		<td>propertyIsEnumerable(prop)</td>
 		<td>方法</td>
 		<td>
@@ -595,7 +595,7 @@ mycar.propertyIsEnumerable("cost") //returns false for non existent local proper
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="toLocaleString()">
 		<td>toLocaleString()</td>
 		<td>方法</td>
 		<td>
@@ -605,7 +605,7 @@ document.write( o.toLocaleString() ); //22.5
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="toString()">
 		<td>toString()</td>
 		<td>方法</td>
 		<td>
@@ -631,7 +631,7 @@ alert(myrecords.toString()) //alerts "George | Edward | Sue"
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="valueOf()">
 		<td>valueOf()</td>
 		<td>方法</td>
 		<td>

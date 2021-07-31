@@ -24,7 +24,7 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="styleSheets">
 		<td>styleSheets</td>
 		<td>物件</td>
 		<td>styleSheets物件是document的一個屬性，它包含了頁面中所有的外部樣式表的陣列，如&lt;style&gt;或是&lt;link rel="stylesheet"&gt;中的樣式表，使用length屬性將傳回載入的樣式表數量；透過styleSheets物件物件我們可以新增或是刪除樣式表中的某個樣式，它的cssRule物件讓我們可以修改己經存在的樣式設定。<br />
@@ -36,7 +36,7 @@ document.write(document.styleSheets.length +'&lt;br /&gt;'+ document.styleSheets
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="cssRules">
 		<td>cssRules</td>
 		<td>屬性</td>
 		<td>以陣列的方式傳回風格表中所有的規則，我們可以在樣式表中用它來新增、刪除或編輯己存在的樣式規則；cssRules是DOM2的標準物件，IE中請使用rules；此物件有以下兩個特徵：<br />
@@ -62,12 +62,12 @@ else if(document.styleSheets[0].rules){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="cssText">
 		<td>cssText</td>
 		<td>屬性</td>
 		<td>這個屬性是用來傳回指styleSheets的所有文字描述，對於styleSheets物件目前知道只有IE支援，Chrome則是完全不支援這個屬性，詳細內容請參考"DOM - cssRules"一節。</td>
 	</tr>
-	<tr>
+	<tr id="disabled">
 		<td>disabled</td>
 		<td>屬性</td>
 		<td>讀取或設定風格表使用狀態：false為使用中；true為不使用，預設值為false。<br />
@@ -79,7 +79,7 @@ $on.onclick = function(){document.styleSheets[0].disabled = false;}
 $off.onclick = function(){document.styleSheets[0].disabled = true;}
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="href">
 		<td>href</td>
 		<td>屬性</td>
 		<td>讀取或設定存放風格表檔案的網址。<br />
@@ -88,7 +88,7 @@ $off.onclick = function(){document.styleSheets[0].disabled = true;}
 document.write(document.styleSheets[0].href);
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="length">
 		<td>length</td>
 		<td>屬性</td>
 		<td>傳回頁面中樣式表的數量，例如：
@@ -96,14 +96,14 @@ document.write(document.styleSheets[0].href);
 alert(document.styleSheets.length);
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="media">
 		<td>media</td>
 		<td>屬性</td>
 		<td>原文：Specifies the medium of the stylesheet. Default value is "screen."<br />
 			MediaList物件，指定風格表施用的媒體。
 		</td>
 	</tr>
-	<tr>
+	<tr id="ownerNode">
 		<td>ownerNode</td>
 		<td>屬性</td>
 		<td>傳回指定樣式表所屬的元素節點，在一般的HTML文件中，它通常會傳回LINK以及STYLE；IE無此項，IE使用owningElement。<br />
@@ -112,13 +112,13 @@ alert(document.styleSheets.length);
 alert(document.styleSheets[1].ownerNode.tagName);
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="ownerRule">
 		<td>ownerRule</td>
 		<td>屬性</td>
 		<td>For stylesheets that are defined using an @import rule, returns its CSSImportRule object. You can use the cssRules[] object to add or remove rules within the stylesheet. NS6+/Firefox only property.<br />
 			如果風格表使用@import讀入，則此物件存放 @import 的規則。IE6無此項；其它瀏覽器支援不良。</td>
 	</tr>
-	<tr>
+	<tr id="owningElement">
 		<td>owningElement</td>
 		<td>屬性</td>
 		<td>傳回指定樣式表所屬的元素節點，在一般的HTML文件中，它通常會傳回LINK以及STYLE；IE專用屬性，其它瀏覽器請使用ownerNode。<br />
@@ -127,7 +127,7 @@ alert(document.styleSheets[1].ownerNode.tagName);
 alert(document.styleSheets[1].owningElement.tagName);
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="parentStyleSheet">
 		<td>parentStyleSheet</td>
 		<td>屬性</td>
 		<td>原文：For stylesheets that are included on the page via the @page rule, parentStyleSheet references the top level stylesheet. For standard LINK or STYLE stylehseets, this property returns null. For example:
@@ -135,7 +135,7 @@ alert(document.styleSheets[1].owningElement.tagName);
 if(document.styleSheets[0].parentStyleSheet); //this style sheet is included using the @page rule
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="rules">
 		<td>rules</td>
 		<td>屬性</td>
 		<td>以陣列的方式傳回風格表中所有的規則，我們可以在樣式表中用它來新增、刪除或編輯己存在的樣式規則；些屬性為IE特有，在Firefox、Chrome、Opera、Safari等瀏覽器請使用cssRules；此物件有以下兩個特徵：<br />
@@ -160,7 +160,7 @@ else if(document.styleSheets[0].rules){
 }
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="title">
 		<td>title</td>
 		<td>屬性</td>
 		<td>傳回存放指定樣式表HTML標籤的TITLE屬性值，未指定則傳回null，如下例：
@@ -174,7 +174,7 @@ window.onload = function(){
 }
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="type">
 		<td>type</td>
 		<td>屬性</td>
 		<td>傳回指定樣式表HTML標籤的TYPE屬性值，如下例：
@@ -182,7 +182,7 @@ window.onload = function(){
 alert(document.styleSheets[1].type);
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="addRule()">
 		<td>addRule()</td>
 		<td>方法</td>
 		<td>在指定的樣式表中加新入的規則，IE專用方法，其它瀏覽器請用insertRule()。<br />
@@ -193,7 +193,7 @@ document.styleSheets[0].addRule("p .myclass", "font-size: 120%");
 document.styleSheets[1].addRule("div", "border: 1px solid black", 0); //add rule to start of stylesheet
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="removeRule()">
 		<td>removeRule()</td>
 		<td>方法</td>
 		<td>從指定的樣式表中移除一個css規則，IE專用方法，其它瀏覽器請用deleteRule()。<br />
@@ -209,7 +209,7 @@ for (i=0; i&lt;mysheet.rules.length; i++){
 }
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="deleteRule()">
 		<td>deleteRule()</td>
 		<td>方法</td>
 		<td>從指定的樣式表中移除一個css規則，IE無此項，IE請用removeRule()。<br />
@@ -228,7 +228,7 @@ window.onload = function(){
 &lt;/script&gt;
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="insertRule()">
 		<td>insertRule()</td>
 		<td>方法</td>
 		<td>在指定的樣式表中加新入的規則，IE無此項，IE請用addRule()。<br />

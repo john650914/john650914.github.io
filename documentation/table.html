@@ -24,7 +24,7 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="table">
 		<td>table</td>
 		<td>物件</td>
 		<td>DOM table物件即代表html中的&lt;table&gt;表格，它擁有一系列實用的屬性及方法，讓我們可以輕易的調整表格的內容，例如動態新增/刪除&lt;tr&gt;或&lt;td&gt;等等。<br>
@@ -32,22 +32,22 @@
 			align、background、bgColor、border、height、width<br>
 		</td>
 	</tr>
-	<tr>
+	<tr id="caption">
 		<td>caption</td>
 		<td>屬性</td>
 		<td>指向&lt;caption&gt;元素(如果存在)</td>
 	</tr>
-	<tr>
+	<tr id="cellPadding">
 		<td>cellPadding</td>
 		<td>屬性</td>
 		<td>Gets or sets the cellPadding attribute of the table. Value should be numeric string (ie: "5") or percentage (ie: "10%").</td>
 	</tr>
-	<tr>
+	<tr id="cellSpacing">
 		<td>cellSpacing</td>
 		<td>屬性</td>
 		<td>Gets or sets the cellSpacing attribute of the table. Value should be numeric string (ie: "5") or percentage (ie: "10%").</td>
 	</tr>
-	<tr>
+	<tr id="cells[]">
 		<td>cells[]</td>
 		<td>屬性</td>
 		<td>指向一個表格中所有&lt;td&gt;元素的陣列，但實測後發現，有的瀏覽器(尤其是非IE瀏覽器)不能直接訪問表格的&lt;td&gt;元素，一定要指定rows[]屬性才行，這一點真的滿怪的…<br>
@@ -62,12 +62,12 @@ myTable.rows[3].cell[4].innerHTML = 'modified';
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="frame">
 		<td>frame</td>
 		<td>屬性</td>
 		<td>Specifies which sides of a table outer border to show. Details check: http://www.javascriptkit.com/domref/tableproperties.shtml</td>
 	</tr>
-	<tr>
+	<tr id="rows[]">
 		<td>rows[]</td>
 		<td>屬性</td>
 		<td>指向&lt;table&gt;元素中&lt;tr&gt;的元素集合，下範例(1)傳回myTable中rows的數量。<br>
@@ -88,37 +88,37 @@ window.onload = function(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="rules">
 		<td>rules</td>
 		<td>屬性</td>
 		<td>Specifies which sides of cells' interior border to show. Details check: http://www.javascriptkit.com/domref/tableproperties.shtml</td>
 	</tr>
-	<tr>
+	<tr id="summary">
 		<td>summary</td>
 		<td>屬性</td>
 		<td>Gets or sets the "summary" attribute of the table, a description of the table that can be accessed via scripting.</td>
 	</tr>
-	<tr>
+	<tr id="tBodies">
 		<td>tBodies</td>
 		<td>屬性</td>
 		<td>指向&lt;tbody&gt;元素的集合</td>
 	</tr>
-	<tr>
+	<tr id="tFoot">
 		<td>tFoot</td>
 		<td>屬性</td>
 		<td>指向&lt;tfoot&gt;元素(如果存在)</td>
 	</tr>
-	<tr>
+	<tr id="tHead">
 		<td>tHead</td>
 		<td>屬性</td>
 		<td>指向&lt;thead&gt;元素(如果存在)</td>
 	</tr>
-	<tr>
+	<tr id="createCaption()">
 		<td>createCaption()</td>
 		<td>方法</td>
 		<td>建立&lt;caption&gt;元素並將其放入表格中</td>
 	</tr>
-	<tr>
+	<tr id="createTFoot()">
 		<td>createTFoot()</td>
 		<td>方法</td>
 		<td>Creates an empty table tfoot (until you populate it with rows via tfoot.insertRow()), or if a tfoot already exists for this table, references that tfoot.<br>
@@ -132,18 +132,18 @@ newtfootcell.innerHTML="My tFoot text here!" //Add some content to the tfoot's c
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="createTHead()">
 		<td>createTHead()</td>
 		<td>方法</td>
 		<td>Creates an empty table thead (until you populate it with rows via thead.insertRow()), or if a thead already exists for this table, references that thead.
 		</td>
 	</tr>
-	<tr>
+	<tr id="deleteCaption()">
 		<td>deleteCaption()</td>
 		<td>方法</td>
 		<td>刪除&lt;caption&gt;元素</td>
 	</tr>
-	<tr>
+	<tr id="deleteCell(index)">
 		<td>deleteCell(index)</td>
 		<td>方法</td>
 		<td>使用索引值刪除指定位置的儲存格。<br>
@@ -185,7 +185,7 @@ deleteColumn(myTable,2);
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="deleteRow(index)">
 		<td>deleteRow(index)</td>
 		<td>方法</td>
 		<td>使用索引值刪除表格內指定位置的行。<br>
@@ -224,17 +224,17 @@ myTable.deleteRow(2);
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="deleteTFoot()">
 		<td>deleteTFoot()</td>
 		<td>方法</td>
 		<td>Deletes the tfoot of the table.</td>
 	</tr>
-	<tr>
+	<tr id="deleteTHead()">
 		<td>deleteTHead()</td>
 		<td>方法</td>
 		<td>Deletes the thead of the table.</td>
 	</tr>
-	<tr>
+	<tr id="insertCell(index)">
 		<td>insertCell(index)</td>
 		<td>方法</td>
 		<td>使用索引值在cells集合的指定位置上插入一個空的儲存格，如果將index設為-1，則新的儲存格會置於該行的結尾。<br>
@@ -267,7 +267,7 @@ myTable.deleteRow(2);
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="insertRow(index)">
 		<td>insertRow(index)</td>
 		<td>方法</td>
 		<td>

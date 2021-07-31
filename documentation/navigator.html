@@ -24,7 +24,7 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="navigator">
 		<td>navigator</td>
 		<td>物件</td>
 		<td>navigator物件是window的屬性之一，利用navigator物件可以取得瀏覽器的資訊，包括名稱、版本和平台等。要注意的是navigator物件的屬性都是唯讀性質，只能使用不能修改。<br>
@@ -44,7 +44,7 @@ if(isWinXP){document.write("這是WinXP");} else{document.write("這不是WinXP"
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="appCodeName">
 		<td>appCodeName</td>
 		<td>屬性</td>
 		<td>瀏覽器程式碼名，也就是瀏覽器的別名(例如"Mozilla")。<br>
@@ -59,7 +59,7 @@ if(isWinXP){document.write("這是WinXP");} else{document.write("這不是WinXP"
 		Opera：Mozilla<br>
 		Chrome：Mozilla</td>
 	</tr>
-	<tr>
+	<tr id="appMinorVersion">
 		<td>appMinorVersion</td>
 		<td>屬性</td>
 		<td>瀏覽器的次要版本值。<br>
@@ -74,7 +74,7 @@ if(isWinXP){document.write("這是WinXP");} else{document.write("這不是WinXP"
 		Opera：<br>
 		Chrome：undefined</td>
 	</tr>
-	<tr>
+	<tr id="appName">
 		<td>appName</td>
 		<td>屬性</td>
 		<td>官方瀏覽器名，也就是瀏覽器名稱。<br>
@@ -89,7 +89,7 @@ if(isWinXP){document.write("這是WinXP");} else{document.write("這不是WinXP"
 		Opera：Opera<br>
 		Chrome：Netscape</td>
 	</tr>
-	<tr>
+	<tr id="appVersion">
 		<td>appVersion</td>
 		<td>屬性</td>
 		<td>例：document.write(navigator.appVersion);<br>
@@ -106,7 +106,7 @@ if(isWinXP){document.write("這是WinXP");} else{document.write("這不是WinXP"
 		Opera：9.80 (Windows NT 6.1; U; zh-tw)<br>
 		Chrome30.x：5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36</td>
 	</tr>
-	<tr>
+	<tr id="browserLanguage">
 		<td>browserLanguage</td>
 		<td>屬性</td>
 		<td>瀏覽器所使用的語言。<br>
@@ -121,7 +121,7 @@ if(isWinXP){document.write("這是WinXP");} else{document.write("這不是WinXP"
 		Opera：zh-tw<br>
 		Chrome：undefined</td>
 	</tr>
-	<tr>
+	<tr id="cookieEnabled">
 		<td>cookieEnabled</td>
 		<td>屬性</td>
 		<td>瀏覽器是否接受cookie。<br>
@@ -136,7 +136,7 @@ if(isWinXP){document.write("這是WinXP");} else{document.write("這不是WinXP"
 		Opera：true<br>
 		Chrome：true</td>
 	</tr>
-	<tr>
+	<tr id="cpuClass">
 		<td>cpuClass</td>
 		<td>屬性</td>
 		<td>所使用的CPU種類。<br>
@@ -151,12 +151,12 @@ if(isWinXP){document.write("這是WinXP");} else{document.write("這不是WinXP"
 		Opera：undefined<br>
 		Chrome：undefined</td>
 	</tr>
-	<tr>
+	<tr id="language">
 		<td>language</td>
 		<td>屬性</td>
 		<td>要來補</td>
 	</tr>
-	<tr>
+	<tr id="onLine">
 		<td>onLine</td>
 		<td>屬性</td>
 		<td>是否與網際網路連線中。<br>
@@ -171,7 +171,7 @@ if(isWinXP){document.write("這是WinXP");} else{document.write("這不是WinXP"
 		Opera：true<br>
 		Chrome：true</td>
 	</tr>
-	<tr>
+	<tr id="platform">
 		<td>platform</td>
 		<td>屬性</td>
 		<td>執行瀏覽器的電腦平台。<br>
@@ -186,7 +186,7 @@ if(isWinXP){document.write("這是WinXP");} else{document.write("這不是WinXP"
 		Opera：Win32<br>
 		Chrome：Win32</td>
 	</tr>
-	<tr>
+	<tr id="plugins">
 		<td>plugins</td>
 		<td>屬性</td>
 		<td>安裝在瀏覽器中的外掛程式的組數。<br>
@@ -201,7 +201,7 @@ if(isWinXP){document.write("這是WinXP");} else{document.write("這不是WinXP"
 		Opera：[object PluginArray]<br>
 		Chrome：[object DOMPluginArray]</td>
 	</tr>
-	<tr>
+	<tr id="systemLanguage">
 		<td>systemLanguage</td>
 		<td>屬性</td>
 		<td>系統所使用的語言。<br>
@@ -216,7 +216,7 @@ if(isWinXP){document.write("這是WinXP");} else{document.write("這不是WinXP"
 		Opera：undefined<br>
 		Chrome：undefined</td>
 	</tr>
-	<tr>
+	<tr id="userAgent">
 		<td>userAgent</td>
 		<td>屬性</td>
 		<td>使用者代理頭，也就是目前所使用的介面。<br>
@@ -254,7 +254,7 @@ if(isWinXP){document.write("這是WinXP");} else{document.write("這不是WinXP"
 		　Microsoft Windows 7 (Windows NT 6.1) (2009)<br>
 		　Microsoft Windows Server 2008 R2 (Windows NT 6.1)</td>
 	</tr>
-	<tr>
+	<tr id="userLanguage">
 		<td>userLanguage</td>
 		<td>屬性</td>
 		<td>目前所使用的語言種類。<br>
@@ -269,17 +269,17 @@ if(isWinXP){document.write("這是WinXP");} else{document.write("這不是WinXP"
 		Opera：zh-tw<br>
 		Chrome：undefined</td>
 	</tr>
-	<tr>
+	<tr id="javaEnabled()">
 		<td>javaEnabled()</td>
 		<td>方法</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="taintEnabled()">
 		<td>taintEnabled()</td>
 		<td>方法</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="plugins.refresh()">
 		<td>plugins.refresh()</td>
 		<td>方法</td>
 		<td></td>

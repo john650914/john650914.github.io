@@ -24,27 +24,27 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="\">
 		<td>\</td>
 		<td>特殊字元</td>
 		<td>宣告變數遇到太長的字串可以在換行的結尾加上"\"繼續撰寫。</td>
 	</tr>
-	<tr>
+	<tr id="\\">
 		<td>\\</td>
 		<td>特殊字元</td>
 		<td>在字串中顯示 \</td>
 	</tr>
-	<tr>
+	<tr id="\'">
 		<td>\'</td>
 		<td>特殊字元</td>
 		<td>在字串中顯示 '</td>
 	</tr>
-	<tr>
+	<tr id="\"">
 		<td>\"</td>
 		<td>特殊字元</td>
 		<td>在字串中顯示 "</td>
 	</tr>
-	<tr>
+	<tr id="\n">
 		<td>\n</td>
 		<td>特殊字元</td>
 		<td>換行，目前只知道在alert的時候有用，如下例：
@@ -53,7 +53,7 @@ var s = document.styleSheets;
 alert(s.length +"\n"+"Style Sheets");
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="Boolean">
 		<td>Boolean</td>
 		<td>資料類形</td>
 		<td>
@@ -79,40 +79,40 @@ var q16 = new Number(1); // => true
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="NaN">
 		<td>NaN</td>
 		<td>資料類形</td>
 		<td>NaN表非數值（Not a Number），像字串或未定義的值執行數學運算時，例如你嘗試作 1 / 'two'時，就會出現NaN的結果。
 		注意，NaN不等於任何值，NaN也不等於NaN，如果你要測試某值結果是否為NaN，則要用isNaN()函式來測試。</td>
 	</tr>
-	<tr>
+	<tr id="Null">
 		<td>Null</td>
 		<td>資料類形</td>
 		<td>null是JavaScript中特殊的值，表示沒有任何東西。應用的時機就是在變數不指定至任何物件時，可以指定變數為null，
 		或測試變數是否指定至null：var x = null; 對null使用typeof的結果會是'object'，這很怪(只能強記)。另外null乘以任何數皆為0，
 		所以null也可視為數值0。</td>
 	</tr>
-	<tr>
+	<tr id="Number">
 		<td>Number</td>
 		<td>資料類形</td>
 		<td>正數、負數、整數、浮點數都屬於數值類型。typeof()的傳回值是number。詳細內容請見Number物件。</td>
 	</tr>
-	<tr>
+	<tr id="Object">
 		<td>Object</td>
 		<td>資料類形</td>
 		<td>對象(物件)類形，複合資料型態就是指物件，像是array()等。例var myDate=new Date(); alert(typeof(myDate)); 傳回object。</td>
 	</tr>
-	<tr>
+	<tr id="String">
 		<td>String</td>
 		<td>資料類形</td>
 		<td>字串是由零個或多個字元構成。字元可以是字母、數字、標點符號和空格。字串必須放在單引號或是雙引號裡，如字串裡有單引號則把整個字串用雙引號包起來，反之亦然。typeof()的傳回值是string；詳細內容請見String物件。</td>
 	</tr>
-	<tr>
+	<tr id="Undefined">
 		<td>Undefined</td>
 		<td>資料類形</td>
 		<td>在建立變數後未指定變數值之前所提供的值；或是指不存在的物件屬性。例var x; typeOf(x)的傳回值是undefined。另外undefined乘以任何數皆為NaN(Not a Number)，所以undefined可視為一個空的字串。</td>
 	</tr>
-	<tr>
+	<tr id="()">
 		<td>()</td>
 		<td>小括號</td>
 		<td>
@@ -204,7 +204,7 @@ myFN(); // 這裡會執行
 			<a href="http://club.topsage.com/thread-2463755-1-1.html">http://club.topsage.com/thread-2463755-1-1.html</a><br>
 		</td>
 	</tr>
-	<tr>
+	<tr id="[]">
 		<td>[]</td>
 		<td>中括號</td>
 		<td>
@@ -231,7 +231,7 @@ alert(obj["name"]);
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="{}">
 		<td>{}</td>
 		<td>大括號</td>
 		<td>

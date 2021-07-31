@@ -24,18 +24,18 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="window">
 		<td>window</td>
 		<td>物件</td>
 		<td>瀏覽器的最上層物件，在撰寫javascript時可省略window描述。<br />
 			原文：The Window object is the top level object in JavaScript, and contains in itself several other objects, such as "document", "history" etc.</td>
 	</tr>
-	<tr>
+	<tr id="onblur">
 		<td>onblur</td>
 		<td>事件屬性</td>
 		<td>原文：Fires when the window loses focus.</td>
 	</tr>
-	<tr>
+	<tr id="onerror">
 		<td>onerror</td>
 		<td>事件屬性</td>
 		<td>原文：Fires when a JavaScript error occurs. By returning true inside this event, JavaScript errors on the page (if any) are suppressed, with no error messages popping up:
@@ -47,12 +47,12 @@ window.onerror=function(msg, url, linenumber){
 }
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="onfocus">
 		<td>onfocus</td>
 		<td>事件屬性</td>
 		<td>原文：Fires when the focus is set on the current window.</td>
 	</tr>
-	<tr>
+	<tr id="onload">
 		<td>onload</td>
 		<td>事件屬性</td>
 		<td>
@@ -81,12 +81,12 @@ function winOnLoad2(){alert('fn2');}
 			http://stackoverflow.com/questions/3474037/window-onload-vs-body-onload-vs-document-onready
 		</td>
 	</tr>
-	<tr>
+	<tr id="onresize">
 		<td>onresize</td>
 		<td>事件屬性</td>
 		<td>當視窗(window)改變尺寸的時候被觸發。</td>
 	</tr>
-	<tr>
+	<tr id="onscroll">
 		<td>onscroll</td>
 		<td>事件屬性</td>
 		<td>原文：Fires when the window is scrolled. The following shows the current y coordinate of the upper left corner of the viewable window in the browser's title bar when the page is scrolled:
@@ -97,7 +97,7 @@ window.onscroll=function(){
 }
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="onbeforeunload">
 		<td>onbeforeunload</td>
 		<td>事件屬性</td>
 		<td>
@@ -111,7 +111,7 @@ window.onbeforeunload=function(e){
 window.location="http://www.google.com" //prompt is invoked
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="onunload">
 		<td>onunload</td>
 		<td>事件屬性</td>
 		<td>
@@ -119,61 +119,61 @@ window.location="http://www.google.com" //prompt is invoked
 			（20170118，好像又不是不支援，只是支援的程度很奇怪，要找時間來確認一下）<br><br>
 			原文：Fires when the page is unloaded- process cannot be overruled at this point. Often used to run code cleanup routines.</td>
 	</tr>
-	<tr>
+	<tr id="closed">
 		<td>closed</td>
 		<td>屬性</td>
 		<td>
 			判斷是否視窗被關閉，傳回一個布林值，這個視窗指的是使用window.open()開啟的視窗。
 		</td>
 	</tr>
-	<tr>
+	<tr id="defaultStatus">
 		<td>defaultStatus</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="document">
 		<td>document</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="frames">
 		<td>frames</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="history">
 		<td>history</td>
 		<td>屬性</td>
 		<td>原文：Reference to the History object of JavaScript, which contains information on the URLs the visitor has visited within the window.<br />
 			詳細內容見history物件一節。</td>
 	</tr>
-	<tr>
+	<tr id="innerWidth">
 		<td>innerWidth</td>
 		<td>屬性</td>
 		<td>Read/write property that specifies the width and height, in pixels, of the window's content area respectively. Does not include the toolbar, scrollbars etc. NS/Firefox exclusive properties.<br />
 		Note: IE equivalents are "document.body.clientWidth" and "document.body.clientHeight"</td>
 	</tr>
-	<tr>
+	<tr id="innerHeight">
 		<td>innerHeight</td>
 		<td>屬性</td>
 		<td>視窗的高度，不包含外框及瀏覽器列，IE9以下不支援，請改用"document.documentElement.clientHeight"</td>
 	</tr>
-	<tr>
+	<tr id="length">
 		<td>length</td>
 		<td>屬性</td>
 		<td>Returns the number of frames contained in the window.</td>
 	</tr>
-	<tr>
+	<tr id="location">
 		<td>location</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="name">
 		<td>name</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="opener">
 		<td>opener</td>
 		<td>屬性</td>
 		<td>
@@ -224,88 +224,88 @@ window.onunload = function() {
 			上例的程式看來非常複雜，但其實只是為了增加互動，如果只是純粹傳遞變數，把opener.htm及child.htm中的whenPopUpClosed()拔掉也是可以運作的，我們試著拔掉whenPopUpClosed()後在Console中alert(parentVar)就會看到parentVar變成456了。
 		</td>
 	</tr>
-	<tr>
+	<tr id="outerWidth">
 		<td>outerWidth</td>
 		<td>屬性</td>
 		<td>Read/write property that specifies the total width and height, in pixels, of the window's content area respectively, including any toolbar, scrollbars etc. NS/Firefox exclusive properties with no IE4+ equivalent.</td>
 	</tr>
-	<tr>
+	<tr id="outerHeight">
 		<td>outerHeight</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="pageXOffset">
 		<td>pageXOffset</td>
 		<td>屬性</td>
 		<td>Returns an integer representing the pixels the current document has been scrolled from the upper left corner of the window, horizontally and vertically, respectively. Typically used to provide the needed calculations to keep an element in view even when the page is scrolled. NS/Firefox exclusive properties.<br />
 		Note: IE equivalents are "document.body.scrollLeft" and "document.body.scrollTop"</td>
 	</tr>
-	<tr>
+	<tr id="pageYOffset">
 		<td>pageYOffset</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="parent">
 		<td>parent</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="screen">
 		<td>screen</td>
 		<td>屬性</td>
 		<td>References the screen object, which provides information about the user's screen/ monitor.</td>
 	</tr>
-	<tr>
+	<tr id="screenX">
 		<td>screenX</td>
 		<td>屬性</td>
 		<td>Read/write property that specifies the x and y coordinates of the window relative to the user's monitor screen. NS/Firefox exclusive properties.</td>
 	</tr>
-	<tr>
+	<tr id="screenY">
 		<td>screenY</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="screenLeft">
 		<td>screenLeft</td>
 		<td>屬性</td>
 		<td>Specifies the x and y coordinates of the window relative to the user's monitor screen. IE only.</td>
 	</tr>
-	<tr>
+	<tr id="screenTop">
 		<td>screenTop</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="scrollX">
 		<td>scrollX</td>
 		<td>屬性</td>
 		<td>Returns an integer representing the pixels the current document has been scrolled from the upper left corner of the window, horizontally and vertically, respectively. NS/Firefox exclusive properties. Equivalent to pageXOffset and pageYOffset, and in IE, "document.body.scrollLeft" and "document.body.scrollTop"</td>
 	</tr>
-	<tr>
+	<tr id="scrollY">
 		<td>scrollY</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="self">
 		<td>self</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="status">
 		<td>status</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="top">
 		<td>top</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="window">
 		<td>window</td>
 		<td>屬性</td>
 		<td>References the current window. Same as "self."</td>
 	</tr>
-	<tr>
+	<tr id="addEventListener()">
 		<td>addEventListener()</td>
 		<td>方法</td>
 		<td>此方法IE瀏覽器不支援；addEventListener()它是window的一個屬性，寫的時候可以乎略window，也可以直接在DOM元素下使用它；它能為一個元素加上事件監聽，並且能為該元素加入一個以上的監聽函數，語法如下：<br />
@@ -359,13 +359,13 @@ function windowOnload2(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="alert()">
 		<td>alert()</td>
 		<td>方法</td>
 		<td>跳出警告視窗。
 			原文：Displays an Alert dialog box with the desired message and OK button.</td>
 	</tr>
-	<tr>
+	<tr id="attachEvent()">
 		<td>attachEvent()</td>
 		<td>方法</td>
 		<td>此方法只有IE瀏覽器支援，attachEvent()它是window的一個屬性，寫的時候可以乎略window，也可以直接在DOM元素下使用它；它能為一個元素加上事件監聽，並且能為該元素加入一個以上的監聽函數，語法如下：<br />
@@ -410,12 +410,12 @@ function windowOnload2(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="blur()">
 		<td>blur()</td>
 		<td>方法</td>
 		<td>原文：Removes focus from the window in question, sending the window to the background on the user's desktop.</td>
 	</tr>
-	<tr>
+	<tr id="clearInterval()">
 		<td>clearInterval()</td>
 		<td>方法</td>
 		<td>取消由setInterval()執行的函數，取消時必需指定由setInterval傳回的ID值。<br />
@@ -438,7 +438,7 @@ window.onload = function(){
 }
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="clearTimeout()">
 		<td>clearTimeout()</td>
 		<td>方法</td>
 		<td>
@@ -460,7 +460,7 @@ window.onload = function(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="close()">
 		<td>close()</td>
 		<td>方法</td>
 		<td>
@@ -469,7 +469,7 @@ window.onload = function(){
 			關於使用window.open()開啟的視窗則幾乎沒有問題，例如將新開的視窗存到變數再關閉，或是在新視窗中直接window.close()都可以正常運作，甚至在新視窗中使用opener屬性還可以關閉母視窗。
 		</td>
 	</tr>
-	<tr>
+	<tr id="confirm()">
 		<td>confirm()</td>
 		<td>方法</td>
 		<td>confirm()方法彈出的對話框有確認和取消兩個按鈕，此方法返回一個布林值，按確定時返回true，取消則返回false。<br />
@@ -481,12 +481,12 @@ if (yourstate) //Boolean variable. Sets to true if user pressed "OK" versus "Can
  window.alert("Good!")
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="detachEvent()">
 		<td>detachEvent()</td>
 		<td>方法</td>
 		<td>請參考attachEvent()；此方法只有IE瀏覽器支援，其它瀏覽器請使用removeEventListener()。</td>
 	</tr>
-	<tr>
+	<tr id="dispatchEvent()">
 		<td>dispatchEvent()</td>
 		<td>方法</td>
 		<td>Not supported in IE, which uses fireEvent() instead.<br />
@@ -502,12 +502,12 @@ document.getElementById("test").dispatchEvent(myevent)
 &lt;/script&gt; 
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="execscript()">
 		<td>execscript()</td>
 		<td>方法</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="find()">
 		<td>find()</td>
 		<td>方法</td>
 		<td>
@@ -516,17 +516,17 @@ document.getElementById("test").dispatchEvent(myevent)
 			Searches for the "string" within the page, and returns string or false, accordingly. "casesensitive" is a Boolean denoting whether search is case sensitive. "backwards" is a Boolean when set to true, searches the page backwards. Final two optional parameters must be set together or none at all.
 		</td>
 	</tr>
-	<tr>
+	<tr id="fireEvent()">
 		<td>fireEvent()</td>
 		<td>方法</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="focus()">
 		<td>focus()</td>
 		<td>方法</td>
 		<td>原文：Sets focus to the window, bringing it to the forefront on the desktop.</td>
 	</tr>
-	<tr>
+	<tr id="getComputedStyle()">
 		<td>getComputedStyle()</td>
 		<td>方法</td>
 		<td>取得指定元素的風格表物件實際的CSS屬性值，不論他們是使用行內CSS設定，或是global/external stylesheets設定；IE不支援，IE使用currentStyle。<br />
@@ -553,12 +553,12 @@ document.getElementById("test").dispatchEvent(myevent)
 &lt;/body&gt;
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="home()">
 		<td>home()</td>
 		<td>方法</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="moveBy()">
 		<td>moveBy()</td>
 		<td>方法</td>
 		<td>將瀏覽器視窗依偏移量移至目前相對位置，接受兩個參數，第一個是x軸，第二個是y軸。<br />
@@ -567,7 +567,7 @@ document.getElementById("test").dispatchEvent(myevent)
 			注意！此方法Google Chrome及Oprea不支援。<br />
 			原文：Moves a window by the specified amount in pixels.</td>
 	</tr>
-	<tr>
+	<tr id="moveTo()">
 		<td>moveTo()</td>
 		<td>方法</td>
 		<td>將瀏覽器視窗移到指定的畫面位置，接受兩個參數，第一個是x軸，第二個是y軸。<br />
@@ -586,12 +586,12 @@ function centeropen(url, winwidth, winheight){
 &lt;a href="#" onClick="centeropen('about:blank', 800, 650); return false"&gt;Open Window&lt;/a&gt;
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="navigate()">
 		<td>navigate()</td>
 		<td>方法</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="open()">
 		<td>open()</td>
 		<td>方法</td>
 		<td>open()方法主要是用來打開新視窗。<br />
@@ -629,12 +629,12 @@ mywin.moveTo(0, 0) //Not allowed in IE: an exception is thrown.;
 </pre>
 This restriction does not apply in other browsers.</td>
 	</tr>
-	<tr>
+	<tr id="print()">
 		<td>print()</td>
 		<td>方法</td>
 		<td>原文：Prints the contents of the window or frame.</td>
 	</tr>
-	<tr>
+	<tr id="prompt()">
 		<td>prompt()</td>
 		<td>方法</td>
 		<td>跳出輸入對話框，此方法接受兩個參數，第一個是prompt的訊息，第二個是輸入欄位的預設文字；<br />
@@ -646,12 +646,12 @@ var yourname=window.prompt("please enter your name");
 alert(yourname);
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="removeEventListener()">
 		<td>removeEventListener()</td>
 		<td>方法</td>
 		<td>請參考addEventListener()；IE無此項，IE請使用detachEvent()。</td>
 	</tr>
-	<tr>
+	<tr id="resizeBy()">
 		<td>resizeBy()</td>
 		<td>方法</td>
 		<td>將瀏覽器視窗依增量值加大尺寸，接受兩個參數，第一個是x軸，第二個是y軸。<br />
@@ -660,7 +660,7 @@ alert(yourname);
 			注意！此方法Google Chrome及Oprea不支援直接執行，只有在使用open()方法時有效。<br />
 			原文：Resizes a window by the specified amount in pixels.</td>
 	</tr>
-	<tr>
+	<tr id="resizeTo()">
 		<td>resizeTo()</td>
 		<td>方法</td>
 		<td>將瀏覽器視窗設定為指定的尺寸，接受兩個參數，第一個是x軸，第二個是y軸。<br />
@@ -672,27 +672,27 @@ alert(yourname);
 window.resizeTo(screen.availWidth, screen.availHeight);
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="scrollBy()">
 		<td>scrollBy()</td>
 		<td>方法</td>
 		<td>原文：Scrolls a window by the specified amount in pixels.</td>
 	</tr>
-	<tr>
+	<tr id="scrollByLines()">
 		<td>scrollByLines()</td>
 		<td>方法</td>
 		<td>原文：Scrolls the document by the number of lines entered as the parameter. NS/Firefox method.</td>
 	</tr>
-	<tr>
+	<tr id="scrollByPages()">
 		<td>scrollByPages()</td>
 		<td>方法</td>
 		<td>原文：Scrolls the document by the number of pages entered as the parameter. NS/Firefox method.</td>
 	</tr>
-	<tr>
+	<tr id="scrollTo()">
 		<td>scrollTo()</td>
 		<td>方法</td>
 		<td>原文：Scrolls a window to the specified pixel values.</td>
 	</tr>
-	<tr>
+	<tr id="setInterval()">
 		<td>setInterval()</td>
 		<td>方法</td>
 		<td>setInterval裡設定的程式會按照指定的間隔時間被重複觸發，直到執行了clearInterval為止。<br />
@@ -719,7 +719,7 @@ If you need to repeated call a function that accepts parameters, put that functi
 setInterval(function(){myfunction(param)}, 5000)
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="setTimeout()">
 		<td>setTimeout()</td>
 		<td>方法</td>
 		<td>
@@ -756,22 +756,22 @@ window.onload = function(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="showhelp()">
 		<td>showhelp()</td>
 		<td>方法</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="showmodaldialog()">
 		<td>showmodaldialog()</td>
 		<td>方法</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="sizeToContent()">
 		<td>sizeToContent()</td>
 		<td>方法</td>
 		<td>原文：Sizes the window to fit the content contained within. Useful, for example, with popup windows that contain small amounts of content. NS6/Firefox method.</td>
 	</tr>
-	<tr>
+	<tr id="stop()">
 		<td>stop()</td>
 		<td>方法</td>
 		<td>原文：Stops the window from loading. NS4/NS6+ exclusive method. Use the optional "args" to pass any number of arguments to the function.</td>

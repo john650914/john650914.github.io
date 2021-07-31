@@ -24,7 +24,7 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="RegExp">
 		<td>RegExp</td>
 		<td>物件</td>
 		<td>
@@ -87,14 +87,14 @@ Email：
 			Note2: RegExp 個體提供兩個主要行為，即 exec() 和 test() 。 exec() 會對引數字串進行比對運算，並將匹配的字串內容記錄在陣列中回傳。而 test() 則僅僅測試引數字串是否符合規則，只回傳 true 或 false 。此外，RegExp 個體也可以作為 String 個體的 match(), search(), replace(), split() 之引數。 String 的 match() 其實就是調用 RegExp 的 exec() ，兩者的結果相同。
 		</td>
 	</tr>
-	<tr>
+	<tr id="i">
 		<td>i</td>
 		<td>Pattern flag 屬性</td>
 		<td>忽略大小寫。<br />
 			原文：Ignore the case of characters.<br />
 			範例：/The/i matches "the" and "The" and "tHe"</td>
 	</tr>
-	<tr>
+	<tr id="g">
 		<td>g</td>
 		<td>Pattern flag 屬性</td>
 		<td>查找找到所有的匹配，而不是在找到第一個之後就停止。<br />
@@ -103,21 +103,21 @@ Email：
 			範例2：var reCat = new RegExp("cat"); //這個RegExp只會匹配字串中出現的第一個"cat"。<br />
 			var reCat = new RegExp("cat","g"); //這個RegExp則會匹配所有出現的"cat"。</td>
 	</tr>
-	<tr>
+	<tr id="gi">
 		<td>gi</td>
 		<td>Pattern flag 屬性</td>
 		<td>全文查找、忽略大小寫。<br />
 			原文：Global search, ignore case.<br />
 			範例：/it/gi matches all "it"s in "It is our IT department"</td>
 	</tr>
-	<tr>
+	<tr id="m">
 		<td>m</td>
 		<td>Pattern flag 屬性</td>
 		<td>執行多行匹配，^匹配開頭，$匹配結尾。<br />
 			原文：Multiline mode. Causes ^ to match beginning of line or beginning of string. Causes $ to match end of line or end of string. JavaScript1.5+ only.<br />
 			範例：/hip$/m matches "hip" as well as "hip\nhop"</td>
 	</tr>
-	<tr>
+	<tr id="^">
 		<td>^</td>
 		<td>Position Matching 符號</td>
 		<td>寫在pattern第一個位置時，表示其後一符號必須出現在字串開頭的位置。<br />
@@ -125,21 +125,21 @@ Email：
 			原文：Only matches the beginning of a string.<br />
 			範例：/^The/ matches "The" in "The night" by not "In The Night"</td>
 	</tr>
-	<tr>
+	<tr id="$">
 		<td>$</td>
 		<td>Position Matching 符號</td>
 		<td>寫在 pattern 最後一個位置時，表示其前一符號必須出現在字串尾端的位置。寫在 pattern 中時無特別意義。<br />
 			原文：Only matches the end of a string.<br />
 			範例：/and$/ matches "and" in "Land" but not "landing"</td>
 	</tr>
-	<tr>
+	<tr id="\">
 		<td>\</td>
 		<td>Position Matching 符號</td>
 		<td>表示轉義(escaping)，將其後的字元視為一般字元。例如要表示字串中含有'/'字元時，就必須寫作 /\//。<br />
 			原文：The backslash (\) is also used when you wish to match a special character literally.<br />
 			範例：if you wish to match the symbol "$" literally instead of have it signal the end of the string, backslash it: /\$/</td>
 	</tr>
-	<tr>
+	<tr id="\b">
 		<td>\b</td>
 		<td>Position Matching 符號</td>
 		<td>匹配一個單詞的分界線，比如一個空格(不要與[\b]混淆)；也就是字的邊界，也就是頭尾兩字母，接著空白字元或標點符號者。<br />
@@ -155,7 +155,7 @@ Email：
 			Hellx, Joe Obama<br />
 			Hellx, Joe xbama</td>
 	</tr>
-	<tr>
+	<tr id="\B">
 		<td>\B</td>
 		<td>Position Matching 符號</td>
 		<td>匹配一個單詞的非分界線；不是字的邊界，也就是不接著空白字元或標點符號者。<br />
@@ -169,93 +169,93 @@ Email：
 			Hellx, Jxe Obama<br />
 			Hello, Jxe Obama</td>
 	</tr>
-	<tr>
+	<tr id="(?=pattern)">
 		<td>(?=pattern)</td>
 		<td>Position Matching 符號</td>
 		<td>原文：A positive look ahead. Requires that the following pattern in within the input. Pattern is not included as part of the actual match.<br />
 			範例：/(?=Chapter)\d+/ matches any digits when it's proceeded by the words "Chapter", such as 2 in "Chapter 2", though not "I have 2 kids."</td>
 	</tr>
-	<tr>
+	<tr id="(?!pattern)">
 		<td>(?!pattern)</td>
 		<td>Position Matching 符號</td>
 		<td>原文：A negative look ahead. Requires that the following pattern is not within the input. Pattern is not included as part of the actual match.<br />
 			範例：/JavaScript(?! Kit)/ matches any occurrence of the word "JavaScript" except when it's inside the phrase "JavaScript Kit"</td>
 	</tr>
-	<tr>
+	<tr id="Alphanumeric">
 		<td>Alphanumeric</td>
 		<td>Literals 符號</td>
 		<td>原文：All alphabetical and numerical characters match themselves literally.
 			範例：/2 days/ will match "2 days" inside a string.</td>
 	</tr>
-	<tr>
+	<tr id="\0">
 		<td>\0</td>
 		<td>Literals 符號</td>
 		<td>原文：Matches NUL character.</td>
 	</tr>
-	<tr>
+	<tr id="\n">
 		<td>\n</td>
 		<td>Literals 符號</td>
 		<td>比對換行符號；若是在文字中有發生"換行"的行為則可以比對成功。
 			原文：Matches a new line character</td>
 	</tr>
-	<tr>
+	<tr id="\f">
 		<td>\f</td>
 		<td>Literals 符號</td>
 		<td>比對form-feed若是在文字中有發生"換頁"的行為則可以比對成功。
 			原文：Matches a form feed character</td>
 	</tr>
-	<tr>
+	<tr id="\r">
 		<td>\r</td>
 		<td>Literals 符號</td>
 		<td>原文：Matches carriage return character</td>
 	</tr>
-	<tr>
+	<tr id="\t">
 		<td>\t</td>
 		<td>Literals 符號</td>
 		<td>比對定位字元(Tab)。
 			原文：Matches a tab character</td>
 	</tr>
-	<tr>
+	<tr id="\v">
 		<td>\v</td>
 		<td>Literals 符號</td>
 		<td>比對垂直定位字元(Vertical tab)。
 			原文：Matches a vertical tab character</td>
 	</tr>
-	<tr>
+	<tr id="\xxx">
 		<td>\xxx</td>
 		<td>Literals 符號</td>
 		<td>比對以八進制數xxx規定的字符。
 			原文：Matches the ASCII character expressed by the octal number xxx.<br />
 			範例："\50" matches left parentheses character "("</td>
 	</tr>
-	<tr>
+	<tr id="\xdd">
 		<td>\xdd</td>
 		<td>Literals 符號</td>
 		<td>比對以十六進制數dd規定的字符。
 			原文：Matches the ASCII character expressed by the hex number dd.<br />
 			範例："\x28" matches left parentheses character "("</td>
 	</tr>
-	<tr>
+	<tr id="\uxxx">
 		<td>\uxxx</td>
 		<td>Literals 符號</td>
 		<td>比對以十六進制數xxxx 規定的Unicode 字符。
 			原文：Matches the ASCII character expressed by the UNICODE xxxx.<br />
 			範例："\u00A3" matches "£".</td>
 	</tr>
-	<tr>
+	<tr id="[\b]">
 		<td>[\b]</td>
 		<td>Literals 符號</td>
 		<td>可以比對一個 backspace ，也請注意 [\b] 與 \b 之間的差別<br />
 			原文：Matches a backspace.</td>
 	</tr>
-	<tr>
+	<tr id="[xyz]">
 		<td>[xyz]</td>
 		<td>Character Classes 符號</td>
 		<td>表示字串含有括號中任一字元的內容。可以用'-'表示一組連續字元，例如/[a-z]/,/[0-9]/。注意，[]僅代表一個字元，例如/[abc]/表示'a'或'b'或'c'，而不是'abc'。<br />
 			原文：Match any one character enclosed in the character set. You may use a hyphen to denote range. For example. /[a-z]/ matches any letter in the alphabet, /[0-9]/ any single digit.<br />
 			範例：/[AN]BC/ matches "ABC" and "NBC" but not "BBC" since the leading “B” is not in the set.</td>
 	</tr>
-	<tr>
+	<tr id="[^xyz]">
 		<td>[^xyz]</td>
 		<td>Character Classes 符號</td>
 		<td>不屬於字母集合中的字母。你可以使用連字符-指出一字符範圍，例如[^abc]和[^ac]等價，它們最早匹配"brisket"中的'r'和"chop."中的'h'。<br />
@@ -264,74 +264,74 @@ Email：
 			範例1：/[^AN]BC/ matches "BBC" but not "ABC" or "NBC".
 			範例2：var s='Hello Wendy'; document.write(s.replace(/e[^a-l]/gi,'x')); 此例將印出：Hello Wxdy。</td>
 	</tr>
-	<tr>
+	<tr id=".">
 		<td>.</td>
 		<td>Character Classes 符號</td>
 		<td>表示一個任意字元。<br />
 			原文：Match any character except newline or another Unicode line terminator.<br />
 			範例：/b.t/ matches "bat", "bit", "bet" and so on.</td>
 	</tr>
-	<tr>
+	<tr id="\w">
 		<td>\w</td>
 		<td>Character Classes 符號</td>
 		<td>表示任何一個字母與數字以及'_'(下劃線)，意同[a-zA-Z0-9_]。<br />
 			原文：Match any alphanumeric character including the underscore. Equivalent to [a-zA-Z0-9_].<br />
 			範例：/\w/ matches "200" in "200%"</td>
 	</tr>
-	<tr>
+	<tr id="\W">
 		<td>\W</td>
 		<td>Character Classes 符號</td>
 		<td>表示任何一個\w以外的字元。<br />
 			原文：Match any single non-word character. Equivalent to [^a-zA-Z0-9_].<br />
 			範例：/\W/ matches "%" in "200%"</td>
 	</tr>
-	<tr>
+	<tr id="\d">
 		<td>\d</td>
 		<td>Character Classes 符號</td>
 		<td>代表符合由0至9的數字，也可寫成[0-9]。<br />
 			原文：Match any single digit. Equivalent to [0-9].</td>
 	</tr>
-	<tr>
+	<tr id="\D">
 		<td>\D</td>
 		<td>Character Classes 符號</td>
 		<td>表示任何一個非數字，意同 [^0-9] 。<br />
 			原文：Match any non-digit. Equivalent to [^0-9].<br />
 			範例：/\D/ matches "No" in "No 342222"</td>
 	</tr>
-	<tr>
+	<tr id="\s">
 		<td>\s</td>
 		<td>Character Classes 符號</td>
 		<td>匹配任何一個空白符號，包括tab, form feed，換行符...，即\t, \v...等，等價於[ \f\n\r\t\v]<br />
 			原文：Match any single space character. Equivalent to [ \t\r\n\v\f].</td>
 	</tr>
-	<tr>
+	<tr id="\S">
 		<td>\S</td>
 		<td>Character Classes 符號</td>
 		<td>表示任何一個非空白符號，參考\s。<br />
 			原文：Match any single non-space character. Equivalent to [^ \t\r\n\v\f].</td>
 	</tr>
-	<tr>
+	<tr id="{n}">
 		<td>{n}</td>
 		<td>Repetition 符號</td>
 		<td>表示前一符號在字串中的重覆次數。<br />
 			原文：Match exactly n occurrences of a regular expression.<br />
 			範例：/\d{5}/ matches 5 digits.；/A{2}/ 表示'A'重覆兩次(即'AA')</td>
 	</tr>
-	<tr>
+	<tr id="{n,}">
 		<td>{n,}</td>
 		<td>Repetition 符號</td>
 		<td>表示前一符號在字串中有n個到無數多個的重覆次數。<br />
 			原文：Match n or more occurrences of a regular expression.<br />
 			範例：/\s{2,}/ matches at least 2 whitespace characters.；/A{2,}/ 表示字串含有2到無數多個'A'</td>
 	</tr>
-	<tr>
+	<tr id="{n,x}">
 		<td>{n,x}</td>
 		<td>Repetition 符號</td>
 		<td>表示前一符號在字串中有n到x個的數量。<br />
 			原文：Matches n to x number of occurrences of a regular expression.<br />
 			範例：/\d{2,4}/ matches at least 2 but no more than 4 digits.；/A{2,5}/ 表示含有2到5個'A'</td>
 	</tr>
-	<tr>
+	<tr id="?">
 		<td>?</td>
 		<td>Repetition 符號</td>
 		<td>表示字串中有 0 到 1個其前一符號的內容。<br />
@@ -339,7 +339,7 @@ Email：
 			範例1：/a\s?b/ matches "ab" or "a b".<br />
 			範例2：例如：/e?le?/匹配"angel"中的'el'和"angle."中的'le'。</td>
 	</tr>
-	<tr>
+	<tr id="*">
 		<td>*</td>
 		<td>Repetition 符號</td>
 		<td>表示字串中有0到無數個其前一符號的內容。<br />
@@ -347,21 +347,21 @@ Email：
 			範例1：/we*/ matches "w" in "why" and "wee" in "between", but nothing in "bad"
 			範例2：var s='Hello Wendy'; document.write(s.replace(/el*/ig,'x')); 此例將印出：Hxo Wxndy。</td>
 	</tr>
-	<tr>
+	<tr id="+">
 		<td>+</td>
 		<td>Repetition 符號</td>
 		<td>表示字串中有 1 到無數個其前一符號的內容。<br />
 			原文：Match one or more occurrences. Equivalent to {1,}.<br />
 			範例：/fe+d/ matches both "fed" and "feed"</td>
 	</tr>
-	<tr>
+	<tr id="()">
 		<td>()</td>
 		<td>Alternation & Grouping 符號</td>
 		<td>表示一個 sub pattern ，符合 sub pattern 的字串內容會被存放在匹配陣列中，並依序指派數字代表此 sub pattern 。可以此數字在 pattern 的其他地方引用內容，例如 /The h([0-9]) means Title (\1)/ 表示第 1 個 sub pattern 是 0 到 9 的任一字元，而 \1 表示匹配的內容。故 'The h1 means Title 1', 'The h2 means Title 2' 到 'The h9 means Title 9' 符合規則。<br />
 			原文：Grouping characters together to create a clause. May be nested.<br />
 			範例：/(abc)+(def)/ matches one or more occurrences of "abc" followed by one occurrence of "def".</td>
 	</tr>
-	<tr>
+	<tr id="()">
 		<td>()</td>
 		<td>Alternation & Grouping 符號</td>
 		<td>原文：Apart from grouping characters (see above), parenthesis also serve to capture the desired subpattern within a pattern. The values of the subpatterns can then be retrieved using RegExp.$1, RegExp.$2 etc after the pattern itself is matched or compared. For example, the following matches "2 chapters" in "We read 2 chapters in 3 days", and furthermore isolates the value "2":
@@ -376,33 +376,33 @@ alert(RegExp.$1) //alerts captured subpattern, or "2"
 			範例：The following finds the text "John Doe" and swaps their positions, so it becomes "Doe John":<br /><br />
 			"John Doe".replace(/(John) (Doe)/, "$2 $1")</td>
 	</tr>
-	<tr>
+	<tr id="(?:x)">
 		<td>(?:x)</td>
 		<td>Alternation & Grouping 符號</td>
 		<td>原文：Matches x but does not capture it. In other words, no numbered references are created for the items within the parenthesis.<br />
 			範例：/(?:.d){2}/ matches but doesn't capture "cdad".</td>
 	</tr>
-	<tr>
+	<tr id="x(?=y)">
 		<td>x(?=y)</td>
 		<td>Alternation & Grouping 符號</td>
 		<td>原文：Positive lookahead: Matches x only if it's followed by y. Note that y is not included as part of the match, acting only as a required conditon.<br />
 			範例：/George(?= Bush)/ matches "George" in "George Bush" but not "George Michael" or "George Orwell".<br /><br />
 			/Java(?=Script|Hut)/ matches "Java" in "JavaScript" or "JavaHut" but not "JavaLand".</td>
 	</tr>
-	<tr>
+	<tr id="x(?!y)">
 		<td>x(?!y)</td>
 		<td>Alternation & Grouping 符號</td>
 		<td>原文：Negative lookahead: Matches x only if it's NOT followed by y. Note that y is not included as part of the match, acting only as a required condiiton.<br />
 			範例：/^\d+(?! years)/ matches "5" in "5 days" or "5 oranges", but not "5 years".</td>
 	</tr>
-	<tr>
+	<tr id="|">
 		<td>|</td>
 		<td>Alternation & Grouping 符號</td>
 		<td>「或」的意思，字串中含有'|'之前一符號或後一符號的內容。例如/image\.(jpg|png)/表示'image.jpg'或'image.png'。通常會用()括住'|'的前後符號。<br />
 			原文：Alternation combines clauses into one regular expression and then matches any of the individual clauses. Similar to "OR" statement.<br />
 			範例：/(ab)|(cd)|(ef)/ matches "ab" or "cd" or "ef".</td>
 	</tr>
-	<tr>
+	<tr id="()\n">
 		<td>()\n</td>
 		<td>Back references 符號</td>
 		<td>原文："\n" (where n is a number from 1 to 9) when added to the end of a regular expression pattern allows you to back reference a subpattern within the pattern, so the value of the subpattern is remembered and used as part of the matching . A subpattern is created by surrounding it with parenthesis within the pattern. Think of "\n" as a dynamic variable that is replaced with the value of the subpattern it references. For example:
@@ -421,36 +421,36 @@ alert(RegExp.$1) //alerts captured subpattern, or "2"
 </pre>
 			"\1" references (a (b (c))), "\2" references (b (c)), and "\3" references (c).</td>
 	</tr>
-	<tr>
+	<tr id="global">
 		<td>global</td>
 		<td>屬性</td>
 		<td>如果建立RegExp物件時設置了g旗標，此屬性返回true，否則返回false，預設值為false。
 			原文：Specifies if the "g" modifier is set.</td>
 	</tr>
-	<tr>
+	<tr id="ignoreCase">
 		<td>ignoreCase</td>
 		<td>屬性</td>
 		<td>如果建立RegExp物件時設置了i旗標，此屬性返回true，否則返回false，預設值為false。
 			原文：Specifies if the "i" modifier is set.</td>
 	</tr>
-	<tr>
+	<tr id="lastIndex">
 		<td>lastIndex</td>
 		<td>屬性</td>
 		<td>原文：The index at which to start the next match.</td>
 	</tr>
-	<tr>
+	<tr id="multiline">
 		<td>multiline</td>
 		<td>屬性</td>
 		<td>如果建立RegExp物件時設置了m旗標，此屬性返回true，否則返回false，預設值為false。
 			原文：Specifies if the "m" modifier is set.</td>
 	</tr>
-	<tr>
+	<tr id="source">
 		<td>source</td>
 		<td>屬性</td>
 		<td>此屬性返回建立RegExp物件時指定的本文字符串。(？？？)
 			原文：The text of the RegExp pattern.</td>
 	</tr>
-	<tr>
+	<tr id="compile()">
 		<td>compile()</td>
 		<td>方法</td>
 		<td>語法：RegExpObject.compile(regexp,modifier)
@@ -476,7 +476,7 @@ Every person in the world! Every woperson on earth!
 Every person in the world! Every person on earth!
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="exec()">
 		<td>exec()</td>
 		<td>方法</td>
 		<td>尋找匹配規則運算式的字串，結果存入陣列中。<br />
@@ -484,7 +484,7 @@ Every person in the world! Every person on earth!
 		原文：Similar to String.match() above in that it returns an array of information or null if no match is found. Unlike String.match() however, the parameter entered should be a string, not a regular expression pattern.<br />
 		範例：var match = /s(amp)le/i.exec("Sample text") //returns ["Sample","amp"]</td>
 	</tr>
-	<tr>
+	<tr id="match()">
 		<td>match()</td>
 		<td>方法</td>
 		<td>返回一個包含在字串中的所有匹配的陣列。
@@ -497,7 +497,7 @@ Every person in the world! Every person on earth!
 		var reAt = /at/gi;<br />
 		var arrMatchs = toMatch.match(reAt); //返回一个数组["at","at","At","aT","aT","at"]</td>
 	</tr>
-	<tr>
+	<tr id="replace()">
 		<td>replace()</td>
 		<td>方法</td>
 		<td>用第二個參數替換某個子串(第一個參數)的所有匹配。第一個參數 既可以是匹配的字串，也可以是用於匹配的一個規則運算式，返回是替換後的整個字串。<br />
@@ -514,7 +514,7 @@ var newname="John Doe".replace(/(John) (Doe)/, "$2 $1")
 			var reRed = /red/;<br />
 			sToChange.replace(reRed,"blue"); //输出The sky is blue</td>
 	</tr>
-	<tr>
+	<tr id="search()">
 		<td>search()</td>
 		<td>方法</td>
 		<td>與indexOf類似，返回在字串中出現的第一個匹配的位置，全域匹配運算式g在這裡不起作用。<br />
@@ -525,7 +525,7 @@ var newname="John Doe".replace(/(John) (Doe)/, "$2 $1")
 			var reAt = /at/gi;<br />
 			toMatch.search(reAt); //输出3</td>
 	</tr>
-	<tr>
+	<tr id="split()">
 		<td>split()</td>
 		<td>方法</td>
 		<td>將字串分割成子字串，作為陣列返回。<br />
@@ -537,7 +537,7 @@ var newname="John Doe".replace(/(John) (Doe)/, "$2 $1")
 			var reExp = /\,/; <br />
 			var arrs = sColor.split(reExp); //得到一個陣列["red","blue","yellow"]注意逗號在規則運算式有特殊含義，這邊需要轉義</td>
 	</tr>
-	<tr>
+	<tr id="test()">
 		<td>test()</td>
 		<td>方法</td>
 		<td>如果指定的字串能夠匹配這個規則運算式則返回true，否則返回false。<br />

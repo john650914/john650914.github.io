@@ -24,7 +24,7 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="DOM">
 		<td>DOM</td>
 		<td>物件</td>
 		<td>DOM廣義來說指的就是所有html元素的集合，你可以使用JavaScript訪問並處理所有的HTML DOM對象(除了內置的JavaScript對像以外)。HTML DOM是W3C標準(是HTML 文檔對像模型的英文縮寫，Document Object Model for HTML)。HTML DOM定義了用於HTML的一系列標準的對象，以及訪問和處理HTML文檔的標準方法。通過DOM，可以訪問所有的HTML元素，連同它們所包含的文本和屬性。可以對其中的內容進行修改和刪除，同時也可以創建新的元素。HTML DOM獨立於平台和編程語言。它可被任何編程語言諸如Java、JavaScript和VBScript使用。<br><br>
@@ -36,12 +36,12 @@
 			有許多屬性、事件和方法是共用的，本字典中的各元素屬性只大約列出相關聯的屬性和方法，其它要實際try過。
 			</td>
 	</tr>
-	<tr>
+	<tr id="accessKey">
 		<td>accessKey</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="attributes">
 		<td>attributes</td>
 		<td>屬性</td>
 		<td>
@@ -56,7 +56,7 @@ imageattributes.getNamedItem("src").value; //value of the "src" property of "myi
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="childNodes">
 		<td>childNodes</td>
 		<td>屬性</td>
 		<td>
@@ -72,7 +72,7 @@ if (mylist.childNodes[i].nodeName=="LI")
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="className">
 		<td>className</td>
 		<td>屬性</td>
 		<td>修改元素的class名稱，連IE7都可以用；請見下例：
@@ -98,7 +98,7 @@ document.getElementById("test").className+=" class2"; //Assign an additional "cl
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="clientHeight">
 		<td>clientHeight</td>
 		<td>屬性</td>
 		<td>傳回元素內容區域的實際高度，此高度包含padding，不包含borders、margins或是scrollBars及overflow的內容，單位為像素。<br>
@@ -109,7 +109,7 @@ var pageHeight=document.body.clientHeight;
 			原文：A cross browser (NS7+, IE4+) property that returns the viewable height of the content on the page, not including borders, margins, or scrollbars (overflowing content).
 		</td>
 	</tr>
-	<tr>
+	<tr id="clientWidth">
 		<td>clientWidth</td>
 		<td>屬性</td>
 		<td>傳回元素內容區域的實際寬度，此寬度包含padding，不包含borders、margins或是scrollBars及overflow的內容，單位為像素。<br>例如：<br>
@@ -119,7 +119,7 @@ var pagewidth=document.body.clientWidth;
 			原文：A cross browser (NS7+, IE4+) property that returns the viewable width of the content on the page, not including borders, margins, or scrollbars (overflowing content).
 		</td>
 	</tr>
-	<tr>
+	<tr id="dataset">
 		<td>dataset</td>
 		<td>屬性</td>
 		<td>
@@ -143,7 +143,7 @@ article.dataset.category = "Uncategorized";
 			補充說明：「date-*」屬性的值除了使用dataset以物件的方式來存取，也可以用getAttribute()及setAttribute()做單點存取
 		</td>
 	</tr>
-	<tr>
+	<tr id="dir">
 		<td>dir</td>
 		<td>屬性</td>
 		<td>
@@ -153,12 +153,12 @@ document.getElementById("mydiv").dir="rtl"; //change text direction
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="disabled">
 		<td>disabled</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="firstChild">
 		<td>firstChild</td>
 		<td>屬性</td>
 		<td>
@@ -166,19 +166,19 @@ document.getElementById("mydiv").dir="rtl"; //change text direction
 			原文：Returns a reference to the first child of an element.
 		</td>
 	</tr>
-	<tr>
+	<tr id="height">
 		<td>height</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="id">
 		<td>id</td>
 		<td>屬性</td>
 		<td>
 			原文：Read/write property that reflects the ID attribute of an element. Use this property to access any element on the page easily.
 		</td>
 	</tr>
-	<tr>
+	<tr id="innerHTML">
 		<td>innerHTML</td>
 		<td>屬性</td>
 		<td>innerHTML原為非標準的DOM屬性，由於使用方便，目前也得到了主流瀏覽器的支援；它作用為表示某個標記之間的所有內容，包括程式碼本身，連IE7都可以使用。此屬性可以讀取，同時也可以設置，如下例：
@@ -201,19 +201,19 @@ window.onload=function(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="innerText">
 		<td>innerText</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="lang">
 		<td>lang</td>
 		<td>屬性</td>
 		<td>
 			原文：Read/write property that specifies the language of an element's attribute values and text content. Commonly invoked on the body level to determine the base language of the document.
 		</td>
 	</tr>
-	<tr>
+	<tr id="lastChild">
 		<td>lastChild</td>
 		<td>屬性</td>
 		<td>
@@ -221,26 +221,26 @@ window.onload=function(){
 			原文：Returns a reference to the last child of an element.
 		</td>
 	</tr>
-	<tr>
+	<tr id="length">
 		<td>length</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="localName">
 		<td>localName</td>
 		<td>屬性</td>
 		<td>
 			原文：Returns the name of the node of an XML element. Equivilant to the nodeName property for regular HTML elements.
 		</td>
 	</tr>
-	<tr>
+	<tr id="namespaceURI">
 		<td>namespaceURI</td>
 		<td>屬性</td>
 		<td>
 			原文：Returns the URI string assigned to the xmlns attribute of an XML element.
 		</td>
 	</tr>
-	<tr>
+	<tr id="nextSibling">
 		<td>nextSibling</td>
 		<td>屬性</td>
 		<td>指向後一個兄弟節點，如果該節點己經是最後一個節點，則返回null；該屬性返回Node類型。<br>
@@ -263,7 +263,7 @@ alert("下一個是"+nextListItem);}
 			原文：Returns the next node following the current one. Returns null if there are none or for text nodes inside an element.
 		</td>
 	</tr>
-	<tr>
+	<tr id="nodeName">
 		<td>nodeName</td>
 		<td>屬性</td>
 		<td>
@@ -276,7 +276,7 @@ if (document.getElementById("test").firstChild.nodeName=="DIV"){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="nodeType">
 		<td>nodeType</td>
 		<td>屬性</td>
 		<td>節點類型，常數(整數)值之一；該屬性返回Number類型。<br>
@@ -325,7 +325,7 @@ alert(document.getElementById("adiv").firstChild.nodeType) //Alerts 1 or 3, depe
 			Here I've added a blank space in front of the B element. To some browsers such as Firefox, a blank space is considered a text node (nodeType=3) just like regular text, while in others such as IE, they are not. Due to this, "the next node" after the DIV element varies depending on which browser you ask, with Firefox saying it's a text node, while IE says it's an element node (B element). Without the help of the nodeType property when traversing the document, your script may very well lose its place.
 		</td>
 	</tr>
-	<tr>
+	<tr id="nodeValue">
 		<td>nodeValue</td>
 		<td>屬性</td>
 		<td>
@@ -342,7 +342,7 @@ document.getElementById("test").firstChild.nodeValue="New text"
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="offsetHeight">
 		<td>offsetHeight</td>
 		<td>屬性</td>
 		<td>
@@ -359,12 +359,12 @@ document.getElementById("test").firstChild.nodeValue="New text"
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="offsetLeft">
 		<td>offsetLeft</td>
 		<td>屬性</td>
 		<td>Gets the horizontal offset position of the current element relative to its offset container. Read only. Use "offsetParent" to determine what an element's container is. Typically a positioned DIV or TABLE will act as an offset container to any element contained inside them.</td>
 	</tr>
-	<tr>
+	<tr id="offsetParent">
 		<td>offsetParent</td>
 		<td>屬性</td>
 		<td>Returns the offset container of the current element. For most elements on the page, the "BODY" is their offset container. However, a positioned DIV for example creates its own offset container space.<br><br>
@@ -377,22 +377,22 @@ alert(document.getElementById("slave").offsetParent.id) //alerts "master"<br>
 &lt;/script&gt;<br>
 		</td>
 	</tr>
-	<tr>
+	<tr id="offsetTop">
 		<td>offsetTop</td>
 		<td>屬性</td>
 		<td>Gets the vertical offset position of the current element relative to its offset container. Read only. Use "offsetParent" to determine what an element's container is.</td>
 	</tr>
-	<tr>
+	<tr id="offsetWidth">
 		<td>offsetWidth</td>
 		<td>屬性</td>
 		<td>A cross browser (non W3C DOM) property that returns the width of the element, including borders and padding if any, but not margins. In IE6, if a valid doctype is not specified, margins/padding are NOT included in the returned value.</td>
 	</tr>
-	<tr>
+	<tr id="outerHTML">
 		<td>outerHTML</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="ownerDocument">
 		<td>ownerDocument</td>
 		<td>屬性</td>
 		<td>Returns a reference to the document object that contains the current element/node.
@@ -400,7 +400,7 @@ alert(document.getElementById("slave").offsetParent.id) //alerts "master"<br>
 var ownerdoc=document.getElementById("adiv").ownerDocument;
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="parentNode">
 		<td>parentNode</td>
 		<td>屬性</td>
 		<td>
@@ -408,14 +408,14 @@ var ownerdoc=document.getElementById("adiv").ownerDocument;
 			原文：References the node that is the parent of the current one in the document tree.
 		</td>
 	</tr>
-	<tr>
+	<tr id="prefix">
 		<td>prefix</td>
 		<td>屬性</td>
 		<td>
 			原文：Returns the namespace prefix of the current XML node, or null if not available.
 		</td>
 	</tr>
-	<tr>
+	<tr id="previousSibling">
 		<td>previousSibling</td>
 		<td>屬性</td>
 		<td>指向前一個兄弟節點，如果該節點己經是第一個節點，則返回null；該屬性返回Node類型。<br>
@@ -440,7 +440,7 @@ window.onload = function(){
 			原文：Returns the previous node relative the current one in the document tree. Returns null if there are none or for text nodes inside an element.
 		</td>
 	</tr>
-	<tr>
+	<tr id="scrollHeight">
 		<td>scrollHeight</td>
 		<td>屬性</td>
 		<td>
@@ -451,7 +451,7 @@ window.onload = function(){
 			原文：A cross browser (NS7+, IE4+) property that returns the entire width of an element, including any area that may be hidden due to scrollbars. When the element does not contain horizontal scrollbars, its scrollWidth is equal to its clientWidth.
 		</td>
 	</tr>
-	<tr>
+	<tr id="scrollLeft">
 		<td>scrollLeft</td>
 		<td>屬性</td>
 		<td>
@@ -467,7 +467,7 @@ document.getElementsByTagName('div')[0].onmousemove = function(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="scrollTop">
 		<td>scrollTop</td>
 		<td>屬性</td>
 		<td>scrollTop屬性傳回或指定網頁裡某個有顯示捲軸的元素(例如div css設定為overflow:auto;、TEXTAREA等)其捲軸往下拉動的的量，也就是說內容物往上跑出去了多少，以數值來表示，如下範例1：
@@ -488,7 +488,7 @@ document.getElementsByTagName('div')[0].onmousemove = function(){
 		註：有的瀏覽器body的scrollTop永遠是0，所以無法指定，如果要指定body的scrollTop的話，可能把html也設定效果就會出來，但最好還是去爬一下文看別人怎麼做…
 		</td>
 	</tr>
-	<tr>
+	<tr id="scrollWidth">
 		<td>scrollWidth</td>
 		<td>屬性</td>
 		<td>
@@ -500,14 +500,14 @@ document.getElementsByTagName('div')[0].onmousemove = function(){
 		</td>
 	</tr>
 	</tr>
-	<tr>
+	<tr id="tabIndex">
 		<td>tabIndex</td>
 		<td>屬性</td>
 		<td>
 			Gets/sets the tab order of the current element.
 		</td>
 	</tr>
-	<tr>
+	<tr id="tagName">
 		<td>tagName</td>
 		<td>屬性</td>
 		<td>
@@ -517,25 +517,25 @@ alert(document.getElementsByTagName('li')[0].tagName);
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="textContent">
 		<td>textContent</td>
 		<td>屬性</td>
 		<td>
 		</td>
 	</tr>
-	<tr>
+	<tr id="title">
 		<td>title</td>
 		<td>屬性</td>
 		<td>
 			Read/write property that returns the title of the document or "title" attribute of an element when invoked on an element.
 		</td>
 	</tr>
-	<tr>
+	<tr id="width">
 		<td>width</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="addEventListener()">
 		<td>addEventListener()</td>
 		<td>方法</td>
 		<td>此方法IE瀏覽器不支援；addEventListener()它是window的一個屬性，寫的時候可以乎略window，也可以直接在DOM元素下使用它；它能為一個元素加上事件監聽，並且能為該元素加入一個以上的監聽函數，語法如下：<br />
@@ -577,7 +577,7 @@ if (window.addEventListener){
 }
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="appendChild()">
 		<td>appendChild()</td>
 		<td>方法</td>
 		<td>將某個節點插入指定元素的子節點之後，中譯為「加入孩子」……… grrr，也就是說將一個新的節點插入指定元素內，而當這個指定元素內含有子節點時，這個新節點會被放在該元素內所有子節點的最後面；語法：appendChild(node)。<br>
@@ -600,7 +600,7 @@ function prependChild(parent, node){parent.insertBefore(node, parent.firstChild)
 			使用方法：直接呼叫該函數，在第一個參數中帶入父元素，在第二個參數帶入新的節點。
 		</td>
 	</tr>
-	<tr>
+	<tr id="attachEvent()">
 		<td>attachEvent()</td>
 		<td>方法</td>
 		<td>此方法只有IE瀏覽器支援，attachEvent()它是window的一個屬性，寫的時候可以乎略window，也可以直接在DOM元素下使用它；它能為一個元素加上事件監聽，並且能為該元素加入一個以上的監聽函數，語法如下：<br />
@@ -633,21 +633,21 @@ function prependChild(parent, node){parent.insertBefore(node, parent.firstChild)
 	}
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="blur()">
 		<td>blur()</td>
 		<td>方法</td>
 		<td>
 			原文：Removes keyboard focus from the current element. Used for example to fire the onBlur event handler of an element via scripting.
 		</td>
 	</tr>
-	<tr>
+	<tr id="click()">
 		<td>click()</td>
 		<td>方法</td>
 		<td>
 			原文：Executes a click on a element as if the user manually clicked on it. In most browsers, click() only works on form INPUT elements that's non "submit" or "reset". It can't be used to simulate a click on a link or form submit button.
 		</td>
 	</tr>
-	<tr>
+	<tr id="cloneNode(Boolean)">
 		<td>cloneNode(Boolean)</td>
 		<td>方法</td>
 		<td>複製文件中的一個指定的節點為一個新的節點(只複製"一個")，這個新的節點可以再使appendChild()加入文件中、或以className屬性來增修其class屬性值，以及其它各種的DOM指令加以運用；cloneNode()有一個Boolean的參數可以設定，設置為true時則會複製該指定節點內的所有子節點，包括文字、屬性、value及其它任何內容資料，設置為false時則只針對該指定的節點做複製，對於該節點內的子節點及資料則一律忽略。<br>
@@ -670,12 +670,12 @@ for(var i=0; i&lt;divs.length; i++){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="detachEvent()">
 		<td>detachEvent()</td>
 		<td>方法</td>
 		<td>請參考attachEvent()；此方法只有IE瀏覽器支援，其它瀏覽器請使用removeEventListener()。</td>
 	</tr>
-	<tr>
+	<tr id="dispatchEvent(eventObject)">
 		<td>dispatchEvent(eventObject)</td>
 		<td>方法</td>
 		<td>
@@ -693,19 +693,19 @@ document.getElementById("test").dispatchEvent(myevent)
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="fireEvent()">
 		<td>fireEvent()</td>
 		<td>方法</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="focus()">
 		<td>focus()</td>
 		<td>方法</td>
 		<td>
 			Sets focus on the current node.
 		</td>
 	</tr>
-	<tr>
+	<tr id="getAttribute()">
 		<td>getAttribute()</td>
 		<td>方法</td>
 		<td>取得某元素的指定屬性的屬性值，它只有一個參數(註)，即要查詢的屬性名稱，如果該屬性未設定，則傳回null。<br>
@@ -734,7 +734,7 @@ window.onload = function(){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="getAttributeNS()">
 		<td>getAttributeNS()</td>
 		<td>方法</td>
 		<td>
@@ -742,7 +742,7 @@ window.onload = function(){
 			原文：Returns the value of the attribute with the given local name and namespace. Applicable in XML documents.
 		</td>
 	</tr>
-	<tr>
+	<tr id="getAttributeNode()">
 		<td>getAttributeNode()</td>
 		<td>方法</td>
 		<td>
@@ -754,7 +754,7 @@ attributeobj.value="center";
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="getAttributeNodeNS()">
 		<td>getAttributeNodeNS()</td>
 		<td>方法</td>
 		<td>
@@ -762,7 +762,7 @@ attributeobj.value="center";
 			原文：Returns/references the attribute of the current element with the given local name and namespace. Applicable in XML documents.
 		</td>
 	</tr>
-	<tr>
+	<tr id="getElementsByTagNameNS()">
 		<td>getElementsByTagNameNS()</td>
 		<td>方法</td>
 		<td>
@@ -770,7 +770,7 @@ attributeobj.value="center";
 			原文：Returns as an array all the child elements of the current element with the given local name and namespace. Applicable in XML documents.
 		</td>
 	</tr>
-	<tr>
+	<tr id="hasAttribute()">
 		<td>hasAttribute()</td>
 		<td>方法</td>
 		<td>
@@ -782,7 +782,7 @@ if (document.getElementById("mytable").hasAttribute("style"))
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="hasAttributeNS()">
 		<td>hasAttributeNS()</td>
 		<td>方法</td>
 		<td>
@@ -790,14 +790,14 @@ if (document.getElementById("mytable").hasAttribute("style"))
 			原文：Returns a Boolean value indicating whether the current element contains an attribute with the given local name and namespace. Applicable in XML documents.
 		</td>
 	</tr>
-	<tr>
+	<tr id="hasAtrributes()">
 		<td>hasAtrributes()</td>
 		<td>方法</td>
 		<td>
 			原文：Returns a Boolean value indicating whether the current element has any explicit attributes defined.
 		</td>
 	</tr>
-	<tr>
+	<tr id="hasChildNodes()">
 		<td>hasChildNodes()</td>
 		<td>方法</td>
 		<td>當childNodes包含一個或多個節點時，返回true；此方法返回Boolean類型。以下範例先獲取&lt;ul&gt;標籤，然後利用hasChildNodes()判斷其是否有子節點，如果有則利用childNodes瀏覽它的所有子節點。例如：
@@ -816,7 +816,7 @@ alert(myMSG);
 			原文：Returns a Boolean value indicating whether the current element contains any child nodes.
 		</td>
 	</tr>
-	<tr>
+	<tr id="insertAfter()">
 		<td>insertAfter()</td>
 		<td>方法</td>
 		<td>
@@ -847,7 +847,7 @@ document.getElementById("employees").insertBefore(newemployee, oldemployee.nextS
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="insertBefore()">
 		<td>insertBefore()</td>
 		<td>方法</td>
 		<td>在childNodes中的refnode節點之前插入newnode節點；<br>
@@ -931,7 +931,7 @@ document.getElementById("employees").insertBefore(newemployee, oldemployee)
 			Important: Like many DOM methods that change the structure of the document, insertBefore() can only be called after the page has fully loaded. Doing so before will return strange errors in most browsers!
 		</td>
 	</tr>
-	<tr>
+	<tr id="item()">
 		<td>item()</td>
 		<td>方法</td>
 		<td>
@@ -948,7 +948,7 @@ alert(mydivs.item(1).id) //alerts "div2"
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="normalize()">
 		<td>normalize()</td>
 		<td>方法</td>
 		<td>
@@ -957,7 +957,7 @@ alert(mydivs.item(1).id) //alerts "div2"
 			Note: In cases where the document contains CDATASections, the normalize operation alone may not be sufficient, since XPointers do not differentiate between Text nodes and CDATASection nodes.
 		</td>
 	</tr>
-	<tr>
+	<tr id="querySelector()">
 		<td>querySelector()</td>
 		<td>方法</td>
 		<td>
@@ -984,7 +984,7 @@ myelement.querySelector("#leftcolumn, #rightcolumn")
 			querySelector() supports an optional 2nd "NSResolver" parameter to resolve namespace prefixes in XHTML documents. Not supported in IE8.
 		</td>
 	</tr>
-	<tr>
+	<tr id="querySelectorAll()">
 		<td>querySelectorAll()</td>
 		<td>方法</td>
 		<td>
@@ -1013,7 +1013,7 @@ myelement.querySelectorAll("#leftcolumn, #rightcolumn")
 			See CSS3 Structural puesdo-classes for advanced CSS selectors you can use with the query selector methods.
 		</td>
 	</tr>
-	<tr>
+	<tr id="removeAttribute()">
 		<td>removeAttribute()</td>
 		<td>方法</td>
 		<td>
@@ -1024,7 +1024,7 @@ document.getElementById("test").removeAttribute("href")
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="removeAttributeNode()">
 		<td>removeAttributeNode()</td>
 		<td>方法</td>
 		<td>
@@ -1036,7 +1036,7 @@ document.getElementById("test").removeAttributeNode(hrefattr)
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="removeAttributeNS()">
 		<td>removeAttributeNS()</td>
 		<td>方法</td>
 		<td>
@@ -1044,7 +1044,7 @@ document.getElementById("test").removeAttributeNode(hrefattr)
 			原文：Removes an attribute with the specified namespace and localname.
 		</td>
 	</tr>
-	<tr>
+	<tr id="removeChild()">
 		<td>removeChild()</td>
 		<td>方法</td>
 		<td>
@@ -1077,12 +1077,12 @@ var removednode=document.getElementById("father").removeChild(childnode)
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="removeEventListener()">
 		<td>removeEventListener()</td>
 		<td>方法</td>
 		<td>請參考addEventListener()；IE無此項，IE請使用detachEvent()。</td>
 	</tr>
-	<tr>
+	<tr id="replaceChild()">
 		<td>replaceChild()</td>
 		<td>方法</td>
 		<td>
@@ -1107,12 +1107,12 @@ document.getElementById("adiv").replaceChild(newel, oldel)
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="scrollIntoView()">
 		<td>scrollIntoView()</td>
 		<td>方法</td>
 		<td>Firefox/IE4+ proprietary method that scrolls an element into view. It accepts an optional Boolean parameter that when set to true (default), scrolls the element so its top left corner touches the top of the viewable window. If false, the element's bottom left corner touches the bottom of the window.</td>
 	</tr>
-	<tr>
+	<tr id="setAttribute()">
 		<td>setAttribute()</td>
 		<td>方法</td>
 		<td>
@@ -1133,7 +1133,7 @@ document.getElementById("test").setAttribute("title", "JavaScript Kit");
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="setAttributeNS()">
 		<td>setAttributeNS()</td>
 		<td>方法</td>
 		<td>
@@ -1141,7 +1141,7 @@ document.getElementById("test").setAttribute("title", "JavaScript Kit");
 			原文：Sets or creates an attribute for the current node with the given local name and namespace. Applicable in XML documents.
 		</td>
 	</tr>
-	<tr>
+	<tr id="setAttributeNode()">
 		<td>setAttributeNode()</td>
 		<td>方法</td>
 		<td>
@@ -1161,7 +1161,7 @@ sis.setAttributeNode(clonebrostyle)
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="supports()">
 		<td>supports()</td>
 		<td>方法</td>
 		<td>
@@ -1169,7 +1169,7 @@ sis.setAttributeNode(clonebrostyle)
 			原文：Tests to see if this DOM implementation supports a particular feature.
 		</td>
 	</tr>
-	<tr>
+	<tr id="toString()">
 		<td>toString()</td>
 		<td>方法</td>
 		<td></td>

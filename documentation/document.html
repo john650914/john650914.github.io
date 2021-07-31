@@ -24,24 +24,48 @@
 		<th>類形</th>
 		<th>說明</th>
 	</tr>
-	<tr>
+	<tr id="document">
 		<td>document</td>
 		<td>物件</td>
 		<td>document物件是window的屬性之一，自瀏覽器引入Javascript開始就提供的一種物件，主要用於獲取和修改一些頁面的屬性以及屬性集合；<br />
 		由於window物件的任何屬性和方法都可以直接訪問，因此下例程式碼返回的值為true。<br />
 		例：alert(window.document == document);</td>
 	</tr>
-	<tr>
+	<tr id="DOMContentLoaded">
+		<td>DOMContentLoaded</td>
+		<td>事件屬性</td>
+		<td>
+			DOMContentLoaded事件是當文件中的Dom tree建立完成並能被script存取後被觸發；<br>
+			它不像load事件需要等所有外部資源（images, iframe, plugins...）載入後才觸發，但有一個例外的特性，就是當&lt;script&gt;被放在&lt;link rel="stylesheet" ...&gt;後面的話，須等到前面的stylesheet載入並完成解析，此時DOMContentLoaded才會被觸發。<br><br>
+			注意一定要用addEventListener來接這個事件，不能寫成document.onDOMContentLoaded = ...喔<br><br>
+			IE8不支援DOMContentLoaded，但可以使用readystatechange事件來做降解，如下例：
+<pre>
+if(document.addEventListener){
+	document.addEventListener('DOMContentLoaded',function(){
+		console.log('支援DOMContentLoaded事件');
+	});
+}else{
+	document.onreadystatechange=function(){
+		if(document.readyState=='complete'){
+			console.log('不支援DOMContentLoaded事件');
+		}
+	}
+}
+console.log('程式走到這裡就先執行了');
+</pre>
+		</td>
+	</tr>
+	<tr id="alinkColor">
 		<td>alinkColor</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="body">
 		<td>body</td>
 		<td>屬性</td>
 		<td>References the body element of the page. From there, you can then access other nodes contained within the body.</td>
 	</tr>
-	<tr>
+	<tr id="all">
 		<td>all</td>
 		<td>屬性</td>
 		<td>頁面中所元素的集合，例如document.all(0)代表頁面內的第一個素；它是IE專用的屬性，所以常常用來判斷使用者的瀏覽器是否為IE瀏覽器，如下例：
@@ -49,22 +73,22 @@
 if(document.all){alert('是IE瀏覽器');}
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="anchors">
 		<td>anchors</td>
 		<td>屬性</td>
 		<td>頁面中所有錨的集合(&lt;a name="anchorsName"&gt;&lt;/a&gt;)。</td>
 	</tr>
-	<tr>
+	<tr id="applets">
 		<td>applets</td>
 		<td>屬性</td>
 		<td>頁面中所有的applet集合。</td>
 	</tr>
-	<tr>
+	<tr id="bgColor">
 		<td>bgColor</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="compatMode">
 		<td>compatMode</td>
 		<td>屬性</td>
 		<td>Returns the compatibility mode of the current document, specifically, whether the page is rendered in Quirks or Stricts mode. The two possible values returned are "BackCompat" for Quirks and "CSS1Compat" for Strict. Useful for determining the doctype setting of the page and executing different code accordingly. Example:
@@ -72,7 +96,7 @@ if(document.all){alert('是IE瀏覽器');}
 if (document.compatMode=="CSS1Compat"); // execute code for page with a valid doctype
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="cookie">
 		<td>cookie</td>
 		<td>屬性</td>
 		<td>
@@ -104,12 +128,12 @@ document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; /
 我們應該要指派cookie的path值，以免我們刪錯cookie；如果沒有指派，有的瀏覽器會不讓我們刪cookie
 		</td>
 	</tr>
-	<tr>
+	<tr id="doctype">
 		<td>doctype</td>
 		<td>屬性</td>
 		<td>Read-only property that returns the Document Type Definition (DTD) of the current document, or null if the page doesn't contain a DTD. Not supported in IE as of IE6.</td>
 	</tr>
-	<tr>
+	<tr id="documentElement">
 		<td>documentElement</td>
 		<td>屬性</td>
 		<td>References the root element of the document, in the case of HTML documents, the html element. This read only property is useful for accessing all elements on the page, such as the HEAD. Example:
@@ -120,7 +144,7 @@ for (i=0; i&lt;elements.length; i++)
 alert(elements[i].tagName)
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="domain">
 		<td>domain</td>
 		<td>屬性</td>
 		<td>Gets/sets the domain of the current document. Useful in cross domain scripting when one domain is to communicate with another. Example:
@@ -128,22 +152,22 @@ alert(elements[i].tagName)
 document.domain="javascriptkit.com"
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="embeds">
 		<td>embeds</td>
 		<td>屬性</td>
 		<td>頁面中所有的內置物件集合(&lt;embed&gt;&lt;/embed&gt;)。</td>
 	</tr>
-	<tr>
+	<tr id="fgColor">
 		<td>fgColor</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="fileSize">
 		<td>fileSize</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="forms[]">
 		<td>forms[]</td>
 		<td>屬性</td>
 		<td>指向文件中所有&lt;FORM&gt;元素的清單陣列，它的一系列屬性、事件及方法請見DOM Objects的form物件。<br>
@@ -191,37 +215,37 @@ document.domain="javascriptkit.com"
 		由上例看來forms也可以和DOM level 2的各種屬性及方法混用，不過"精通Javascript+jQuery"書中第7-27頁提到：傳統訪問表單元素的方法比較方便向伺服器傳送資料。因為選項案鈕各項之間name的值相同，而id值不同。( 雖然看不懂在寫什麼…但就先記錄下來… )
 		</td>
 	</tr>
-	<tr>
+	<tr id="images">
 		<td>images</td>
 		<td>屬性</td>
 		<td>頁面中所有的圖片集合。</td>
 	</tr>
-	<tr>
+	<tr id="implementation">
 		<td>implementation</td>
 		<td>屬性</td>
 		<td>Returns the DOM implementation of the current document.</td>
 	</tr>
-	<tr>
+	<tr id="lastModified">
 		<td>lastModified</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="linkColor">
 		<td>linkColor</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="links">
 		<td>links</td>
 		<td>屬性</td>
 		<td>頁面中所有的超連結集合(&lt;a href="URL"&gt;&lt;/a&gt;)。</td>
 	</tr>
-	<tr>
+	<tr id="plugins">
 		<td>plugins</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="readyState">
 		<td>readyState</td>
 		<td>屬性</td>
 		<td>Returns the loading status of the document. It returns one of the below 4 values:
@@ -240,12 +264,12 @@ document.onreadystatechange=function(){
 }
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="referrer">
 		<td>referrer</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="styleSheets">
 		<td>styleSheets</td>
 		<td>屬性</td>
 		<td>styleSheets物件是document下的一個屬性，它記載了頁面中的樣式表的陣列，包括使用&lt;style&gt;標籤撰寫的樣式表，以及使用&lt;link&gt;標籤載入的樣式表；使用@import的樣式表或是寫在行內的樣式則不在此列；<br />
@@ -258,12 +282,12 @@ window.onload = function(){
 }
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="title">
 		<td>title</td>
 		<td>屬性</td>
 		<td>Specifies the title of the document. Read/write in modern browsers.</td>
 	</tr>
-	<tr>
+	<tr id="URL">
 		<td>URL</td>
 		<td>屬性</td>
 		<td>原文：A string that specifies the complete URL of the document.<br>
@@ -272,17 +296,17 @@ window.onload = function(){
 		注意：改變document.URL來實現導航的方法在新式瀏覽器中皆不適用，因此不要使用此屬性，請改用location物件來處理。
 		</td>
 	</tr>
-	<tr>
+	<tr id="vlinkColor">
 		<td>vlinkColor</td>
 		<td>屬性</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="close()">
 		<td>close()</td>
 		<td>方法</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="createAttribute()">
 		<td>createAttribute()</td>
 		<td>方法</td>
 		<td>原文：Creates a new attribute, ready to be inserted somewhere in the document. It returns a reference to the created attribute.<br />
@@ -294,7 +318,7 @@ styleattr.nodeValue="center";
 document.getElementById("sister").setAttributeNode(styleattr);
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="createComment()">
 		<td>createComment()</td>
 		<td>方法</td>
 		<td>原文：Creates an instance of the comment node. Once created, you can then insert it into the document tree using appendChild(), for example.<br />
@@ -305,7 +329,7 @@ var commentnode=document.createComment("Copyright JavaScript Kit");
 document.getElementById("mydiv").appendChild(commentnode);
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="createDocumentFragment()">
 		<td>createDocumentFragment()</td>
 		<td>方法</td>
 		<td>建立文件檔碎片節點。通常將節點新增到實際頁面中時，頁面就會立即更新並反映這個變化。對於少量的更新是非常實用的，而一旦新增的節點非常多時，頁面執行的效能就會降低。<br />
@@ -336,7 +360,7 @@ document.getElementById("sister").appendChild(docfrag) //div now reads "this is 
 &lt;/script&gt;
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="createElement()">
 		<td>createElement()</td>
 		<td>方法</td>
 		<td>建立元素節點；document物件，要寫成document.createElement()；可以配合appendChild()等的DOM方法將新建立的節點插入文件內，如下例將在&lt;body&gt;中插入一個&lt;P&gt;：<br />
@@ -353,7 +377,7 @@ textblock.setAttribute("align", "center");
 document.body.appendChild(textblock);
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="createTextNode()">
 		<td>createTextNode()</td>
 		<td>方法</td>
 		<td>建立文字節點。<br />
@@ -363,7 +387,7 @@ var headertext=document.createTextNode("Welcome to JavaScript Kit");
 document.getElementById("mytitle").appendChild(headertext);
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="elementFromPoint()">
 		<td>elementFromPoint()</td>
 		<td>方法</td>
 		<td>傳回指定座標上的一個元素。<br>
@@ -393,7 +417,7 @@ document.onmousemove=function(e){
 }
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="getComputedStyle()">
 		<td>getComputedStyle()</td>
 		<td>方法</td>
 		<td>取得指定元素的風格表物件實際的CSS屬性值，不論他們是使用行內CSS設定，或是global/external stylesheets設定；IE不支援，IE使用currentStyle。<br />
@@ -420,7 +444,7 @@ document.onmousemove=function(e){
 &lt;/body&gt;
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="getElementById()">
 		<td>getElementById()</td>
 		<td>方法</td>
 		<td>document物件，要寫成document.getElementById()；利用html中id名稱訪問某個指定元素；標準的html文件id都是唯一的，所以訪問的對像也只會有一個。<br />
@@ -445,7 +469,7 @@ alert(findID.tagName+" - "+findID.childNodes[0].nodeValue);}
 var links = document.getElementById("friedslink").getElementsByTagName("a")[0];
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="getElementsByClassName()">
 		<td>getElementsByClassName()</td>
 		<td>方法</td>
 		<td>返回一組含有指定Class名稱的元素陣列，如下例：
@@ -507,7 +531,7 @@ document.getElementsByClassName = function(eleClassName){
 </pre>
 		</td>
 	</tr>
-	<tr>
+	<tr id="getElementsByName()">
 		<td>getElementsByName()</td>
 		<td>方法</td>
 		<td>原文：Returns an array of elements with a name attribute whose value matches that of the parameter's. In IE6, elements with an ID attribute of the matching value will also be included in the array, and getElementsByName() is limited to retrieving form objects such as checkboxes and INPUT. In Firefox, nither of these "pitfalls" apply.
@@ -522,7 +546,7 @@ for (i=0; i&lt; georges.length; i++)
 &lt;/script&gt;
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="getElementsByTagName()">
 		<td>getElementsByTagName()</td>
 		<td>方法</td>
 		<td>document物件，要寫成document.getElementsByTagName()；利用標籤名取得元素物件的清單。<br />
@@ -555,12 +579,12 @@ var ptags=document.getElementsByTagName("p");
 var alltags=document.getElementsByTagName("*"); //returns all elements on page
 </pre></td>
 	</tr>
-	<tr>
+	<tr id="open()">
 		<td>open()</td>
 		<td>方法</td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr id="querySelector()">
 		<td>querySelector()</td>
 		<td>方法</td>
 		<td>語法：querySelector(selectors, [NSResolver])<br />
@@ -585,7 +609,7 @@ document.querySelector("#leftcolumn, #rightcolumn")
 </pre>
 			querySelector() supports an optional 2nd "NSResolver" parameter to resolve namespace prefixes in XHTML documents. Not supported in IE8.</td>
 	</tr>
-	<tr>
+	<tr id="querySelectorAll()">
 		<td>querySelectorAll()</td>
 		<td>方法</td>
 		<td>語法：querySelectorAll(selectors, [NSResolver])<br />
@@ -612,13 +636,13 @@ document.querySelectorAll("#leftcolumn, #rightcolumn")
 			querySelectorAll() supports an optional 2nd "NSResolver" parameter to resolve namespace prefixes in XHTML documents. Not supported in IE8.<br />
 			See "<a href="http://www.javascriptkit.com/dhtmltutors/structuralcss.shtml" target="_blank">Overview of CSS3 Structural puesdo-classes</a>" for advanced CSS selectors you can use with the query selector methods.</td>
 	</tr>
-	<tr>
+	<tr id="write()">
 		<td>write()</td>
 		<td>方法</td>
 		<td>在html中插入內容，&lt;script&gt;&lt;/script&gt;寫在哪就插在哪，參數中可以是字串或是算式等。<br />
 			要注意如果document.write()是被放在window.onload = function(){}的函數裡，在文件一載入時document.write()會把原本的的內容全部覆蓋掉。</td>
 	</tr>
-	<tr>
+	<tr id="writeln()">
 		<td>writeln()</td>
 		<td>方法</td>
 		<td></td>
