@@ -440,6 +440,7 @@ var slide = tns({
 	gutter: 10,
 	axis: 'vertical',
 	speed: 200,
+	touch: true,
 	lazyload: true,
 	mouseDrag: false,
 	responsive: {
@@ -688,6 +689,26 @@ Email：
 
 中英數限20字內：
 /^[^\u0000-\u002F\u003A-\u0040\u005B-\u0060\u007B-\u00FF]{1,20}$/;
+
+
+################################## IE9 placeholder ##################################
+function doPlaceholder(){
+	if(navigator.userAgent.indexOf('MSIE 9.0') != -1){
+		$('[placeholder]').focus(function(){
+			var input = $(this);
+			if (input.val() == input.attr('placeholder')) {
+				input.val('');
+				input.removeClass('placeholder');
+			}
+		}).blur(function(){
+			var input = $(this);
+			if (input.val() == '' || input.val() == input.attr('placeholder')) {
+				input.addClass('placeholder');
+				input.val(input.attr('placeholder'));
+			}
+		}).blur();
+	}
+}
 
 
 
