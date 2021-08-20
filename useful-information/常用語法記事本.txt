@@ -294,7 +294,7 @@ transform-origin: 50% 50%; //(y, x)…我覺得啦
 transform: scale(2) rotate(45deg);
 
 2D矩陣：
-transform: matrix(1, -0.3, 0, 1, 0, 0); //看起來不是用deg的單位
+transform: matrix(1, -0.3, 0, 1, 0, 0); //是一個我不懂的矩陣運算，有需要的話還是要去google一下
 matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY());
 
 資源：
