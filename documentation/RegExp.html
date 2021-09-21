@@ -82,6 +82,9 @@ Email：
 
 中英數限20字內：
 /^[^\u0000-\u002F\u003A-\u0040\u005B-\u0060\u007B-\u00FF]{1,20}$/;
+
+中文：
+/^[\u4E00-\u9FFF]+$/
 </pre>
 			Note: The backslash (\) is also used when you wish to match a special character literally. For example, if you wish to match the symbol "$" literally instead of have it signal the end of the string, backslash it: /\$/<br><br>
 			Note2: RegExp 個體提供兩個主要行為，即 exec() 和 test() 。 exec() 會對引數字串進行比對運算，並將匹配的字串內容記錄在陣列中回傳。而 test() 則僅僅測試引數字串是否符合規則，只回傳 true 或 false 。此外，RegExp 個體也可以作為 String 個體的 match(), search(), replace(), split() 之引數。 String 的 match() 其實就是調用 RegExp 的 exec() ，兩者的結果相同。
