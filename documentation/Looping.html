@@ -31,20 +31,31 @@ http://rocksaying.tw/archives/2015/ES6_for-of_and_iterator.html
 	<tr id="for">
 		<td>for</td>
 		<td>關鍵字</td>
-		<td>for迴圈是前測試迴圈(代表是否終止迴圈的條件判斷是在執行內部程式碼之前，因此迴圈的主體可能根本不被執行)，在進入迴圈之前能夠初始化變數，並且定義迴圈後要執行的程式碼，其語法如下：<br>
-		for(initial var; expression; post-loop-expression){statement}<br>
-		執行過程如下：<br>
-		第一個項目(initial var)是用來設定控制迴圈執行次數的變數初值，這個項目只會被執行一次。<br>
-		第二個項目(expression)是是否執行迴圈的條件判斷式，只有成立，它就會執行大刮號{ ... }裡的程式，直到條件判斷為否為止。<br>
-		第三個項目(post-loop-expression)是每次執行完{ ... }裡的程式就會執行的敘述，通常是增加或減少控制迴圈執行次數的變數。<br>
-		for迴圈最常用的型式是for(i=0;i&lt;n;i++){statement;}，它表示迴圈一共執行n次，<u>非常適用於己知迴圈次數的運算</u>。<br>
-		以下範例將使用for迴圈計算1+2+3+4+5的和。<br>
+		<td>
+			for迴圈是前測試迴圈(代表是否終止迴圈的條件判斷是在執行內部程式碼之前，因此迴圈的主體可能根本不被執行)，在進入迴圈之前能夠初始化變數，並且定義迴圈後要執行的程式碼，其語法如下：<br>
+			for(initial var; expression; post-loop-expression){statement}<br>
+			執行過程如下：<br>
+			第一個項目(initial var)是用來設定控制迴圈執行次數的變數初值，這個項目只會被執行一次。<br>
+			第二個項目(expression)是是否執行迴圈的條件判斷式，只有成立，它就會執行大刮號{ ... }裡的程式，直到條件判斷為否為止。<br>
+			第三個項目(post-loop-expression)是每次執行完{ ... }裡的程式就會執行的敘述，通常是增加或減少控制迴圈執行次數的變數。<br>
+			for迴圈最常用的型式是for(i=0;i&lt;n;i++){statement;}，它表示迴圈一共執行n次，<u>非常適用於己知迴圈次數的運算</u>。<br>
+			以下範例將使用for迴圈計算1+2+3+4+5的和。<br>
 <pre>
 var sum=0;
 for(var i=1; i<=5; i++){
 	sum+=i;
 }
 alert(sum);
+</pre>
+			巢狀迴圈；如果我們有一個二維陣列，可以在for迴圈中再加入for迴圈列舉二維陣列中所有的值：
+<pre>
+var arr = [[1,2],[3,4],[5,6]];
+for (let i = 0; i < arr.length; i++) {
+	for (let j = 0; j < arr[i].length; j++) {
+		  console.log(arr[i][j]);
+	}
+}
+//輸出結果：1 2 3 4 5 6
 </pre>
 </td>
 	</tr>
