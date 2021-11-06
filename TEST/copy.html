@@ -14,6 +14,7 @@ input{
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://unpkg.com/vconsole/dist/vconsole.min.js"></script>
 </head>
 <body>
 <div>
@@ -70,6 +71,9 @@ function isValidCode(kc){
 function isValidKey(k){
 	return /^[a-zA-Z0-9]+$/.test(k);
 }
+
+
+var vConsole = new window.VConsole();
 
 
 /*$('input').on('paste', function(e){
