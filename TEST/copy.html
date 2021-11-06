@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
+<title>HTML5</title>
+<style>
+input{
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	display: inline-block;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+<div>
+	<input class="single-code" type="text" maxlength="1" />
+	<input class="single-code" type="text" maxlength="1" />
+	<input class="single-code" type="text" maxlength="1" />
+	<input class="single-code" type="text" maxlength="1" />
+	<input class="single-code" type="text" maxlength="1" />
+	<input class="single-code" type="text" maxlength="1" />
+</div>
+
+<!-- <input class="inputt" type="text" maxlength="1" /> -->
+
+<script>
+$('.single-code').on('focus', function(){
+	$(this).select();
+});
+
+$('.single-code').on('keydown', function(e){
+	var _this = $(this);
+	var key = e.key;
+	if(isValidKey(key) && isValidCode(e.keyCode) && !e.ctrlKey){
+		setTimeout(function(){
+			_this.next().focus();
+		});
+	}else if(key == 'Backspace' && _this.val() == ''){
+		setTimeout(function(){
+			_this.prev().focus();
+		});
+	}else if(key != 'Backspace' && key != 'Tab' && key != 'Delete' && (e.ctrlKey && e.key == 'z')){
+		e.preventDefault();
+	}
+});
+$('.single-code').on('paste', function(e){
+	var evtIdx = $(this).index();
+	var aryIdx = 0;
+	var clipboardDataObj = e.clipboardData || window.clipboardData || e.originalEvent.clipboardData;
+	var copiedTextAry = clipboardDataObj.getData('Text').split('');
+	//console.log(idx);
+	//console.log(copiedTextAry);
+	$('.single-code').each(function(i){
+		if(evtIdx == i){
+			evtIdx++;
+			$(this).val(copiedTextAry[aryIdx]);
+			aryIdx++;
+		}
+	});
+});
+
+
+function isValidCode(kc){
+	return ((kc >=48 && kc <=57) || (kc >=65 && kc <=90) || (kc >=97 && kc <=122));
+}
+function isValidKey(k){
+	return /^[a-zA-Z0-9]+$/.test(k);
+}
+
+
+/*$('input').on('paste', function(e){
+	var aaa = e.clipboardData || window.clipboardData || e.originalEvent.clipboardData;
+	alert(aaa.getData('Text'));
+});*/
+
+
+/*$('input').on('focus', function(){
+	$(this).select();
+});
+
+$('input').on('keydown', function(e){
+	var _this = $(this);
+	var _keycode = e.keyCode;
+	setTimeout(function(){
+		if(_keycode != 8 && _keycode != 46){
+			_this.next().focus();
+		}
+	});
+});
+
+$(document).on('paste', function(e){
+	console.log(e);
+	var text = e.clipboardData.getData('text')
+});*/
+
+/********************** 倒數 **********************/
+/*var sec = 5;
+var intervalId = null;
+function countdown(){
+	if(sec <= 1){
+		clearInterval(intervalId);
+		document.getElementsByTagName('body')[0].innerHTML = '時間到';
+		return false;
+	}
+	document.getElementsByTagName('body')[0].innerHTML = sec-1;
+	sec--;
+}
+window.onload = function(){
+	document.getElementsByTagName('body')[0].innerHTML = sec;
+	intervalId = setInterval(countdown, 1000);
+}*/
+</script>
+</body>
+</html>
