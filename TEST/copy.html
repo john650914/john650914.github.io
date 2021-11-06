@@ -18,12 +18,12 @@ input{
 </head>
 <body>
 <div>
-	<input class="single-code" type="text" maxlength="1" onkeypress="if(this.value.length >= this.getAttribute('maxlength')) return false;">
-	<input class="single-code" type="text" maxlength="1" onkeypress="if(this.value.length >= this.getAttribute('maxlength')) return false;">
-	<input class="single-code" type="text" maxlength="1" onkeypress="if(this.value.length >= this.getAttribute('maxlength')) return false;">
-	<input class="single-code" type="text" maxlength="1" onkeypress="if(this.value.length >= this.getAttribute('maxlength')) return false;">
-	<input class="single-code" type="text" maxlength="1" onkeypress="if(this.value.length >= this.getAttribute('maxlength')) return false;">
-	<input class="single-code" type="text" maxlength="1" onkeypress="if(this.value.length >= this.getAttribute('maxlength')) return false;">
+	<input class="single-code" type="text" maxlength="1" />
+	<input class="single-code" type="text" maxlength="1" />
+	<input class="single-code" type="text" maxlength="1" />
+	<input class="single-code" type="text" maxlength="1" />
+	<input class="single-code" type="text" maxlength="1" />
+	<input class="single-code" type="text" maxlength="1" />
 </div>
 
 <!-- <input class="inputt" type="text" maxlength="1" /> -->
@@ -65,6 +65,11 @@ $('.single-code').on('paste', function(e){
 			}
 		}
 	});
+});
+
+$('.single-code').on('input', function(){     
+    if (this.value.length > 1)         
+        this.value = this.value.slice(0,1); 
 });
 
 
