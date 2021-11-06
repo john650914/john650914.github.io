@@ -39,7 +39,7 @@ $('.single-code').on('keydown', function(e){
 	if(isValidKey(key) && isValidCode(e.keyCode) && !e.ctrlKey){
 		setTimeout(function(){
 			_this.next().focus();
-		});
+		},1);
 	}else if(key == 'Backspace' && _this.val() == ''){
 		setTimeout(function(){
 			_this.prev().focus();
