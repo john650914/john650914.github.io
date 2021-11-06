@@ -1,0 +1,80 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
+<title>HTML5</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<!-- <canvas id="myCanvas1" width="200" height="200"></canvas> -->
+
+
+<button class="ui facebook button">Share</button>
+
+
+<script>
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId            : '413028596241586',
+			autoLogAppEvents : true,
+			xfbml            : true,
+			version          : 'v12.0'
+		});
+	};
+
+	(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "https://connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+
+
+
+
+$(".ui.facebook.button").click(function() {
+	FB.ui({
+		method: 'share',
+		href: 'https://www.yahoo.com.tw',
+	}, function(response){});
+});
+
+</script>
+
+
+
+
+
+
+
+<script>
+/*var cvs1 = document.getElementById('myCanvas1');
+var ctx1 = cvs1.getContext('2d');
+ctx1.fillStyle = 'red';
+ctx1.fillRect(50, 50, 100, 100);*/
+
+/*var base64AtoB = URL.createObjectURL(dataURItoBlob(cvs1.toDataURL()));
+console.log(base64AtoB);
+
+function dataURItoBlob(dataURI) {
+	var byteString = atob(dataURI.split(',')[1]);
+	var ab = new ArrayBuffer(byteString.length);
+	var ia = new Uint8Array(ab);
+	for (var i = 0; i < byteString.length; i++) {
+		ia[i] = byteString.charCodeAt(i);
+	}
+	return new Blob([ab], {
+		type: 'image/png'
+	});
+}
+
+var myImage = new Image();
+myImage.src = base64AtoB;
+document.body.appendChild(myImage);*/
+
+</script>
+</body>
+</html>
