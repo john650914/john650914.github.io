@@ -37,14 +37,17 @@ $('.single-code').on('keydown', function(e){
 	var _this = $(this);
 	var key = e.key;
 	if(isValidKey(key) && isValidCode(e.keyCode) && !e.ctrlKey){
+		console.log(1);
 		setTimeout(function(){
 			_this.next().focus();
 		},50);
 	}else if(key == 'Backspace' && _this.val() == ''){
+		console.log(2);
 		setTimeout(function(){
 			_this.prev().focus();
 		});
 	}else if(key != 'Backspace' && key != 'Tab' && key != 'Delete' && (e.ctrlKey && e.key == 'z')){
+		console.log(3);
 		e.preventDefault();
 	}
 });
@@ -53,25 +56,26 @@ $('.single-code').on('paste', function(e){
 	var aryIdx = 0;
 	var clipboardDataObj = e.clipboardData || window.clipboardData || e.originalEvent.clipboardData;
 	var copiedTextAry = clipboardDataObj.getData('Text').split('');
-	//console.log(idx);
-	//console.log(copiedTextAry);
 	$('.single-code').each(function(i){
 		if(evtIdx == i){
-			evtIdx++;
-			$(this).val(copiedTextAry[aryIdx]);
-			aryIdx++;
+			if(copiedTextAry[aryIdx] != undefined){
+				evtIdx++;
+				$(this).val(copiedTextAry[aryIdx]);
+				aryIdx++;
+			}
 		}
 	});
 });
+max_length = Number($('.single-code').attr('maxlength'));
+$('.single-code').attr('onkeypress', 'if(this.value.length >= max_length) return false;');
 
 
-function isValidCode(kc){
-	return ((kc >=48 && kc <=57) || (kc >=65 && kc <=90) || (kc >=97 && kc <=122));
-}
 function isValidKey(k){
 	return /^[a-zA-Z0-9]+$/.test(k);
 }
-
+function isValidCode(kc){
+	return ((kc >=48 && kc <=57) || (kc >=65 && kc <=90) || (kc >=97 && kc <=122));
+}
 
 var vConsole = new window.VConsole();
 
