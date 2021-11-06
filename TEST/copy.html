@@ -18,12 +18,12 @@ input{
 </head>
 <body>
 <div>
-	<input class="single-code" type="text" maxlength="1" />
-	<input class="single-code" type="text" maxlength="1" />
-	<input class="single-code" type="text" maxlength="1" />
-	<input class="single-code" type="text" maxlength="1" />
-	<input class="single-code" type="text" maxlength="1" />
-	<input class="single-code" type="text" maxlength="1" />
+	<input class="single-code" type="text" maxlength="1" onkeypress="if(this.value.length >= this.getAttribute('maxlength')) return false;">
+	<input class="single-code" type="text" maxlength="1" onkeypress="if(this.value.length >= this.getAttribute('maxlength')) return false;">
+	<input class="single-code" type="text" maxlength="1" onkeypress="if(this.value.length >= this.getAttribute('maxlength')) return false;">
+	<input class="single-code" type="text" maxlength="1" onkeypress="if(this.value.length >= this.getAttribute('maxlength')) return false;">
+	<input class="single-code" type="text" maxlength="1" onkeypress="if(this.value.length >= this.getAttribute('maxlength')) return false;">
+	<input class="single-code" type="text" maxlength="1" onkeypress="if(this.value.length >= this.getAttribute('maxlength')) return false;">
 </div>
 
 <!-- <input class="inputt" type="text" maxlength="1" /> -->
@@ -66,8 +66,6 @@ $('.single-code').on('paste', function(e){
 		}
 	});
 });
-max_length = Number($('.single-code').attr('maxlength'));
-$('.single-code').attr('onkeypress', 'if(this.value.length >= max_length) return false;');
 
 
 function isValidKey(k){
