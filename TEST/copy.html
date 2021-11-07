@@ -73,7 +73,7 @@ $('.single-code').on('paste', function(e){
 	});
 });
 
-$('.single-code').on('input', function(){     
+$('.single-code').on('keydown', function(){     
 	if (this.value.length > 1){
 		this.value = this.value.slice(0,1);
 	}
