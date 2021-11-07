@@ -44,16 +44,11 @@ $('.single-code').on('keydown', function(e){
 			_this.next().focus();
 		},50);
 	}else if(key == 'Backspace'){
-		if(isMobile.android.device){
-			console.log(5);
-			_this.prev().focus();
-		}else{
-			if(_this.val() == ''){
-				console.log(2);
-				setTimeout(function(){
-					_this.prev().focus();
-				});
-			}
+		if(_this.val() == ''){
+			console.log(2);
+			setTimeout(function(){
+				_this.prev().focus();
+			});
 		}
 	}
 	/* else if(key != 'Tab' && key != 'Delete' && keycode != 37 && keycode != 39 && ((e.ctrlKey && e.key == 'z') || keycode == 32)){
@@ -62,6 +57,14 @@ $('.single-code').on('keydown', function(e){
 	} */
 	else if(key != 'Tab' && key != 'Delete' && keycode != 37 && keycode != 39 || ((e.ctrlKey && e.key == 'z') || keycode == 32)){
 		console.log(3);
+		if(isMobile.android.device){
+			if(_this.val() != ''){
+				console.log(5);
+				setTimeout(function(){
+					_this.prev().focus();
+				});
+			}
+		}
 		e.preventDefault();
 	}
 });
