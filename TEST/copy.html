@@ -45,9 +45,8 @@ $('.single-code').on('keydown', function(e){
 		},50);
 	}else if(key == 'Backspace'){
 		if(isMobile.android.device){
-			setTimeout(function(){
-				_this.prev().focus();
-			});
+			console.log(5);
+			_this.prev().focus();
 		}else{
 			if(_this.val() == ''){
 				console.log(2);
