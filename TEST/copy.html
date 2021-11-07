@@ -38,18 +38,23 @@ $('.single-code').on('keydown', function(e){
 	var _this = $(this);
 	var key = e.key;
 	var keycode = e.keyCode;
-	if(isValidKey(key) && isValidCode(keycode) && !e.ctrlKey){
+	if(isValidKey(key) && isValidCode(keycode) && !(e.ctrlKey && e.key == 'z')){
 		console.log(1);
 		setTimeout(function(){
 			_this.next().focus();
 		},50);
 	}else if(key == 'Backspace'){
-		if(_this.val() == ''){
-			console.log(2);
+		if(isMobile.android.device){
 			setTimeout(function(){
 				_this.prev().focus();
-				e.preventDefault();
 			});
+		}else{
+			if(_this.val() == ''){
+				console.log(2);
+				setTimeout(function(){
+					_this.prev().focus();
+				});
+			}
 		}
 	}
 	/* else if(key != 'Tab' && key != 'Delete' && keycode != 37 && keycode != 39 && ((e.ctrlKey && e.key == 'z') || keycode == 32)){
@@ -88,15 +93,6 @@ if(isMobile.android.device){
 			setTimeout(function(){
 				_this.next().focus();
 			},50);
-		}
-		if(e.key == 'Backspace'){
-			this.value = '';
-			if(_this.val() == ''){
-				console.log(5);
-				setTimeout(function(){
-					_this.prev().focus();
-				});
-			}
 		}
 	});
 }
