@@ -48,6 +48,7 @@ $('.single-code').on('keydown', function(e){
 			console.log(2);
 			setTimeout(function(){
 				_this.prev().focus();
+				e.preventDefault();
 			});
 		}
 	}
