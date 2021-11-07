@@ -33,12 +33,15 @@ $('.single-code').on('focus', function(){
 	$(this).select();
 });
 
-$('.single-code').on('keydown', function(e){
+$('.single-code').on('keydown input', function(e){
 	var _this = $(this);
 	var key = e.key;
 	var keycode = e.keyCode;
 	if(isValidKey(key) && isValidCode(keycode) && !e.ctrlKey){
 		console.log(1);
+		if(this.value.length > 0){
+			this.value = this.value.slice(0,1);
+		}
 		setTimeout(function(){
 			_this.next().focus();
 		},50);
@@ -73,7 +76,7 @@ $('.single-code').on('paste', function(e){
 	});
 });
 
-$('.single-code').on('input', function(e){
+/* $('.single-code').on('input', function(e){
 	var _this = $(this);
 	if (this.value.length > 0){
 		this.value = this.value.slice(0,1);
@@ -82,7 +85,7 @@ $('.single-code').on('input', function(e){
 			_this.next().focus();
 		},50);
 	}
-});
+}); */
 
 
 function isValidKey(k){
