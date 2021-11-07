@@ -60,6 +60,9 @@ $('.single-code').on('keydown', function(e){
 		if(isMobile.android.device){
 			if(_this.val() != ''){
 				console.log(5);
+				_this.val() = '';
+			}else if(_this.val() == ''){
+				console.log(6);
 				setTimeout(function(){
 					_this.prev().focus();
 				});
