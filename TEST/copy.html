@@ -34,10 +34,12 @@ $('.single-code').on('focus', function(){
 	$(this).select();
 });
 
+var key = null;
+var keycode = null;
 $('.single-code').on('keydown', function(e){
 	var _this = $(this);
-	var key = e.key;
-	var keycode = e.keyCode;
+	key = e.key;
+	keycode = e.keyCode;
 	if(isValidKey(key) && isValidCode(keycode) && !(e.ctrlKey && e.key == 'z')){
 		console.log(1);
 		setTimeout(function(){
@@ -81,7 +83,7 @@ $('.single-code').on('paste', function(e){
 if(isMobile.android.device){
 	$('.single-code').on('input', function(e){
 		var _this = $(this);
-		if(isValidKey(e.key) && isValidCode(e.keyCode)){
+		if(isValidKey(key) && isValidCode(keycode)){
 			console.log('合法的字元');
 		}
 		/* if (this.value.length > 0){
