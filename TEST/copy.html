@@ -81,13 +81,16 @@ $('.single-code').on('paste', function(e){
 if(isMobile.android.device){
 	$('.single-code').on('input', function(e){
 		var _this = $(this);
-		if (this.value.length > 0){
+		if(isValidKey(e.key) && isValidCode(e.keyCode)){
+			alert(1);
+		}
+		/* if (this.value.length > 0){
 			this.value = this.value.slice(0,1);
 			console.log(4);
 			setTimeout(function(){
 				_this.next().focus();
 			},50);
-		}
+		} */
 	});
 }
 
