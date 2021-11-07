@@ -13,6 +13,7 @@ input{
 	display: inline-block;
 }
 </style>
+<script src="https://tw.hicdn.beanfun.com/plugins/isMobile/isMobile.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://unpkg.com/vconsole/dist/vconsole.min.js"></script>
 </head>
@@ -33,15 +34,12 @@ $('.single-code').on('focus', function(){
 	$(this).select();
 });
 
-$('.single-code').on('keydown input', function(e){
+$('.single-code').on('keydown', function(e){
 	var _this = $(this);
 	var key = e.key;
 	var keycode = e.keyCode;
 	if(isValidKey(key) && isValidCode(keycode) && !e.ctrlKey){
 		console.log(1);
-		if(this.value.length > 0){
-			this.value = this.value.slice(0,1);
-		}
 		setTimeout(function(){
 			_this.next().focus();
 		},50);
@@ -53,7 +51,11 @@ $('.single-code').on('keydown input', function(e){
 			});
 		}
 	}
-	else if(key != 'Tab' && key != 'Delete' && keycode != 37 && keycode != 39 && ((e.ctrlKey && e.key == 'z') || keycode == 32)){
+	/* else if(key != 'Tab' && key != 'Delete' && keycode != 37 && keycode != 39 && ((e.ctrlKey && e.key == 'z') || keycode == 32)){
+		console.log(3);
+		e.preventDefault();
+	} */
+	else if(key != 'Tab' && key != 'Delete' && keycode != 37 && keycode != 39 || ((e.ctrlKey && e.key == 'z') || keycode == 32)){
 		console.log(3);
 		e.preventDefault();
 	}
@@ -76,16 +78,28 @@ $('.single-code').on('paste', function(e){
 	});
 });
 
-/* $('.single-code').on('input', function(e){
-	var _this = $(this);
-	if (this.value.length > 0){
-		this.value = this.value.slice(0,1);
-		console.log(4);
-		setTimeout(function(){
-			_this.next().focus();
-		},50);
-	}
-}); */
+if(isMobile.android.device){
+	$('.single-code').on('input', function(e){
+		var _this = $(this);
+		if (this.value.length > 0){
+			this.value = this.value.slice(0,1);
+			console.log(4);
+			setTimeout(function(){
+				_this.next().focus();
+			},50);
+		}
+		if(key == 'Backspace'){
+			this.value = '';
+			if(_this.val() == ''){
+				console.log(5);
+				setTimeout(function(){
+					_this.prev().focus();
+				});
+			}
+		}
+	});
+}
+
 
 
 function isValidKey(k){
