@@ -19,18 +19,138 @@ input{
 </head>
 <body>
 <div>
-	<input class="single-code" type="text" maxlength="1" />
-	<input class="single-code" type="text" maxlength="1" />
-	<input class="single-code" type="text" maxlength="1" />
-	<input class="single-code" type="text" maxlength="1" />
-	<input class="single-code" type="text" maxlength="1" />
-	<input class="single-code" type="text" maxlength="1" />
+	<input class="single-code" type="tel" autocomplete="off" maxlength="1" />
+	<input class="single-code" type="tel" autocomplete="off" maxlength="1" />
+	<input class="single-code" type="tel" autocomplete="off" maxlength="1" />
+	<input class="single-code" type="tel" autocomplete="off" maxlength="1" />
+	<input class="single-code" type="tel" autocomplete="off" maxlength="1" />
+	<input class="single-code" type="tel" autocomplete="off" maxlength="1" />
 </div>
 
-<!-- <input class="inputt" type="text" maxlength="1" /> -->
 
 <script>
 $('.single-code').on('focus', function(){
+	$(this).select();
+});
+$('.single-code').on('keyup', function(e){
+	if(/^[0-9]+$/.test(e.key) && !(e.ctrlKey && e.key == 'z')){
+		if($(this).val() != ''){
+			$(this).next().focus();
+		}
+	}
+	else if(e.key != 'Tab' && e.key != 'Delete' && e.keyCode != 37 && e.keyCode != 39 || ((e.ctrlKey && e.key == 'z') || e.keyCode == 32)){
+		if(isMobile.any){
+			$(this).val('');
+			e.preventDefault();
+		}
+	}
+});
+$('.single-code').on('keydown', function(e){
+	if(/^[0-9]+$/.test(e.key) && !(e.ctrlKey && e.key == 'z')){
+		//
+	}else if(e.key == 'Backspace'){
+		if($(this).val() == ''){
+	
+			$(this).prev().focus();
+		}
+	}else if(e.ctrlKey || e.key == 'v'){
+	}
+	else if(e.key != 'Tab' && e.key != 'Delete' && e.keyCode != 37 && e.keyCode != 39 || ((e.ctrlKey && e.key == 'z') || e.keyCode == 32)){
+		$(this).val('');
+		e.preventDefault();
+	}
+});
+$('.single-code').on('paste', function(e){
+	var evtIdx = $(this).index();
+	var aryIdx = 0;
+	var clipboardDataObj = e.clipboardData || window.clipboardData || e.originalEvent.clipboardData;
+	var copiedText = clipboardDataObj.getData('Text');
+	var copiedTextAry = copiedText.split('');
+	if(!/^[0-9]+$/.test(copiedText)){
+		alert('貼上的文字包含數字以外的字元');
+		$(this).val('');
+		$(this).val(' ');
+		return;
+	}
+	$('.single-code').each(function(i){
+		if(evtIdx == i){
+			if(copiedTextAry[aryIdx] != undefined){
+				evtIdx++;
+				$(this).val(copiedTextAry[aryIdx]);
+				aryIdx++;
+				$(this).focus();
+			}
+		}
+	});
+});
+
+//var vConsole = new window.VConsole();
+
+
+/* $('.single-code').on('focus', function(){
+	$(this).select();
+});
+
+$('.single-code').on('keyup', function(e){
+	var _this = $(this);
+	var key = e.key;
+	var keycode = e.keyCode;
+	if(isValidKey(key) && isValidCode(keycode) && !(e.ctrlKey && e.key == 'z')){
+		console.log(1);
+		if(_this.val() != ''){
+			_this.next().focus();
+		}
+	}else if(key == 'Backspace'){
+		if(_this.val() == ''){
+			console.log(2);
+			_this.prev().focus();
+		}
+	}
+	else if(key != 'Tab' && key != 'Delete' && keycode != 37 && keycode != 39 || ((e.ctrlKey && e.key == 'z') || keycode == 32)){
+		console.log(3);
+		e.preventDefault();
+	}
+});
+$('.single-code').on('paste', function(e){
+	var evtIdx = $(this).index();
+	var aryIdx = 0;
+	var clipboardDataObj = e.clipboardData || window.clipboardData || e.originalEvent.clipboardData;
+	var copiedText = clipboardDataObj.getData('Text');
+	var copiedTextAry = copiedText.split('');
+	$('.single-code').each(function(i){
+		if(evtIdx == i){
+			if(copiedTextAry[aryIdx] != undefined){
+				evtIdx++;
+				$(this).val(copiedTextAry[aryIdx]);
+				aryIdx++;
+			}
+		}
+	});
+});
+if(isMobile.android.device){
+	$('.single-code').on('input', function(e){
+		var _this = $(this);
+		if (this.value.length > 0){
+			this.value = this.value.slice(0,1);
+			console.log(4);
+			setTimeout(function(){
+				_this.next().focus();
+			},50);
+		}
+	});
+}
+
+function isValidKey(k){
+	return /^[a-zA-Z0-9]+$/.test(k);
+}
+function isValidCode(kc){
+	return ((kc >=48 && kc <=57) || (kc >=65 && kc <=90) || (kc >=97 && kc <=122));
+} */
+
+
+
+
+/* $('.single-code').on('focus', function(){
 	$(this).select();
 });
 
@@ -51,10 +171,6 @@ $('.single-code').on('keydown', function(e){
 			});
 		}
 	}
-	/* else if(key != 'Tab' && key != 'Delete' && keycode != 37 && keycode != 39 && ((e.ctrlKey && e.key == 'z') || keycode == 32)){
-		console.log(3);
-		e.preventDefault();
-	} */
 	else if(key != 'Tab' && key != 'Delete' && keycode != 37 && keycode != 39 || ((e.ctrlKey && e.key == 'z') || keycode == 32)){
 		console.log(3);
 		e.preventDefault();
@@ -91,8 +207,6 @@ if(isMobile.android.device){
 	});
 }
 
-
-
 function isValidKey(k){
 	return /^[a-zA-Z0-9]+$/.test(k);
 }
@@ -100,7 +214,7 @@ function isValidCode(kc){
 	return ((kc >=48 && kc <=57) || (kc >=65 && kc <=90) || (kc >=97 && kc <=122));
 }
 
-var vConsole = new window.VConsole();
+var vConsole = new window.VConsole(); */
 
 
 
