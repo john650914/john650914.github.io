@@ -124,8 +124,34 @@ document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC;";
 <pre>
 document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; //將時間設為過去
 </pre>
-註：
-我們應該要指派cookie的path值，以免我們刪錯cookie；如果沒有指派，有的瀏覽器會不讓我們刪cookie
+※：我們應該要指派cookie的path值，以免我們刪錯cookie；如果沒有指派，有的瀏覽器會不讓我們刪cookie<br><br>
+包裝建立cookie的function：
+<pre>
+function setCookie(cookie_name, cvalue, exdays) {
+	var d = new Date();
+	d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	var expires = "expires="+ d.toUTCString();
+	document.cookie = cookie_name + "=" + cvalue + ";" + expires + ";path=/";
+}
+</pre>
+包裝取cookie值的function：
+<pre>
+function getCookie(cookie_name) {
+	var name = cookie_name + "=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var ca = decodedCookie.split(';');
+	for(var i = 0; i &lt;ca.length; i++) {
+		var c = ca[i];
+			while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+			if (c.indexOf(name) == 0) {`
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+}
+</pre>
 		</td>
 	</tr>
 	<tr id="doctype">
