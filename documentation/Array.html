@@ -493,7 +493,55 @@ alert(colors.toString()); //返回red,green,blue,brown
 	<tr id="reduce()">
 		<td>reduce()</td>
 		<td>方法</td>
-		<td>Reduce the values of an array to a single value (going left-to-right)</td>
+		<td>
+			reduce()方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值，語法如下：
+<pre>
+Array.reduce(function(sum, value, index, array){return sum}, initialValue);
+</pre>
+			<b>sum：</b>用來累積callback回傳值的累加器(accumulator)，累加器是上一次呼叫後，所回傳的累加數值；若有指定initialValue的話會是不同的情況，詳如下述。<br><br>
+			<b>value：</b>陣列目前迴圈處理中的元素。<br><br>
+			<b>index：</b>陣列目前迴圈處理中元素的索引。若有傳入initialValue，則由索引0之元素開始，若無則自索引1之元素開始（這邏輯好新穎，感覺就是沒有initialValue的話陣列[0]的值就會直接指派給sum，然後從陣列[1]開始跑迴圈，總之下面看範例應該還是可以理解的）。<br><br>
+			<b>array：</b>呼叫reduce()方法的陣列（每次看到這個參數都不知可以幹嘛）。<br><br>
+			<b>initialValue：</b>累加器的初始值，於第一次呼叫callback時傳入的。若沒有提供初始值，則原陣列的第一個元素將會被當作初始的累加器。假如於一個空陣列呼叫reduce()方法且沒有提供累加器初始值，將會發生錯誤，<u>所以提供累加器初始值通常較為安全</u>。<br><br>
+			範例1，將陣列中的每個數字做加總：
+<pre>
+const arr = [1,2,3,4,5];
+const result = arr.reduce((sum, val) => {
+	return sum + val;
+});
+console.log(result); //15
+</pre>
+			範例2，提供initialValue：
+<pre>
+const arr = [1,2,3,4,5];
+const result = arr.reduce((sum, val) => {
+	return sum + val;
+}, 5);
+console.log(result); //20
+</pre>
+			範例3，合併陣列，注意這個範例沒有提供initialValue，所以陣列第一個值會是[1,2,3]，所以執行concat()可以正常執行：
+<pre>
+const arr = [[1,2,3], [4,5,6], [7,8,9]];
+const result = arr.reduce((sum, val) => {
+	return sum.concat(val);
+});
+console.log(result); //[1, 2, 3, 4, 5, 6, 7, 8, 9]
+</pre>
+			範例4，依照餘數將陣列拆解成更小的陣列，這個範例就示範了將一個空陣列設定為initialValue，我們如果不設定initialValue的話push()方法可是會報錯的：
+<pre>
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const Sq = Math.sqrt(arr.length);
+const result = arr.reduce((sum, val, index) => {
+	let chunkIndex = index % Sq; //取餘數
+	if(!sum[chunkIndex]){
+		sum[chunkIndex] = [];
+	}
+	sum[chunkIndex].push(val);
+	return sum;
+}, []);
+console.log(result); //[[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+</pre>
+		</td>
 	</tr>
 	<tr id="reduceRight()">
 		<td>reduceRight()</td>
