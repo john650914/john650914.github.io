@@ -72,6 +72,89 @@ if (mylist.childNodes[i].nodeName=="LI")
 </pre>
 		</td>
 	</tr>
+	<tr id="classList">
+		<td>className</td>
+		<td>屬性</td>
+		<td>
+			頁面DOM裡的每個節點上都有一個classList物件，我們可以使用裡面的方法新增、刪除、修改節點上的class名稱，此外它還提供一系列處理class名稱的方法：<br><br>
+			<h3>取得某個DOM節點所有的class名稱：</h3>
+			結果將傳回一個陣列
+<pre>
+var x = document.getElementById("myDIV").classList;
+x.length; //3
+</pre>
+			<h3>add() - 新增class名稱：</h3>
+<pre>
+//新增一個
+document.getElementById("myDIV").classList.add("mystyle");
+//新增多個
+document.getElementById("myDIV").classList.add("mystyle", "anotherClass", "thirdClass");
+</pre>
+			<h3>remove() - 移除class名稱：</h3>
+<pre>
+//移除一個
+document.getElementById("myDIV").classList.remove("mystyle");
+//移除多個
+document.getElementById("myDIV").classList.remove("mystyle", "anotherClass", "thirdClass");
+</pre>
+			<h3>toggle() - 切換class名稱：</h3>
+			這個方法的作用就是，當myDiv元素上沒有這個CSS類時，它就新增這個名稱；如果myDiv元素已經有了這個名稱，它就是刪除它。就是反轉操作。
+<pre>
+document.getElementById("myDIV").classList.toggle("newClassName");
+myDiv.classList.toggle('myCssClass'); //現在是增加
+myDiv.classList.toggle('myCssClass'); //現在是刪除
+</pre>
+			<h3>contains() - 檢查是否含有某個名稱：</h3>
+			結果將傳回布林值
+<pre>
+var x = document.getElementById("myDIV").classList.contains("mystyle");
+</pre>
+			<h3>item() - 取得指定索引值的class名稱：</h3>
+			如果索引值在區間範圍外則返回null，這個方法跟直接用[]取陣列值沒什麼不同，唯一不同就是索引值在區間範圍外回傳的值了
+<pre>
+ar x = document.getElementById("myDIV").classList.item(0); //mystyle
+</pre>
+			IE9(含)以前的版本不支援此屬性，網路上有人提供解法：
+<pre>
+if (!("classList" in document.documentElement)) {
+	Object.defineProperty(HTMLElement.prototype, 'classList', {
+		get: function () {
+			var self = this;
+			function update(fn) {
+				return function (value) {
+					var classes = self.className.split(/\s /g),
+						index = classes.indexOf(value);
+					fn(classes, index, value);
+					self.className = classes.join(" ");
+				}
+			}
+			return {
+				add: update(function (classes, index, value) {
+					if (!~index) classes.push(value);
+				}),
+				remove: update(function (classes, index) {
+					if (~index) classes.splice(index, 1);
+				}),
+				toggle: update(function (classes, index, value) {
+					if (~index)
+						classes.splice(index, 1);
+					else
+						classes.push(value);
+				}),
+				contains: function (value) {
+					return !!~self.className.split(/\s /g).indexOf(value);
+				},
+				item: function (i) {
+					return self.className.split(/\s /g)[i] || null;
+				}
+			};
+		}
+	});
+}
+</pre>
+		</td>
+	</tr>
+
 	<tr id="className">
 		<td>className</td>
 		<td>屬性</td>
