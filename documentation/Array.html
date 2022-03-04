@@ -552,7 +552,7 @@ console.log(result); //[[1, 4, 7], [2, 5, 8], [3, 6, 9]]
 		<td>reverse()</td>
 		<td>方法</td>
 		<td>
-			將依照陣列元素裡的值將它們做相反排序，範例如下：
+			將依照陣列元素裡的值將它們做相反排序，它會直接改變原本的陣列，範例如下：
 <pre>
 var fruits = ["apple","banana","orange"];
 alert(fruits.toString()); //返回apple,banana,orange
@@ -567,7 +567,7 @@ alert(myString.split("").reverse().join(",")); //返回GFEDCBA
 		<td>shift()</td>
 		<td>方法</td>
 		<td>
-			移除並返回陣列的第一個元素，如下例：
+			移除並返回陣列的第一個元素，它會直接改變原本的陣列，如下例：
 <pre>
 var a = [1,2,3];
 var first = a.shift();
@@ -678,7 +678,7 @@ console.log(myAry);
 		<td>splice()</td>
 		<td>方法</td>
 		<td>
-			移除並在被移除的位置加入陣列元素，語法如下：
+			移除（並在被移除的位置加入陣列元素），它會直接改變原本的陣列，語法如下：
 <pre>
 splice(index, count_to_remove, addelement1, addelement2, ...);
 </pre>
