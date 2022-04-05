@@ -527,11 +527,10 @@ window.onload = function(){
 		<td>scrollHeight</td>
 		<td>屬性</td>
 		<td>
-			傳回一個元素整個箱形模型的高度，包含borders、margins、paddings及其可見內容區域。
+			以像素為單位傳回一個元素的高度、包含padding以及overflow的內容（有scrollbar時看不到的區域），但不包含border、scrollbar或margin；當這個元素沒有scrollbar時，它的scrollWidth會等於clientWidth。
 <pre>
 範例：var myScrollHeight = document.body.scrollHeight;
 </pre>
-			原文：A cross browser (NS7+, IE4+) property that returns the entire width of an element, including any area that may be hidden due to scrollbars. When the element does not contain horizontal scrollbars, its scrollWidth is equal to its clientWidth.
 		</td>
 	</tr>
 	<tr id="scrollLeft">
@@ -575,11 +574,10 @@ document.getElementsByTagName('div')[0].onmousemove = function(){
 		<td>scrollWidth</td>
 		<td>屬性</td>
 		<td>
-			傳回一個元素整個箱形模型的高度，包含borders、margins、paddings及其可見內容區域。
+			以像素為單位傳回一個元素的寬度、包含padding以及overflow的內容（有scrollbar時看不到的區域），但不包含border、scrollbar或margin；當這個元素沒有scrollbar時，它的scrollWidth會等於clientWidth。
 <pre>
-範例：var myScrollHeight = document.body.scrollHeight;
+範例：var myScrollWidth = document.body.scrollWidth;
 </pre>
-			原文：A cross browser (NS7+, IE4+) property that returns the entire width of an element, including any area that may be hidden due to scrollbars. When the element does not contain horizontal scrollbars, its scrollWidth is equal to its clientWidth.
 		</td>
 	</tr>
 	</tr>
