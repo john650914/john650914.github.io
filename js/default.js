@@ -81,6 +81,8 @@ $(function(){
 					<dd><a href="/documentation/cssRules.html">cssRules</a></dd>
 					<dd><a href="/documentation/video.html">Video</a></dd>
 					<dd><a href="/documentation/ajax.html">Ajax</a></dd>
+					<dt>其它</dt>
+					<dd><a href="/Vue/index.html">Vue</a></dd>
 				</dl>
 			</nav>
 		</div>
