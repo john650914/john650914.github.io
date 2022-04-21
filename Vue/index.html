@@ -1,0 +1,7004 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>HTML5</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
+<link rel="stylesheet" href="https://tw.hicdn.beanfun.com/plugins/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/css/default.css">
+<script src="https://tw.hicdn.beanfun.com/plugins/vue/2.6.10/vue.min.js"></script>
+<script src="https://tw.hicdn.beanfun.com/plugins/vuex/3.1.1/vuex.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://tw.hicdn.beanfun.com/plugins/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+</head>
+<body>
+<div id="loadingProgress" class="loadingProgress loadingio-spinner-spinner-vtomc4kx3wi"><div class="ldio-x8u79v579re"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><style type="text/css">@keyframes ldio-x8u79v579re{0%{background:#404040;}100%{background:#fff;}}.ldio-x8u79v579re div{left:44px;top:2px;position:absolute;animation:ldio-x8u79v579re linear 1s infinite;background:#fff;width:14px;height:14px;border-radius:100px;transform-origin:6px 48px;}.ldio-x8u79v579re div:nth-child(1){transform:rotate(0deg);animation-delay:-0.9s;background:#fff;}.ldio-x8u79v579re div:nth-child(2){transform:rotate(36deg);animation-delay:-0.8s;background:#fff;}.ldio-x8u79v579re div:nth-child(3){transform:rotate(72deg);animation-delay:-0.7s;background:#fff;}.ldio-x8u79v579re div:nth-child(4){transform:rotate(108deg);animation-delay:-0.6s;background:#fff;}.ldio-x8u79v579re div:nth-child(5){transform:rotate(144deg);animation-delay:-0.5s;background:#fff;}.ldio-x8u79v579re div:nth-child(6){transform:rotate(180deg);animation-delay:-0.4s;background:#fff;}.ldio-x8u79v579re div:nth-child(7){transform:rotate(216deg);animation-delay:-0.3s;background:#fff;}.ldio-x8u79v579re div:nth-child(8){transform:rotate(252deg);animation-delay:-0.2s;background:#fff;}.ldio-x8u79v579re div:nth-child(9){transform:rotate(288deg);animation-delay:-0.1s;background:#fff;}.ldio-x8u79v579re div:nth-child(10){transform:rotate(324deg);animation-delay:0s;background:#fff;}.loadingio-spinner-spinner-vtomc4kx3wi{width:100%;height:100%;display:inline-block;overflow:hidden;background:rgba(0,0,0,0.75);position:fixed;left:0;top:0;z-index:999999;}.ldio-x8u79v579re{width:100px;height:100px;position:absolute;left:50%;top:50%;transform:translateZ(0) scale(0.64) translate(-50%,-50%);backface-visibility:hidden;transform-origin:0 0;}.ldio-x8u79v579re div{box-sizing:content-box;}</style>
+<nav>
+	<h3><a href="#basic">簡介</a></h3>
+		<a href="#basic_hello_world">Hello World!</a>
+		<a href="#basic_reactivity">Vue的數據響應系統</a>
+		<a href="#basic_bind_data">綁定數據</a>
+		<a href="#basic_bind_property">綁定屬性</a>
+		<a href="#basic_bind_boolean">綁定屬性為布林值</a>
+		<a href="#basic_bind_html">綁定含html的資料</a>
+		<a href="#basic_javascript_expression">使用JavaScript表達式</a>
+		<a href="#basic_v_once">執行一次性的插值</a>
+		<a href="#basic_bind_event">綁定事件</a>
+		<a href="#basic_event_target">取得event.target</a>
+	<h3><a href="#condition">條件判斷</a></h3>
+		<a href="#condition_v_if">使用Vue的條件判斷式</a>
+		<a href="#condition_v_else_if">v-else-if和v-else</a>
+		<a href="#condition_key">使用key屬性重新繪製DOM</a>
+	<h3><a href="#loop">迴圈</a></h3>
+		<a href="#loop_v_for">v-for的基本使用方法</a>
+		<a href="#loop_modify">修改陣列的內容</a>
+		<a href="#loop_replace">替換整個陣列</a>
+		<a href="#loop_dom_modification">DOM的異動</a>
+		<a href="#loop_avoid_v_if_with_v_for">避免v-if和v-for用在一起</a>
+		<a href="#loop_with_component">在元件上使用 v-for</a>
+	<h3><a href="#v_model">表單元素數據綁定</a></h3>
+		<a href="#v_model_basic">v-model基本介紹</a>
+		<a href="#v_model_input">表單元素使用v-model</a>
+		<a href="#v_model_bind_balue">綁定值</a>
+		<a href="#v_model_modifier">修飾符</a>
+		<a href="#v_model_component">在元件上使用v-model</a>
+	<h3><a href="#computed">計算屬性</a></h3>
+		<a href="#computed_basic">computed基本介紹</a>
+		<a href="#computed_cache">觀察computed的暫存特性</a>
+		<a href="#computed_setter">computed的getter與setter</a>
+	<h3><a href="#watch">監聽器</a></h3>
+		<a href="#watch_basic">watch基本介紹</a>
+		<a href="#watch_officail_example">官網範例</a>
+		<a href="#watch_immediate">immediate屬性</a>
+		<a href="#watch_deep">deep屬性</a>
+	<h3><a href="#class">class</a></h3>
+		<a href="#class_v_bind">v-bind綁定class的值</a>
+		<a href="#class_obj">物件語法</a>
+		<a href="#class_array">陣列語法</a>
+		<a href="#class_computed">綁定計算屬性</a>
+		<a href="#class_component">在元件使用class</a>
+	<h3><a href="#style">綁定行內樣式</a></h3>
+		<a href="#style_basic">style基本介紹</a>
+		<a href="#style_computed">綁定計算屬性<a>
+		<a href="#style_array">使用陣列來顯示多個樣式</a>
+		<a href="#style_hack">瀏覽器前綴詞</a>
+	<h3><a href="#modifier">修飾符</a></h3>
+		<a href="#modifier_basic">修飾符基本介紹</a>
+		<a href="#modifier_event">事件修飾符</a>
+		<a href="#modifier_key">按鍵修飾符</a>
+		<a href="#modifier_system">系統修飾符</a>
+	<h3><a href="#component">元件</a></h3>
+		<a href="#component_basic">元件基本介紹</a>
+		<a href="#component_reuse">重複使用同一個組件</a>
+		<a href="#component_props">透過props向元件傳遞數據</a>
+		<a href="#component_loop">用迴圈來宣染元件</a>
+		<a href="#component_listen_child_comp">監聽元件內的事件</a>
+		<a href="#component_v_model">在元件上使用v-model</a>
+		<a href="#component_slot">透過插槽分配内容</a>
+		<a href="#component_is">動態元件</a>
+		<a href="#component_local">區域元件</a>
+	<h3><a href="#lifecycle">生命周期</a></h3>
+		<a href="#lifecycle_basic">元件的生命週期與更新機制</a>
+		<a href="#lifecycle_create">Vue實體的建立</a>
+		<a href="#lifecycle_update">狀態的更新與畫面的同步</a>
+		<a href="#lifecycle_destroy">Vue實體的銷毀</a>
+	<h3><a href="#vuex">Vuex</a></h3>
+		<a href="#vuex_basic">Vuex基本介紹</a>
+		<a href="#vuex_state">State</a>
+		<a href="#vuex_getter">Getter</a>
+		<a href="#vuex_mutation">Mutation</a>
+		<a href="#vuex_action">Action</a>
+		<a href="#vuex_module">Module</a>
+	<h3><a href="#transition">過渡效果</a></h3>
+		<a href="#transition_basic">概述</a>
+		<a href="#transition_single_ele">單一元素/元件的過渡</a>
+		<a href="#transition_animation">以CSS animation設計過渡</a>
+		<a href="#transition_multiple_ele">多個元素的過渡</a>
+		<a href="#transition_multiple_comp">多個元件的過渡</a>
+		<a href="#transition_custom_class">自定義過渡的class名稱</a>
+		<a href="#transition_js_hooks">Javascript勾子</a>
+</nav>
+
+
+<article>
+
+	<h1 id="basic">簡介</h1>
+	<section>
+		<span id="basic_hello_world" class="anchor-offset"></span>
+		<h2>Hello World!</h2>
+		<p>Vue.js的核心是一個採用模板語法（template）來聲明式地將數據渲染進DOM的系統，現在直接來看一個最基本的範例：</p>
+		<pre><code>
+			//HTML
+			<div id="app">
+				{{ message }} //<=模板
+			</div>
+		</code></pre>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					message: 'Hello World!'
+				}
+			})
+		</code></pre>
+		<p>※ 文章中的範例都可以貼到：<a href="https://jsfiddle.net/john650914/ut5zmx3q/16/">https://jsfiddle.net/john650914/ut5zmx3q/16/</a>來做測試 ※</p>
+	</section>
+
+
+	<section>
+		<span id="basic_reactivity" class="anchor-offset"></span>
+		<h2>Vue的數據響應系統</h2>
+		<p>每個Vue應用都是通過創建一個新的Vue實例開始的；當一個Vue實例被創建時，它將「data」對像中的所有的屬性加入到Vue的響應式系統中。當這些屬性的值發生改變時，視圖將會產生"響應"，即匹配更新為新的值。</p>
+		<p>我們可以在console中觀察此範例的資訊，例如輸入<code>vm.a == data.a</code>會得到<code>true</code>，代表data物件中的資料和vm實例中的data是完全相同的。</p>
+		<p>再來我們輸入<code>vm.a = 2</code>，試著改變vm實例的值，再輸入<code>data.a</code>，發現傳回<code>2</code>，代表這些資料都已存在Vue的響應式系統中了。</p>
+		<p>反過來輸入<code>data.a = 3</code>，再輸入<code>vm.a</code>也會得到同樣的效果。</p>
+		<pre><code>
+			//數據物件
+			var data = { a: 1 };
+
+			//該物件被加到Vue的實例中
+			var vm = new Vue({
+				data: data
+			})
+		</code></pre>
+		<p>注意的是只有當實例被創建時就已經存在於data中的屬性才是響應式的，如果你知道你會在晚些時候需要一個屬性，但是一開始它為空或不存在，那麼你僅需要設置一些初始值。比如：</p>
+		<pre><code>
+			data: {
+				newTodoText: '',
+				visitCount: 0,
+				hideCompletedTodos: false,
+				todos: [],
+				error: null
+			}
+		</code></pre>
+	</section>
+
+
+	<section>
+		<span id="basic_bind_data" class="anchor-offset"></span>
+		<h2>綁定數據</h2>
+		<p>首先在HTML中使用兩個大括號來標記要繫結資料的物件key值，再來在JavaScript中建構一個Vue物件，並且在el屬性中指定這個Vue物件要連繫的DOM id；data屬性內是個物件，裡面包含了我們要綁定到HTML的資料，在這裡的content值為Hello world!，該值會被綁到 {{ }} 中的content。</p>
+		<p>先前提到Vue實例中的資料是響應式的，也就是說是動態綁定的，我們在console中輸入<code>vm1.content = 'changed text!'</code>就會發現網頁中的字串也跟著改變了。</p>
+		<pre><code>
+			//HTML
+			<div id="app">
+				{{ message }}
+			</div>
+		</code></pre>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					message: 'Hello World!'
+				}
+			})
+		</code></pre>
+	</section>
+
+
+	<section>
+		<span id="basic_bind_property" class="anchor-offset"></span>
+		<h2>綁定屬性</h2>
+		<p>除了綁定數據外，Vue也可以使用<code>v-bind</code>直接綁定DOM的屬性，原理和上方綁定數據一樣，首先在HTML中使用<code>v-bind</code>去設定該DOM的屬性，這裡是綁定<code>title</code>屬性。
+		<div class="example">
+			<div id="app1" v-bind:title="newDate">
+				將滑鼠移到這裡顯示Title內容
+			</div>
+			<script>
+				var vm1 = new Vue({
+					el: '#app1',
+					data: {
+						newDate: 'Title：' + new Date()
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app" v-bind:title="newDate">
+				將滑鼠移到這裡顯示Title內容
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					newDate: 'Title：' + new Date()
+				}
+			});
+		</pre></code>
+		<p><code>v-bind</code>可以直接以一個「<code>:</code>」表示縮寫，例如上例的<code>v-bind:title="newDate"</code>可以寫成<code>:title="newDate"</code>。</p>
+	</section>
+
+
+	<section>
+		<span id="basic_bind_boolean" class="anchor-offset"></span>
+		<h2>綁定屬性為布林值</h2>
+		<p><code>disabled</code>、<code>checked</code>等的值可以用布林值來指定：</p>
+		<div class="example">
+			<div id="app2">
+				<p>
+					<input type="checkbox" :checked="isChecked" />
+					isChecked的值決定checkbox是否被選中
+				</p>
+				<p>
+					<select>
+						<option value="1">11111</option>
+						<option value="2" :selected="isSelected">22222</option>
+						<option value="3">33333</option>
+					</select>
+					isSelected的值決定第二個option是否被選中
+				</p>
+			</div>
+			<script>
+				var vm2 = new Vue({
+					el: '#app2',
+					data: {
+						isChecked: true,
+						isSelected: true
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<p>
+					<input type="checkbox" :checked="isChecked" />
+					isChecked的值決定checkbox是否被選中
+				</p>
+				<p>
+					<select>
+						<option value="1">11111</option>
+						<option value="2" :selected="isSelected">22222</option>
+						<option value="3">33333</option>
+					</select>
+					isSelected的值決定第二個option是否被選中
+				</p>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					isChecked: true,
+					isSelected: true
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="basic_bind_html" class="anchor-offset"></span>
+		<h2>綁定含html的資料</h2>
+		<p>雙大括號會將數據解釋為普通內文，而非HTML代碼。為了輸出真正的HTML，你需要使用<code>v-html</code>指令：</p>
+		<p>網站內動態渲染的任意HTML可能會非常危險，因為它很容易導致XSS攻擊。請只對可信內容使用HTML插值，絕不要對用戶提供的內容使用插值。</p>
+		<div class="example">
+			<div id="app3">
+				<div>{{myHTML}}</div>
+				<div v-html="myHTML"></div>
+			</div>
+			<script>
+				var vm3 = new Vue({
+					el: '#app3',
+					data: {
+						myHTML: '<b>這是用html標籤加粗的文字</b>'
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<div>{{myHTML}}</div>
+				<div v-html="myHTML"></div>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					myHTML: '<b>這是用html標籤加粗的文字</b>'
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="basic_javascript_expression" class="anchor-offset"></span>
+		<h2>使用JavaScript表達式</h2>
+		<p>迄今為止，在我們的模板中，我們一直都只綁定簡單的屬性鍵值。但實際上，對於所有的數據綁定，Vue.js都提供了完全的JavaScript表達式支持。</p>
+		<p>PS. 表達式跟陳述式不一樣喔，千萬不要認為可以在表達式裡宣告變數</p>
+		<div class="example">
+			<div id="app4">
+				<div :title="numberVal + stringVal">div的title是：mumberVal + stringVal</div>
+				<div>{{numberVal + 999}}</div>
+				<div>{{stringVal + 'ttt'}}</div>
+				<button @click="alert1(1)">aler1</button>
+				<button @click="alert2({num:numData})">aler2</button>
+			</div>
+			<script>
+				var vm4 = new Vue({
+					el: '#app4',
+					data: {
+						numberVal: 1,
+						stringVal: 'text',
+						numData: 2
+					},
+					methods: {
+						alert1(v){
+							alert(v);
+						},
+						alert2(v){
+							alert(v.num);
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<div :title="numberVal + stringVal">div的title是：mumberVal + stringVal</div>
+				<div>{{numberVal + 999}}</div>
+				<div>{{stringVal + 'ttt'}}</div>
+				<button @click="alert1(1)">aler1</button>
+				<button @click="alert2({num:numData})">aler2</button>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					numberVal: 1,
+					stringVal: 'text',
+					numData: 2
+				},
+				methods: {
+					alert1(v){
+						alert(v);
+					},
+					alert2(v){
+						alert(v.num);
+					}
+				}
+			});
+		</pre></code>
+		<p>Vue的模板還可以做到「動態參數」，但覺得用到的機會不高就不做筆記了，參考網址：https://cn.vuejs.org/v2/guide/syntax.html#%E5%8A%A8%E6%80%81%E5%8F%82%E6%95%B0</p>
+	</section>
+
+
+	<section>
+		<span id="basic_v_once" class="anchor-offset"></span>
+		<h2>執行一次性的插值</h2>
+		<p>透過使用<code>v-once</code>指令，你也能執行一次性地插值，當數據改變時，插值處的內容不會更新（但請留心這會影響到該節點上的其它數據綁定），如下例<code>mounted</code>時改變了<code>boundVal</code>的值是不會有作用的，在console裡下<code>app.boundVal</code>也不會改變一開始的值：</p>
+		<div class="example">
+			<div id="app5" :title="boundVal" v-once>
+				{{boundVal}}
+			</div>
+			<script>
+				var vm5 = new Vue({
+					el: '#app5',
+					data: {
+						boundVal: '一開始的文字'
+					},
+					mounted: function(){
+						this.boundVal = '改變他！'
+						console.log(this.boundVal);
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app" :title="boundVal" v-once>
+				{{boundVal}}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					boundVal: '一開始的文字'
+				},
+				mounted: function(){
+					this.boundVal = '改變他！'
+					console.log(this.boundVal);
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="basic_bind_event" class="anchor-offset"></span>
+		<h2>綁定事件</h2>
+		<p>數據和屬性都有了，絕對少不了事件，vue.js提供了<code>v-on</code>來綁定DOM的事件，我們直接修改上面「綁定屬性」的範例，讓他變成透過<code>click</code>事件顯示時間。</p>
+		<div class="example">
+			<div id="app6" v-on:click="getNowTime">
+				{{content}}
+			</div>
+			<script>
+				var vm6 = new Vue({
+					el: '#app6',
+					data: {
+						content: '點我顯示現在時間'
+					},
+					methods: {
+						getNowTime: function(){
+							alert(new Date());
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app" v-on:click="getNowTime">
+				{{content}}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					content: '點我顯示現在時間'
+				},
+				methods: {
+					getNowTime: function(){
+						alert(new Date());
+					}
+				}
+			});
+		</pre></code>
+		<p><code>v-on</code>也是供了<code>@</code>做為簡寫，上例的<code>v-on:click="getNowTime"</code>就可以寫成<code>@click="getNowTime"</code></p>
+	</section>
+
+
+	<section>
+		<span id="basic_event_target" class="anchor-offset"></span>
+		<h2>取得event.target</h2>
+		<p>Vue處理事件有很多眉角，以下例的<code>getTarget</code>來說：</p>
+		<ul class="spaced">
+			<li>如果<code>getTarget</code>沒有帶任何參數可以直接取到event物件（指派function名稱不帶括弧，例&lt;div @click="fn"&gt;）</li>
+			<li>如果<code>getTarget</code>需要帶參數又要取到event物件必需使用vue的<code>$event</code>變數</li>
+			<li>如果觸發事件的元素裡還有其它元素，使用<code>event.target</code>時vue會抓到內層的元素，改用<code>event.currentTarget</code>就可以抓到正確的元素</li>
+		</ul>
+		<div class="example">
+			<div id="app7" @click="getTarget('我是FN帶的參數', $event)">
+				<a ID="inner" href="javascript:;">點我(click事件在外層)</a>
+			</div>
+			<script>
+				var vm7 = new Vue({
+					el: '#app7',
+					methods: {
+						getTarget(p, e){
+							alert(p);
+							alert(e.target.id);
+							alert(e.currentTarget.id);
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app" @click="getTarget('我是FN帶的參數', $event)">
+				<a ID="inner" href="javascript:;">點我(click事件在外層)</a>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				methods: {
+					getTarget(p, e){
+						alert(p);
+						alert(e.target.id);
+						alert(e.currentTarget.id);
+					}
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<h1 id="condition">條件判斷</h1>
+
+
+	<section>
+		<span id="condition_v_if" class="anchor-offset"></span>
+		<h2>使用Vue的條件判斷式</h2>
+		<p>在HTML中使用<code>v-if</code>指令，它將根據表達式<code>visibility</code>值的真偽來宣染是否顯示<code>&lt;p&gt;</code>元素。</p>
+		<div class="example">
+			<div id="app8">
+				<p v-if="visibility">如果visibility的值是false你就見不到我了 T_T</p>
+			</div>
+			<script>
+				var vm8 = new Vue({
+					el: '#app8',
+					data: {
+						visibility: true
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<p v-if="visibility">如果visibility的值是false你就見不到我了 T_T</p>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					visibility: true
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="condition_v_else_if" class="anchor-offset"></span>
+		<h2>v-else-if和v-else</h2>
+		<p>我們可以透過程式般的方式去控制目前要顯示的DOM，要注意的是<code>v-else-if</code>和<code>v-else</code>都是跟著<code>v-if</code>一起運作的，如果在他們上面沒有<code>v-if</code>，<code>v-else</code>是不會有任何作用的。</p>
+		<div class="example">
+			<div id="app9">
+				<span v-if="person == '好人'">我是好人</span>
+				<span v-else-if="person == '你爸'">我是你爸</span>
+				<span v-else="'都不是'">我誰都不是</span>
+			</div>
+			<script>
+				var vm9 = new Vue({
+					el: '#app9',
+					data: {
+						person: '你爸'
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<span v-if="person == '好人'">我是好人</span>
+				<span v-else-if="person == '你爸'">我是你爸</span>
+				<span v-else="'都不是'">我誰都不是</span>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					person: '你爸'
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="condition_key" class="anchor-offset"></span>
+		<h2>使用key屬性重新繪製DOM</h2>
+		<p>這邊要長篇大論了；Vue的條件判斷為了更有效率的做切換DOM的動作，如果是目前已經在畫面上的DOM，就不會把他移除再建立一個，而是直接改變兩個DOM不同的地方而已，官方有舉一個例子說明這件事情：</p>
+		<p>當使用者按下「切換輸入」的按鈕時會改變<code>state</code>的值，同時input的<code>placeholder</code>屬性值也會變，但是這並不代表他是把input換掉了，這是因為Vue.js為了提高效能只會重新繪製不同的地方，這種做法類似於<code>replace()</code>，可以試著把input填入值，在點擊按鈕切換input會發現我們輸入的value不會消失，他只替換掉<code>placeholder</code>屬性值。</p>
+		<p>這樣的做法有好有壞！如果是想要完全獨立兩個input反而會有點麻煩。</p>
+		<div class="example">
+			<div id="app10">
+				<input v-if="state" placeholder="輸入姓名">
+				<input v-else="state" placeholder="輸入mail">
+				<input type="button" value="切換輸入" @click="changeState">
+			</div>
+			<script>
+				var vm10 = new Vue({
+					el: '#app10',
+					data: {
+						state: true
+					},
+					methods: {
+						changeState: function(){
+							this.state ? this.state = false : this.state = true;
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input v-if="state" placeholder="輸入姓名">
+				<input v-else="state" placeholder="輸入mail">
+				<input type="button" value="切換輸入" @click="changeState">
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					state: true
+				},
+				methods: {
+					changeState: function(){
+						this.state ? this.state = false : this.state = true;
+					}
+				}
+			});
+		</pre></code>
+		<p>為了處理不同的需求，Vue提供了「<code>key</code>」屬性來為每個需要的DOM做一個識別，這裡只需為兩個輸入框加入<code>key</code>屬性並給不同值就會重新繪製了！</p>
+		<div class="example">
+			<div id="app11">
+				<input v-if="state" placeholder="輸入姓名" key="name">
+				<input v-else="state" placeholder="輸入mail" key="email">
+				<input type="button" value="切換輸入" @click="changeState">
+			</div>
+			<script>
+				var vm11 = new Vue({
+					el: '#app11',
+					data: {
+						state: true
+					},
+					methods: {
+						changeState: function(){
+							this.state ? this.state = false : this.state = true;
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input v-if="state" placeholder="輸入姓名" key="name">
+				<input v-else="state" placeholder="輸入mail" key="email">
+				<input type="button" value="切換輸入" @click="changeState">
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					state: true
+				},
+				methods: {
+					changeState: function(){
+						this.state ? this.state = false : this.state = true;
+					}
+				}
+			});
+		</pre></code>
+		<p>上例我們成功使用了<code>key</code>屬性做到「移除及插入的動作」來更新畫面，但如果我們有輸入資料再做切換會發現我們輸入的資料也一併被移除了, 如果需要保留輸入的資料可以換個做法：使用「<code>v-show</code>」這個屬性。</p>
+		<p><code>v-show</code>只是單純的使用行內CSS顯示或隱藏DOM元素，不像<code>v-if</code>會有條件的銷毀和重建DOM。</p>
+		<p>一般來說，<code>v-if</code>有更高的切換開銷，而<code>v-show</code>有更高的初始渲染開銷。因此，如果需要非常頻繁地切換，則使用<code>v-show</code>較好；如果在運行時條件很少改變，則使用<code>v-if</code>較好。</p>
+		<div class="example">
+			<div id="app12">
+				<input v-show="state" placeholder="輸入姓名">
+				<input v-show="state == false" placeholder="輸入mail">
+				<input type="button" value="切換輸入" @click="changeState">
+			</div>
+			<script>
+				var vm12 = new Vue({
+					el: '#app12',
+					data: {
+						state: true
+					},
+					methods: {
+						changeState: function(){
+							this.state ? this.state = false : this.state = true;
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input v-show="state" placeholder="輸入姓名">
+				<input v-show="state == false" placeholder="輸入mail">
+				<input type="button" value="切換輸入" @click="changeState">
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					state: true
+				},
+				methods: {
+					changeState: function(){
+						this.state ? this.state = false : this.state = true;
+					}
+				}
+			});
+		</pre></code>
+		<p>我自己的看法，大部份的情況下只要綁定屬性的值就可以處理這種切換input的情境了，但上面那些範例可以幫助理解Vue在處理DOM的原理。</p>
+	</section>
+
+
+	<h1 id="loop">迴圈</h1>
+
+
+	<section>
+		<span id="loop_v_for" class="anchor-offset"></span>
+		<h2>v-for的基本使用方法</h2>
+		<p>我們可以用<code>v-for</code>指令基於一個陣列來渲染一個列表，如下例：</p>
+		<div class="example">
+			<div id="app13">
+				<ul>
+					<li v-for="v in names">{{v}}</li>
+				</ul>
+			</div>
+			<script>
+				var vm13 = new Vue({
+					el: '#app13',
+					data: {
+						names: [
+							'JOHN',
+							'JOE',
+							'JOJO'
+						]
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<ul>
+					<li v-for="v in names">{{v}}</li>
+				</ul>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					names: [
+						'JOHN',
+						'JOE',
+						'JOJO'
+					]
+				}
+			});
+		</pre></code>
+		<p>也可以加入<code>索引值</code>，以及在迴圈綁定陣列以外的資料：</p>
+		<div class="example">
+			<div id="app14">
+				<ul>
+					<li v-for="(v, i) in names">{{label}}({{i+1}})：{{v}}</li>
+				</ul>
+			</div>
+			<script>
+				var vm14 = new Vue({
+					el: '#app14',
+					data: {
+						label: '成員',
+						names: [
+							'JOHN',
+							'JOE',
+							'JOJO'
+						]
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<ul>
+					<li v-for="(v, i) in names">{{label}}({{i+1}})：{{v}}</li>
+				</ul>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					label: '成員',
+					names: [
+						'JOHN',
+						'JOE',
+						'JOJO'
+					]
+				}
+			});
+		</pre></code>
+		<p>PS. Vue可以用<code>of</code>替代<code>in</code>作為分隔符：</p>
+		<pre><code>
+			<li v-for="v of names">{{v}}</li>
+		</pre></code>
+		<p>另外<code>v-for</code>也接受物件，下例以一個物件的<code>鍵</code>、<code>值</code>、<code>索引值</code>來渲染畫面：</p>
+		<div class="example">
+			<div id="app15">
+				<ul>
+					<li v-for="(value, key, index) of personalData">{{index+1}}. {{key}}：{{value}}</li>
+				</ul>
+			</div>
+			<script>
+				var vm15 = new Vue({
+					el: '#app15',
+					data: {
+						personalData: {
+							name: 'JOHN',
+							nationality: 'Taiwan',
+							birth: '65/09/14'
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<ul>
+					<li v-for="(value, key, index) of personalData">{{index+1}}. {{key}}：{{value}}</li>
+				</ul>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					personalData: {
+						name: 'JOHN',
+						nationality: 'Taiwan',
+						birth: '65/09/14'
+					}
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="loop_modify" class="anchor-offset"></span>
+		<h2>修改陣列的內容</h2>
+		<p>一般在測試更新data資料時我們可以在console裡輸入<code>vm.someData = newData;</code>指令，但在更新陣列項目的內容時千萬不要寫成<code>vm.someAry[0] = newData;</code>，這種做法是無法更新畫面的，因為Vue的底層機制就是這樣設計的，我們無法直接改變data中的陣列某個ietm的值或是直接修改陣列的長度來更新畫面；以下介紹如何正確修改陣列資料的方式。</p>
+		<p>Vue將原本Javascript修改陣列的幾個方法做了包裝，使用這些方法也將會觸發畫面更新。這些被包裝過的方法包括：</p>
+		<ul>
+			<li><code>push()</code></li>
+			<li><code>pop()</code></li>
+			<li><code>shift()</code></li>
+			<li><code>unshift()</code></li>
+			<li><code>splice()</code></li>
+			<li><code>sort()</code></li>
+			<li><code>reverse()</code></li>
+		</ul>
+		<p>可以發現上列的方法都是呼叫後會直接改變原始陣列的，所以Vue包裝這些方法用來更新陣列內容不無道理；以「v-for的基本使用方法」的第一個例子來說，我們可以在console中輸入下方語法來新增一個陣列的item並同時更新畫面（但是jsfiddle怪怪的，第一次<code>push</code>會出現兩個Jordan）：</p>
+		<pre><code>
+			vm.names.push('Jordan');
+		</pre></code>
+		<p>接著我們用陣列的<code>splice()</code>方法來看一個實例：</p>
+		<div class="example">
+			<div id="app16">
+				<div v-for="v of myAry">{{v}}</div>
+				<button @click="fn1">移除2、3筆資料，並插入新的資料</button>
+				<button @click="fn2">移除第一筆資料</button>
+			</div>
+			<script>
+				var vm16 = new Vue({
+					el: '#app16',
+					data: {
+						myAry: [
+							'Value01',
+							'Value02',
+							'Value03',
+							'Value04'
+						]
+					},
+					methods: {
+						fn1: function(){
+							this.myAry.splice(1, 2, '值01', '值02', '值03');
+						},
+					fn2: function(){
+							this.myAry.splice(0, 1);
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<div v-for="v of myAry">{{v}}</div>
+				<button @click="fn1">移除2、3筆資料，並插入新的資料</button>
+				<button @click="fn2">移除第一筆資料</button>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					myAry: [
+						'Value01',
+						'Value02',
+						'Value03',
+						'Value04'
+					]
+				},
+				methods: {
+					fn1: function(){
+						this.myAry.splice(1, 2, '值01', '值02', '值03');
+					},
+				fn2: function(){
+						this.myAry.splice(0, 1);
+					}
+				}
+			});
+		</pre></code>
+		<p>除了內建的陣列方法外Vue還提供了<code>Vue.set()</code>方法用來修改指定的item內容：</p>
+		<div class="example">
+			<div id="app17">
+				<div v-for="v of myAry">{{v}}</div>
+				<button @click="fn1">更新第一筆資料</button>
+			</div>
+			<script>
+				var vm17 = new Vue({
+				el: '#app17',
+				data: {
+					myAry: [
+						'Value01',
+						'Value02',
+						'Value03'
+					]
+				},
+				methods: {
+					fn1: function(){
+						Vue.set(this.myAry, 0, '值01');
+					}
+				}
+			});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<div v-for="v of myAry">{{v}}</div>
+				<button @click="fn1">更新第一筆資料</button>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					myAry: [
+						'Value01',
+						'Value02',
+						'Value03'
+					]
+				},
+				methods: {
+					fn1: function(){
+						Vue.set(this.myAry, 0, '值01');
+					}
+				}
+			});
+		</pre></code>
+		<p>PS. 官方教學還有提到全域的<code>vm.$set()</code>方法，再找時間來把內容補上。</p>
+	</section>
+
+
+	<section>
+		<span id="loop_replace" class="anchor-offset"></span>
+		<h2>替換整個陣列</h2>
+		<p>修改陣列內容可以使用許多直接更新被綁定的陣列的方法（如<code>push()</code>, <code>reverse()</code>等…），但也有一些處理陣列的方法不會改變原始的陣列而是傳回一個新的陣列，這些方法如下：</p>
+		<ul>
+			<li><code>filter()</code></li>
+			<li><code>concat()</code></li>
+			<li><code>slice()</code></li>
+		</ul>
+		<p>而使用方法非常簡單，就把處理後的資料指定回去而已，下例以<code>concat()</code>方法做示範：</p>
+		<div class="example">
+			<div id="app18">
+				<div v-for="v of hints">
+					<input type="text" :placeholder="'請輸入'+v.hint" />
+				</div>
+				<button @click="concatAry">連接陣列</button>
+			</div>
+			<script>
+				var addlData = [
+					{hint: '身高'},
+					{hint: '體重'}
+				];
+				var vm18 = new Vue({
+					el: '#app18',
+					data: {
+						hints: [
+							{hint: '姓名'},
+							{hint: '電話'}
+						]
+					},
+					methods: {
+						concatAry: function(){
+							this.hints = this.hints.concat(addlData);
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<div v-for="v of hints">
+					<input type="text" :placeholder="'請輸入'+v.hint" />
+				</div>
+				<button @click="concatAry">連接陣列</button>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var addlData = [
+				{hint: '身高'},
+				{hint: '體重'}
+			];
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					hints: [
+						{hint: '姓名'},
+						{hint: '電話'}
+					]
+				},
+				methods: {
+					concatAry: function(){
+						this.hints = this.hints.concat(addlData);
+					}
+				}
+			});
+		</pre></code>
+		<p>有時，我們想要顯示一個經過過濾或排序後的陣列，而不實際變更或重置原始陣列。在這種情況下，可以創建一個計算屬性（<code>computed</code>），來返回過濾或排序後的陣列（原來<code>0</code>是偶數啊）。</p>
+		<div class="example">
+			<div id="app19">
+				<span v-for="v in evenNumbers">{{v}} </span>
+			</div>
+			<script>
+				var vm19 = new Vue({
+					el: '#app19',
+					data: {
+						numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+					},
+					computed: {
+						evenNumbers: function() {
+							return this.numbers.filter(function(n) {
+								return n % 2 == 0;
+							});
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<span v-for="v in evenNumbers">{{v}} </span>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+				},
+				computed: {
+					evenNumbers: function() {
+						return this.numbers.filter(function(n) {
+							return n % 2 == 0;
+						});
+					}
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="loop_dom_modification" class="anchor-offset"></span>
+		<h2>DOM的異動</h2>
+		<p>Vue的設計在預設情況下，如果數據項的順序被改變，Vue將不會移動DOM元素來匹配數據項的順序，而是就地更新每個元素，如此可以獲得最好的效能，例如下例將反轉陣列內容的順序，我們可以在開發工具中觀察，只有<code>placeholder</code>的值被更新：</p>
+		<div class="example">
+			<div id="app20">
+				<div v-for="v of hints">
+					<input type="text" :placeholder="'請輸入'+v.hint" />
+				</div>
+				<button @click="reverseAry">反轉陣列</button>
+			</div>
+			<script>
+				var vm20 = new Vue({
+					el: '#app20',
+					data: {
+						hints: [
+							{hint: '姓名'},
+							{hint: '信箱'},
+							{hint: '電話'}
+						]
+					},
+					methods: {
+						reverseAry: function(){
+							this.hints.reverse();
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<div v-for="v of hints">
+					<input type="text" :placeholder="'請輸入'+v.hint" />
+				</div>
+				<button @click="reverseAry">反轉陣列</button>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					hints: [
+						{hint: '姓名'},
+						{hint: '信箱'},
+						{hint: '電話'}
+					]
+				},
+				methods: {
+					reverseAry: function(){
+						this.hints.reverse();
+					}
+				}
+			});
+		</pre></code>
+		<p>雖說上例可以在效能很高的狀態下更新網頁，但如果我們輸入了內容再按下反轉陣列的按鈕會發現輸入的資料都沒有更新，這是因為Vue只更新了<code>placeholder</code>的值而沒有更新整個DOM內容。</p>
+		<p>為了給Vue一個提示，以便它能跟踪每個節點的身份，從而重用和重新排序現有元素，你需要為每項提供一個唯一「<code>key</code>」屬性；建議盡可能在使用<code>v-for</code>時提供<code>key</code>屬性，除非遍歷輸出的DOM內容非常簡單，或者是刻意只更新部份內容以獲取性能上的提升。</p>
+		<p>我們在下例<code>hints</code>陣列裡的每個項目加入一個<code>id</code>的<code>鍵</code>與<code>值</code>，在開發工具中觀察可以發現當我們按下反轉陣列按鈕時<code>&lt;input&gt;</code>都被更新了。</p>
+		<div class="example">
+			<div id="app21">
+				<div v-for="v of hints">
+					<input type="text" :placeholder="'請輸入'+v.hint" :key="v.id" />
+				</div>
+				<button @click="reverseAry">反轉陣列</button>
+			</div>
+			<script>
+				var vm21 = new Vue({
+					el: '#app21',
+					data: {
+						hints: [
+							{id: 1, hint: '姓名'},
+							{id: 2, hint: '信箱'},
+							{id: 3, hint: '電話'}
+						]
+					},
+					methods: {
+						reverseAry: function(){
+							this.hints.reverse();
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<div v-for="v of hints">
+					<input type="text" :placeholder="'請輸入'+v.hint" :key="v.id" />
+				</div>
+				<button @click="reverseAry">反轉陣列</button>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					hints: [
+						{id: 1, hint: '姓名'},
+						{id: 2, hint: '信箱'},
+						{id: 3, hint: '電話'}
+					]
+				},
+				methods: {
+					reverseAry: function(){
+						this.hints.reverse();
+					}
+				}
+			});
+		</pre></code>
+		<p>上例使用<code>key</code>屬性成功更新了DOM，但發現個問題，如果input中有輸入資料再按反轉按鈕資料就都不見了，也找不到相關說明，後來用<code>v-model</code>來修改這個範例可以達到預期效果：</p>
+		<div class="example">
+			<div id="app22" class="vue-result">
+				<div v-for="v of hints">
+					<input type="text" :placeholder="'請輸入'+v.hint" v-model="v.val" />
+				</div>
+				<button @click="reverseAry">反轉陣列</button>
+			</div>
+			<script>
+				var vm22 = new Vue({
+					el: '#app22',
+					data: {
+						hints: [
+							{hint: '姓名', val: ''},
+							{hint: '信箱', val: ''},
+							{hint: '電話', val: ''}
+						]
+					},
+					methods: {
+						reverseAry: function(){
+							this.hints.reverse();
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app" class="vue-result">
+				<div v-for="v of hints">
+					<input type="text" :placeholder="'請輸入'+v.hint" v-model="v.val" />
+				</div>
+				<button @click="reverseAry">反轉陣列</button>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					hints: [
+						{hint: '姓名', val: ''},
+						{hint: '信箱', val: ''},
+						{hint: '電話', val: ''}
+					]
+				},
+				methods: {
+					reverseAry: function(){
+						this.hints.reverse();
+					}
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="loop_avoid_v_if_with_v_for" class="anchor-offset"></span>
+		<h2>避免v-if和v-for用在一起</h2>
+		<p>基於宣染效能的考量，永遠不要把<code>v-if</code>和<code>v-for</code>同時用在同一個元素上，一般我們在兩種常見的情況下會想要這樣做：</p>
+		<ol>
+			<li>為了過濾一個列表中的項目（比如<code>v-for="user in users" v-if="user.isActive"</code>）。在這種情形下，請將<code>users</code>替換為一個計算屬性（比如<code>activeUsers</code>），讓其返回過濾後的列表。</li>
+			<li>為了避免渲染本應該被隱藏的列表（比如<code>v-for="user in users" v-if="shouldShowUsers"</code>）。這種情形下，請將<code>v-if</code>移動至容器元素上（比如<code>ul</code>、<code>ol</code>）。</li>
+		</ol>
+		<p>情況1錯誤範例，將<code>v-if</code>和<code>v-for</code>寫在一起：</p>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<ul>
+					<li v-for="v of users" v-if="v.isActive">{{v.name}}</li>
+				</ul>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					users: [
+						{name: 'JOHN', isActive: true},
+						{name: 'Johnny', isActive: false},
+						{name: 'Jonson', isActive: true}
+					]
+				}
+			});			
+		</pre></code>
+		<p>情況1正確範例，使用<code>計算屬性</code>先過濾需要的資料：</p>
+		<div class="example">
+			<div id="app23">
+				<ul>
+					<li v-for="v of activeUsers">{{v.name}}</li>
+				</ul>
+			</div>
+			<script>
+				var vm23 = new Vue({
+				el: '#app23',
+				data: {
+					users: [
+						{name: 'JOHN', isActive: true},
+						{name: 'Johnny', isActive: false},
+						{name: 'Jonson', isActive: true}
+					]
+				},
+				computed: {
+					activeUsers: function(){
+						return this.users.filter(function(v){
+							return v.isActive;
+						});
+					}
+				}
+			});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<ul>
+					<li v-for="v of activeUsers">{{v.name}}</li>
+				</ul>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					users: [
+						{name: 'JOHN', isActive: true},
+						{name: 'Johnny', isActive: false},
+						{name: 'Jonson', isActive: true}
+					]
+				},
+				computed: {
+					activeUsers: function(){
+						return this.users.filter(function(v){
+							return v.isActive;
+						});
+					}
+				}
+			});
+		</pre></code>
+		<p>情況2錯誤範例，將是否顯示整個列表的判斷和<coe>v-for</coe>寫在一起：</p>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<ul>
+					<li v-for="v of users" v-if="shouldShowUsers">{{v.name}}</li>
+				</ul>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					shouldShowUsers: true,
+					users: [
+						{name: 'JOHN'},
+						{name: 'Johnny'},
+						{name: 'Jonson'}
+					]
+				}
+			});
+		</pre></code>
+		<p>情況2正確範例，將是否顯示整個列表的判斷寫在父層（視情況也可以使用陣列的長度來做到這個效果，例如長度為0則不顯示）：</p>
+		<div class="example">
+			<div id="app24">
+				<ul v-if="shouldShowUsers">
+					<li v-for="v of users">{{v.name}}</li>
+				</ul>
+			</div>
+			<script>
+				var vm24 = new Vue({
+					el: '#app24',
+					data: {
+						shouldShowUsers: true,
+						users: [
+							{name: 'JOHN'},
+							{name: 'Johnny'},
+							{name: 'Jonson'}
+						]
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<ul v-if="shouldShowUsers">
+					<li v-for="v of users">{{v.name}}</li>
+				</ul>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					shouldShowUsers: true,
+					users: [
+						{name: 'JOHN'},
+						{name: 'Johnny'},
+						{name: 'Jonson'}
+					]
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="loop_with_component" class="anchor-offset"></span>
+		<h2>在元件上使用 v-for</h2>
+		<p>在自定義組件上，你可以像在任何普通元素上一樣使用<code>v-for</code>，要記得當在元件上使用<code>v-for</code>時，<code>key</code>屬性是必須的。</p>
+		<pre><code>
+			<my-component v-for="item in items" :key="item.id"></my-component>
+		</pre></code>
+		<p>如果陣列的資料需要在其它地方重覆使用時，我們必須把每一迴圈的資料使用<code>prop</code>傳遞到元件裡，例如下面的todolist範例：</p>
+		<div class="example">
+			<div id="app25">
+				<form v-on:submit.prevent="addTask">
+					<label for="new-todo">Add a todo</label>
+					<input v-model="newTask" placeholder="加入新的工作">
+					<button>送出</button>
+				</form>
+				<ul>
+					<todo-item v-for="(v, i) in tasks" :item="v" @remove="removeTask(i)"></todo-item>
+				</ul>
+			</div>
+			<script>
+				Vue.component('todo-item', {
+					template: `
+						<li :key="item.id">
+							{{item.task}} <button v-on:click="$emit('remove')">刪除</button>
+						</li>
+					`,
+					props: ['item']
+				})
+
+				var vm25 = new Vue({
+					el: '#app25',
+					data: {
+						newTask: '',
+						tasks: [
+							{id:1, task:'洗碗'},
+							{id:2, task:'倒垃圾'},
+							{id:3, task:'割草'}
+						],
+						nextTodoId: 4
+					},
+					methods: {
+						addTask: function(){
+							this.tasks.push({
+								id: this.nextTodoId++,
+								task: this.newTask
+							});
+							this.newTask = '';
+						},
+						removeTask: function(i){
+							this.tasks.splice(i, 1);
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<form v-on:submit.prevent="addTask">
+					<label for="new-todo">Add a todo</label>
+					<input v-model="newTask" placeholder="加入新的工作">
+					<button>送出</button>
+				</form>
+				<ul>
+					<todo-item v-for="(v, i) in tasks" :item="v" @remove="removeTask(i)"></todo-item>
+				</ul>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			Vue.component('todo-item', {
+				template: `
+					<li :key="item.id">
+						{{item.task}} <button v-on:click="$emit('remove')">刪除</button>
+					</li>
+				`,
+				props: ['item']
+			})
+			
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					newTask: '',
+					tasks: [
+						{id:1, task:'洗碗'},
+						{id:2, task:'倒垃圾'},
+						{id:3, task:'割草'}
+					],
+					nextTodoId: 4
+				},
+				methods: {
+					addTask: function(){
+						this.tasks.push({
+							id: this.nextTodoId++,
+							task: this.newTask
+						});
+						this.newTask = '';
+					},
+					removeTask: function(i){
+						this.tasks.splice(i, 1);
+					}
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<h1 id="v_model">表單元素數據綁定</h1>
+
+
+	<section>
+		<span id="v_model_basic" class="anchor-offset"></span>
+		<h2>v-model基本介紹</h2>
+		<p>所謂表單數據綁定指的就是使用<code>v-model</code>屬性將表單元素（input, textarea, select）的值和<code>data</code>內的資料做到雙向綁定，它負責監聽用戶的輸入事件以更新數據；事實上<code>v-model</code>等於<code>v-bind</code>+<code>v-on</code>的語法糖，下面兩種寫法可以達到一樣的結果：</p>
+		<pre><code>
+			<input v-model="message">
+		</pre></code>
+		<pre><code>
+			<input :value="message" @input="message=$event.target.value">
+		</pre></code>
+		<p><code>v-model</code>在內部為不同的輸入元素使用不同的property 並拋出不同的事件：</p>
+		<ul class="spaced">
+			<li>text和textarea元素使用valueproperty和input事件</li>
+			<li>checkbox和radio使用checkedproperty和change 事件</li>
+			<li>select字段將value作為prop並將change作為事件</li>
+		</ul>
+		<p>※<code>v-model</code>會忽略所有表單元素的value、checked、selected的初始值而總是將Vue實例的數據作為數據來源。我們應該在<code>data</code>中宣告初始值。</p>
+		<p>※對於需要使用輸入法（如中文、日文、韓文等的語言），你會發現<code>v-model</code>不會在輸入法組合文字過程中得到更新。如果你也想處理這個過程，請使用<code>input</code>事件。</p>
+	</section>
+
+
+	<section>
+		<span id="v_model_input" class="anchor-offset"></span>
+		<h2>表單元素使用v-model</h2>
+		<h3>input[type=text]：</h3>
+		<p>綁定Instance的data message，在輸入框打字的同時，顯示的文字就會與輸入框的值同步：</p>
+		<div class="example">
+			<div id="app26">
+				<input type="text" v-model="message">
+				<span>{{ message }}</span>
+			</div>
+			<script>
+				var vm26 = new Vue({
+					el: '#app26',
+					data: {
+						message: 'Hello World!',
+					},
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input type="text" v-model="message" />
+				<span>{{ message }}</span>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					message: 'Hello World!',
+				},
+			});
+		</pre></code>
+		<br>
+		<h3>input[type=checkbox]（單個）：</h3>
+		<p>單個checkbox，綁定到布林值：</p>
+		<div class="example">
+			<div id="app27">
+				<input type="checkbox" id="checkbox" v-model="checked">
+				<label for="checkbox">{{ checked }}</label>
+			</div>
+			<script>
+				var vm27 = new Vue({
+					el: '#app27',
+					data: {
+						checked: true,
+					},
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input type="checkbox" id="checkbox" v-model="checked">
+				<label for="checkbox">{{ checked }}</label>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					checked: true,
+				}
+			});
+		</pre></code>
+		<br>
+		<h3>input[type=checkbox]（多個）：</h3>
+		<p>多個複選框，取回value的值綁定到同一個陣列：</p>
+		<div class="example">
+			<div id="app28">
+				<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+				<label for="jack">Jack</label>
+				<input type="checkbox" id="john" value="John" v-model="checkedNames">
+				<label for="john">John</label>
+				<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+				<label for="mike">Mike</label>
+				<br>
+				<span>Checked names: {{ checkedNames }}</span>
+			</div>
+			<script>
+				var vm28 = new Vue({
+					el: '#app28',
+					data: {
+						checkedNames: [],
+					},
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+				<label for="jack">Jack</label>
+				<input type="checkbox" id="john" value="John" v-model="checkedNames">
+				<label for="john">John</label>
+				<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+				<label for="mike">Mike</label>
+				<br>
+				<span>Checked names: {{ checkedNames }}</span>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					checkedNames: [],
+				},
+			});
+		</pre></code>
+		<br>
+		<h3>input[type=radio]</h3>
+		<p>綁定被選中的值（value）：</p>
+		<div class="example">
+			<div id="app29">
+				<input type="radio" id="one" value="One" v-model="picked">
+				<label for="one">One</label>
+				<br>
+				<input type="radio" id="two" value="Two" v-model="picked">
+				<label for="two">Two</label>
+				<br>
+				<span>Picked: {{ picked }}</span>
+			</div>
+			<script>
+				var vm29 = new Vue({
+					el: '#app29',
+					data: {
+						picked: ''
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input type="radio" id="one" value="One" v-model="picked">
+				<label for="one">One</label>
+				<br>
+				<input type="radio" id="two" value="Two" v-model="picked">
+				<label for="two">Two</label>
+				<br>
+				<span>Picked: {{ picked }}</span>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					picked: ''
+				}
+			});
+		</pre></code>
+		<br>
+		<h3>select</h3>
+		<p>綁定被選中的值，沒有設定值的話就會直接抓option裡的字串：</p>
+		<div class="example">
+			<div id="app30">
+				<select v-model="selected">
+					<option disabled="" value="">請選擇</option>
+					<option>A</option>
+					<option>B</option>
+					<option>C</option>
+				</select>
+				<span>Selected: {{ selected }}</span>
+			</div>
+			<script>
+				var vm30 = new Vue({
+					el: '#app30',
+					data: {
+						selected: ''
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<select v-model="selected">
+					<option disabled value="">請選擇</option>
+					<option>A</option>
+					<option>B</option>
+					<option>C</option>
+				</select>
+				<span>Selected: {{ selected }}</span>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					selected: ''
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="v_model_bind_balue" class="anchor-offset"></span>
+		<h2>綁定值</h2>
+		<p>有時我們可能想把值綁定到Vue實例的一個動態屬性上，這時可以用<code>v-bind</code>實現，並且這個屬性的值可以不是字符串。</p>
+		<p>範例1，本來checkbox綁定的toggle的值只有true或是false兩種選項，但我們可以透過<code>true-value</code>、<code>false-value</code>來賦與toggle其它的值：</p>
+		<div class="example">
+			<div id="app31">
+				<input type="checkbox" v-model="toggle" true-value="真香" false-value="噁心">
+				{{toggle}}
+			</div>
+			<script>
+				var vm31 = new Vue({
+					el: '#app31',
+					data: {
+						toggle: '請選擇'
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input type="checkbox" v-model="toggle" true-value="真香" false-value="噁心">
+				{{toggle}}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					toggle: '請選擇'
+				}
+			});
+		</pre></code>
+		<br>
+		<p>範例2，這裡示範開頭提到的動態屬性，使用<code>:value</code>綁定<code>data</code>裡的值，如此操作表單時可以做更靈活的運用（這個作法範例1同樣也適用）：</p>
+		<pre><code>
+			//當第一個radio被選中時：
+			vm.checked == vm.opt1 //true
+		</pre></code>
+		<div class="example">
+			<div id="app32">
+				<input type="radio" v-model="checked" :value="opt1">
+				<input type="radio" v-model="checked" :value="opt2">
+				<div>{{checked}}</div>
+			</div>
+			<script>
+				var vm32 = new Vue({
+					el: '#app32',
+					data: {
+						checked: '請選擇',
+						opt1: '看漫畫',
+						opt2: '打電動'
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input type="radio" v-model="checked" :value="opt1">
+				<input type="radio" v-model="checked" :value="opt2">
+				<div>{{checked}}</div>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					checked: '請選擇',
+				opt1: '看漫畫',
+				opt2: '打電動'
+				}
+			});
+		</pre></code>
+		<br>
+		<p>範例3，將select的option直接綁定為一個物件，當選中某個選項時：</p>
+		<pre><code>
+			typeof vm.selected // => 'object'
+			vm.selected.hobby // => 爬山 || 睡覺
+		</pre></code>
+		<div class="example">
+			<div id="app33">
+				<select v-model="selected">
+					<option disabled="" value="">請選擇</option>
+					<option :value="{ hobby: '爬山' }">hiking</option>
+					<option :value="{ hobby: '睡覺' }">sleeping</option>
+				</select>
+				{{selected.hobby}}
+			</div>
+			<script>
+				var vm33 = new Vue({
+					el: '#app33',
+					data: {
+						selected: ''
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<select v-model="selected">
+					<option disabled="" value="">請選擇</option>
+					<option :value="{ hobby: '爬山' }">hiking</option>
+					<option :value="{ hobby: '睡覺' }">sleeping</option>
+				</select>
+				{{selected.hobby}}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					selected: ''
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="v_model_modifier" class="anchor-offset"></span>
+		<h2>修飾符</h2>
+		<p><code>v-model</code>除了執行雙向綁定，還提供了額外的修飾符（modifiers）達到更多的自訂效果：</p>
+		<h3>v-model.lazy</h3>
+		<p>在默認情況下，<code>v-model</code>在每次<code>input</code>事件觸發後將輸入框的值與數據進行同步，添加<code>lazy</code>修飾符將改為<code>change</code>事件之後進行同步：</p>
+		<div class="example">
+			<div id="app34">
+				<input type="text" placeholder="v-model" v-model="msg1">{{ msg1 }}
+				<br>
+				<input type="text" placeholder="v-model.lazy" v-model.lazy="msg2">{{ msg2 }}
+			</div>
+			<script>
+				var vm34 = new Vue({
+					el: '#app34',
+					data: {
+						msg1: '',
+						msg2: ''
+					},
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input type="text" placeholder="v-model" v-model="msg1">{{ msg1 }}
+				<br>
+				<input type="text" placeholder="v-model.lazy" v-model.lazy="msg2">{{ msg2 }}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					msg1: '',
+					msg2: ''
+				},
+			});
+		</pre></code>
+		<br>
+		<h3>v-model.number</h3>
+		<p>如果想自動將用戶的輸入值轉為數值類型，可以給<code>v-model</code>添加<code>number</code>修飾符；使用方式是將<code>input</code>的<code>type</code>指定為<code>number</code>，綁定的<code>data</code>資料的格式就會是數值（如果收到的資料Vue無法解析則會解析為字串）：</p>
+		<div class="example">
+			<div id="app35">
+				<input type="number" placeholder="v-model.number" v-model.number="val">{{ val }}
+			</div>
+			<script>
+				var vm35 = new Vue({
+					el: '#app35',
+					data: {
+						val: ''
+					},
+				});
+			</script>
+		</div>
+		<pre><code>
+			typeof vm.val //有輸入資料時會傳回number
+		</pre></code>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input type="number" placeholder="v-model.number" v-model.number="val">{{ val }}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					val: ''
+				},
+			});
+		</pre></code>
+		<br>
+		<h3>v-model.trim</h3>
+		<p>如果要自動過濾用戶輸入的首尾空白字符，可以給<code>v-model</code>添加<code>trim</code>修飾符（輸入時data綁定的資料就會先trim掉，但輸入框會在onblur時才會顯示trim掉的樣子）：</p>
+		<div class="example">
+			<div id="app36">
+				<input type="text" placeholder="v-model.trim" v-model.trim="msg">{{ msg }}
+			</div>
+			<script>
+				var vm36 = new Vue({
+					el: '#app36',
+					data: {
+						msg: ''
+					},
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input type="text" placeholder="v-model.trim" v-model.trim="msg">{{ msg }}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					msg: ''
+				},
+			});
+		</pre></code>
+		<br>
+		<p>修飾符也可混合使用，像是下例是可以作用的：</p>
+		<pre><code>
+			v-model.trim.number
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="v_model_component" class="anchor-offset"></span>
+		<h2>在元件上使用v-model</h2>
+		<p>HTML原生的輸入元素類型並不總能滿足需求。幸好，Vue的組件系統允許你創建具有完全自定義行為且可複用的輸入組件。這些輸入組件甚至可以和<code>v-model</code>一起使用！</p>
+		<p>一個組件上的<code>v-model</code>默認會利用名為<code>value</code>的<code>prop</code>和名為<code>input</code>的事件，但是像單選框、複選框等類型的輸入控件可能會將<code>value</code>attribute用於不同的目的。<code>model</code>選項可以用來避免這樣的衝突：</p>
+		<div class="example">
+			<div id="app37">
+				<base-checkbox v-model="iAmHandsome"></base-checkbox>{{ iAmHandsome }}
+			</div>
+			<script>
+				Vue.component('base-checkbox', {
+					model: {
+						prop: 'checked',
+						event: 'change'
+					},
+					props: {
+						checked: Boolean
+					},
+					template: `<input type="checkbox" v-bind:checked="checked" v-on:change="$emit('change', $event.target.checked)">`
+				})
+
+				var vm37 = new Vue({
+					el: '#app37',
+					data: {
+						iAmHandsome: true
+					},
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<base-checkbox v-model="iAmHandsome"></base-checkbox>{{ iAmHandsome }}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			Vue.component('base-checkbox', {
+				model: {
+					prop: 'checked',
+					event: 'change'
+				},
+				props: {
+					checked: Boolean
+				},
+				template: `<input type="checkbox" v-bind:checked="checked" v-on:change="$emit('change', $event.target.checked)">`
+			})
+			
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					iAmHandsome: true
+				},
+			});
+		</pre></code>
+	</section>
+
+
+	<h1 id="computed">計算屬性</h1>
+
+
+	<section>
+		<span id="computed_basic" class="anchor-offset"></span>
+		<h2>computed基本介紹</h2>
+		<p>模板內的<code>表達式</code>非常便利，但是設計它們的初衷是用於簡單運算的。在模板中放入太多的邏輯會讓模板過重且難以維護。例如：</p>
+		<div class="example">
+			<div id="app38">
+				{{ message.split('').reverse().join('') }}
+			</div>
+			<script>
+				var vm38 = new Vue({
+					el: '#app38',
+					data: {
+						message: 'Hello World!'
+					},
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				{{ message.split('').reverse().join('') }}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					message: 'Hello World!'
+				},
+			});
+		</pre></code>
+		<p>在這個地方，模板不再是簡單的<code>聲明式邏輯</code>。你必須看一段時間才能意識到，這裡是想要顯示<code>message</code>變數的字串翻轉結果。當你想要在模板中的多處包含此翻轉字串時，就會更加難以處理，所以對於任何復雜邏輯，我們應該使用計算屬性：</p>
+		<div class="example">
+			<div id="app41">
+				原始的message：{{ message }}<br>
+				反轉的message：{{ reversedMessage }}
+			</div>
+			<script>
+				var vm41 = new Vue({
+					el: '#app41',
+					data: {
+						message: 'Hello World!'
+					},
+					computed: {
+						reversedMessage: function(){
+							return this.message.split('').reverse().join('');
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				原始的message：{{ message }}<br>
+				反轉的message：{{ reversedMessage }}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					message: 'Hello World!'
+				},
+				computed: {
+					reversedMessage: function(){
+						return this.message.split('').reverse().join('');
+					}
+				}
+			});
+		</pre></code>
+		<p>這裡我們聲明了一個計算屬性<code>reversedMessage</code>，我們可以在console裡改變<code>vm.message</code>的值，如此可以發現當<code>vm.message</code>發生改變時，所有依賴<code>vm.reversedMessage</code>的綁定也會更新。</p>
+		<p><code>vm.reversedMessage</code>就等於<code>vm.reversedMessage</code>的<code>getter</code>函數，計算屬性的<code>getter</code>函數是不會影響原始數據的。</p>
+	</section>
+
+
+	<section>
+		<span id="computed_cache" class="anchor-offset"></span>
+		<h2>觀察computed的暫存特性</h2>
+		<p>其實我們可以通過在表達式中調用方法來達到同樣的效果：</p>
+		<div class="example">
+			<div id="app42">
+				反轉的message：{{ reversedMessage() }}
+			</div>
+			<script>
+				var vm42 = new Vue({
+					el: '#app42',
+					data: {
+						message: 'Hello World!'
+					},
+					methods: {
+						reversedMessage: function(){
+							return this.message.split('').reverse().join('');
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				反轉的message：{{ reversedMessage() }}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					message: 'Hello World!'
+				},
+				methods: {
+					reversedMessage: function(){
+						return this.message.split('').reverse().join('');
+					}
+				}
+			});
+		</pre></code>
+		<p>我們可以將同一函數定義為一個方法而不是一個計算屬性。兩種方式的最終結果確實是完全相同的。然而，不同的是計算屬性是基於它們觀察的資進行緩存的。只在相關資料發生改變時它們才會重新求值。這就代表只要<code>message</code>沒有發生改變，多次訪問<code>reversedMessage</code>計算屬性會立即返回之前的計算結果，而不必再次執行函數。</p>
+		<p>這也同樣意味著下面的計算屬性將不再更新，因為<code>Date.now()</code>不是響應式依賴：</p>
+		<pre><code>
+			computed: {
+				now: function () {
+					return Date.now()
+				}
+			}
+		</pre></code>
+		<p>相比之下，每當觸發重新渲染時，調用方法將總會再次執行函數。</p>
+		<p>我們為什麼需要緩存？假設我們有一個性能開銷比較大的計算屬性A，它需要遍歷一個巨大的數組並做大量的計算。然後我們可能有其他的計算屬性依賴於A。如果沒有緩存，我們將不可避免的多次執行A的getter！如果你不希望有緩存，請用方法來替代。</p>
+	</section>
+
+
+	<section>
+		<span id="computed_setter" class="anchor-offset"></span>
+		<h2>computed的getter與setter</h2>
+		<p>資料來源：https://pjchender.blogspot.com/2017/05/vue-computed-getter-setter.html</p>
+		<p>在Vue中，<code>computed</code>的屬性可以被視為像是<code>data</code>，可以讀取和設值，因此在computed中可以分成<code>getter</code>（讀取）和<code>setter</code>（設值），在沒有寫<code>setter</code>的情況下，computed預設只有<code>getter</code>，也就是只能讀取，不能改變設值。</p>
+		<p>雖然說computed內的屬性可以被視為像是data，但在使用上，一般還是會讓<code>computed</code>類似唯讀的狀態，也就是去處理<c<code>data</code>後把它吐出來使用。</p>
+		<p>另外，在<code>getter</code>中，要記得搭配使用return來把值返回出來，基本的寫法如下：</p>
+		<pre><code>
+			//預設只有getter的computed
+			new Vue({
+				computed: {
+					computedData: function () {
+						return // ...
+					}
+				}
+			})
+		</pre></code>
+		<pre><code>
+			//有setter和getter的computed
+			new Vue({
+				computed: {
+					computedData: {
+						get: function () {
+							return // ...
+						},
+						set: function () {
+							// ...
+						}
+					}
+				}
+			})
+		</pre></code>
+		<p>在一般的情況下，我們可以這樣使用computed（只有getter）來更新資料：</p>
+		<div class="example">
+			<div id="app39">
+				<p>computed getter 被觸發的時間點</p>
+				<input type="text" v-model="firstName">
+				<input type="text" v-model="lastName">
+				<p>{{fullName}}</p>
+			</div>
+			<script>
+				var vm39 = new Vue({
+					el: '#app39',
+					data: {
+						firstName: 'Jack',
+						lastName: 'Napier'
+					},
+					computed: {
+						fullName () {
+							console.log('computed getter')
+							return this.firstName + ' ' + this.lastName
+						}
+					},
+					updated () {
+						console.log('updated')
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<p>computed getter 被觸發的時間點</p>
+				<input type="text" v-model="firstName"/>
+				<input type="text" v-model="lastName"/>
+				<p>{{fullName}}</p>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					firstName: 'Jack',
+					lastName: 'Napier'
+				},
+				computed: {
+					fullName () {
+						console.log('computed getter')
+						return this.firstName + ' ' + this.lastName
+					}
+				},
+				updated () {
+					console.log('updated')
+				}
+			});
+		</pre></code>
+		<p>在這個情況下，我們只要輸入<code>input</code>的內容，改變了<code>this.firstName</code>或<code>this.lastName</code>時，就會觸發<code>getter</code>，也就是說，computed的getter會觀察被寫在裡面的資料，一般來說，當被觀察的資料改變時，這個getter就會被觸發。</p>
+		<p>聽起來非常合理，但是我們用console.log()看一下，分別看computed、getter和updated的時間點，你會發現，當我們在input輸入資料，會觸發<code>computed</code>，同時也會觸發這個<code>vm</code>的<code>updated</code>。</p>
+		<p>但是還是有資料變更但getter不會被觸發的例外情況，剛剛我們提到當getter裡面被觀察的資料有變更時，就會觸發computed，但這個說其實並不完全正確，有些時候畫面更新了，資料變更了，但其實不會觸發computed裡面的getter。</p>
+		<p>如果我們把template中的fullName拿掉，換成firstName和lastName時：</p>
+		<pre><code>
+			<p> firstName: {{ firstName }}, lastName: {{ lastName }} </p>
+		</pre></code>
+		<p>也就是當我們的template中沒有馬上用到這個computed的資料時（這裡的話就是指fullName），那麼Vue不知道你要用到fullName，因此即使我們變更了<code>this.firstName</code>和<code>this.lastName</code>，依然不會觸發getter。</p>
+		<p>我們可以在console中看到，firstName和lastName資料變更的情況下，只會一直得到updated而已，computed中的getter並不會被觸發。</p>
+		<hr><br>
+		<p>接著，讓我們來看一下在一般的情況下，<code>computed</code>的<code>setter</code>什麼時候會被觸發：</p>
+		<div class="example">
+			<div id="app40">
+				<p>computed setter 被觸發的時間點</p>
+				<input type="text" v-model="fullName">
+				<p>firstName: {{ firstName }} <br> lastName: {{ lastName }}</p>
+			</div>
+			<script>
+				var vm40 = new Vue({
+					el: '#app40',
+					data: {
+						firstName: 'Jack',
+						lastName: 'Napier'
+					},
+					computed: {
+						fullName: {
+							get () {
+								console.log('computed getter')
+								return this.firstName + ' ' + this.lastName
+							},
+							set (value) {
+								console.log('computed setter')
+								this.firstName = value.split(' ')[0]
+								this.lastName = value.split(' ')[1]
+							}
+						}
+					},
+					updated () {
+						console.log('updated')
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<p>computed setter 被觸發的時間點</p>
+				<input type="text" v-model="fullName"/>
+				<p>firstName: {{ firstName }} <br/> lastName: {{ lastName }}</p>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					firstName: 'Jack',
+					lastName: 'Napier'
+				},
+				computed: {
+					fullName: {
+						get () {
+							console.log('computed getter')
+							return this.firstName + ' ' + this.lastName
+						},
+						set (value) {
+							console.log('computed setter')
+							this.firstName = value.split(' ')[0]
+							this.lastName = value.split(' ')[1]
+						}
+					}
+				},
+				updated () {
+					console.log('updated')
+				}
+			});
+		</pre></code>
+		<p>從<code>template</code>中，我們可以看到，我們的input是直接綁<code>v-model="fullName"</code>，因此他會直接去修改fullName的值，而當前fullName是computed中的一個屬性，我們說過computed中的屬性就和data類似可以取值（getter）和設值（setter），這時候因為我們要對fullName設值，自然就會對應到fullName裡面的setter（如果沒有設定setter是無法對fullName設值的）。</p>
+		<p>簡單來說，當computed的屬性要被設值時，就會觸發setter，從console中我們也可以看到，當我在input中輸入內容時，fullName會改變，fullName改變的情況會觸發setter，接著，因為我的setter中所做的事會變更到getter中所觀察的資料，這時候才又觸發getter執行，最後重新updated畫面。也就是從 setter -&gt; getter -&gt; updated 這樣的過程。</p>
+		<hr><br>
+		<p>在上面的例子中，我們會先觸發setter，接著觸發getter，最後updated畫面。但是其實getter會被觸發是因為我們在setter中變更到了被getter所觀察的資料。也就是說，如果我們的setter在執行時，並不會觸發getter所觀察的資料的話，那麼getter就不會被觸發。</p>
+		<p>例如，當我把上面程式碼的<code>setter</code>中對於資料的變更註解掉時：</p>
+		<pre><code>
+			set (value) {
+				console.log('computed setter')
+				// this.firstName = value.split(' ')[0]
+				// this.lastName = value.split(' ')[1]
+			}
+		</pre></code>
+		<p>那麼即時我們在input中輸入內容，都只會觸發setter而不會觸發getter。換句話說，setter和getter是獨立觸發的，兩個被觸發的時間點是不同的。</p>
+		<p>總結，我們進一步瞭解了Vue computed中的<code>getter</code>和<code>setter</code>，有幾個重點可以整理一下：</p>
+		<ol>
+			<li>getter和setter彼次觸發的時間點是獨立的。getter在大部分的時候是當內部觀察的資料有改變時會被觸發；setter則是當被觀察的物件本身有改變時會被觸發。</li>
+			<li>getter在畫面中沒有使用到被觀察的物件時，不會被觸發。</li>
+		</ol>
+	</section>
+
+
+	<h1 id="watch">監聽器</h1>
+
+
+	<section>
+		<span id="watch_basic" class="anchor-offset"></span>
+		<h2>watch基本介紹</h2>
+		<p><code>watch</code>可以讓我們監聽某個值，當這個值變動的時候，就更新畫面或去做某些事情，直接看範例：</p>
+		<div class="example">
+			<div id="app43">
+				<input type="text" v-model="name" /><br>
+				{{ msg }}
+			</div>
+			<script>
+				var vm43 = new Vue({
+					el: '#app43',
+					data: {
+						name: '',
+						msg: '請輸入名稱，開頭不可為數字'
+					},
+					watch: {
+						name: function(newName, oldName){
+							if(/^[0-9]/.test(newName)){
+								this.msg = '使用者名稱開頭不可為數字';
+							}else{
+								this.msg = '合法的使用者名稱';
+							}
+							console.log(oldName);
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input type="text" v-model="name" /><br>
+				{{ msg }}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					name: '',
+					msg: '請輸入名稱，開頭不可為數字'
+				},
+				watch: {
+					name: function(newName, oldName){
+						if(/^[0-9]/.test(newName)){
+							this.msg = '使用者名稱開頭不可為數字';
+						}else{
+							this.msg = '合法的使用者名稱';
+						}
+						console.log(oldName);
+					}
+				}
+			});
+		</pre></code>
+		<p>從範例就可以看出我們<code>watch</code>了<code>name</code>的值，一但name的值有所改變就執行watch的<code>function</code>，這個function接受兩個參數，<code>新的value</code>和<code>舊的value</code>，這兩個value就方便我們的程式做出相對應的判斷，此例就判斷name的值來更新<code>msg</code>綁定的template來更新畫面。</p>
+		<br>
+		<h3>計算屬性vs監聽器：</h3>
+		<p>從結果來看計算屬性和監聽器的功能很類似，但監聽器提供了更廣泛的方法來響應數據的變化，當需要在數據變化時執行非同步或開銷較大的操作時，監聽器是更好的選擇。</p>
+	</section>
+
+
+	<section>
+		<span id="watch_officail_example" class="anchor-offset"></span>
+		<h2>官網範例</h2>
+		<p>Vue的官網提供了一個完整又實用的範例，範例中的<code>input</code>使用<code>v-model</code>和<code>question</code>的值做雙向綁定，當使用者輸入問題時會執行<code>watch</code>的<code>question</code>函式，並執行<code>getAnswer</code>，再送出非同步請求去取得問題的答案。</p>
+		<p>另外此例引用了axios和lodash這兩個第三方工具，官網說目地是讓我們更了解Vue和其它工具可以做很好的整合。</p>
+		<div class="example">
+			<div id="app44">
+				<p>Ask a yes/no question: <input v-model="question"></p>
+				<p>{{ answer }}</p>
+			</div>
+			<script>
+				var vm44 = new Vue({
+					el: '#app44',
+					data: {
+						question: '',
+						answer: 'I cannot give you an answer until you ask a question!'
+					},
+					watch: {
+						// 如果question發生改變，這個函式就會運行
+						question: function (newQuestion, oldQuestion) {
+							this.answer = 'Waiting for you to stop typing...'
+							this.debouncedGetAnswer()
+						}
+					},
+					created: function () {
+						// _.debounce是一個透過Lodash限制操作頻率的函式
+						// 在這個例子中我們希望限制訪問yesno.wtf/api的頻率
+						// AJAX請求直到用戶輸入完畢才會發出
+						// 想了解更多關於Lodash請參考https://lodash.com
+						this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
+					},
+					methods: {
+						getAnswer: function () {
+							if (this.question.indexOf('?') === -1) {
+								this.answer = 'Questions usually contain a question mark. ;-)'
+								return
+							}
+							this.answer = 'Thinking...'
+							var vm = this
+							axios.get('https://yesno.wtf/api')
+								.then(function (response) {
+									vm.answer = _.capitalize(response.data.answer)
+								})
+								.catch(function (error) {
+									vm.answer = 'Error! Could not reach the API. ' + error
+								})
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<p>Ask a yes/no question: <input v-model="question"></p>
+				<p>{{ answer }}</p>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					question: '',
+					answer: 'I cannot give you an answer until you ask a question!'
+				},
+				watch: {
+					// 如果question發生改變，這個函式就會運行
+					question: function (newQuestion, oldQuestion) {
+						this.answer = 'Waiting for you to stop typing...'
+						this.debouncedGetAnswer()
+					}
+				},
+				created: function () {
+					// _.debounce是一個透過Lodash限制操作頻率的函式
+					// 在這個例子中我們希望限制訪問yesno.wtf/api的頻率
+					// AJAX請求直到用戶輸入完畢才會發出
+					// 想了解更多關於Lodash請參考https://lodash.com
+					this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
+				},
+				methods: {
+					getAnswer: function () {
+						if (this.question.indexOf('?') === -1) {
+							this.answer = 'Questions usually contain a question mark. ;-)'
+							return
+						}
+						this.answer = 'Thinking...'
+						var vm = this
+						axios.get('https://yesno.wtf/api')
+							.then(function (response) {
+								vm.answer = _.capitalize(response.data.answer)
+							})
+							.catch(function (error) {
+								vm.answer = 'Error! Could not reach the API. ' + error
+							})
+					}
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="watch_immediate" class="anchor-offset"></span>
+		<h2>immediate屬性</h2>
+		<p><code>watch</code>在最初綁定時是不會執行的，要等到被監視的值改變時才會執行計算；如果我們想要一開始綁定時就執行的話就要使用<code>immediate</code>屬性並將值設定為<code>true</code>，使用時必需撘配一個<code>handler</code>（其實預設的watch方法就是使用這個handler），下例就在<code>inputNumber</code>被綁定的同就執行<code>watch</code>的函式了：</p>
+		<div class="example">
+			<div id="app45">
+				<input type="number" v-model="inputNumber"> + 1 = {{ result }}
+			</div>
+			<script>
+				var vm45 = new Vue({
+					el: '#app45',
+					data: {
+						inputNumber: 1,
+						result: 1
+					},
+					watch: {
+						inputNumber: {
+							handler(n, o){
+								this.result = Number(this.inputNumber) + 1;
+							},
+							immediate: true
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input type="number" v-model="inputNumber"> + 1 = {{ result }}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					inputNumber: 1,
+					result: 1
+				},
+				watch: {
+					inputNumber: {
+						handler(n, o){
+							this.result = Number(this.inputNumber) + 1;
+						},
+						immediate: true
+					}
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="watch_deep" class="anchor-offset"></span>
+		<h2>deep屬性</h2>
+		<p>資料來源：杭州程序員張張</p>
+		<p>watch裡面還有一個<code>deep</code>屬性，默認值是<code>false</code>，代表是否深度監聽，比如我們data裡有一個<code>obj</code>屬性，當我們在在輸入框中輸入數據試圖改變<code>obj.a</code>的值時<code>watch</code>是不會有反應的（沒有執行console.log）：</p>
+		<div class="example">
+			<div id="app46">
+				<input type="text" v-model="obj.a"><br>{{ obj.a }}
+			</div>
+			<script>
+				var vm46 = new Vue({
+					el: '#app46',
+					data: {
+						obj: {
+							a: 123
+						}
+					},
+					watch: {
+						obj: {
+							handler(newName, oldName) {
+								console.log('obj.a changed');
+							}
+						}
+					} 
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input type="text" v-model="obj.a"><br>{{ obj.a }}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					obj: {
+						a: 123
+					}
+				},
+				watch: {
+					obj: {
+						handler(newName, oldName) {
+							console.log('obj.a changed');
+						}
+					}
+				} 
+			});
+		</pre></code>
+		<p>受現代Javascript的限制（以及棄用的<code>Object.observe</code>），Vue不能檢測到物件屬性的添加或刪除。由於Vue會在初始化實例時對屬性執行<code>getter/setter</code>轉化過程，所以屬性必須在<code>data</code>物件上存在才能讓Vue轉換它，這樣才能讓它是響應的。</p>
+		<p>預設情況下<code>handler</code>只監聽<code>obj</code>這個屬性它的引用的變化，我們只有給<code>obj</code>賦值的時候它才會監聽到，比如我們在<code>mounted</code>事件鉤子函數中對<code>obj</code>進行重新賦值，這樣我們的<code>handler</code>才會執行並console出「<code>obj.a changed</code>」：</p>
+		<pre><code>
+			//HTML
+			mounted: {
+				this.obj = {
+					a: '456'
+				}
+			}
+		</pre></code>
+		<p>但是如果我們一定（需要）監聽<code>obj</code>裡的屬性<code>a</code>的值呢？這時候<code>deep</code>屬性就派上用場了</p>
+		<div class="example">
+			<div id="app47">
+				<input type="text" v-model="obj.a"><br>{{ obj.a }}
+			</div>
+			<script>
+				var vm47 = new Vue({
+					el: '#app47',
+					data: {
+						obj: {
+							a: 123
+						}
+					},
+					watch: {
+						obj: {
+							handler(newName, oldName) {
+								console.log('obj.a changed');
+							},
+							deep: true
+						}
+					} 
+				});
+			</script>
+		</div>
+		<pre><code>
+			watch: {
+				obj: {
+					handler(newName, oldName) {
+						console.log('obj.a changed');
+					},
+					deep: true
+				}
+			} 
+		</pre></code>
+		<p>deep的意思就是深入觀察，監聽器會一層層的往下遍歷，給物件的所有屬性都加上這個監聽器，但是這樣性能開銷就會非常大了，任何修改obj裡面任何一個屬性都會觸發這個監聽器裡的handler，所以此例比較好的做法還是直接監聽字串：</p>
+		<pre><code>
+			watch: {
+				'obj.a': {
+					handler(newName, oldName) {
+						console.log('obj.a changed');
+					},
+					// deep: true
+				}
+			}
+		</pre></code>
+	</section>
+
+
+	<h1 id="class">class</h1>
+
+
+	<section>
+		<span id="class_v_bind" class="anchor-offset"></span>
+		<h2>v-bind綁定class的值</h2>
+		<p><code>class</code>和一般屬性一樣可以透過<code>v-bind</code>使用<code>模板語法</code>來綁定<code>data</code>的值或是在模板內使用<code>表達式</code>；下例就綁定了<code>data</code>的<code>activeClass</code>，另外可以看到<code>v-bind:class</code>和原本的<code>class</code>屬性並不衝突：</p>
+		<div class="example">
+			<div id="app48">
+				<p id="demoText48" class="demo" :class="activeClass + '-item'"></p>
+			</div>
+			<script>
+				var vm48 = new Vue({
+					el: '#app48',
+					data: {
+						activeClass: 'active'
+					},
+					mounted: function(){
+						demoText48.innerHTML = 'P標籤的class：' + demoText48.classList;
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<p id="demoText" class="demo" :class="activeClass + '-item'"></p>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					activeClass: 'active'
+				},
+				mounted: function(){
+					demoText.innerHTML = 'P標籤的class：' + demoText.classList;
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="class_obj" class="anchor-offset"></span>
+		<h2>物件語法</h2>
+		<p>我們可以傳給<code>v-bind:class</code>一個物件來動態地切換class，如果物件內<code>key</code>的值為<code>true</code>則會以它的<code>key</code>做為class名稱顯示出來：</p>
+		<div class="example">
+			<div id="app49">
+				<p id="demoText49" :class="{available: isAvailable, inStock: isInStock}"></p>
+			</div>
+			<script>
+				var vm49 = new Vue({
+					el: '#app49',
+					data: {
+						isAvailable: true,
+						isInStock: true
+					},
+					mounted: function(){
+						demoText49.innerHTML = 'P標籤的class：' + demoText49.classList;
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<p id="demoText" :class="{available: isAvailable, inStock: isInStock}"></p>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					isAvailable: true,
+					isInStock: true
+				},
+				mounted: function(){
+					demoText.innerHTML = 'P標籤的class：' + demoText.classList;
+				}
+			});
+		</pre></code>
+		<p>另外這個物件不一定要寫在模版裡，可以直接定義在<code>data</code>裡：</p>
+		<pre><code>
+			//HTML
+			<div :class="classObject"></div>
+
+			//Javascript
+			data: {
+				classObject: {
+					available: true,
+					inStock: true
+				}
+			}
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="class_array" class="anchor-offset"></span>
+		<h2>陣列語法</h2>
+		<p>我們可以把一個陣列傳給v-bind:class來以顯示每一個class名稱：</p>
+		<div class="example">
+			<div id="app50">
+				<p id="demoText50" :class="[availableClass, inStockClass]"></p>
+			</div>
+			<script>
+				var vm50 = new Vue({
+					el: '#app50',
+					data: {
+						availableClass: 'available',
+						inStockClass: 'inStock'
+					},
+					mounted: function(){
+						demoText50.innerHTML = 'P標籤的class：' + demoText50.classList;
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<p id="demoText" :class="[availableClass, inStockClass]"></p>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					availableClass: 'available',
+					inStockClass: 'inStock'
+				},
+				mounted: function(){
+					demoText.innerHTML = 'P標籤的class：' + demoText.classList;
+				}
+			});
+		</pre></code>
+		<p>如果我們想根據條件切換列表中的class，可以用三目運算子，下例表示如果商品被預訂了（isBooked為true）就不顯示<code>availableClass</code>：</p>
+		<pre><code>
+			<p :class="[isBooked ? '' : availableClass, inStockClass]"></p>
+		</pre></code>
+		<p>不過，當有多個class時這樣寫有些繁瑣。所以在陣列語法中也可以使用物件語法：</p>
+		<pre><code>
+			<p :class="[{available: !isBooked}, inStockClass]"></p>
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="class_computed" class="anchor-offset"></span>
+		<h2>綁定計算屬性</h2>
+		<p>在前面的範例可以看到我們可以在<code>v-bind:class</code>中使用表達式加入各種程式來做判斷，例如：</p>
+		<pre><code>
+			:class="[condition1 != 0 && 'on', condition2 || condition3 ? data1 : data2, {data3: condition4}]"
+		</pre></code>
+		<p>但有時要做比較多判斷時這樣的寫法會覺的冗長難閱讀，而且不好管理，比較好的做法就是綁定<code>計算屬性</code>返回一個物件：</p>
+		<div class="example">
+			<div id="app51">
+				<p id="demoText51" :class="classObject"></p>
+			</div>
+			<script>
+				var vm51 = new Vue({
+					el: '#app51',
+					data: {
+						isAvailable: true,
+						isInStock: true,
+						booked: true
+					},
+					computed: {
+						classObject: function(){
+							return {
+								available: this.isAvailable && !this.booked,
+								inStock: this.isInStock
+							}
+						}
+					},
+					mounted: function(){
+						demoText51.innerHTML = 'P標籤的class：' + demoText51.classList;
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<p id="demoText" :class="classObject"></p>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					isAvailable: true,
+					isInStock: true,
+					booked: true
+				},
+				computed: {
+					classObject: function(){
+						return {
+							available: this.isAvailable && !this.booked,
+							inStock: this.isInStock
+						}
+					}
+				},
+				mounted: function(){
+					demoText.innerHTML = 'P標籤的class：' + demoText.classList;
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="class_component" class="anchor-offset"></span>
+		<h2>在元件使用class</h2>
+		<p>當在一個自定義組件上使用class時，這些class將被添加到該組件的根元素上面。這個元素上已經存在的class不會被覆蓋，例如，如果我們宣告了這個元件：</p>
+		<pre><code>
+			Vue.component('my-component', {
+				template: '<p class="foo bar">Hi</p>'
+			})
+		</pre></code>
+		<p>然後在使用它的時候添加一些class：</p>
+		<pre><code>
+			<my-component class="baz boo"></my-component>
+		</pre></code>
+		<p>HTML將被渲染為：</p>
+		<pre><code>
+			<p class="foo bar baz boo">Hi</p>
+		</pre></code>
+		<p>對於帶數據綁定class也同樣適用：</p>
+		<pre><code>
+			<my-component v-bind:class="{ active: isActive }"></my-component>
+		</pre></code>
+		<p>當<code>isActive</code>為<code>true</code>時，HTML將被渲染成為：</p>
+		<pre><code>
+			<p class="foo bar active">Hi</p>
+		</pre></code>
+	</section>
+
+
+	<h1 id="style">綁定行內樣式</h1>
+
+
+	<section>
+		<span id="style_basic" class="anchor-offset"></span>
+		<h2>style基本介紹</h2>
+		<p><code>v-bind:style</code>讓我們可以使用模版語法來設定行內樣式，寫法和jQuery十分相似，都是指派一個物件，屬性的寫法就和Javascript的規範一模一樣：屬性名稱有「-」的話必須使用駝峰式寫法或用引號包起來：</p>
+		<div class="example">
+			<div id="app52">
+				<p :style="{ color: activeColor, fontSize: fontSize + 'px' }">範例文字</p>
+			</div>
+			<script>
+				var vm52 = new Vue({
+					el: '#app52',
+					data: {
+						activeColor: 'red',
+						fontSize: 30
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<p :style="{ color: activeColor, fontSize: fontSize + 'px' }">範例文字</p>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					activeColor: 'red',
+					fontSize: 30
+				}
+			});
+		</pre></code>
+		<p>直接綁定到一個物件物件通常更好，這會讓模板更清晰：</p>
+		<pre><code>
+			//HTML
+			<div v-bind:style="styleObject"></div>
+			
+			//Javascript
+			data: {
+				styleObject: {
+					color: 'red',
+					fontSize: '13px'
+				}
+			}
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="style_computed" class="anchor-offset"></span>
+		<h2>綁定計算屬性</h2>
+		<p>如果有複雜、冗長的判斷還是交給<code>計算屬性</code>吧：</p>
+		<div class="example">
+			<div id="app53">
+				<p :style="styleObject">範例文字</p>
+			</div>
+			<script>
+				var vm53 = new Vue({
+					el: '#app53',
+					data: {
+						active: true,
+						exclusive: false
+					},
+					computed: {
+						styleObject: function(){
+							return {
+								color: this.active && 'red',
+								fontSize: this.exclusive && '30px'
+							}
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<p :style="styleObject">範例文字</p>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					active: true,
+					exclusive: false
+				},
+				computed: {
+					styleObject: function(){
+						return {
+							color: this.active && 'red',
+							fontSize: this.exclusive && '30px'
+						}
+					}
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="style_array" class="anchor-offset"></span>
+		<h2>使用陣列來顯示多個樣式</h2>
+		<p><code>v-bind:style</code>的陣列語法可以將多個樣式物件應用到同一個元素上：</p>
+		<div class="example">
+			<div id="app54">
+				<p :style="[baseStyle, overridStyle]">範例文字</p>
+			</div>
+			<script>
+				var vm54 = new Vue({
+					el: '#app54',
+					data: {
+						baseStyle: {
+							color: 'gray',
+							fontSize: '16px'
+						},
+						overridStyle: {
+							fontWeight: 'bold',
+							textDecoration: 'underline'
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<p :style="[baseStyle, overridStyle]">範例文字</p>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					baseStyle: {
+						color: 'gray',
+						fontSize: '16px'
+					},
+					overridStyle: {
+						fontWeight: 'bold',
+						textDecoration: 'underline'
+					}
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="style_hack" class="anchor-offset"></span>
+		<h2>瀏覽器前綴詞</h2>
+		<p>當<code>v-bind:style</code>使用需要添加瀏覽器引擎前綴的CSS property時，如<code>transform</code>，Vue.js 會自動偵測並添加相應的前綴。</p>
+		<p>另外從Vue 2.3.0起我們可以為style綁定中的property提供一個包含多個值的陣列，常用於提供多個帶前綴的值，例如：</p>
+		<pre><code>
+			<div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
+		</pre></code>
+		<p>這樣寫只會渲染陣列中最後一個被瀏覽器支持的值。在本例中，如果瀏覽器支持不帶瀏覽器前綴的flexbox，那麼就只會渲染<code>display:flex</code>。</p>
+	</section>
+
+
+	<h1 id="modifier">修飾符</h1>
+
+
+	<section>
+		<span id="modifier_basic" class="anchor-offset"></span>
+		<h2>修飾符基本介紹</h2>
+		<p>在Vue.js中，修飾符（modifier）以半形句號「.」後綴在指令上，用來表示以什麼方式來觸發事件，下方模版內的<code>.once</code>就是一個修飾符，代表了所綁定的function只會被執行一次：</p>
+		<pre><code>
+			<div @click.once="someFN"></div>
+		</pre></code>
+		<p>這邊引用的修飾符將在後面的範例做詳細說明，目前所有的修飾符總共分為以下三類：</p>
+		<ul>
+			<li>事件修飾符</li>
+			<li>按鍵修飾符</li>
+			<li>系統修飾鍵</li>
+		</ul>
+		<p>我們可以同時連接多個修飾符，例如同時使用<code>.stop</code>和<code>.prevent</code>的效果，但要注意多個修飾符是會按照順序執行的，例如用<code>v-on:click.prevent.self</code>會阻止所有的點擊，而<code>v-on:click.self.prevent</code>只會阻止對元素自身的點擊。</p>
+	</section>
+
+
+	<section>
+		<span id="modifier_event" class="anchor-offset"></span>
+		<h2>事件修飾符</h2>
+		<p>在事件處理程序中調用<code>event.preventDefault()</code>或<code>event.stopPropagation()</code>是非常常見的需求。儘管我們可以在方法中輕鬆實現這點，但更好的方式是：方法只有純粹的數據邏輯，而不是去處理DOM事件細節。</p>
+		<p>為了解決這個問題，Vue.js為<code>v-on</code>提供了事件修飾符。之前提過，修飾符是由點開頭的指令後綴來表示的。</p>
+		<h3>.stop修飾符</h3>
+		<p>一般防止事件冒泡會在事件中添加<code>event.stopPropagation()</code>阻止事件冒泡，Vue直接提供了<code>.stop</code>修飾符讓我們快速完成這個工作，如下例點擊按鈕時並不會觸發<code>clickOuter</code> function：</p>
+		<div class="example">
+			<div id="app55">
+				<div class="outer" @click="clickOuter">
+					<input type="button" value="按鈕" @click.stop="clickButton">
+				</div>
+			</div>
+			<style>
+			.outer{background:blue; width:120px; height:60px;}
+			</style>
+			<script>
+				var vm55 = new Vue({
+					el: '#app55',
+					methods: {
+						clickButton: function(){
+							console.log('按鈕');
+						},
+						clickOuter: function(){
+							console.log('外面');
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<div class="outer" @click="clickOuter">
+					<input type="button" value="按鈕" @click.stop="clickButton" />
+				</div>
+			</div>
+			<style>
+			.outer{background:blue; width:120px; height:60px;}
+			</style>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				methods: {
+					clickButton: function(){
+						console.log('按鈕');
+					},
+					clickOuter: function(){
+						console.log('外面');
+					}
+				}
+			});
+		</pre></code>
+		<br>
+		<h3>.capture修飾符</h3>
+		<p>當有冒泡事件的情況發生時，有設定<code>.capture</code>的元素會最先被執行，下例不管點哪一個元素最先都會執行<code>clickOuter</code>：</p>
+		<div class="example">
+			<div id="app56">
+				<div class="outer" @click.capture="clickOuter">
+					<div class="inner" @click="clickInner">
+						<input type="button" value="按鈕" @click="clickButton">
+					</div>
+				</div>
+			</div>
+			<style>
+			.inner{background:red; width:80px; height:40px;}
+			.outer{background:blue; width:120px; height:60px;}
+			</style>
+			<script>
+				var vm56 = new Vue({
+					el: '#app56',
+					methods: {
+						clickButton: function(){
+							console.log('按鈕');
+						},
+						clickInner: function(){
+							//e.stopPropagation();
+							console.log('裡面');
+						},
+						clickOuter: function(){
+							console.log('外面');
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<div class="outer" @click.capture="clickOuter">
+					<div class="inner" @click="clickInner">
+						<input type="button" value="按鈕" @click="clickButton" />
+					</div>
+				</div>
+			</div>
+			<style>
+			.inner{background:red; width:80px; height:40px;}
+			.outer{background:blue; width:120px; height:60px;}
+			</style>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				methods: {
+					clickButton: function(){
+						console.log('按鈕');
+					},
+					clickInner: function(){
+						//e.stopPropagation();
+						console.log('裡面');
+					},
+					clickOuter: function(){
+						console.log('外面');
+					}
+				}
+			});
+		</pre></code>
+		<br>
+		<h3>.self修飾符</h3>
+		<p>這個修飾符會去判斷滑鼠觸發DOM事件的範圍內是否有子元素事件，如果有就執行子元素的事件，不會執行自身擁有<code>.self</code>修飾符的元素事件，換個說法，擁有<code>.self</code>的元素只會在確定點到自身DOM的時候才觸發事件，例如我們在最外層的div加上<code>.self</code>，如此只有點到藍色區域時才會執行<code>clickOuter</code>：</p>
+		<div class="example">
+			<div id="app57">
+				<div class="outer" @click.self="clickOuter">
+					<div class="inner" @click="clickInner">
+						<input type="button" value="按鈕" @click="clickButton">
+					</div>
+				</div>
+			</div>
+			<style>
+			.inner{background:red; width:80px; height:40px;}
+			.outer{background:blue; width:120px; height:60px;}
+			</style>
+			<script>
+				var vm57 = new Vue({
+					el: '#app57',
+					methods: {
+						clickButton: function(){
+							console.log('按鈕');
+						},
+						clickInner: function(){
+							//e.stopPropagation();
+							console.log('裡面');
+						},
+						clickOuter: function(){
+							console.log('外面');
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<div class="outer" @click.self="clickOuter">
+					<div class="inner" @click="clickInner">
+						<input type="button" value="按鈕" @click="clickButton" />
+					</div>
+				</div>
+			</div>
+			<style>
+			.inner{background:red; width:80px; height:40px;}
+			.outer{background:blue; width:120px; height:60px;}
+			</style>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				methods: {
+					clickButton: function(){
+						console.log('按鈕');
+					},
+					clickInner: function(){
+						//e.stopPropagation();
+						console.log('裡面');
+					},
+					clickOuter: function(){
+						console.log('外面');
+					}
+				}
+			});
+		</pre></code>
+		<br>
+		<h3>.once修飾符</h3>
+		<p>這個修飾符會讓事件只被觸發一次：</p>
+		<div class="example">
+			<div id="app58">
+				<input type="button" value="點我" @click.once="clickButton">
+			</div>
+			<script>
+				var vm58 = new Vue({
+					el: '#app58',
+					methods: {
+						clickButton: function(){
+							console.log('按鈕');
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input type="button" value="點我" @click.once="clickButton" />
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				methods: {
+					clickButton: function(){
+						console.log('按鈕');
+					}
+				}
+			});
+		</pre></code>
+		<br>
+		<h3>.prevent修飾符</h3>
+		<p>讓DOM失去原本的功能，只執行我們幫他設定的事件，例如當我們在&lt;a&gt;標籤下事件時，不跳轉到<code>href</code>設定的網址，效果同<code>event.preventDefault()</code>：</p>
+		<div class="example">
+			<div id="app59">
+				<a :href="urlText" @click.prevent="clickButton">我是連結，但點我不會導頁</a>
+			</div>
+			<script>
+				var vm59 = new Vue({
+					el: '#app59',
+					data: {
+						urlText: 'https://www.google.com'
+					},
+					methods: {
+						clickButton: function(){
+							console.log('觸發事件卻不轉跳');
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<a :href="urlText" @click.prevent="clickButton">我是連結，但點我不會導頁</a>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					urlText: 'https://www.google.com'
+				},
+				methods: {
+					clickButton: function(){
+						console.log('觸發事件卻不轉跳');
+					}
+				}
+			});
+		</pre></code>
+		<p>若在表單上使用<code>.prevent</code>就會防止表單的<code>submit</code>事件觸發，例如：</p>
+		<pre><code>
+			<form @submit.prevent="submitFN"></form>
+		</pre></code>
+		<br>
+		<h3>.passive修飾符</h3>
+		<p>這個修飾符和<code>.prevent</code>的作用相反，<code>.prevent</code>會取消DOM的預設功能也就是<code>preventDefault()</code>，而<code>.passive</code>是死也不會讓<code>preventDefault()</code>執行。</p>
+		<p><code>.passive</code>修飾符是為了優化在手機上<code>scroll</code>的效能，如果我們監聽<code>scroll</code>事件，以前會因為瀏覽器要判斷會不會被<code>preventDefault</code>，所以讓<code>scroll</code>的效能變差，加上這個選項可以直接告訴瀏覽器說沒有要<code>preventDefault</code>後，原生的事件行為就可以不管event handler直接處理了；如果裡面硬是執行<code>event.preventDefault</code>的話，那就會被忽略掉，然後根據使用的瀏覽器，有的會在console顯示警告訊息。</p>
+		<p>PS. 目前沒有遇到這個的狀況，網路上也沒有相關範例，未來有實際運用再來補上範例吧。</p>
+		<p>
+			參考資料：<br>
+			https://blog.othree.net/log/2019/03/20/third-argument-of-addeventlistener-2/<br>
+			https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+		</p>
+	</section>
+
+
+	<section>
+		<span id="modifier_key" class="anchor-offset"></span>
+		<h2>按鍵修飾符</h2>
+		<p>在監聽鍵盤事件時，我們可以透過<code>v-on</code>在監聽鍵盤事件時添加按鍵修飾符，如此便可以設定我們指定的按鍵，如下例當按下<code>enter</code>時執行<code>submit</code> function：</p>
+		<div class="example">
+			<div id="app60">
+				<input v-model="inputVal" placeholder="輸入資料後按enter送出" @keyup.enter="submit">
+			</div>
+			<script>
+				var vm60 = new Vue({
+					el: '#app60',
+					data: {
+						inputVal: ''
+					},
+					methods: {
+						submit: function(){
+							alert('您輸入的資料：'+this.inputVal);
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input v-model="inputVal" placeholder="輸入資料後按enter送出" @keyup.enter="submit">
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					inputVal: ''
+				},
+				methods: {
+					submit: function(){
+						alert('您輸入的資料：'+this.inputVal);
+					}
+				}
+			});
+		</pre></code>
+		<br>
+		<h3>按鍵碼別名：</h3>
+		<p>有一些按鍵（esc以及所有的方向鍵）在IE9中有不同的key值，為了在必要的情況下支持舊瀏覽器，Vue內建了絕大多數常用的按鍵碼的別名做為修飾符，如果我們的專案需要支援IE9，下列內建的按鍵碼別名就很方便：</p>
+		<ul>
+			<li>.enter</li>
+			<li>.tab</li>
+			<li>.delete（偵側刪除和退位）</li>
+			<li>.esc</li>
+			<li>.space</li>
+			<li>.up</li>
+			<li>.down</li>
+			<li>.left</li>
+			<li>.right</li>
+		</ul>
+		<p>簡單示意：</p>
+		<pre><code>
+			<input @keyup.enter="submit">
+		</pre></code>
+		<br>
+		<h3>以按鍵名來設定修飾符：</h3>
+		<p>直接將<code>KeyboardEvent.key</code>的按鍵名轉換為kebab-case來作為修飾符，如下示範的<code>PageDown</code>按鈕名轉為<code>page-down</code>：</p>
+		<p>參考：https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values</p>
+		<p>PS. 但這個做法是否如內建的按鍵碼別名有支援IE9就要再測一下</p>
+		<pre><code>
+			<input v-on:keyup.page-down="onPageDown">
+		</pre></code>
+		<br>
+		<h3>使用keyCode按鍵碼：</h3>
+		<p>也可以使用<code>keyCode</code>按鍵碼來做為修飾符（但<code>keyCode</code>的事件用法已經被廢棄了並可能不會被最新的瀏覽器支持）如下示範：</p>
+		<pre><code>
+			<input v-on:keyup.13="submit">
+		</pre></code>
+		<p>另外還可以通過全域<code>config.keyCodes</code>物件自定義按鍵修飾符別名：</p>
+		<pre><code>
+			Vue.config.keyCodes.f1 = 112
+			//可以使用v-on:keyup.f1
+		</pre></code>
+		<p>官方說明：https://cn.vuejs.org/v2/api/#keyCodes</p>
+	</section>
+
+
+	<section>
+		<span id="modifier_system" class="anchor-offset"></span>
+		<h2>系統修飾符</h2>
+		<p>可以用如下修飾符來實現僅在按下相應按鍵時才觸發鼠標或鍵盤事件的監聽器：</p>
+		<ul>
+			<li>.ctrl</li>
+			<li>.alt</li>
+			<li>.shift</li>
+			<li>.meta（Windows系統對應Windows鍵、Mac系統對應command⌘鍵）</li>
+		</ul>
+		<p>簡單示意：</p>
+		<pre><code>
+			<!-- Alt + C -->
+			<input v-on:keyup.alt.67="clear">
+
+			<!-- Ctrl + Click -->
+			<div v-on:click.ctrl="doSomething">Do something</div>
+		</pre></code>
+		<br>
+		<h3>.exact修飾符</h3>
+		<p>.exact修飾符允許你控制由精確的系統修飾符組合觸發的事件：</p>
+		<pre><code>
+			<!-- 即使 Alt 或 Shift 一起按下也會觸發 -->
+			<button v-on:click.ctrl="onClick">A</button>
+
+			<!-- 只有 Ctrl 被按下的的時候才會觸發 -->
+			<button v-on:click.ctrl.exact="onCtrlClick">A</button>
+
+			<!-- 没有任何系統修飾符被按下的的時候才會觸發 -->
+			<button v-on:click.exact="onClick">A</button>
+		</pre></code>
+		<br>
+		<h3>滑鼠按鈕修飾符</h3>
+		<p>以下修飾符會限制滑鼠的左、中或右按鍵處理點擊事件：</p>
+		<ul>
+			<li>.left</li>
+			<li>.right</li>
+			<li>.middle</li>
+		</ul>
+		<div class="example">
+			<div id="app61">
+				<button @click.right="clickFN">以滑鼠右鍵點擊</button>
+			</div>
+			<script>
+				var vm61 = new Vue({
+					el: '#app61',
+					methods: {
+						clickFN: function(){
+							alert('滑鼠右鍵被按下了');
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<button @click.right="clickFN">以滑鼠右鍵點擊</button>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				methods: {
+					clickFN: function(){
+						alert('滑鼠右鍵被按下了');
+					}
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<h1 id="component">元件</h1>
+
+
+	<section>
+		<span id="component_basic" class="anchor-offset"></span>
+		<h2>元件基本介紹</h2>
+		<p>元件是可以在new Vue創建的實例中當作自訂的元素來使用，如下例的<code>button-counter</code>元件：</p>
+		<div class="example">
+			<div id="app62">
+				<button-counter></button-counter>
+			</div>
+			<script>
+				Vue.component('button-counter', {
+					template: '<button @click="increase">我被點了{{count}}次</button>',
+					data: function(){
+						return{
+							count: 0
+						}
+					},
+					methods: {
+						increase: function(){
+							this.count++;
+						}
+					}
+				});
+				var vm62 = new Vue({
+					el: '#app62'
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<button-counter></button-counter>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			Vue.component('button-counter', {
+				template: '<button @click="increase">我被點了{{count}}次</button>',
+				data: function(){
+					return{
+						count: 0
+					}
+				},
+				methods: {
+					increase: function(){
+						this.count++;
+					}
+				}
+			});
+			var vm = new Vue({
+				el: '#app'
+			});
+		</pre></code>
+		<p>從這個範例就可以看到，元件的組成包含<code>元件的名稱</code>以及<code>template</code>，還有和一般Vue實例非常類似的<code>data</code>、<code>methods</code>、<code>computed</code>、<code>watch</code>和<code>生命週期的hook</code>可以讓我們做設定。</p>
+		<p>使用元件有幾個要注意的地方：</p>
+		<ul class="spaced">
+			<li>在Vue.component()中為元件命名時，是可以使用駝峰命名法，例如<code>button-counter</code>可以寫成<code>buttonCounter</code>，但在寫html模版時就只能使用短橫線命名寫成<code>button-counter</code>，這是因為DOM中只支援短橫線命名法，但在Vue創件元件可以使用駝峰命名法（為何要這樣設計我也不清楚）</li>
+			<li>元件和一般Vue實例一樣都擁有data、methods、computed和watch，但是他並不是對某個DOM建立實體，所以他不會有el</li>
+			<li>當元件中不只有一個DOM元素時，必須包在一個div或任何父元素內，因為每個元件都只能擁有一個根元素</li>
+			<li>Vue在設計元件的<code>data</code>寫法跟一般Vue實例的寫法不一樣，必需包裝在一個function內，並<code>return</code>一個物件</li>
+		</ul>
+	</section>
+
+
+	<section>
+		<span id="component_reuse" class="anchor-offset"></span>
+		<h2>重複使用同一個組件</h2>
+		<p>我們定義的元件是可以被重覆使用的，例如基本介紹裡面的範例就可以這樣重覆使用：</p>
+		<div class="example">
+			<div id="app63">
+				<button-counter></button-counter>
+				<button-counter></button-counter>
+				<button-counter></button-counter>
+			</div>
+			<script>
+				Vue.component('button-counter', {
+					template: '<button @click="increase">我被點了{{count}}次</button>',
+					data: function(){
+						return{
+							count: 0
+						}
+					},
+					methods: {
+						increase: function(){
+							this.count++;
+						}
+					}
+				});
+				var vm63 = new Vue({
+					el: '#app63'
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<button-counter></button-counter>
+				<button-counter></button-counter>
+				<button-counter></button-counter>
+			</div>
+		</pre></code>
+		<p>在一開始介紹元件時提到了<code>data</code>必需包裝在一個function內，並<code>return</code>一個物件；如此我們每一次使用這個元件，都會重新<code>new</code>一個新的data，讓每次使用的元件都擁有自己獨立的data，這樣的設計有效的避免同一個元件互相影響到彼此的數據。</p>
+	</section>
+
+
+	<section>
+		<span id="component_props" class="anchor-offset"></span>
+		<h2>透過props向元件傳遞數據</h2>
+		<p>在介紹<code>props</code>之前，先看這個範例，範例中有宣告兩個非常相似的組件，但他們明明就差不多卻因為某些地方不同，就要再另外新建立一個組件真的有點煩人：</p>
+		<div class="example">
+			<div id="app64">
+				<input-comp1></input-comp1>
+				<input-comp2></input-comp2>
+			</div>
+			<script>
+				Vue.component('input-comp1', {
+					data: function(){
+						return {
+							label: '姓名',
+							placeholder: '請輸入姓名'
+						}
+					},
+					template: `
+						<div>
+							<label>{{label}}：</label>
+							<input type="text" :placeholder="placeholder" />
+						</div>
+					`
+				});
+				Vue.component('input-comp2', {
+					data: function(){
+						return {
+							label: '暱稱',
+							placeholder: '請輸入暱稱'
+						}
+					},
+					template: `
+						<div>
+							<label>{{label}}：</label>
+							<input type="text" :placeholder="placeholder" />
+						</div>
+					`
+				});
+				var vm64 = new Vue({
+					el: '#app64'
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input-comp1></input-comp1>
+				<input-comp2></input-comp2>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			Vue.component('input-comp1', {
+				data: function(){
+					return {
+						label: '姓名',
+						placeholder: '請輸入姓名'
+					}
+				},
+				template: `
+					<div>
+						<label>{{label}}：</label>
+						<input type="text" :placeholder="placeholder" />
+					</div>
+				`
+			});
+			Vue.component('input-comp2', {
+				data: function(){
+					return {
+						label: '暱稱',
+						placeholder: '請輸入暱稱'
+					}
+				},
+				template: `
+					<div>
+						<label>{{label}}：</label>
+						<input type="text" :placeholder="placeholder" />
+					</div>
+				`
+			});
+			var vm = new Vue({
+				el: '#app'
+			});
+		</pre></code>
+		<p>為了改善這個狀況，我們可以在元件上註冊的一些<code>自定義屬性</code>，使用這些屬性再透過元件中的<code>props</code>將不同的資料帶入同一個元件；<code>props</code>指定陣列裡的項目就是對應我們自定義的屬性，如下例程式重覆使用性變高，看起來也比較好理解：</p>
+		<div class="example">
+			<div id="app65">
+				<input-comp label="姓名" placeholder="請輸入姓名"></input-comp>
+				<input-comp label="暱稱" placeholder="請輸入暱稱"></input-comp>
+			</div>
+			<script>
+				Vue.component('input-comp', {
+					props: ['label', 'placeholder'],
+					template: `
+						<div>
+							<label>{{label}}：</label>
+							<input type="text" :placeholder="placeholder" />
+						</div>
+					`
+				});
+				var vm65 = new Vue({
+					el: '#app65'
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input-comp label="姓名" placeholder="請輸入姓名"></input-comp>
+				<input-comp label="暱稱" placeholder="請輸入暱稱"></input-comp>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			Vue.component('input-comp', {
+				props: ['label', 'placeholder'],
+				template: `
+					<div>
+						<label>{{label}}：</label>
+						<input type="text" :placeholder="placeholder" />
+					</div>
+				`
+			});
+			var vm = new Vue({
+				el: '#app'
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="component_loop" class="anchor-offset"></span>
+		<h2>用迴圈來宣染元件</h2>
+		<p>很多時候我們會希望以陣列的內容來呈現畫面，如果我們<code>data</code>中有一個陣列資料，我們便可以使用這個陣列來宣染每個元件，就像一般在模版語法以迴圈方式來宣染列表：</p>
+		<div class="example">
+			<div id="app66">
+				<book-item v-for="v in bookList" :author="v.author" :name="v.name" :title="v.name" :key="v.id"></book-item>
+			</div>
+			<script>
+				Vue.component('book-item', {
+					props: ['id', 'author', 'name'],
+					template: `
+						<div>
+							<strong>書名：{{name}}</strong> - {{author}}
+						</div>
+					`
+				});
+				var vm66 = new Vue({
+					el: '#app66',
+					data: {
+						bookList: [
+							{id:1, author:'賽門．西奈克', name:'無限賽局'},
+							{id:2, author:'咪抖', name:'就算從未忘記'},
+							{id:3, author:'法蘭克．赫伯特', name:'沙丘六部曲'}
+						]
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<book-item v-for="v in bookList" :author="v.author" :name="v.name" :title="v.name" :key="v.id"></book-item>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			Vue.component('book-item', {
+				props: ['id', 'author', 'name'],
+				template: `
+					<div>
+						<strong>書名：{{name}}</strong> - {{author}}
+					</div>
+				`
+			});
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					bookList: [
+						{id:1, author:'賽門．西奈克', name:'無限賽局'},
+						{id:2, author:'咪抖', name:'就算從未忘記'},
+						{id:3, author:'法蘭克．赫伯特', name:'沙丘六部曲'}
+					]
+				}
+			});
+		</pre></code>
+		<br>
+		<h3>簡化Javascript及HTML</h3>
+		<p>如果覺得上例模版中的<code>&lt;book-item&gt;</code>太過冗長，可以直接把整個陣列的<code>單個項目</code>帶進props內，視需求可以讓程式更為簡潔，並且不用定義一大堆props名稱：</p>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<book-item v-for="v in bookList" :ary="v" :key="v.id"></book-item>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			Vue.component('book-item', {
+				props: ['ary'],
+				template: `
+					<div :title="ary.name">
+						<strong>書名：{{ary.name}}</strong> - {{ary.author}}
+					</div>
+				`
+			});
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					bookList: [
+						{id:1, author:'賽門．西奈克', name:'無限賽局'},
+						{id:2, author:'咪抖', name:'就算從未忘記'},
+						{id:3, author:'法蘭克．赫伯特', name:'沙丘六部曲'}
+					]
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="component_listen_child_comp" class="anchor-offset"></span>
+		<h2>監聽元件內的事件</h2>
+		<p>我們在設計元件時，它的一些功能可能需要和父級元件進行溝通（vue model視為父層元件）。例如我們的元件內想要有一個機制來放大元件的文字尺寸，而數據來源必須改變父層元件的資料，這時候就可以透過emit()方法派送事件讓父層元件做監聽的動作就可以達到這樣的需求，如下例：</p>
+		<div class="example">
+			<div id="app67">
+				<paragraph :parent-init-size="initSize" @do-enlarge="enlarge"></paragraph>
+			</div>
+			<script>
+				Vue.component('paragraph', {
+					props: ['parentInitSize'],
+					template: `
+						<div>
+							<button @click="$emit('do-enlarge')">加大文字</button>
+							<div :style="{fontSize:parentInitSize+'px'}">行內樣式決定文字的大小</div>
+						</div>
+					`
+				});
+				var vm67 = new Vue({
+					el: '#app67',
+					data: {
+						initSize: 20
+					},
+					methods: {
+						enlarge: function(){
+							this.initSize += 1;
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<paragraph :parent-init-size="initSize" @do-enlarge="enlarge"></paragraph>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			Vue.component('paragraph', {
+				props: ['parentInitSize'],
+				template: `
+					<div>
+						<button @click="$emit('do-enlarge')">加大文字</button>
+						<div :style="{fontSize:parentInitSize+'px'}">行內樣式決定文字的大小</div>
+					</div>
+				`
+			});
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					initSize: 20
+				},
+				methods: {
+					enlarge: function(){
+						this.initSize += 1;
+					}
+				}
+			});
+		</pre></code>
+		<p>上面的範例將fontSize的增幅設定為每次click時加1，我們也可以透過emit()的參數自訂增幅的量，如下例：</p>
+		<div class="example">
+			<div id="app68">
+				<paragraph2 :parent-init-size="initSize" @emit-enlarge="enlarge"></paragraph2>
+			</div>
+			<script>
+				Vue.component('paragraph2', {
+					props: ['parentInitSize'],
+					template: `
+						<div>
+							<button @click="$emit('emit-enlarge', 10)">加大文字</button>
+							<div :style="{fontSize:parentInitSize+'px'}">行內樣式決定文字的大小</div>
+						</div>
+					`
+				});
+				var vm68 = new Vue({
+					el: '#app68',
+					data: {
+						initSize: 20
+					},
+					methods: {
+						enlarge: function(arg){
+							this.initSize += arg;
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<paragraph :parent-init-size="initSize" @emit-enlarge="enlarge"></paragraph>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			Vue.component('paragraph', {
+				props: ['parentInitSize'],
+				template: `
+					<div>
+						<button @click="$emit('emit-enlarge', 10)">加大文字</button>
+						<div :style="{fontSize:parentInitSize+'px'}">行內樣式決定文字的大小</div>
+					</div>
+				`
+			});
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					initSize: 20
+				},
+				methods: {
+					enlarge: function(arg){
+						this.initSize += arg;
+					}
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="component_v_model" class="anchor-offset"></span>
+		<h2>在元件上使用v-model</h2>
+		<p>在「表單元素數據綁定」段落中也說明了「在元件上使用v-model」的方法，這邊就以元件的角度來解釋其基本原理，先看範例：</p>
+		<div class="example">
+			<div id="app69">
+				<search-input v-model="searchText"></search-input>
+			</div>
+			<script>
+				Vue.component('search-input', {
+					props: ['value'],
+					template: `
+						<div>
+							<input type="text" :value="value" @input="$emit('input', $event.target.value)" />
+							<div>您輸入的資料為：{{value}}</div>
+						</div>
+					`
+				});
+				var vm69 = new Vue({
+					el: '#app69',
+					data: {
+						searchText: ''
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<search-input v-model="searchText"></search-input>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			Vue.component('search-input', {
+				props: ['value'],
+				template: `
+					<div>
+						<input type="text" :value="value" @input="$emit('input', $event.target.value)" />
+						<div>您輸入的資料為：{{value}}</div>
+					</div>
+				`
+			});
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					searchText: ''
+				}
+			});
+		</pre></code>
+		<p>這個範例中直接在元件上使用<code>v-model</code>綁定<code>searchText</code>，然後將<code>value</code>以<code>props</code>的方式帶入元件，並在元件內的<code>&lt;input&gt;</code>設定<code>input</code>事件。</p>
+		<p>記得「表單元素數據綁定」一開始說明的：</p>
+		<pre><code>
+			<input v-model="searchText">
+		</pre></code>
+		<p>其實就等於：</p>
+		<pre><code>
+			<input v-bind:value="searchText" v-on:input="searchText = $event.target.value">
+		</pre></code>
+		<p>所以為了讓<code>v-model</code>能正常工作，這個元件內的<code>&lt;input&gt;</code>必須將其<code>value</code> attribute綁定到一個名叫<code>value</code>的prop上，然後在其<code>input事件</code>被觸發時，將新的值透過元件自定義的<code>input</code>事件拋出，如此<code>v-model</code>就可以順利的在元件上運作了。</p>
+	</section>
+
+
+	<section>
+		<span id="component_slot" class="anchor-offset"></span>
+		<h2>透過插槽分配内容</h2>
+		<p>如果我們要向元件傳遞內容，除了使用<code>props</code>，Vue還另外提供了一個<code>&lt;slot&gt;</code>接口（稱為插槽），如下例的「<code>Something bad happened.</code>」即會被插入元件內<code>template</code>的<code>slot</code>然後被宣染出來：</p>
+		<div class="example">
+			<div id="app70">
+				<alert-box>
+					Something bad happened.
+				</alert-box>
+			</div>
+			<script>
+				Vue.component('alert-box', {
+					template: `
+						<div>
+							<strong>Error!</strong>
+							<slot></slot>
+						</div>
+					`
+				});
+				var vm70 = new Vue({
+					el: '#app70'
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<alert-box>
+					Something bad happened.
+				</alert-box>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			Vue.component('alert-box', {
+				template: `
+					<div>
+						<strong>Error!</strong>
+						<slot></slot>
+					</div>
+				`
+			});
+			var vm = new Vue({
+				el: '#app'
+			});
+		</pre></code>
+		<p>插槽內可以包含任何模板代碼，包括HTML，甚至其它的元件；可以觀察下例的各種花式寫法：</p>
+		<div class="example">
+			<div id="app71">
+				<slot-demo>
+					<span slot="slot1">每個有命名的slot位置<i>都是註定的</i></span>
+					<span slot="slot2" v-html="demoHtml"></span>
+					<slot-child slot="slot3"></slot-child>
+					我是一些隨便打的字～
+				</slot-demo>
+			</div>
+			<script>
+				Vue.component('slot-demo', {
+					template: `
+						<div>
+							<div>任意內容的slot：<slot></slot></div>
+							<hr>
+							<some-comp name="slot3"></some-comp>
+							<hr>
+							<div><slot name="slot1"></slot></div>
+							<hr>
+							<div><slot name="slot2"></slot></div>
+						</div>
+					`
+				});
+				Vue.component('some-comp', {
+					template: `
+						<div>我是一個元件！</div>
+					`
+				});
+				var vm71 = new Vue({
+					el: '#app71',
+					data: {
+						demoHtml: '<h1>範例文字</h1>'
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<slot-demo>
+					<span slot="slot1">每個有命名的slot位置<i>都是註定的</i></span>
+					<span slot="slot2" v-html="demoHtml"></span>
+					<slot-child slot="slot3"></slot-child>
+					我是一些隨便打的字～
+				</slot-demo>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			Vue.component('slot-demo', {
+				template: `
+					<div>
+						<div>任意內容的slot：<slot></slot></div>
+						<hr>
+						<some-comp name="slot3"></some-comp>
+						<hr>
+						<div><slot name="slot1"></slot></div>
+						<hr>
+						<div><slot name="slot2"></slot></div>
+					</div>
+				`
+			});
+			Vue.component('some-comp', {
+				template: `
+					<div>我是一個元件！</div>
+				`
+			});
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					demoHtml: '<h1>範例文字</h1>'
+				}
+			});
+		</pre></code>
+		<p>※ 注意如果元件的template中沒有包含一個&lt;slot&gt;元素，則該組件起始標籤和結束標籤之間的任何內容都會被拋棄。</p>
+		<p>關於插槽還有一些其它的功能及補充說明，需要的話再來這裡參考：https://cn.vuejs.org/v2/guide/components-slots.html</p>
+	</section>
+
+
+	<section>
+		<span id="component_is" class="anchor-offset"></span>
+		<h2>動態元件</h2>
+		<p>有的時候我們會想以動態的方式切換不同的元件，例如點擊頁籤時更換頁面內容，這時可以使用Vue的<code>&lt;component&gt;</code>元素，再搭配一個特殊的<code>is</code>屬性來實現，如下例當點擊頁籤時更新<code>is</code>屬性的值：</p>
+		<div class="example">
+			<style>.active{color:blue;}</style>
+			<div id="app72">
+				<button v-for="tab in tabs" @click="switchTab(tab)" :class="{active: currentTab == tab}">{{tab}}</button>
+				<component :is="currentTabComp"></component>
+			</div>
+			<script>
+				Vue.component('content-about', {
+					template: `<div>Home content!</div>`
+				});
+				Vue.component('content-products', {
+					template: `<div>Products content!</div>`
+				});
+				Vue.component('content-contact', {
+					template: `<div>Contact content!</div>`
+				});
+				var vm72 = new Vue({
+					el: '#app72',
+					data: {
+						tabs: ['about', 'products', 'contact'],
+						currentTab: 'about'
+					},
+					computed: {
+						currentTabComp: function(){
+							return 'content-' + this.currentTab;
+						}
+					},
+					methods: {
+						switchTab: function(v){
+							this.currentTab = v;
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<style>.active{color:blue;}</style>
+			<div id="app">
+				<button v-for="tab in tabs" @click="switchTab(tab)" :class="{active: currentTab == tab}">{{tab}}</button>
+				<component :is="currentTabComp"></component>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			Vue.component('content-about', {
+				template: `<div>Home content!</div>`
+			});
+			Vue.component('content-products', {
+				template: `<div>Products content!</div>`
+			});
+			Vue.component('content-contact', {
+				template: `<div>Contact content!</div>`
+			});
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					tabs: ['about', 'products', 'contact'],
+					currentTab: 'about'
+				},
+				computed: {
+					currentTabComp: function(){
+						return 'content-' + this.currentTab;
+					}
+				},
+				methods: {
+					switchTab: function(v){
+						this.currentTab = v;
+					}
+				}
+			});
+		</pre></code>
+		<p><code>is</code>屬性可以用於常規HTML元素（div、li、input…），但這些元素將被視為元件，這代表所有的<code>attribute</code>都會作為DOM attribute被綁定。對於像<code>value</code>這樣的<code>property</code>，若想讓其如預期般工作，我們需要使用<code>.prop</code>修飾符。個人認為應該很難遇到這個狀況，需要更詳細的資訊可以再到這裡參考：https://cn.vuejs.org/v2/api/#v-bind。</p>
+	</section>
+
+
+	<section>
+		<span id="component_local" class="anchor-offset"></span>
+		<h2>區域元件</h2>
+		<p>到目前為止，我們都是用<code>Vue.component</code>來建立元件：</p>
+		<pre><code>
+			Vue.component('my-component-name', {
+				// ... ...
+			})
+		</pre></code>
+		<p>這些元件是全域註冊的。也就是說它們在註冊之後可以用在任何新建立的Vue根實例（new Vue）的模板中，例如：</p>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<component-a></component-a>
+				<component-b></component-b>
+				<component-c></component-c>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			Vue.component('component-a', { /* ... */ })
+			Vue.component('component-b', { /* ... */ })
+			Vue.component('component-c', { /* ... */ })
+
+			new Vue({ el: '#app' })
+		</pre></code>
+		<p>在所有子元件件中也是如此，也就是說這三個元件在各自內部也都可以相互使用。</p>
+		<br>
+		<h3>區域註冊</h3>
+		<p>上述的全域註冊有時是不夠理想的。如果我們使用一個像webpack這樣的構建系統，在所有全域註冊的元件之中即始包含某些我們不再需要的元件，它仍然會被包含在我們最終輸出的結果中，造成了用戶下載了多餘的Javacript程式。</p>
+		<p>在這些情況下，我們可以使用普通的Javascript物件來定義元件，然後在<code>components</code>中定義我們想要使用的元件：</p>
+		<pre><code>
+			var ComponentA = { /* ... */ }
+			var ComponentB = { /* ... */ }
+			var ComponentC = { /* ... */ }
+		</pre></code>
+		<pre><code>
+			new Vue({
+				el: '#app',
+				components: {
+					'component-a': ComponentA,
+					'component-b': ComponentB
+				}
+			})
+		</pre></code>
+		<p>對於<code>components</code>物件中的每個property來說，其<code>property名</code>就是自定義元素的名字，其<code>property值</code>就是這個元件的選項物件。</p>
+		<p>注意區域註冊的元件在其子元件中不可用。例如，如果我們想要在<code>ComponentB</code>中使用<code>ComponentA</code>，則需要這樣寫：</p>
+		<pre><code>
+			var ComponentA = { /* ... */ }
+
+			var ComponentB = {
+				components: {
+					'component-a': ComponentA
+				},
+				// ...
+			}
+		</pre></code>
+		<p>或者如果我們透過Babel和webpack使用ES2015模組，那麼程式看起來會是這樣：</p>
+		<pre><code>
+			//HTML
+			import ComponentA from './ComponentA.vue'
+
+			export default {
+				components: {
+					ComponentA
+				},
+				// ...
+			}
+		</pre></code>
+		<p>（在ES2015+的語法，上述的<code>ComponentA</code>變數其實是<code>ComponentA: ComponentA</code>的縮寫，即這個變數名同時是用在模板中的自定義元素的名稱，以及包含了這個元件選項的變數）</p>
+		<br>
+		<h3>模組系統</h3>
+		<p>如果我們使用了Babel和webpack的模組系統。在這些情況下會比較推薦建立一個<code>components</code>目錄，並將每個元件放置在其各自的文件中。</p>
+		<p>然後需要在區域註冊之前導入每個想使用的元件。例如在一個假設的<code>ComponentB.js</code>或<code>ComponentB.vue</code>文件中：</p>
+		<pre><code>
+			import ComponentA from './ComponentA'
+			import ComponentC from './ComponentC'
+
+			export default {
+				components: {
+					ComponentA,
+					ComponentC
+				},
+				// ...
+			}
+		</pre></code>
+		<p>現在<code>ComponentA</code>和<code>ComponentC</code>都可以在<code>ComponentB</code>的模板中使用了。</p>
+		<br>
+		<p>這裡遇到了一個問題，如果我有一些元件內只包含了一個輸入框或一個按鈕，而這些元件是相對需要被共用的；這些會被頻繁使用的元件我們把它們稱為基礎元件，而這些基礎元件常常導致很多組件裡都會有一個包含基礎組件的冗長列表：</p>
+		<pre><code>
+			import BaseButton from './BaseButton.vue'
+			import BaseIcon from './BaseIcon.vue'
+			import BaseInput from './BaseInput.vue'
+
+			export default {
+				components: {
+					BaseButton,
+					BaseIcon,
+					BaseInput
+				}
+			}
+		</pre></code>
+		<p>而使用時只是模板中的一小部分：</p>
+		<pre><code>
+			<!-- <BaseInput v-model="searchText" @keydown.enter="search"/>
+			<BaseButton @click="search">
+				<BaseIcon name="search"/>
+			</BaseButton> -->
+		</pre></code>
+		<p>以webpack為例，就可以使用<code>require.context</code>只全域註冊這些常被使用的基礎元件來解決導入列表過長的問題，下面的範例是在應用入口文件（比如<code>src/main.js</code>）中全域導入基礎元件的示範：</p>
+		<pre><code>
+			import Vue from 'vue'
+			import upperFirst from 'lodash/upperFirst'
+			import camelCase from 'lodash/camelCase'
+
+			const requireComponent = require.context(
+				// 其元件目錄的相對路徑
+				'./components',
+				// 是否查詢其子目錄
+				false,
+				// 匹配基礎元件文件名的正規式
+				/Base[A-Z]\w+\.(vue|js)$/
+			)
+
+			requireComponent.keys().forEach(fileName => {
+				// 獲取元件配置
+				const componentConfig = requireComponent(fileName)
+
+				// 獲取元件的PascalCase命名
+				const componentName = upperFirst(
+					camelCase(
+						// 獲取和目錄深度無關的文件名
+						fileName
+							.split('/')
+							.pop()
+							.replace(/\.\w+$/, '')
+					)
+				)
+
+				// 全域註冊元件
+				Vue.component(
+					componentName,
+					// 如果這個元件選項是通過`export default`導出的，
+					// 那麼就會優先使用`.default`，
+					// 否則回退到使用模組的根。
+					componentConfig.default || componentConfig
+				)
+			})
+		</pre></code>
+		<p>記住全域註冊的行為必須在根Vue實例（通過new Vue）創建之前發生。這裡有一個真實項目情景下的示例：https://github.com/bencodezen/vue-enterprise-boilerplate/blob/main/src/components/_globals.js</p>
+	</section>
+
+
+	<h1 id="lifecycle">生命周期</h1>
+
+
+	<section>
+		<span id="lifecycle_basic" class="anchor-offset"></span>
+		<h2>元件的生命週期與更新機制</h2>
+		<p>資料來源：https://book.vue.tw/CH1/1-7-lifecycle.html</p>
+		<p>一個Vue.js的網頁應用程式是由各種大小元件組合而成，而每個Vue的實體物件，實際上就是一個元件，而每個Vue元件從建立、掛載、更新，到銷毀移除，都有它的生命週期階段，這一連串的過程，我們將它稱作生命週期。在這個過程中，Vue.js提供了開發者在這些週期階段做對應處理的callback function，這些callback function我們就稱它叫生命週期的Hooks function。</p>
+		<p><img src="assets/img/lifecycle.png" /></p>
+		<p>Vue.js提供的Hooks function主要有下列幾種，這裡也將對應至Vue 3.x Composition API的版本一並列出來做對照：</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Hooks名稱（Vue 2.x/3.x）</th>
+					<th>Hooks名稱（對應Vue 3.0 Composition API）</th>
+					<th>說明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><code>beforeCreate</code></td>
+					<td><code>setup()</code></td>
+					<td>Vue實體被建立，狀態與事件都尚未初始化</td>
+				</tr>
+				<tr>
+					<td><code>created</code></td>
+					<td><code>setup()</code></td>
+					<td>Vue實體已建立，狀態與事件已初始化完成(<code>prop</code>、<code>data</code>、<code>computed</code>等屬性已建立，<code>vm.$el</code>屬性無法使用 )</td>
+				</tr>
+				<tr>
+					<td><code>beforeMount</code></td>
+					<td><code>onBeforeMonut</code></td>
+					<td>Vue實體尚未與模板(DOM 節點)綁定</td>
+				</tr>
+				<tr>
+					<td><code>mounted</code></td>
+					<td><code>onMounted</code></td>
+					<td>Vue實體與掛載完成，<code>el</code>的目標DOM被<code>$el</code>所替換(可以視作jQuery的 Ready)</td>
+				</tr>
+				<tr>
+					<td><code>beforeUpdate</code></td>
+					<td><code>onBeforeUpdate</code></td>
+					<td>當狀態被變動時，畫面同步更新前</td>
+				</tr>
+				<tr>
+					<td><code>updated</code></td>
+					<td><code>onUpdated</code></td>
+					<td>當狀態被變動時，畫面已同步更新完成</td>
+				</tr>
+				<tr>
+					<td><code>beforeDestroy</code>(2.x)</td>
+					<td><code>onBeforeUnmount</code></td>
+					<td>Vue實體物件被銷毀前</td>
+				</tr>
+				<tr>
+					<td><code>beforeUnmount</code>(3.0)</td>
+					<td><code>onBeforeUnmount</code></td>
+					<td>Vue實體物件被銷毀前</td>
+				</tr>
+				<tr>
+					<td><code>destroyed</code>(2.x)</td>
+					<td><code>onUnmounted</code></td>
+					<td>Vue實體物件被銷毀完畢</td>
+				</tr>
+				<tr>
+					<td><code>unmounted</code>(3.0)</td>
+					<td><code>onUnmounted</code></td>
+					<td>Vue實體物件被銷毀完畢</td>
+				</tr>
+				<tr>
+					<td><code>errorCaptured</code></td>
+					<td><code>onErrorCaptured</code></td>
+					<td>子/孫代元件的錯誤被捕獲時觸發</td>
+				</tr>
+				<tr>
+					<td><code>activated</code></td>
+					<td>--</td>
+					<td>Vue元件被啟動時觸發，搭配<code>keep-alive</code>使用</td>
+				</tr>
+				<tr>
+					<td><code>deactivated</code></td>
+					<td>--</td>
+					<td>Vue元件被解除時觸發，搭配<code>keep-alive</code>使用</td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<p>使用方式也很直觀，就在Vue實體的屬性裡加入對應名稱的hooks function，這樣Vue實體進行至不同生命週期的階段時，就會自動觸發這個hooks function：</p>
+		<pre><code>
+			// for Vue 3.x
+			const vm = Vue.createApp({
+				data () {
+					return {
+						msg: 'Hello Vue.js!'
+					}
+				},
+				created () {
+					console.log('created');
+				},
+				mounted () {
+					console.log('mounted');
+				},
+				unmounted () {
+					console.log('unmounted');
+				},
+			});
+
+			// 注意！ 若未執行 mount 動作，
+			// 則後續所有的 lifecycle hook 都將不會繼續執行！
+			vm.mount('#app');
+		</pre></code>
+		<p>教學網頁也提供了一個很棒的真實範例，讓我們可以動態的觀察各個hooks的作用：</p>
+		<div class="example">
+			<div id="app73">
+				<h3>修改內容來觀察 Vue 實體的生命週期</h3>
+				<hr>
+				<div class="wrap">
+					<div class="demo">
+						<demo-app v-if="isActive" @update="pushMsg" />
+					</div>
+			
+					<div class="inspector">
+						<div v-for="(m, idx) in msg" :class="{ 'highlight' : m.isHighlight }" :key="m.msg + idx">{{ m.msg }}</div>
+					</div>
+				</div>
+				<hr>
+				<button @click="toggle">{{ (!isActive) ? 'Active' : 'Destroy' }} the Vue instance</button>
+				<button @click="empty">Empty the inspector</button>
+			</div>
+			<script>
+				const vm73 = new Vue({
+					el: '#app73',
+					data() {
+						return {
+							msg: [],
+							isActive: false
+						}
+					},
+					methods: {
+						toggle() {
+							if (!this.isActive) {
+								this.empty();
+							}
+							this.isActive = !this.isActive;
+						},
+						empty() {
+							this.msg = [];
+						},
+						pushMsg(msg) {
+							this.msg.push({
+								isHighlight: (msg.includes('===')),
+								msg: msg
+							});
+				
+							this.$nextTick(() => {
+								const inspector = document.querySelector('.inspector');
+								inspector.scrollTop = inspector.scrollHeight;
+							});
+						},
+					}
+				});
+				
+				Vue.component('demo-app', {
+					template: `<div id="demoApp">
+						<h3>{{ msg }}</h3>
+						<input v-model="msg">
+					</div>`,
+					data() {
+						return {
+							msg: 'Hello Vue.js!'
+						}
+					},
+					beforeCreate() {
+						this.$emit('update', '=== beforeCreate! === ');
+						this.$emit('update', `this.msg: ${this.msg}`);
+						this.$emit('update', `this.$el: ${this.$el}`);
+					},
+					created() {
+						this.$emit('update', '=== created! === ');
+						this.$emit('update', `this.msg: ${this.msg}`);
+						this.$emit('update', `this.$el: ${this.$el}`);
+					},
+					beforeMount() {
+						this.$emit('update', '=== beforeMount! === ');
+						this.$emit('update', `this.msg: ${this.msg}`);
+						this.$emit('update', `this.$el: ${this.$el}`);
+					},
+					mounted() {
+						this.$emit('update', '=== mounted! === ');
+						this.$emit('update', `this.msg: ${this.msg}`);
+						this.$emit('update', `this.$el.id: ${this.$el.id}`);
+					},
+					beforeUpdate() {
+						this.$emit('update', '=== beforeUpdate! === ');
+						this.$emit('update', `msg in view: ${this.$el.querySelector('h3').innerText}`);
+						this.$emit('update', `this.msg: ${this.msg}`);
+					},
+					updated() {
+						this.$emit('update', '=== updated! === ');
+						this.$emit('update', `msg in view: ${this.$el.querySelector('h3').innerText}`);
+						this.$emit('update', `this.msg: ${this.msg}`);
+					},
+					beforeUnmount() {
+						this.$emit('update', `=== beforeUnmount! === `);
+					},
+					unmounted() {
+						this.$emit('update', `=== unmount! === `);
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<h3>修改內容來觀察 Vue 實體的生命週期</h3>
+				<hr>
+				<div class="wrap">
+					<div class="demo">
+						<demo-app v-if="isActive" @update="pushMsg" />
+					</div>
+			
+					<div class="inspector">
+						<div v-for="(m, idx) in msg" :class="{ 'highlight' : m.isHighlight }" :key="m.msg + idx">{{ m.msg }}</div>
+					</div>
+				</div>
+				<hr>
+				<button @click="toggle">{{ (!isActive) ? 'Active' : 'Destroy' }} the Vue instance</button>
+				<button @click="empty">Empty the inspector</button>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			const vm = new Vue({
+				el: '#app',
+				data() {
+					return {
+						msg: [],
+						isActive: false
+					}
+				},
+				methods: {
+					toggle() {
+						if (!this.isActive) {
+							this.empty();
+						}
+						this.isActive = !this.isActive;
+					},
+					empty() {
+						this.msg = [];
+					},
+					pushMsg(msg) {
+						this.msg.push({
+							isHighlight: (msg.includes('===')),
+							msg: msg
+						});
+			
+						this.$nextTick(() => {
+							const inspector = document.querySelector('.inspector');
+							inspector.scrollTop = inspector.scrollHeight;
+						});
+					},
+				}
+			});
+			
+			Vue.component('demo-app', {
+				template: `<div id="demoApp">
+					<h3>{{ msg }}</h3>
+					<input v-model="msg">
+				</div>`,
+				data() {
+					return {
+						msg: 'Hello Vue.js!'
+					}
+				},
+				beforeCreate() {
+					this.$emit('update', '=== beforeCreate! === ');
+					this.$emit('update', `this.msg: ${this.msg}`);
+					this.$emit('update', `this.$el: ${this.$el}`);
+				},
+				created() {
+					this.$emit('update', '=== created! === ');
+					this.$emit('update', `this.msg: ${this.msg}`);
+					this.$emit('update', `this.$el: ${this.$el}`);
+				},
+				beforeMount() {
+					this.$emit('update', '=== beforeMount! === ');
+					this.$emit('update', `this.msg: ${this.msg}`);
+					this.$emit('update', `this.$el: ${this.$el}`);
+				},
+				mounted() {
+					this.$emit('update', '=== mounted! === ');
+					this.$emit('update', `this.msg: ${this.msg}`);
+					this.$emit('update', `this.$el.id: ${this.$el.id}`);
+				},
+				beforeUpdate() {
+					this.$emit('update', '=== beforeUpdate! === ');
+					this.$emit('update', `msg in view: ${this.$el.querySelector('h3').innerText}`);
+					this.$emit('update', `this.msg: ${this.msg}`);
+				},
+				updated() {
+					this.$emit('update', '=== updated! === ');
+					this.$emit('update', `msg in view: ${this.$el.querySelector('h3').innerText}`);
+					this.$emit('update', `this.msg: ${this.msg}`);
+				},
+				beforeUnmount() {
+					this.$emit('update', `=== beforeUnmount! === `);
+				},
+				unmounted() {
+					this.$emit('update', `=== unmount! === `);
+				}
+			});
+		</pre></code>
+		<br>
+		<p>補充說明：</p>
+		<ul class="spaced">
+			<li>Vue Composition API是Vue.js 3.0開始提供的新特性，Vue.js 3.0針對多數2.x的語法提供了向下相容，所以在本節介紹Vue.js 2.x Options API的生命週期Hooks到了3.0依然可以繼續使用</li>
+			<li>Composition API的Hook名稱除了beforeCreate與created由新的setup()所取代，以及元件銷毀的beforeDestroy與destroyed改為onBeforeUnmount與onUnmounted之外，多數都是在原有名稱加上on來表示</li>
+			<li>由於需透過this存取實體，所以與mehtods同樣也無法使用箭頭函數</li>
+		</ul>
+	</section>
+
+
+	<section>
+		<span id="lifecycle_create" class="anchor-offset"></span>
+		<h2>Vue實體的建立</h2>
+		<p>Vue的實體從建立、掛載到渲染至各位的瀏覽器畫面上，會經歷這幾個階段：<code>beforeCreate</code>、<code>created</code>、<code>beforeMount</code>、<code>mounted</code>。</p>
+		<p>在<code>beforeCreate</code>期間，Vue實體剛被建立，狀態與事件都尚未初始化，此時我們還無法取得<code>data</code>、<code>prop</code>、<code>computed</code>等屬性。</p>
+		<p>直到Vue實體內的各種屬性、狀態的偵測(<code>getter</code>與<code>setter</code>)都已經初始化完成後，這才進入了<code>created</code>階段。換句話說，若是我們需要透過遠端API來取得資料，至少得在<code>created</code>階段以後才能存取實體的<code>data</code>屬性。</p>
+		<p>當<code>created</code>階段完成後，Vue的實體尚未與模板結合綁定，這個時候Vue實體會去尋找<code>el</code>(2.x)指定的節點或<code>template</code>屬性來作為元件的模板。（Vue的單一元件檔(Single File Component, SFC)則無需加入el或template屬性，它會自動將.vue檔案內 &lt;template&gt;標籤的內容作為模板。）</p>
+		<p>而到了Vue3.0則是需要在執行<code>vm.mount(...)</code>之後才會開始<code>beforeCreate</code>的階段。</p>
+		<p>取得了模板內容，並進行編譯後，會先進入<code>beforeMount</code>階段。就在Vue.js的實體將網頁上實際節點的內容替換完成後，這才進入了<code>mounted</code>，也就是各位看到的最終結果。以jQuery來比喻，這階段就像是Vue實體的DOMReady。</p>
+		<p>直到<code>mounted</code>階段，Vue.js才正式將網頁上的DOM節點、事件都綁定至Vue的實體。也就是說，如果我們基於某些原因需要手動操作DOMAPI，如<code>querySelector</code>或<code>addEventlistener</code>等，最好在<code>mounted</code>階段完成後進行操作，以免操作的DOM節點被Vue.js替換掉。</p>
+	</section>
+
+
+	<section>
+		<span id="lifecycle_update" class="anchor-offset"></span>
+		<h2>狀態的更新與畫面的同步</h2>
+		<p>在 Vue 實體生命週期中，我們可以透過<code>beforeUpdate</code>與<code>updated</code>兩個Hooks來觀察到實體狀態的更新，而它們的執行會根據模板的畫面更新前/後時機來觸發。</p>
+		<p>可是，如果只需要觀察<code>data</code>或<code>computed</code>內某個狀態的時候，使用<code>beforeUpdate</code>又顯得太麻煩，這個時候我們就可以透過<code>watch</code>屬性來處理：</p>
+		<p>要注意的是DOM的更新動作在Vue.js裡是非同步執行的，當<code>setter</code>偵測到狀態被更新時，就會啟動一個排隊的隊伍（Queue），並且對同一個事件循環（Event Loop）內發生的所有變更進行緩衝，這樣做的好處，是若同一個<code>watch</code>在短時間內被多次觸發，它只會被送進等待隊伍一次，可以省去多餘重複的計算次數，直到下一個事件循環（Vue官方稱<code>tick</code>）才會刷新重整在等待隊伍內的任務，更新並且同步Vue實體內的DOM。</p>
+		<p>這樣的說法可能不容易理解，直接來看個例子：</p>
+		<div class="example">
+			<style>
+				#app74 *{margin:0;padding:0;font-size:14px;line-height:initial;}
+				.ofmi{width:200px;display:block;box-sizing:border-box;}
+				.overflow-msgs{height:60px;width:200px;border:1px solid black;overflow-y:scroll;display:block;box-sizing:border-box;}
+			</style>
+			<div id="app74">
+				<input class="ofmi" placeholder="輸入後按下enter鍵" v-model.trim="msg" @keydown.enter="addToMessages">
+				<div class="overflow-msgs">
+					<div v-for="m in messages">{{ m }}</div>
+				</div>
+			</div>
+			<script>
+				var vm74 = new Vue({
+					el: '#app74',
+						data () {
+						return {
+							msg: '',
+						messages: ['Hello', 'Aloha', 'Hafa Adai']
+						}
+					},
+					methods: {
+						addToMessages() {
+							this.messages.push(this.msg);
+							this.msg = '';
+							let el = this.$el.querySelector('.overflow-msgs');
+							el.scrollTop = el.scrollHeight;
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<style>
+				#app *{margin:0;padding:0;font-size:14px;line-height:initial;}
+				.ofmi{width:180px;display:block;box-sizing:border-box;}
+				.overflow-msgs{height:60px;width:180px;border:1px solid black;overflow-y:scroll;display:block;box-sizing:border-box;}
+			</style>
+			<div id="app">
+				<input class="ofmi" placeholder="輸入後按下enter鍵" v-model.trim="msg" @keydown.enter="addToMessages">
+				<div class="overflow-msgs">
+					<div v-for="m in messages">{{ m }}</div>
+				</div>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+					data () {
+					return {
+						msg: '',
+					messages: ['Hello', 'Aloha', 'Hafa Adai']
+					}
+				},
+				methods: {
+					addToMessages() {
+						this.messages.push(this.msg);
+						this.msg = '';
+						let el = this.$el.querySelector('.overflow-msgs');
+						el.scrollTop = el.scrollHeight;
+					}
+				}
+			});
+		</pre></code>
+		<p>在這個例子中當使用者按下enter鍵時會將輸入的文字送進<code>data</code>的<code>messages</code>陣列，並且當訊息增加的時候，訊息列表的捲軸自動捲至最底。</p>
+		<p>但當我們操作時會發現輸入訊息後雖然<code>messages</code>的內容增加了，但是捲軸長度始終與DOM實際的<code>scrollHeight</code>有一行的落差。</p>
+		<p>原因前面說過，雖然我們<code>data</code>裡的<code>messages</code>已經更新了，但是執行到<code>el.scrollTop = el.scrollHeight</code>的時候，畫面還未更新，所以這時的<code>el.scrollHeight</code>總是會取得更新前的數字。</p>
+		<p>使用Vue.js的<code>vm.$nextTick()</code>就可以解決這個問題，它會確保畫面都更新結束後才執行<code>$nextTick()</code>方法裡面callback function，讓我們將程式調整一下就可以如預期般的運作了：</p>
+		<pre><code>
+			//Javascript
+			.........
+			this.$nextTick(() => {
+				let el = this.$el.querySelector('.overflow-msgs');
+				el.scrollTop = el.scrollHeight;
+			});
+			.........
+		</pre></code>
+		<p>簡單來說，<code>$nextTick</code>的使用時機在當狀態更新時，需要手動存取DOM的時候，需要確保畫面都已更新完成。雖說Vue.js開發大多都將關注點放在狀態管理上，但有時候我們還是需要自行處理DOM API，這時<code>$nextTick</code>的重要性便不言而喻。</p>
+		<p>疑？說好的watch跟Queue呢？？算了作者的重點應該是放在不使用生命週期時處理DOM搭配$nextTick的做法。</p>
+	</section>
+
+
+	<section>
+		<span id="lifecycle_destroy" class="anchor-offset"></span>
+		<h2>Vue實體的銷毀</h2>
+		<p>Vue實體在銷毀的時候，會先觸發<code>beforeUnmount</code> Hook，然後將實體內的各種事件、狀態的<code>watcher</code>、子元件（如果有）通通卸除，完成後觸發<code>unmount</code>Hook，結束這個實體的一生。此時，我們就再也無法對這個實體進行任何操作了。</p>
+	</section>
+
+
+	<h1 id="vuex">Vuex</h1>
+
+
+	<section>
+		<span id="vuex_basic" class="anchor-offset"></span>
+		<h2>Vuex基本介紹</h2>
+		<p>Vuex用一個物件就包含了全部應用層級的狀態，所以它就是一個「唯一數據源」的存在。這也代表，每個應用將僅僅包含一個store實例。</p>
+		<p>每一個Vuex應用的核心就是一個store（倉庫），它基本上就是一個容器，集中管理我們應用程式中大部分的狀態(state)，這簡化了在不同Vue實例或是元件中資料的溝通。Vuex和單純的全域物件有以下兩點不同：</p>
+		<ul class="spaced">
+			<li>Vuex的狀態存儲是響應式的。Vue元件在store中讀取狀態的時候，若store中的狀態發生變化，那麽相應的元件也會相應地得到更新。</li>
+			<li>我們不能直接改變store中的狀態。改變store中的狀態的唯一途徑就是提交（commit）一個mutation。</li>
+		</ul>
+		<p>讓我們來建立一個基本的Vuex store，首先提供一個初始state物件和一些mutation：</p>
+		<pre><code>
+			const store = new Vuex.Store({
+				state: {
+					count: 0
+				},
+				mutations: {
+					increment (state) {
+						state.count++;
+					}
+				}
+			})
+		</pre></code>
+		<p>現在，我們可以使用瀏覽器的開發工具執行store.commit方法觸發狀態變更，以及store.state來讀取狀態內容：</p>
+		<pre><code>
+			store.commit('increment');
+			store.state.count // 1
+		</pre></code>
+		<p>Vuex為Vue實例提供了一個store的選項，透過這個選項可以將我們的store（定義好的store物件）帶入Vue的元件及其子元件，如此我們便可以在元件中透過this.$store來訪問store物件：</p>
+		<pre><code>
+			new Vue({
+				el: '#app',
+				store: store,
+				methods: {
+					increment() {
+						this.$store.commit('increment')
+						console.log(this.$store.state.count)
+					}
+				}
+			})
+		</pre></code>
+		<p>以下為結合了上述的各項重點的基本範例：</p>
+		<div class="example">
+			<div id="app75">
+				<button @click="increment">+</button>
+				{{store75.state.count}}
+			</div>
+			<script>
+				const store75 = new Vuex.Store({
+					state: {
+						count: 0
+					},
+					mutations: {
+						increment (state) {
+							state.count++;
+						}
+					}
+				})
+				
+				var vm75 = new Vue({
+					el: '#app75',
+					store: store75,
+					methods: {
+						increment(){
+							this.$store.commit('increment');
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<button @click="increment">+</button>
+				{{store.state.count}}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			const store = new Vuex.Store({
+				state: {
+					count: 0
+				},
+				mutations: {
+					increment (state) {
+						state.count++;
+					}
+				}
+			})
+			
+			var vm = new Vue({
+				el: '#app',
+				store: store,
+				methods: {
+					increment(){
+						this.$store.commit('increment');
+					}
+				}
+			});
+		</pre></code>
+		<p>以store選項帶入store的元件，其子元件皆能透過this.$store訪問到該store，例如：</p>
+		<div class="example">
+			<div id="app77">
+				<increase-btn></increase-btn>
+			</div>
+			<script>
+				const store77 = new Vuex.Store({
+					state: {
+						count: 0
+					},
+					mutations: {
+						increment (state) {
+							state.count++;
+						}
+					}
+				})
+				
+				Vue.component('increase-btn', {
+					template: `<div>
+						<button @click="increase">+</button>
+						{{count}}
+					</div>
+					`,
+					methods: {
+						increase: function(){
+							this.$store.commit('increment');
+						}
+					},
+					computed: {
+						count(){
+							return this.$store.state.count
+						},
+					}
+				});
+				
+				var vm77 = new Vue({
+					el: '#app77',
+					store: store77
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<increase-btn></increase-btn>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			const store = new Vuex.Store({
+				state: {
+					count: 0
+				},
+				mutations: {
+					increment (state) {
+						state.count++;
+					}
+				}
+			})
+			
+			Vue.component('increase-btn', {
+				template: `<div>
+					<button @click="increase">+</button>
+					{{count}}
+				</div>
+				`,
+				methods: {
+					increase: function(){
+						this.$store.commit('increment');
+					}
+				},
+				computed: {
+					count(){
+						return this.$store.state.count
+					},
+				}
+			});
+			
+			var vm = new Vue({
+				el: '#app',
+				store: store
+			});
+		</pre></code>
+		<br>
+		※ 使用Vuex並不代表我們一定要將所有的狀態放入Vuex；雖然這樣做非常方便，但也會使程式變得冗長和不直觀。如果有些狀態嚴格屬於某個元件，最好還是將他們設計為元件的局部狀態；總之我們應該根據開發需要進行權衡來做規劃。
+	</section>
+
+
+	<section>
+		<span id="vuex_state" class="anchor-offset"></span>
+		<h2>State</h2>
+		<p>Vuex的state和vue的data有很多相似之處，都是用於存儲一些數據或是狀態。這些數據都和DOM做了綁定，也就是當你改變值的時候可以觸發DOM的更新。</p>
+		<p>儘管state和data非常相似，但state在使用的時候一般被掛載到元件的computed（計算屬性）上，這樣有利於state的值發生改變的時候做到及時響應。如果你用data去接收$store.state，當然可以接收到值，但由於這只是一個簡單的賦值操作，因此state中的狀態改變的時候不能被vue中的data監聽到。</p>
+		<p>下例我們使用count計算屬性中返回狀態，每當store.state.count變化的時候，都會重新求取計算屬性，並且觸發更新相關聯的DOM：</p>
+		<div class="example">
+			<div id="app76">
+				<button @click="increment">+</button>
+				{{count}}
+			</div>
+			<script>
+				const store76 = new Vuex.Store({
+					state: {
+						count: 0
+					},
+					mutations: {
+						increment (state) {
+							state.count++;
+						}
+					}
+				})
+				
+				var vm76 = new Vue({
+					el: '#app76',
+					store: store76,
+					methods: {
+						increment(){
+							this.$store.commit('increment');
+						}
+					},
+					computed: {
+						count(){
+							return this.$store.state.count
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<button @click="increment">+</button>
+				{{count}}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			const store = new Vuex.Store({
+				state: {
+					count: 0
+				},
+				mutations: {
+					increment (state) {
+						state.count++;
+					}
+				}
+			})
+			
+			var vm = new Vue({
+				el: '#app',
+				store: store,
+				methods: {
+					increment(){
+						this.$store.commit('increment');
+					}
+				},
+				computed: {
+					count(){
+						return this.$store.state.count
+					}
+				}
+			});
+		</pre></code>
+		<br>
+		<h3>mapState輔助函式</h3>
+		<p>當一個組件需要獲取多個狀態時候，將這些狀態都聲明為計算屬性會有些重複和冗餘。為了解決這個問題，我們可以使用mapState輔助函數幫助我們生成計算屬性，讓我們少打幾個字：</p>
+		<div class="example">
+			<div id="app78">
+				<div>count1: {{count1}}</div>
+				<div>count2: {{count2}}</div>
+				<div>count3: {{count3}}</div>
+				<div>count4: {{count4}}</div>
+			</div>
+			<script>
+				const store78 = new Vuex.Store({
+					state: {
+						count: 0
+					}
+				})
+				var vm78 = new Vue({
+					el: '#app78',
+					store: store78,
+					computed: Vuex.mapState({
+						// 傳統的寫法：要寫很長一串
+						count1: function(){
+							return this.$store.state.count
+						},
+						// 第二種寫法：箭頭函式，精簡一些了
+						count2: state => state.count,
+						// 第三種寫法：'count' 等於 state => state.count
+						count3: 'count',
+						// 為了能夠使用this獲取局部狀態必須使用常規函式（非箭頭函式）
+						count4(state){
+							return state.count + this.localCount;
+						}
+					}),
+					created(){
+						this.localCount = 1;
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<div>count1: {{count1}}</div>
+				<div>count2: {{count2}}</div>
+				<div>count3: {{count3}}</div>
+				<div>count4: {{count4}}</div>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			const store = new Vuex.Store({
+				state: {
+					count: 0
+				}
+			})
+			var vm = new Vue({
+				el: '#app',
+				store,
+				computed: Vuex.mapState({
+					// 傳統的寫法：要寫很長一串
+					count1: function(){
+						return this.$store.state.count
+					},
+					// 第二種寫法：箭頭函式，精簡一些了
+					count2: state => state.count,
+					// 第三種寫法：'count' 等於 state => state.count
+					count3: 'count',
+					// 為了能夠使用this獲取局部狀態必須使用常規函式（非箭頭函式）
+					count4(state){
+						return state.count + this.localCount;
+					}
+				}),
+				created(){
+					this.localCount = 1;
+				}
+			});
+		</pre></code>
+		<p>另外，當計算屬性的名稱與state的子節點名稱相同時，我們也可以給mapState傳一個字串陣列：</p>
+		<pre><code>
+			const store = new Vuex.Store({
+				state: {
+					name: 'defaultName',
+					age: 0,
+					gender: 'defaultGender'
+				}
+			});
+			var vm = new Vue({
+				....
+				store,
+				computed: Vuex.mapState([
+					'name',
+					'age',
+					'gender'
+				])
+			});
+		</pre></code>
+		<p>computed不會因為引入mapState方法而失去原有的功能，如果我們之前已經寫了一大堆的computed計算屬性，做了一半發現想要引入vuex，又想使用mapState()，我們可以直接把舊的計算屬性直接貼到mapState中：</p>
+		<pre><code>
+			const store = new Vuex.Store({
+				state: {
+					count: 1
+				}
+			});
+			var vm = new Vue({
+				....
+				data: {
+					count: 1
+				},
+				// 原本的計算屬性
+				/* computed: {
+					dataCount(){
+						return this.count;
+					}
+				} */
+				store, //後來想加入Vuex
+				computed: Vuex.mapState({ //並使用mapState方法
+					//直接把舊的計算屬性copy進來：
+					dataCount(){
+						return this.count;
+					},
+					//開始使用Vuex
+					dataCount_add_storeCount(state){
+						return this.count + state.count;
+					}
+				})
+			});
+		</pre></code>
+		<p>mapState傳回的是一個物件，上例中我們把舊的計算屬性中的資料複製到一個新的算計屬性中來使用mapState，這樣搬來搬去的的做法實在不體面要做註解也很難說的清楚，取而代之我們直接保留舊的程式碼，在計算屬性中直接展開mapState也是一個聰明的做法：</p>
+		<pre><code>
+			var vm = new Vue({
+				data: {
+					count: 1
+				},
+				store,
+				computed: {
+					dataCount(){
+						return this.count;
+					},
+					...Vuex.mapState({ // 使用物件展開運算符將此物件混入到外部物件中
+						mixedData(state){
+							return this.count + state.count;
+						}
+					})
+				}
+			});
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="vuex_getter" class="anchor-offset"></span>
+		<h2>Getter</h2>
+		<p>vuex本身就提供了類似於計算屬性的方式，getters可以讓你從store的state中派生出一些新的狀態，當然如果不是多個組件要用到這個狀態，或者說每個子組件用到的派生屬性不一樣，那麼，你完全可以不用getters。</p>
+		<p>例如有時候我們需要從store中的state中派生出一些狀態，例如對列表進行過濾併計數：</p>
+		<pre><code>
+			computed: {
+				doneTodosCount () {
+					return this.$store.state.todos.filter(todo => todo.done).length
+				}
+			}
+		</pre></code>
+		<p>如果有多個組件需要用到此屬性，我們要嘛複製這個函數，或者抽取到一個共享函數然後在多處導入它，無論哪種方式都不是很理想。</p>
+		<p>Vuex允許我們在store中定義getter（可以理解為是store的計算屬性）。就像計算屬性一樣，getter的返回值會根據它的依賴被緩存起來，且只有當它的依賴值發生了改變才會被重新計算。說白了就是vue的computed，如果你了解computed的話，那你可以像使用computed一樣去使用getters，當然還是有點區別的。</p>
+		<p>Getter接受state作為其第一個參數：</p>
+		<div class="example">
+			<div id="app79">
+				<ul>
+					<li v-for="v in doneTodos">{{v.text}}</li>
+				</ul>
+			</div>
+			<script>
+				const store79 = new Vuex.Store({
+					state: {
+						todos: [
+							{ id: 1, text: 'buy milk', done: true },
+							{ id: 2, text: 'take out garbage', done: true },
+							{ id: 3, text: 'do the dish', done: false }
+						]
+					},
+					getters: {
+						doneTodos: state => {
+							return state.todos.filter(todo => todo.done)
+						}
+					}
+				})
+				var vm79 = new Vue({
+					el: '#app79',
+					store: store79,
+					computed: {
+						doneTodos(){
+							return this.$store.getters.doneTodos;
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<ul>
+					<li v-for="v in doneTodos">{{v.text}}</li>
+				</ul>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			const store = new Vuex.Store({
+				state: {
+					todos: [
+						{ id: 1, text: 'buy milk', done: true },
+						{ id: 2, text: 'take out garbage', done: true },
+						{ id: 3, text: 'do the dish', done: false }
+					]
+				},
+				getters: {
+					doneTodos: state => {
+						return state.todos.filter(todo => todo.done)
+					}
+				}
+			})
+			var vm = new Vue({
+				el: '#app',
+				store,
+				computed: {
+					doneTodos(){
+						return this.$store.getters.doneTodos;
+					}
+				}
+			});
+		</pre></code>
+		<p>也可以從store物件直接訪問到getters的值：<br>（訪問getters時它是作為Vue的響應式系統的一部分緩存其中的）</p>
+		<pre><code>
+			store.getters.doneTodos; //[{"id":1,"text":"buy milk","done":true},{"id":2,"text":"take out garbage","done":true}]
+		</pre></code>
+		<p>Getter也可以接受其他getter作為第二個參數：</p>
+		<pre><code>
+			getters: {
+				doneTodos: state => {
+					return state.todos.filter(todo => todo.done);
+				},
+				donTodoCount: (state, getters) => {
+					return getters.doneTodos.length;
+				}
+			}
+		</pre></code>
+		<pre><code>
+			store.getters.doneTodoCount //2
+		</pre></code>
+		<p>如果需要對某個getter傳遞參數，可以透過讓getter返回一個函式的方式帶入；這個做法在我們對store裡的陣列進行查詢時非常有用：<br>（但是要注意的是getter在通過方法訪問時，每次都會去進行調用，而不會緩存結果）</p>
+		<pre><code>
+			const store = new Vuex.Store({
+				state: {
+					todos: [
+						{ id: 1, text: 'buy milk', done: true },
+						{ id: 2, text: 'take out garbage', done: true },
+						{ id: 3, text: 'do the dish', done: false }
+					]
+				},
+				getters: {
+					getItemById: state => id => {
+						return state.todos.find(v => v.id == id);
+					}
+				}
+			})
+			var vm = new Vue({
+				el: '#root',
+				store,
+				computed: {
+					getItemById(){
+						return this.$store.getters.getItemById(3);
+					}
+				}
+			});
+		</pre></code>
+		<p>備註一下：範例中的state => id => {...}看起來是柯里化(curried function)的結構，想瞭解的話再去google一下吧</p>
+		<br>
+		<h3>mapGetters輔助函式</h3>
+		<p>mapGetters輔助函數僅僅是將store中的getter映射到局部計算屬性：</p>
+		<pre><code>
+			const store = new Vuex.Store({
+				state: {
+					todos: [
+						{ id: 1, text: 'buy milk', done: true },
+						{ id: 2, text: 'take out garbage', done: true },
+						{ id: 3, text: 'do the dish', done: false }
+					]
+				},
+				getters: {
+					doneTodos: state => {
+						return state.todos.filter(todo => todo.done)
+					},
+					doneTodosCount: (state, getters) => {
+						return getters.doneTodos.length
+					}
+				}
+			});
+			var vm = new Vue({
+				store,
+				computed: {
+					...Vuex.mapGetters([ // 使用物件展開運算符將getter混入computed物件中
+						'doneTodos',
+						'doneTodosCount'
+					])
+				}
+			});
+		</pre></code>
+		<p>如果你想將一個getter屬性另取一個名字，使用物件形式：</p>
+		<pre><code>
+			mapGetters({
+				// 把this.doneCount映射為this.$store.getters.doneTodosCount
+				done: 'doneTodos',
+				doneCount: 'doneTodosCount'
+			})
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="vuex_mutation" class="anchor-offset"></span>
+		<h2>Mutation</h2>
+		<p>更改Vuex store中的狀態的唯一方法是提交mutation；每個mutation都有一個回調函式，這個回調函式就是我們實際進行狀態更改的地方，並且它會接受state作為第一個參數：</p>
+		<pre><code>
+			const store = new Vuex.Store({
+				state: {
+					count: 1
+				},
+				mutations: {
+					increment (state) {
+						state.count++ //變更狀態
+					}
+				}
+			})
+		</pre></code>
+		<p>我們不能直接呼叫mutation的函式，只能透過store的commit方法：</p>
+		<pre><code>
+			store.commit('increment')
+		</pre></code>
+		<p>可以在commit的時候將額外的參數（即mutation的payload載荷）帶入mutation的函式；這邊來補一個完整的範例：</p>
+		<div class="example">
+			<div id="app80">
+				<button @click="increment(1)">+</button>
+				{{count}}
+			</div>
+			<script>
+				const store80 = new Vuex.Store({
+					state: {
+						count: 1
+					},
+					mutations: {
+						increment (state, n) {
+							state.count += n;
+						}
+					}
+				})
+				var vm80 = new Vue({
+					el: '#app80',
+					store: store80,
+					methods: {
+						increment: function(n){
+							this.$store.commit('increment', n);
+						}
+					},
+					computed: Vuex.mapState([
+						'count'
+					])
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<button @click="increment(1)">+</button>
+				{{count}}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			const store = new Vuex.Store({
+				state: {
+					count: 1
+				},
+				mutations: {
+					increment (state, n) {
+						state.count += n;
+					}
+				}
+			})
+			var vm = new Vue({
+				el: '#app',
+				store,
+				methods: {
+					increment: function(n){
+						this.$store.commit('increment', n);
+					}
+				},
+				computed: Vuex.mapState([
+					'count'
+				])
+			});
+		</pre></code>
+		<p>官方對於帶入mutation的載荷撰寫風格有以下兩點建議：</p>
+		<ol class="spaced">
+			<li>使用物件方式帶入，如此可以一次帶入多個參數，在撰mutation回調函式時較為單純，並且也增加函式內程式的易讀性；此外，如果我們的程式有使用到mapMutations，Vuex預設就會帶入state跟另一個載荷的參數，如果要帶入多個值就必需要用物件型式帶入了</li>
+			<li>mutation的設計方式和事件非常相似，所有的mutaiton名稱都可視為一個事件，所以我們可以在第一點的物件中加入type屬性來優化commit的提交</li>
+		</ol>
+		<pre><code>
+			mutations: {
+				increment (state, payload) {
+					state.count += payload.amount
+				}
+			}
+		</pre></code>
+		<pre><code>
+			store.commit({
+				type: 'increment',
+				amount: 10
+			})
+		</pre></code>
+		<br>
+		<h3>mapMutations</h3>
+		<p>我們可以在組件中使用this.$store.commit('xxx')提交mutation，或者使用mapMutations輔助函數將組件中的methods映射為store.commit調用（需要在根節點注入store）。</p>
+		<pre><code>
+			methods: {
+				...mapMutations([
+					'increment', // 將this.increment()映射為this.$store.commit('increment')
+			
+					//mapMutations也支持載荷：
+					'incrementBy' // 將this.incrementBy(amount)映射為this.$store.commit('incrementBy', amount)
+				]),
+				...mapMutations({
+					add: 'increment' // 將this.add()映射為this.$store.commit('increment')
+				})
+			}
+		</pre></code>
+		<p>來看一個實際範例：</p>
+		<div class="example">
+			<div id="app81">
+				<button @click="increment">++</button>
+				<button @click="add">add</button>
+				<button @click="incrementBy({amount:2})">+n</button>
+				{{count}}
+			</div>
+			<script>
+				const store81 = new Vuex.Store({
+					state: {
+						count: 1
+					},
+					mutations: {
+						increment(state){
+							state.count++
+						},
+						incrementBy(state, payload){
+							state.count += payload.amount
+						}
+					}
+				})
+				var vm81 = new Vue({
+					el: '#app81',
+					store: store81,
+					methods: {
+						...Vuex.mapMutations([
+							'increment',
+							'incrementBy'
+					]),
+						...Vuex.mapMutations({
+							add: 'increment'
+						})
+					},
+					computed: Vuex.mapState([
+						'count'
+					])
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<button @click="increment">++</button>
+				<button @click="add">add</button>
+				<button @click="incrementBy({amount:2})">+n</button>
+				{{count}}
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			const store = new Vuex.Store({
+				state: {
+					count: 1
+				},
+				mutations: {
+					increment(state){
+						state.count++
+					},
+					incrementBy(state, payload){
+						state.count += payload.amount
+					}
+				}
+			})
+			var vm = new Vue({
+				el: '#app',
+				store,
+				methods: {
+					...Vuex.mapMutations([
+						'increment',
+						'incrementBy'
+				]),
+					...Vuex.mapMutations({
+						add: 'increment'
+					})
+				},
+				computed: Vuex.mapState([
+					'count'
+				])
+			});
+		</pre></code>
+		<br>
+		<h3>Mutation需遵守Vue的響應規則</h3>
+		<p>Vuex的store中的狀態是響應式的，那麼當我們變更狀態時，監視Vuex狀態的Vue元件也會自動更新。這也意味著Vuex中的mutation也需要與使用Vue一樣遵守一些注意事項：</p>
+		<ul class="spaced">
+			<li>提前在store中初始化好所有所需屬性</li>
+			<li>新增或修改狀態內容時必需使用Vue.set()方法</li>
+			<li>新增狀態內容也可使用展開運算子直接替換舊的狀態物件</li>
+			<li>（其實我自已不管是新增或是修改都直接用新的物件整個替換掉，比較少在用展開或是Vue.set()）</li>
+		</ul>
+		<pre><code>
+			Vue.set(obj, 'newProp', 123)
+		</pre></code>
+		<pre><code>
+			state.obj = { ...state.obj, newProp: 123 }
+		</pre></code>
+		<br>
+		<h3>Mutation必須是同步函式</h3>
+		<p>Mutation必須是同步函式，這是Vuex運作的一個重要原則；官網的說明有點太深入，總之意思就是：mutation不能進行非同步工作，如果要非同步處理資料就得使用可進行非同步操作的action，在action處理完非同步的作業後再進行mutation的提交。</p>
+		<p>以下為官方的說明，先參考下面的範例：</p>
+		<pre><code>
+			mutations: {
+				someMutation (state) {
+					api.callAsyncMethod(() => {
+						state.count++
+					})
+				}
+			}
+		</pre></code>
+		<p>現在想像，我們正在debug一個app並且觀察devtool中的mutation記錄。每一條mutation被記錄，devtools都需要捕捉到前一狀態和後一狀態的快照。然而，在上面的例子中mutation中的異步函數中的回調讓這不可能完成：因為當mutation觸發的時候，回調函式還沒有被調用，devtools不知道什麼時候回調函式實際上被調用——實質上任何在回調函數中進行的狀態的改變都是不可追蹤的。</p>
+	</section>
+
+
+	<section>
+		<span id="vuex_action" class="anchor-offset"></span>
+		<h2>Action</h2>
+		<p>Action使用起來很像mutation，但取向完全不同；action是用來執行非同步操作，完成非同步操作後再提交mutation來更新state；下面先介紹一下基本語法。</p>
+		<p>註冊一下action</p>
+		<pre><code>
+			const store = new Vuex.Store({
+				state: {
+					count: 0
+				},
+				mutations: {
+					increment (state) {
+						state.count++
+					}
+				},
+				actions: {
+					increment (context) {
+						context.commit('increment')
+					}
+				}
+			})
+		</pre></code>
+		<p>Action函式接受一個與store實例具有相同方法和屬性的context物件，因此你可以調用context.commit提交一個mutation，或者通過context.state和context.getters來獲取state和getters。</p>
+		<p>我們會經常用到ES2015的參數解構來簡化程式（特別是我們需要調用commit很多次的時候）：</p>
+		<pre><code>
+			actions: {
+				increment ({ commit }) {
+					commit('increment')
+				}
+			}
+		</pre></code>
+		<p>Action透過store.dispatch()方法觸發：</p>
+		<pre><code>
+			store.dispatch('increment')
+		</pre></code>
+		<p>乍看之下感覺多此一舉，直接提交mutation不是簡省一個步驟？事實並非如此，mutation只能執行同步作業（前面的段落有作說明），而action就是專門用來執行非同步的操作，例如當我們的應用需要呼叫非同步的api再更新狀態時，就需要在action裡處完資料再交由mutation更新狀態：</p>
+		<pre><code>
+			actions: {
+				incrementAsync ({ commit }) {
+					setTimeout(() => {
+						commit('increment')
+					}, 1000)
+				}
+			}
+		</pre></code>
+		<p>dispatch()方法也接受載荷參數：</p>
+		<pre><code>
+			store.dispatch('incrementAsync', {
+				amount: 10
+			})
+			
+			//或是：
+			store.dispatch({
+				type: 'incrementAsync',
+				amount: 10
+			})
+		</pre></code>
+		<p>下例是官網的一個購物車範例，它示範了調用異步API和分發多個mutation：</p>
+		<pre><code>
+			actions: {
+				checkout ({ commit, state }, products) {
+					// 把當前購物車的物品備份起來
+					const savedCartItems = [...state.cart.added]
+					// 發出結賬請求，然後樂觀地清空購物車
+					commit(types.CHECKOUT_REQUEST)
+					// 購物 API 接受一個成功回調和一個失敗回調
+					shop.buyProducts(
+						products,
+						// 成功操作
+						() => commit(types.CHECKOUT_SUCCESS),
+						// 失敗操作
+						() => commit(types.CHECKOUT_FAILURE, savedCartItems)
+					)
+				}
+			}
+		</pre></code>
+		<p>官網的範例有許多自訂的資料及方法，還是自己來做一個比較完整的：</p>
+		<div class="example">
+			<div id="app82">
+				<button @click="dispatchAction">取得前5筆資料</button>
+				<ul>
+					<student v-for="v of studentList" :info="v"></student>
+				</ul>
+			</div>
+			<script>
+				const store82 = new Vuex.Store({
+					state: {
+						list: []
+					},
+					mutations: {
+						updateLlist(state, list){
+							state.list = list;
+						}
+					},
+					actions: {
+						getList({commit}){
+							let url = 'https://625ccdc44c36c753576a3a4f.mockapi.io/test1/testList?page=1&limit=5';
+							axios.get(url).then((response) => {
+								commit('updateLlist', response.data);
+							})
+						}
+					}
+				})
+				Vue.component('student', {
+					props: ['info'],
+					template: `
+						<li>{{info.name}} - {{info.time}}</li>
+					`
+				});
+				var vm82 = new Vue({
+					el: '#app82',
+					store: store82,
+					methods: {
+						dispatchAction(){
+							this.$store.dispatch('getList');
+						}
+					},
+					computed: Vuex.mapState({
+						studentList: 'list'
+					})
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<button @click="dispatchAction">取得前5筆資料</button>
+				<ul>
+					<student v-for="v of studentList" :info="v"></student>
+				</ul>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			const store = new Vuex.Store({
+				state: {
+					list: []
+				},
+				mutations: {
+					updateLlist(state, list){
+						state.list = list;
+					}
+				},
+				actions: {
+					getList({commit}){
+						let url = 'https://625ccdc44c36c753576a3a4f.mockapi.io/test1/testList?page=1&limit=5';
+						axios.get(url).then((response) => {
+							commit('updateLlist', response.data);
+						})
+					}
+				}
+			})
+			Vue.component('student', {
+				props: ['info'],
+				template: `
+					<li>{{info.name}} - {{info.time}}</li>
+				`
+			});
+			var vm = new Vue({
+				el: '#app',
+				store,
+				methods: {
+					dispatchAction(){
+						this.$store.dispatch('getList');
+					}
+				},
+				computed: Vuex.mapState({
+					studentList: 'list'
+				})
+			});
+		</pre></code>
+		<br>
+		<h3>mapActions</h3>
+		<p>我們可以在組件中使用this.$store.dispatch('xxx')分發action，或者使用mapActions輔助函數將組件中的methods映射為store.dispatch調用（需要在根節點注入store）。</p>
+		<pre><code>
+			methods: {
+				...mapActions([
+					'increment', // 將this.increment()映射為this.$store.dispatch('increment')
+			
+					//mapActions也支持載荷：
+					'incrementBy' // 將this.incrementBy(amount)映射為this.$store.dispatch('incrementBy', amount)
+				]),
+				...mapActions({
+					add: 'increment' // 將this.add()映射為this.$store.dispatch('increment')
+				})
+			}
+		</pre></code>
+		<br>
+		<h3>Action的Promise</h3>
+		<p>Action通常是異步的，那麼如何知道action什麼時候結束呢？首先我們要知道action被觸發時可以返回的Promise：</p>
+		<pre><code>
+			actions: {
+				actionA ({ commit }) {
+					return new Promise((resolve, reject) => {
+						setTimeout(() => {
+							commit('someMutation')
+							resolve()
+						}, 1000)
+					})
+				}
+			}
+		</pre></code>
+		<p>現在我們可以這樣做：</p>
+		<pre><code>
+			store.dispatch('actionA').then(() => {
+				// ...
+			})
+		</pre></code>
+		<p>在另外一個action中也可以：</p>
+		<pre><code>
+			actions: {
+				// ...
+				actionB ({ dispatch, commit }) {
+					return dispatch('actionA').then(() => {
+						commit('someOtherMutation')
+					})
+				}
+			}
+		</pre></code>
+		<p>最後，如果我們利用async/await，我們可以如下組合action：</p>
+		<pre><code>
+			// 假設getData()和getOtherData()返回的是Promise
+
+			actions: {
+				async actionA ({ commit }) {
+					commit('gotData', await getData())
+				},
+				async actionB ({ dispatch, commit }) {
+					await dispatch('actionA') // 等待actionA完成
+					commit('gotOtherData', await getOtherData())
+				}
+			}
+		</pre></code>
+		<p>※一個store.dispatch在不同模組（指的應該是Module吧）中可以觸發多個action函數。在這種情況下，只有當所有觸發函數完成後，返回的Promise才會執行。</p>
+	</section>
+
+
+	<section>
+		<span id="vuex_module" class="anchor-offset"></span>
+		<h2>Module</h2>
+		<p>由於使用單一狀態樹，應用的所有狀態會集中到一個比較大的物件。當應用變得非常複雜時，store物件就有可能變得相當臃腫。</p>
+		<p>為了解決以上問題，Vuex允許我們將store分割成模組（module）。每個模組擁有自己的state、mutation、action、getter、甚至是嵌套子模組——從上至下進行同樣方式的分割：</p>
+		<pre><code>
+			const moduleA = {
+				state: () => ({ ... }),
+				mutations: { ... },
+				actions: { ... },
+				getters: { ... }
+			}
+			
+			const moduleB = {
+				state: () => ({ ... }),
+				mutations: { ... },
+				actions: { ... }
+			}
+			
+			const store = new Vuex.Store({
+				modules: {
+					a: moduleA,
+					b: moduleB
+				}
+			})
+			
+			store.state.a // -> moduleA的狀態
+			store.state.b // -> moduleB的狀態
+		</pre></code>
+		<p>對於模組內部的mutation 和getter，接收的第一個參數是模組的局部狀態物件：</p>
+		<pre><code>
+			const moduleA = {
+				state: () => ({
+					count: 0
+				}),
+				mutations: {
+					increment (state) {
+						// 這裡的state物件是模組的局部狀態
+						state.count++
+					}
+				},
+			
+				getters: {
+					doubleCount (state) {
+						return state.count * 2
+					}
+				}
+			}
+		</pre></code>
+		<p>同樣，對於模組內部的action，局部狀態通過context.state暴露出來，根節點狀態則為context.rootState：</p>
+		<pre><code>
+			const moduleA = {
+				// ...
+				actions: {
+					incrementIfOddOnRootSum ({ state, commit, rootState }) {
+						if ((state.count + rootState.count) % 2 === 1) {
+							commit('increment')
+						}
+					}
+				}
+			}
+		</pre></code>
+		<p>對於模組內部的getter，根節點狀態會作為第三個參數暴露出來：</p>
+		<pre><code>
+			const moduleA = {
+				// ...
+				getters: {
+					sumWithRootCount (state, getters, rootState) {
+						return state.count + rootState.count
+					}
+				}
+			}
+		</pre></code>
+		<br>
+		<h3>命名空間</h3>
+		<p>默認情況下，模組內部的action、mutation 和getter是註冊在全局命名空間的——這樣使得多個模組能夠對同一mutation或action作出響應。</p>
+		<p>如果希望你的模組具有更高的封裝度和復用性，你可以通過添加namespaced:true的方式使其成為帶命名空間的模組。當模組被註冊後，它的所有getter、action 及mutation都會自動根據模組註冊的路徑調整命名。例如：</p>
+		<pre><code>
+			const store = new Vuex.Store({
+				modules: {
+					account: {
+						namespaced: true,
+			
+						// 模組內容（module assets）
+						state: () => ({ ... }), // 模組內的狀態已經是嵌套的了，使用 `namespaced` 屬性不會對其產生影響
+						getters: {
+							isAdmin () { ... } // -> getters['account/isAdmin']
+						},
+						actions: {
+							login () { ... } // -> dispatch('account/login')
+						},
+						mutations: {
+							login () { ... } // -> commit('account/login')
+						},
+			
+						// 嵌套模組
+						modules: {
+							// 繼承父模組的命名空間
+							myPage: {
+								state: () => ({ ... }),
+								getters: {
+									profile () { ... } // -> getters['account/profile']
+								}
+							},
+			
+							// 進一步嵌套命名空間
+							posts: {
+								namespaced: true,
+			
+								state: () => ({ ... }),
+								getters: {
+									popular () { ... } // -> getters['account/posts/popular']
+								}
+							}
+						}
+					}
+				}
+			})
+		</pre></code>
+		<p>啟用了命名空間的getter和action會收到局部化的getter，dispatch和commit。換言之，你在使用模組內容（module assets）時不需要在同一模組內額外添加空間名前綴。更改namespaced屬性後不需要修改模組內的代碼。</p>
+		<p>在帶命名空間的模組內訪問全局內容（Global Assets）；如果你希望使用全局state 和getter，rootState和 rootGetters 會作為第三和第四參數傳入getter，也會通過 context 物件的屬性傳入action。</p>
+		<p>若需要在全局命名空間內分發action 或提交mutation，將{root:true}作為第三參數傳給dispatch或commit即可：</p>
+		<pre><code>
+			modules: {
+				foo: {
+					namespaced: true,
+			
+					getters: {
+						// 在這個模組的 getter 中，`getters` 被局部化了
+						// 你可以使用 getter 的第四個參數來調用 `rootGetters`
+						someGetter (state, getters, rootState, rootGetters) {
+							getters.someOtherGetter // -> 'foo/someOtherGetter'
+							rootGetters.someOtherGetter // -> 'someOtherGetter'
+						},
+						someOtherGetter: state => { ... }
+					},
+			
+					actions: {
+						// 在這個模組中， dispatch 和 commit 也被局部化了
+						// 他們可以接受 `root` 屬性以訪問根 dispatch 或 commit
+						someAction ({ dispatch, commit, getters, rootGetters }) {
+							getters.someGetter // -> 'foo/someGetter'
+							rootGetters.someGetter // -> 'someGetter'
+			
+							dispatch('someOtherAction') // -> 'foo/someOtherAction'
+							dispatch('someOtherAction', null, { root: true }) // -> 'someOtherAction'
+			
+							commit('someMutation') // -> 'foo/someMutation'
+							commit('someMutation', null, { root: true }) // -> 'someMutation'
+						},
+						someOtherAction (ctx, payload) { ... }
+					}
+				}
+			}
+		</pre></code>
+		<p>在帶命名空間的模組註冊全局action；若需要在帶命名空間的模組註冊全局action，你可添加root:true，並將這個action的定義放在函數handler中。例如：</p>
+		<pre><code>
+			{
+				actions: {
+					someOtherAction ({dispatch}) {
+						dispatch('someAction')
+					}
+				},
+				modules: {
+					foo: {
+						namespaced: true,
+			
+						actions: {
+							someAction: {
+								root: true,
+								handler (namespacedContext, payload) { ... } // -> 'someAction'
+							}
+						}
+					}
+				}
+			}
+		</pre></code>
+		<p>帶命名空間的綁定函數；當使用mapState, mapGetters, mapActions和mapMutations這些函數來綁定帶命名空間的模組時，寫起來可能比較繁瑣：</p>
+		<pre><code>
+			computed: {
+				...mapState({
+					a: state => state.some.nested.module.a,
+					b: state => state.some.nested.module.b
+				})
+			},
+			methods: {
+				...mapActions([
+					'some/nested/module/foo', // -> this['some/nested/module/foo']()
+					'some/nested/module/bar' // -> this['some/nested/module/bar']()
+				])
+			}
+		</pre></code>
+		<p>對於這種情況，你可以將模組的空間名稱字符串作為第一個參數傳遞給上述函數，這樣所有綁定都會自動將該模組作為上下文。於是上面的例子可以簡化為：</p>
+		<pre><code>
+			computed: {
+				...mapState('some/nested/module', {
+					a: state => state.a,
+					b: state => state.b
+				})
+			},
+			methods: {
+				...mapActions('some/nested/module', [
+					'foo', // -> this.foo()
+					'bar' // -> this.bar()
+				])
+			}
+		</pre></code>
+		<p>而且，你可以通過使用createNamespacedHelpers創建基於某個命名空間輔助函數。它返回一個物件，物件裡有新的綁定在給定命名空間值上的元件綁定輔助函數：</p>
+		<pre><code>
+			import { createNamespacedHelpers } from 'vuex'
+
+			const { mapState, mapActions } = createNamespacedHelpers('some/nested/module')
+
+			export default {
+				computed: {
+					// 在some/nested/module中查找
+					...mapState({
+						a: state => state.a,
+						b: state => state.b
+					})
+				},
+				methods: {
+					// 在some/nested/module中查找
+					...mapActions([
+						'foo',
+						'bar'
+					])
+				}
+			}
+		</pre></code>
+		<br>
+		<h3>模組動態註冊</h3>
+		<p>在store創建之後，你可以使用store.registerModule方法註冊模組：</p>
+		<pre><code>
+			import Vuex from 'vuex'
+
+			const store = new Vuex.Store({ /* 選項 */ })
+
+			// 註冊模組myModule
+			store.registerModule('myModule', {
+			// ...
+			})
+			// 註冊模組模块nested/myModule
+			store.registerModule(['nested', 'myModule'], {
+			// ...
+			})
+		</pre></code>
+		<p>之後就可以通過store.state.myModule和store.state.nested.myModule訪問模組的狀態。</p>
+		<p>模組動態註冊功能使得其他Vue插件可以通過在store中附加新模組的方式來使用Vuex管理狀態。例如，vuex-router-sync（打開新窗口）插件就是通過動態註冊模組將vue-router和vuex結合在一起，實現應用的路由狀態管理。</p>
+		<p>你也可以使用store.unregisterModule(moduleName)來動態卸載模組。注意，你不能使用此方法卸載靜態模組（即創建store時聲明的模組）。</p>
+		<p>注意，你可以通過store.hasModule(moduleName)方法檢查該模組是否已經被註冊到store。</p>
+		<p>保留state；在註冊一個新module時，你很有可能想保留過去的state，例如從一個服務端渲染的應用保留state。你可以通過preserveState選項將其歸檔：store.registerModule('a',module,{preserveState:true})。</p>
+		<p>當你設置preserveState:true時，該模組會被註冊，action、mutation和getter會被添加到store中，但是state不會。這裡假設store的state已經包含了這個module的state並且你不希望將其覆寫。</p>
+		<br>
+		<h3>模組重覆用</h3>
+		<p>有時我們可能需要創建一個模組的多個實例，例如：</p>
+		<ul class="spaced">
+			<li>創建多個store，他們公用同一個模組（例如當runInNewContext選項是false或'once'時，為了在服務端渲染中避免有狀態的單例）</li>
+			<li>在一個store中多次註冊同一個模組</li>
+		</ul>
+		<p>如果我們使用一個純物件來聲明模組的狀態，那麼這個狀態物件會通過引用被共享，導致狀態對像被修改時store 或模組間數據互相污染的問題。</p>
+		<p>實際上這和Vue 組件內的 data 是同樣的問題。因此解決辦法也是相同的——使用一個函數來聲明模組狀態（僅2.3.0+ 支持）：</p>
+		<pre><code>
+			const MyReusableModule = {
+				state: () => ({
+					foo: 'bar'
+				}),
+				// mutation, action 和 getter 等等...
+			}
+		</pre></code>
+	</section>
+
+
+	<h1 id="transition">過渡效果</h1>
+
+
+	<section>
+		<span id="transition_basic" class="anchor-offset"></span>
+		<h2>概述</h2>
+		<p>我們常常會使用v-if或v-show控制元素的顯示與否，而顯示與不顯示的過程中，可以使用vue提供的transition元件協助我們控制過渡效果。</p>
+		<p>在官網文件中，清楚繪製出了Vue的過渡會有以下幾個過程（如字面所示，enter就是進入過渡、leave就是離開過渡）：</p>
+		<p><img src="assets/img/transition.png" /></p>
+		<ul class="spaced">
+			<li>v-enter於元素被插入之前生效，並於元素插入後移除。</li>
+			<li>v-enter-to於元素被插入後生效，直到過渡效果完成後移除。</li>
+			<li>而這整個過程為v-enter-active，可於此定義整個過渡的效果，離開過渡時同理。</li>
+		</ul>
+		<p>使用transition元件會將上述的各個過程自動加入相對應的class名稱，例如元素出現時會自動加上v-enter-active的class，這個過程可以在後面的範例做觀察，如此我們便可以在CSS中定義想要的過渡樣式；以CSS的透明度(Opacity)為例，在元素被插入前，過渡的起始v-enter設定元素的透明度為0，而元素插入後，v-enter-to設定元素的透明度為1，而v-enter-active則設定透明度從0到1的過渡過程會如何呈現，例如時間、延遲、曲線等。Leave可以此類推。</p>
+		<br>
+		<h3>transtion元件可設定的屬性</h3>
+		<p>可以為transtion元件設置各種屬性來達到特定的功能，以下為所有可以設定的屬性：</p>
+		<ul class="spaced">
+			<li>name<br>產生CSS過渡動畫的class名稱，自動變成前綴。例如設定name:'fade'，則上述六個過渡狀態，會變為.fade-enter、.fade-enter-active、.fade-enter-to、.fade-leave、.fade-leave-active、.fade-leave-to。若沒有設定此屬性，默認值為v</li>
+			<li>appear<br>是否在初始渲染時使用過渡效果，默認值為false</li>
+			<li>css<br>在transition元件中，可以使用CSS類別或是JSHook控制過渡效果。預設為true，使用CSS類別</li>
+			<li>type<br>設定過渡事件類型，監聽過渡事件何時结束</li>
+			<li>mode<br>當有多個元素需進行過渡效果時，可以使用此參數設定元素依序進入與離開的效果，可設定值為out-in和in-out，默認同時進行</li>
+			<li>duration<br>指定過渡的持續時間，單位為毫秒</li>
+			<li>過渡CSS類別設定<br>可依照狀況(例如：使用第三方動畫庫時)，設定每一個過渡CSS名稱。可設定類別名稱為：enter-class、leave-class、appear-class、enter-to-class、leave-to-class、appear-to-class、enter-active-class、leave-active-class、appear-active-class</li>
+		</ul>
+		<br>
+		<p>以上即為Vue過渡效果的大概功能介紹，接下來的說明會以常用的範例方式進行，其它細節有需要可以到官網參考：https://cn.vuejs.org/v2/guide/transitions.html。</p>
+	</section>
+
+
+	<section>
+		<span id="transition_single_ele" class="anchor-offset"></span>
+		<h2>單一元素/元件的過渡</h2>
+		<p>使用transition封裝元件在下例情形中，可以給任何元素和元件添加進入/離開過渡</p>
+		<ul>
+			<li>條件渲染（使用v-if）</li>
+			<li>條件顯示（使用v-show）</li>
+			<li>動態元件</li>
+			<li>元件根節點</li>
+		</ul>
+		<p>馬上來看一個基本的範例：</p>
+		<div class="example">
+			<div id="app83">
+				<button v-on:click="show = !show">切換</button>
+				<transition name="my">
+					<p v-if="show">測試文字</p>
+				</transition>
+			</div>
+			<style>
+				.my-enter-active, .my-leave-active{
+					transition: opacity .5s;
+				}
+				.my-enter, .my-leave-to{
+					opacity: 0;
+				}
+			</style>
+			<script>
+				var vm83 = new Vue({
+					el: '#app83',
+					data: {
+						show: true
+					}
+				})
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<button v-on:click="show = !show">切換</button>
+				<transition name="my">
+					<p v-if="show">測試文字</p>
+				</transition>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			new Vue({
+				el: '#app',
+				data: {
+					show: true
+				}
+			})
+		</pre></code>
+		<pre><code>
+			//CSS
+			.my-enter-active, .my-leave-active{
+				transition: opacity .5s;
+			}
+			.my-enter, .my-leave-to{
+				opacity: 0;
+			}
+		</pre></code>
+		<p>這個範例就展示了當<code>插入/移除</code>在transition元件中的元素時，Vue就會針對在的動作<code>添加/刪除</code>對應的class名稱，例如在顯示出&lt;p&gt;元素的過程時會加上my-enter-active及my-enter-to的class名稱。</p>
+		<p>範例中的CSS其實省略了許多設置，完整Vue的過渡設置如下：</p>
+		<pre><code>
+			.my-enter-active{
+				transition: opacity .5s;
+			}
+			.my-enter{
+				opacity: 0;
+			}
+			.my-enter-to{
+				opacity: 1;
+			}
+			.my-leave-active{
+				transition: opacity .5s;
+			}
+			.my-leave{
+				opacity: 1;
+			}
+			.my-leave-to{
+				opacity: 0;
+			}
+		</pre></code>
+		<p>這就代表我們可以為過渡的每個階段計計不同的樣式，例如在離開時調整transition的時間，以及timing-function：</p>
+		<pre><code>
+			.my-leave-active{
+				transition: opacity 2s cubic-bezier(0, 1, 1, 0);
+			}
+		</pre></code>
+		<p>由於過渡完成後會將過渡的class名稱移除掉，如果希望&lt;p&gt;在my-enter-to移除後維持某種樣式（例如opacity:.5），就要在CSS中預先定義&lt;p&gt;的樣式：</p>
+		<pre><code>
+			p{
+				opacity: .5;
+			}
+			...
+			.my-enter-to{
+				opacity: .5;
+			}
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="transition_animation" class="anchor-offset"></span>
+		<h2>以CSS animation設計過渡</h2>
+		<p>CSS動畫用法同CSS過渡，區別是在動畫中v-enter的class名稱在節點插入DOM後不會立即刪除，而是在animationend事件觸發時刪除，範例：</p>
+		<div class="example">
+			<div id="app84" class="app84">
+				<button v-on:click="show = !show">切換</button>
+				<br>
+				<transition name="bounce">
+					<p v-if="show">測試文字</p>
+				</transition>
+			</div>
+			<style>
+				.app84 p {
+					display: inline-block;
+				}
+				.bounce-enter-active {
+					animation: bounce-in .5s;
+				}
+				.bounce-leave-active {
+					animation: bounce-in .5s reverse;
+				}
+				@keyframes bounce-in {
+					0% {
+						transform: scale(0);
+					}
+					50% {
+						transform: scale(3);
+					}
+					100% {
+						transform: scale(1);
+					}
+				}
+			</style>
+			<script>
+				var vm84 = new Vue({
+					el: '#app84',
+					data: {
+						show: true
+					}
+				})
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<button v-on:click="show = !show">切換</button>
+				<br>
+				<transition name="bounce">
+					<p v-if="show">測試文字</p>
+				</transition>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					show: true
+				}
+			})
+		</pre></code>
+		<pre><code>
+			//CSS
+			p {
+				display: inline-block;
+			}
+			.bounce-enter-active {
+				animation: bounce-in .5s;
+			}
+			.bounce-leave-active {
+				animation: bounce-in .5s reverse;
+			}
+			@keyframes bounce-in {
+				0% {
+					transform: scale(0);
+				}
+				50% {
+					transform: scale(3);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="transition_multiple_ele" class="anchor-offset"></span>
+		<h2>多個元素的過渡</h2>
+		<p>對於原生html元素可以使用v-if/v-else產生過渡。最常見的多元素過渡是一個列表和描述這個列表為空消息的內容：</p>
+		<pre><code>
+			<transition>
+				<ul v-if="items.length > 0">
+					<!-- ... -->
+				</ul>
+				<p v-else>Sorry, no items found.</p>
+			</transition>
+		</pre></code>
+		<p>上例的操作沒有什麼問題，但是有一點需要注意：</p>
+		<p>當有相同元素名的元素切換時，需要通過key attribute設置唯一的值來標記以讓Vue區分它們，否則Vue為了效率只會替換相同元素內部的內容。即使在技術上沒有必要，給在transition元件中的多個元素設置key才是一個正確的做法：</p>
+		<pre><code>
+			<transition>
+				<button v-if="isEditing" key="save">
+					Save
+				</button>
+				<button v-else key="edit">
+					Edit
+				</button>
+			</transition>
+		</pre></code>
+		<p>在某些情況下，也可以給同一個元素的key attribute設定不同的狀態來代替v-if和v-else，上面的例子可以重寫為：</p>
+		<pre><code>
+			<transition>
+				<button v-bind:key="isEditing">
+					{{ isEditing ? 'Save' : 'Edit' }}
+				</button>
+			</transition>
+		</pre></code>
+		<p>使用多個v-if的多個元素的過渡可以重寫為綁定了動態property的單個元素過渡。例如：</p>
+		<pre><code>
+			<transition>
+				<button v-if="docState === 'saved'" key="saved">
+					Edit
+				</button>
+				<button v-if="docState === 'edited'" key="edited">
+					Save
+				</button>
+				<button v-if="docState === 'editing'" key="editing">
+					Cancel
+				</button>
+			</transition>			
+		</pre></code>
+		<p>也可以重寫為：</p>
+		<pre><code>
+			//HTML
+			<transition>
+				<button v-bind:key="docState">
+					{{ buttonMessage }}
+				</button>
+			</transition>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			...
+			computed: {
+				buttonMessage: function () {
+					switch (this.docState) {
+						case 'saved': return 'Edit'
+						case 'edited': return 'Save'
+						case 'editing': return 'Cancel'
+					}
+				}
+			}
+		</pre></code>
+		<br>
+		<p>以上即為多個元素過渡常見的用法，但實際製作時會發現兩個元素在切換的過程中位置不斷的被推擠，我們試著點擊下例的按鈕：</p>
+		<div class="example">
+			<div id="app85" class="app85">
+				<button v-on:click="show = !show">切換</button>
+				<transition name="toggle">
+					<h1 v-if="show">測試標題</h1>
+					<p v-else>測試文字</p>
+				</transition>
+				<hr>
+			</div>
+			<style>
+				.app85 h1, .app85 p {
+					height: 50px;
+					margin: 0;
+				}
+				.toggle-enter-active, .toggle-leave-active{
+					transition: opacity .5s;
+				}
+				.toggle-enter, .toggle-leave-to{
+					opacity: 0;
+				}
+			</style>
+			<script>
+				var vm85 = new Vue({
+					el: '#app85',
+					data: {
+						show: true
+					}
+				})
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<button v-on:click="show = !show">切換</button>
+				<transition name="toggle">
+					<h1 v-if="show">測試標題</h1>
+					<p v-else>測試文字</p>
+				</transition>
+				<hr>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					show: true
+				}
+			})
+		</pre></code>
+		<pre><code>
+			//CSS
+			h1, p {
+				height: 50px;
+				margin: 0;
+			}
+			.toggle-enter-active, .toggle-leave-active{
+				transition: opacity .5s;
+			}
+			.toggle-enter, .toggle-leave-to{
+				opacity: 0;
+			}
+		</pre></code>
+		<p>上面的現象是因為transition元件預設進入和離開的過渡是同時發生的，Vue另外提供了mode屬性來解決這個問題，讓當前元素和新元素分開過渡：</p>
+		<div class="example">
+			<div id="app86" class="app86">
+				<button v-on:click="show = !show">切換</button>
+				<transition name="toggle" mode="out-in">
+					<h1 v-if="show">測試標題</h1>
+					<p v-else>測試文字</p>
+				</transition>
+				<hr>
+			</div>
+			<style>
+				.app86 h1, .app86 p {
+					height: 50px;
+					margin: 0;
+				}
+				.toggle-enter-active, .toggle-leave-active{
+					transition: opacity .5s;
+				}
+				.toggle-enter, .toggle-leave-to{
+					opacity: 0;
+				}
+			</style>
+			<script>
+				var vm85 = new Vue({
+					el: '#app86',
+					data: {
+						show: true
+					}
+				})
+			</script>
+		</div>
+		<pre><code>
+			<transition name="toggle" mode="out-in">
+				...
+			</transition>
+		</pre></code>
+		<p>加上mode屬性並設定值為out-in，現在切換時就正常了；說明一下mode屬性可接受的值：</p>
+		<ul>
+			<li>in-out：新元素先進行過渡，完成之後當前元素過渡離開。</li>
+			<li>out-in：當前元素先進行過渡，完成之後新元素過渡進入。</li>
+		</ul>
+		<p>另外，如果我們的需求非得要進入和離開的過渡同時發生，可將要過渡的元素設定為絕對定位，如此就不需要設定mode屬性了。</p>
+	</section>
+
+
+	<section>
+		<span id="transition_multiple_comp" class="anchor-offset"></span>
+		<h2>多個元件的過渡</h2>
+		<p>多個元件的過渡寫法比較簡單，不需要使用keyattribute，我們只需要使用動態元件：</p>
+		<div class="example">
+			<div id="app87">
+				<input type="radio" value="compA" v-model="comp">元件A 
+				<input type="radio" value="compB" v-model="comp">元件B
+				<transition name="toggle-comp" mode="out-in">
+					<component v-bind:is="comp"></component>
+				</transition>
+			</div>
+			<style>
+				.toggle-comp-enter-active, .toggle-comp-leave-active{
+					transition: opacity .5s;
+				}
+				.toggle-comp-enter, .toggle-comp-leave-to{
+					opacity: 0;
+				}
+			</style>
+			<script>
+				var vm87 = new Vue({
+					el: '#app87',
+					components: {
+						compA: {
+							template: '<div>Component A</div>'
+						},
+						compB: {
+							template: '<div>Component B</div>'
+						}
+					},
+					data: {
+						comp: 'compA'
+					}
+				})
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input type="radio" value="compA" v-model="comp">元件A 
+				<input type="radio" value="compB" v-model="comp">元件B
+				<transition name="toggle-comp" mode="out-in">
+					<component v-bind:is="comp"></component>
+				</transition>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				components: {
+					compA: {
+						template: '<div>Component A</div>'
+					},
+					compB: {
+						template: '<div>Component B</div>'
+					}
+				},
+				data: {
+					comp: 'compA'
+				}
+			})
+		</pre></code>
+		<pre><code>
+			//CSS
+			.toggle-comp-enter-active, .toggle-comp-leave-active{
+				transition: opacity .5s;
+			}
+			.toggle-comp-enter, .toggle-comp-leave-to{
+				opacity: 0;
+			}
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="transition_custom_class" class="anchor-offset"></span>
+		<h2>自定義過渡的class名稱</h2>
+		<p>我們可以通過以下屬性來自定義過渡class名稱：</p>
+		<ul>
+			<li>enter-class</li>
+			<li>enter-active-class</li>
+			<li>enter-to-class</li>
+			<li>leave-class</li>
+			<li>leave-active-class</li>
+			<li>leave-to-class</li>
+		</ul>
+		<p>當transition元件設定以上的屬性，例如leave-to-class="custom-leave-to"，在過渡的leave-to階段就會以custom-leave-to取代原本的名字：</p>
+		<div class="example">
+			<div id="app88">
+				<button v-on:click="show = !show">切換</button>
+				<transition enter-class="custom-enter" leave-to-class="custom-leave-to">
+					<p v-if="show">測試文字</p>
+				</transition>
+			</div>
+			<style>
+				.v-enter-active, .v-leave-active{
+					transition: all 1s;
+				}
+				.custom-enter, .custom-leave-to{
+					opacity: 0;
+					color: lime;
+				}
+			</style>
+			<script>
+				var vm88 = new Vue({
+					el: '#app88',
+					data: {
+						show: true
+					}
+				})
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<button v-on:click="show = !show">切換</button>
+				<transition enter-class="custom-enter" leave-to-class="custom-leave-to">
+					<p v-if="show">測試文字</p>
+				</transition>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					show: true
+				}
+			})
+		</pre></code>
+		<pre><code>
+			//CSS
+			.v-enter-active, .v-leave-active{
+				transition: all 1s;
+			}
+			.custom-enter, .custom-leave-to{
+				opacity: 0;
+				color: lime;
+			}
+		</pre></code>
+		<p>上例當&lt;p&gt;元素消失時他的class名稱就會是："v-leave-active custom-leave-to"。</p>
+		<p>這樣的作法很適合運用在有使用第三方CSS動畫的library，直接把library的class名稱直接代入，例如使用Animate.css時就可以做以下的設定：</p>
+		<pre><code>
+			<transition enter-active-class="animated tada" leave-active-class="animated bounceOutRight">
+				...
+			</transition>
+		</pre></code>
+	</section>
+
+
+	<section>
+		<span id="transition_js_hooks" class="anchor-offset"></span>
+		<h2>Javascript勾子</h2>
+		<p>可以在attribute中聲明JavaScript鉤子：</p>
+		<pre><code>
+			<transition v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:after-enter="afterEnter" v-on:enter-cancelled="enterCancelled" v-on:before-leave="beforeLeave" v-on:leave="leave" v-on:after-leave="afterLeave" v-on:leave-cancelled="leaveCancelled">
+				<!-- ... -->
+			</transition>
+		</pre></code>
+		<pre><code>
+			// ...
+			methods: {
+				// --------
+				// 进入中
+				// --------
+
+				beforeEnter: function (el) {
+					// ...
+				},
+				// 当与 CSS 结合使用时
+				// 回调函数 done 是可选的
+				enter: function (el, done) {
+					// ...
+					done()
+				},
+				afterEnter: function (el) {
+					// ...
+				},
+				enterCancelled: function (el) {
+					// ...
+				},
+
+				// --------
+				// 离开时
+				// --------
+
+				beforeLeave: function (el) {
+					// ...
+				},
+				// 当与 CSS 结合使用时
+				// 回调函数 done 是可选的
+				leave: function (el, done) {
+					// ...
+					done()
+				},
+				afterLeave: function (el) {
+					// ...
+				},
+				// leaveCancelled 只用于 v-show 中
+				leaveCancelled: function (el) {
+					// ...
+				}
+			}
+		</pre></code>
+		<p>這些鉤子函數可以結合CSStransitions/animations使用，也可以單獨使用。</p>
+		<p>注意：當只用Javascript過渡的時候，在enter和leave中必須使用done進行回調。否則，它們將被同步調用，過渡會立即完成。</p>
+		<p>注意：推薦對於僅使用Javascript過渡的元素添加v-bind:css="false"，Vue會跳過CSS的檢測。這也可以避免過渡過程中CSS的影響。</p>
+		<br>
+		<p>一個使用Velocity.js的簡單例子：</p>
+		<div class="example">
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+
+			<div id="app89">
+				<button @click="show = !show">Toggle</button>
+				<transition appear v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave" v-bind:css="false">
+					<p v-if="show">Demo</p>
+				</transition>
+			</div>
+			<script>
+				var vm89 = new Vue({
+					el: '#app89',
+					data: {
+						show: false
+					},
+					methods: {
+						beforeEnter: function (el) {
+							el.style.opacity = 0
+							el.style.transformOrigin = 'left'
+						},
+						enter: function (el, done) {
+							$.Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
+							$.Velocity(el, { fontSize: '1em' }, { complete: done })
+						},
+						leave: function (el, done) {
+							$.Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
+							$.Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+							$.Velocity(el, {
+								rotateZ: '45deg',
+								translateY: '30px',
+								translateX: '30px',
+								opacity: 0
+							}, { complete: done })
+						}
+					}
+				})
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+
+			<div id="app">
+				<button @click="show = !show">Toggle</button>
+				<transition v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave" v-bind:css="false">
+					<p v-if="show">Demo</p>
+				</transition>
+			</div>
+		</pre></code>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					show: false
+				},
+				methods: {
+					beforeEnter: function (el) {
+						el.style.opacity = 0
+						el.style.transformOrigin = 'left'
+					},
+					enter: function (el, done) {
+						Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
+						Velocity(el, { fontSize: '1em' }, { complete: done })
+					},
+					leave: function (el, done) {
+						Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
+						Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+						Velocity(el, {
+							rotateZ: '45deg',
+							translateY: '30px',
+							translateX: '30px',
+							opacity: 0
+						}, { complete: done })
+					}
+				}
+			})
+		</pre></code>
+	</section>
+
+
+</article>
+
+
+<script>
+/* let navLinks = document.querySelectorAll('nav a');
+navLinks.forEach(function(v, i){
+	v.addEventListener('click', function(){
+		(document.querySelector('.active')) ? document.querySelector('.active').classList.remove('active') : '';
+		this.classList.add('active');
+	});
+}); */
+
+$('nav a').on('click', function(){
+	$('nav a').removeClass('active');
+	$(this).not('nav h3 a').addClass('active');
+});
+
+
+
+
+
+$("pre code").each(function(){
+	var html = $(this).html().replace('<!-- ', '').replace(' -->', '');
+	var pattern = html.match(/\s*\n[\t\s]*/);
+	$(this).html(html.replace(new RegExp(pattern, "g"),'\n').slice(1, -2).replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+});
+
+
+
+
+
+$('nav').mCustomScrollbar({
+	theme: 'minimal-dark',
+	scrollInertia: 100,
+	mouseWheel:{ scrollAmount: 100 }
+});
+
+
+
+
+
+
+
+$('nav').on('mouseenter', function(){
+	disableScroll();
+});
+
+$('nav').on('mouseleave', function(){
+	enableScroll();
+});
+
+// left: 37, up: 38, right: 39, down: 40,
+// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
+
+function preventDefault(e) {
+	e.preventDefault();
+}
+
+function preventDefaultForScrollKeys(e) {
+	if (keys[e.keyCode]) {
+		preventDefault(e);
+		return false;
+	}
+}
+
+// modern Chrome requires { passive: false } when adding event
+var supportsPassive = false;
+try {
+	window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+		get: function () { supportsPassive = true; }
+	}));
+} catch (e) { }
+
+var wheelOpt = supportsPassive ? { passive: false } : false;
+var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
+// call this to Disable
+function disableScroll() {
+	window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+	window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+	window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+	window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+}
+
+// call this to Enable
+function enableScroll() {
+	window.removeEventListener('DOMMouseScroll', preventDefault, false);
+	window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
+	window.removeEventListener('touchmove', preventDefault, wheelOpt);
+	window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+}
+
+
+
+
+
+$(window).on('load', function(){
+	$('#loadingProgress').hide();
+});
+
+
+</script>
+</body>
+</html>
