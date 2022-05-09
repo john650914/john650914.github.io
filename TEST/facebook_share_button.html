@@ -20,28 +20,25 @@
 			appId            : '413028596241586',
 			autoLogAppEvents : true,
 			xfbml            : true,
-			version          : 'v12.0'
+			version          : 'v13.0'
 		});
 	};
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 
-	(function(d, s, id){
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) {return;}
-		js = d.createElement(s); js.id = id;
-		js.src = "https://connect.facebook.net/en_US/sdk.js";
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
-
-
-
-
-$(".ui.facebook.button").click(function() {
+<script>
+/* $(".ui.facebook.button").click(function() {
 	FB.ui({
 		method: 'share',
-		href: 'https://www.yahoo.com.tw',
-	}, function(response){});
-});
-
+		href: 'https://john650914.github.io/',
+	}, function(r){});
+}); */
+setTimeout(function(){
+	FB.ui({
+		method: 'share',
+		href: 'https://john650914.github.io/',
+	}, function(r){});
+}, 3000);
 </script>
 
 
