@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>HTML5</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" type="text/css" href="style/default.css">
+<script src="script/jquery-1.12.4.min.js"></script>
+<script src="script/isMobile.min.js"></script>
+<script src="script/default.js"></script>
+</head>
+<body>
+<api>
+	<example>
+		<h3>時鐘</h3>
+		<canvas id="canvas1" width="200" height="200"></canvas>
+	</example>
+	<script>
+		var cv1 = document.getElementById('canvas1');
+		var cx1 = cv1.getContext('2d');
+		var radius = cv1.height / 2;
+		cx1.translate(radius, radius);
+		radius = radius * 0.90;
+
+		drawClock();
+		setInterval(drawClock, 1000);
+
+		function drawClock(){
+			//畫大圓及大圓的外框
+			cx1.beginPath();
+			cx1.arc(0, 0, radius, 0 , 2*Math.PI);
+			cx1.fillStyle = 'white';
+			cx1.fill();
+			cx1.strokeStyle = 'gray';
+			cx1.lineWidth = radius*0.09;
+			cx1.stroke();
+			//畫中間小圓
+			cx1.beginPath();
+			cx1.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+			cx1.fillStyle = '#333';
+			cx1.fill();
+			//畫12個數字
+			var ang;
+			var num;
+			cx1.font = 'bold ' + radius * 0.15 + "px arial";
+			cx1.textBaseline = "middle";
+			cx1.textAlign = "center";
+			for(num = 1; num < 13; num++){
+				ang = num * Math.PI / 6;
+				cx1.rotate(ang);
+				cx1.translate(0, -radius * 0.81);
+				cx1.rotate(-ang);
+				cx1.fillText(num.toString(), 0, 0);
+				cx1.rotate(ang);
+				cx1.translate(0, radius * 0.81);
+				cx1.rotate(-ang);
+			}
+			//畫指針
+			var now = new Date();
+			var hour = now.getHours();
+			var minute = now.getMinutes();
+			var second = now.getSeconds();
+			cx1.strokeStyle = '#333';
+			
+			hour = hour%12;
+			hour = (hour*Math.PI/6)+(minute*Math.PI/(6*60))+(second*Math.PI/(360*60));
+			drawHand(hour, radius*0.5, radius*0.07);
+
+			minute = (minute*Math.PI/30)+(second*Math.PI/(30*60));
+			drawHand(minute, radius*0.8, radius*0.07);
+
+			second = (second*Math.PI/30);
+			drawHand(second, radius*0.9, radius*0.02);
+		}
+
+		function drawHand(pos, length, width) {
+			cx1.beginPath();
+			cx1.lineWidth = width;
+			cx1.lineCap = "round";
+			cx1.moveTo(0,0);
+			cx1.rotate(pos);
+			cx1.lineTo(0, -length);
+			cx1.stroke();
+			cx1.rotate(-pos);
+		}
+	</script>
+</api>
+</body> 
+</html>
