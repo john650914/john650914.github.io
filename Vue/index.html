@@ -72,7 +72,7 @@
 		<a href="#modifier_system">系統修飾符</a>
 	<h3><a href="#component">元件</a></h3>
 		<a href="#component_basic">元件基本介紹</a>
-		<a href="#component_reuse">重複使用同一個組件</a>
+		<a href="#component_reuse">重複使用同一個元件</a>
 		<a href="#component_props">透過props向元件傳遞數據</a>
 		<a href="#component_loop">用迴圈來宣染元件</a>
 		<a href="#component_listen_child_comp">監聽元件內的事件</a>
@@ -1439,7 +1439,7 @@
 	<section>
 		<span id="loop_with_component" class="anchor-offset"></span>
 		<h2>在元件上使用 v-for</h2>
-		<p>在自定義組件上，你可以像在任何普通元素上一樣使用<code>v-for</code>，要記得當在元件上使用<code>v-for</code>時，<code>key</code>屬性是必須的。</p>
+		<p>在自定義元件上，你可以像在任何普通元素上一樣使用<code>v-for</code>，要記得當在元件上使用<code>v-for</code>時，<code>key</code>屬性是必須的。</p>
 		<pre><code>
 			<my-component v-for="item in items" :key="item.id"></my-component>
 		</pre></code>
@@ -2009,8 +2009,8 @@
 	<section>
 		<span id="v_model_component" class="anchor-offset"></span>
 		<h2>在元件上使用v-model</h2>
-		<p>HTML原生的輸入元素類型並不總能滿足需求。幸好，Vue的組件系統允許你創建具有完全自定義行為且可複用的輸入組件。這些輸入組件甚至可以和<code>v-model</code>一起使用！</p>
-		<p>一個組件上的<code>v-model</code>默認會利用名為<code>value</code>的<code>prop</code>和名為<code>input</code>的事件，但是像單選框、複選框等類型的輸入控件可能會將<code>value</code>attribute用於不同的目的。<code>model</code>選項可以用來避免這樣的衝突：</p>
+		<p>HTML原生的輸入元素類型並不總能滿足需求。幸好，Vue的元件系統允許你創建具有完全自定義行為且可複用的輸入元件。這些輸入元件甚至可以和<code>v-model</code>一起使用！</p>
+		<p>一個元件上的<code>v-model</code>默認會利用名為<code>value</code>的<code>prop</code>和名為<code>input</code>的事件，但是像單選框、複選框等類型的輸入控件可能會將<code>value</code>attribute用於不同的目的。<code>model</code>選項可以用來避免這樣的衝突：</p>
 		<div class="example">
 			<div id="app37">
 				<base-checkbox v-model="iAmHandsome"></base-checkbox>{{ iAmHandsome }}
@@ -2935,7 +2935,7 @@
 	<section>
 		<span id="class_component" class="anchor-offset"></span>
 		<h2>在元件使用class</h2>
-		<p>當在一個自定義組件上使用class時，這些class將被添加到該組件的根元素上面。這個元素上已經存在的class不會被覆蓋，例如，如果我們宣告了這個元件：</p>
+		<p>當在一個自定義元件上使用class時，這些class將被添加到該元件的根元素上面。這個元素上已經存在的class不會被覆蓋，例如，如果我們宣告了這個元件：</p>
 		<pre><code>
 			Vue.component('my-component', {
 				template: '<p class="foo bar">Hi</p>'
@@ -3650,7 +3650,7 @@
 
 	<section>
 		<span id="component_reuse" class="anchor-offset"></span>
-		<h2>重複使用同一個組件</h2>
+		<h2>重複使用同一個元件</h2>
 		<p>我們定義的元件是可以被重覆使用的，例如基本介紹裡面的範例就可以這樣重覆使用：</p>
 		<div class="example">
 			<div id="app63">
@@ -3692,7 +3692,7 @@
 	<section>
 		<span id="component_props" class="anchor-offset"></span>
 		<h2>透過props向元件傳遞數據</h2>
-		<p>在介紹<code>props</code>之前，先看這個範例，範例中有宣告兩個非常相似的組件，但他們明明就差不多卻因為某些地方不同，就要再另外新建立一個組件真的有點煩人：</p>
+		<p>在介紹<code>props</code>之前，先看這個範例，範例中有宣告兩個非常相似的元件，但他們明明就差不多卻因為某些地方不同，就要再另外新建立一個元件真的有點煩人：</p>
 		<div class="example">
 			<div id="app64">
 				<input-comp1></input-comp1>
@@ -4212,7 +4212,7 @@
 				}
 			});
 		</pre></code>
-		<p>※ 注意如果元件的template中沒有包含一個&lt;slot&gt;元素，則該組件起始標籤和結束標籤之間的任何內容都會被拋棄。</p>
+		<p>※ 注意如果元件的template中沒有包含一個&lt;slot&gt;元素，則該元件起始標籤和結束標籤之間的任何內容都會被拋棄。</p>
 		<p>關於插槽還有一些其它的功能及補充說明，需要的話再來這裡參考：https://cn.vuejs.org/v2/guide/components-slots.html</p>
 	</section>
 
@@ -4385,7 +4385,7 @@
 		</pre></code>
 		<p>現在<code>ComponentA</code>和<code>ComponentC</code>都可以在<code>ComponentB</code>的模板中使用了。</p>
 		<br>
-		<p>這裡遇到了一個問題，如果我有一些元件內只包含了一個輸入框或一個按鈕，而這些元件是相對需要被共用的；這些會被頻繁使用的元件我們把它們稱為基礎元件，而這些基礎元件常常導致很多組件裡都會有一個包含基礎組件的冗長列表：</p>
+		<p>這裡遇到了一個問題，如果我有一些元件內只包含了一個輸入框或一個按鈕，而這些元件是相對需要被共用的；這些會被頻繁使用的元件我們把它們稱為基礎元件，而這些基礎元件常常導致很多元件裡都會有一個包含基礎元件的冗長列表：</p>
 		<pre><code>
 			import BaseButton from './BaseButton.vue'
 			import BaseIcon from './BaseIcon.vue'
@@ -5149,7 +5149,7 @@
 		</pre></code>
 		<br>
 		<h3>mapState輔助函式</h3>
-		<p>當一個組件需要獲取多個狀態時候，將這些狀態都聲明為計算屬性會有些重複和冗餘。為了解決這個問題，我們可以使用mapState輔助函數幫助我們生成計算屬性，讓我們少打幾個字：</p>
+		<p>當一個元件需要獲取多個狀態時候，將這些狀態都聲明為計算屬性會有些重複和冗餘。為了解決這個問題，我們可以使用mapState輔助函數幫助我們生成計算屬性，讓我們少打幾個字：</p>
 		<div class="example">
 			<div id="app78">
 				<div>count1: {{count1}}</div>
@@ -5299,7 +5299,7 @@
 	<section>
 		<span id="vuex_getter" class="anchor-offset"></span>
 		<h2>Getter</h2>
-		<p>vuex本身就提供了類似於計算屬性的方式，getters可以讓你從store的state中派生出一些新的狀態，當然如果不是多個組件要用到這個狀態，或者說每個子組件用到的派生屬性不一樣，那麼，你完全可以不用getters。</p>
+		<p>vuex本身就提供了類似於計算屬性的方式，getters可以讓你從store的state中派生出一些新的狀態，當然如果不是多個元件要用到這個狀態，或者說每個子元件用到的派生屬性不一樣，那麼，你完全可以不用getters。</p>
 		<p>例如有時候我們需要從store中的state中派生出一些狀態，例如對列表進行過濾併計數：</p>
 		<pre><code>
 			computed: {
@@ -5308,7 +5308,7 @@
 				}
 			}
 		</pre></code>
-		<p>如果有多個組件需要用到此屬性，我們要嘛複製這個函數，或者抽取到一個共享函數然後在多處導入它，無論哪種方式都不是很理想。</p>
+		<p>如果有多個元件需要用到此屬性，我們要嘛複製這個函數，或者抽取到一個共享函數然後在多處導入它，無論哪種方式都不是很理想。</p>
 		<p>Vuex允許我們在store中定義getter（可以理解為是store的計算屬性）。就像計算屬性一樣，getter的返回值會根據它的依賴被緩存起來，且只有當它的依賴值發生了改變才會被重新計算。說白了就是vue的computed，如果你了解computed的話，那你可以像使用computed一樣去使用getters，當然還是有點區別的。</p>
 		<p>Getter接受state作為其第一個參數：</p>
 		<div class="example">
@@ -5567,7 +5567,7 @@
 		</pre></code>
 		<br>
 		<h3>mapMutations</h3>
-		<p>我們可以在組件中使用this.$store.commit('xxx')提交mutation，或者使用mapMutations輔助函數將組件中的methods映射為store.commit調用（需要在根節點注入store）。</p>
+		<p>我們可以在元件中使用this.$store.commit('xxx')提交mutation，或者使用mapMutations輔助函數將元件中的methods映射為store.commit調用（需要在根節點注入store）。</p>
 		<pre><code>
 			methods: {
 				...mapMutations([
@@ -5867,7 +5867,7 @@
 		</pre></code>
 		<br>
 		<h3>mapActions</h3>
-		<p>我們可以在組件中使用this.$store.dispatch('xxx')分發action，或者使用mapActions輔助函數將組件中的methods映射為store.dispatch調用（需要在根節點注入store）。</p>
+		<p>我們可以在元件中使用this.$store.dispatch('xxx')分發action，或者使用mapActions輔助函數將元件中的methods映射為store.dispatch調用（需要在根節點注入store）。</p>
 		<pre><code>
 			methods: {
 				...mapActions([
@@ -6192,7 +6192,7 @@
 			<li>在一個store中多次註冊同一個模組</li>
 		</ul>
 		<p>如果我們使用一個純物件來聲明模組的狀態，那麼這個狀態物件會通過引用被共享，導致狀態對像被修改時store 或模組間數據互相污染的問題。</p>
-		<p>實際上這和Vue 組件內的 data 是同樣的問題。因此解決辦法也是相同的——使用一個函數來聲明模組狀態（僅2.3.0+ 支持）：</p>
+		<p>實際上這和Vue 元件內的 data 是同樣的問題。因此解決辦法也是相同的——使用一個函數來聲明模組狀態（僅2.3.0+ 支持）：</p>
 		<pre><code>
 			const MyReusableModule = {
 				state: () => ({
