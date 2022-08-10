@@ -1,0 +1,129 @@
+<?php header('Content-type: text/html; charset=utf-8'); ?>
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta property="og:title" content="張復漢的作品集" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://www.john650914.com" />
+<meta property="og:image" content="http://www.john650914.com/images/og_img.jpg" />
+<meta name="keywords" content="前端工程師,網頁設計,視覺設計,專案管理,Parallax,Responsive,SEO,UI Design,UX,CIS,張復漢" />
+<meta name="description" content="這是張復漢的作品網站；我是一個對設計工作充滿熱情的人，本人從事設計相關工作到目前己經超過十五年，專長為視覺設計、網頁前端技術，設計團隊管理經驗，善長品質控管及溝通協調。" />
+<title>張復漢的作品集，Parallax 和 Responsive</title>
+<link type="text/css" rel="stylesheet" href="css/default.css"/>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-71905523-1', 'auto');
+  ga('require', 'linkid');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+<!--[if lt IE 9]>
+<script src="javascript/respond.min.js"></script>
+<script src="javascript/html5shiv.js"></script>
+<![endif]-->
+<script src="javascript/jquery.1.11.0.min.js"></script>
+<script src="javascript/default.js" defer="defer"></script>
+</head>
+<body>
+<?php
+if(isset($_POST["action"])&&($_POST["action"]=="add")){
+	include("conn_mysql.php");
+	$seldb = @mysql_select_db("john650914com");
+	if(!$seldb)die("資料庫選擇失敗！");
+
+	$sql_query = "INSERT INTO `contact_me` (`cName` ,`cPhone` ,`cEmail` ,`cAffair`) VALUES (";
+	$sql_query .= "'".$_POST["cName"]."',";
+	$sql_query .= "'".$_POST["cPhone"]."',";
+	$sql_query .= "'".$_POST["cEmail"]."',";
+	$sql_query .= "'".$_POST["cAffair"]."')";
+	mysql_query($sql_query);
+}
+?>
+	<article>
+		<h1>張復漢的作品集</h1>
+		<section id="intro">
+			<div>
+				<h2><span>關於張復漢</span></h2>
+				<p>歡迎您參觀我的作品集<span>本站使用視差滾動技術，請向下捲動視窗。</span></p>
+				<p>你好，我是張復漢，感謝您參觀我的個人檔案，<br>我是一個對設計工作充滿熱情的人，本人從事設計相關工作到目前己經超過十五年，<br>專長為視覺設計、網頁前端技術，以及各種使用者介面的圖形處理，<br>並擁有設計團隊管理經驗，善長品質控管及溝通協調。<br>這是我個人所編寫的「<a style="color:#fff;" href="http://javascript.john650914.com">Javascript字典</a>」，裡面也記錄了我的學習過程。</p>
+			</div>
+		</section>
+		<section id="works">
+			<div>
+				<h2><span>我的作品</span></h2>
+				<p>以下作品皆為獨立完成，依照設計類別或專案進行分類，<br>大部份都是自己特別喜歡或是具有代表性的作品，希望你也喜歡。</p>
+				<div class="work_list">
+					<ul>
+						<li class="ui"><a href="/works/ui.htm">UI使用者介面</a></li>
+						<li class="web_business"><a href="/works/web_business.htm">網頁設計(一般商業)</a></li>
+						<li class="web_visual"><a href="/works/web_visual.htm">網頁設計(視覺系)</a></li>
+						<li class="graphic"><a href="/works/graphic.htm">平面設計</a></li>
+						<li class="cis"><a href="/works/cis.htm">CIS識別設計</a></li>
+						<li class="illustration"><a href="/works/illustration.htm">插畫</a></li>
+						<li class="tstar"><a href="/works/tstar.htm">台灣之星</a></li>
+						<li class="f8d"><a href="/works/f8d.htm">FunBuddy社群</a></li>
+						<li class="funuv"><a href="/works/funuv.htm">FunUV智慧電視</a></li>
+						<li class="tmotion"><a href="/works/tmotion.htm">T-Motion公司</a></li>
+						<li class="zoo"><a href="/works/zoo.htm">台北動物園</a></li>
+						<li class="nudesire"><a href="/works/nudesire.htm">雅姿醫美中心</a></li>
+						<li class="photography"><a href="/works/photography.htm">攝影</a></li>
+						<li class="powertech"><a href="/works/powertech.htm">力碁公司</a></li>
+						<li class="aurochs"><a href="/works/aurochs.htm">AurochS電動傢俱</a></li>
+						<li class="colors"><a href="/works/colors.htm">COLORS工作室</a></li>
+						<li class="geo"><a href="/works/geo.htm">幾禾室內設計</a></li>
+						<li class="inspyre"><a href="/works/inspyre.htm">巨能廣告公司</a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section id="skill">
+			<div>
+				<h2><span>經歷與專長</span></h2>
+				<p>再一次介紹我是張復漢(JOHN)，我在求學時期專攻視覺設計，出社會後開始接觸網頁設計，<br>也曾在各種不同的產業中服務，例如印刷設計業、科技電子業、娛樂產業等等…，<br>專長為視覺設計、網頁前端技術，以及各種使用者介面(UI)的圖形處理，除了本身的專業技術，<br>在過去的工作中也具備設計團隊的管理經驗，對於部門的運作及品質控管也很有心得。</p>
+				<ul>
+					<li class="visual">我最擅長視覺設計、廣告、CIS、攝影、繪圖</li>
+					<li class="frontend">最熱衷於前端網頁設計、jQuery、CSS、HTML、Ajax、RWD、Responsive web design、Parallax</li>
+					<li class="ui">使用者介面的先進製圖、APP Android iOS 製圖、webp、png 8bit、9 patch、</li>
+				</ul>
+			</div>
+		</section>
+		<section id="contact">
+			<div>
+				<h2><span>聯絡資訊</span></h2>
+				<p>如果您喜歡我的設計，非常歡迎您和我聯絡，以下是我的聯絡資訊，<br>或是您也可以填寫下面的表單，留下您的聯絡方式，我會在最短的時間內向您回覆。</p>
+				<p class="my phone"><span>電話：</span>0986-875-711</p>
+				<p class="my email"><span>信箱：</span><a href="mailto:john650914@gmail.com" title="寫信給我">john650914@gmail.com</a></p>
+				<form action="" method="post" id="formAdd">
+					<div><input type="text" name="cName" placeholder="聯絡人姓名：" /></div>
+					<div><input type="text" name="cPhone" placeholder="您的聯絡電話：" /></div>
+					<div><input type="text" name="cEmail" placeholder="Email：" /></div>
+					<div><textarea name="cAffair" placeholder="聯絡事項："></textarea></div>
+					<div><input type="text" name="norobot" placeholder="請輸入左邊的計算結果" /></div>
+					<div>
+						<input name="action" type="hidden" value="add" />
+						<input type="submit" value="確定送出" />
+					</div>
+				</form>
+			</div>
+		</section>
+	</article>
+	<nav>
+		<div>
+			<ul>
+				<li><a class="active" href="#intro">簡介</a></li><li><a href="#works">我的作品</a></li><li><a href="#skill">經歷與專長</a></li><li><a href="#contact">聯絡資訊</a></li>
+			</ul>
+			<ul>
+				<li class="responsive">Responsive Design</li>
+				<li class="cross_browser">Cross Browser</li>
+				<li class="parallax">Parallax</li>
+			</ul>
+		</div>
+	</nav>
+</body>
+</html>

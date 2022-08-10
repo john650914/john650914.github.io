@@ -1,0 +1,36 @@
+<div class="sliderContainer white-popup">
+	<div class="royalSlider rsDefault sliderInLightbox">
+		<div>
+			<img class="rsImg" src="/images/works/colors/01.jpg" data-rsTmb="/images/works/colors/thumb/01.jpg" alt="張復漢作品 動態網頁設計" />
+			<div class="rsCaption"><strong>[專案]COLORS 綺彩創意設計工作室</strong> - 工作室網站</div>
+		</div>
+		<div>
+			<img class="rsImg" src="/images/works/colors/02.jpg" data-rsTmb="/images/works/colors/thumb/02.jpg" alt="張復漢作品 公司名片設計" />
+			<div class="rsCaption"><strong>[專案]COLORS 綺彩創意設計工作室</strong> - 公司名片設計</div>
+		</div>
+		<div>
+			<img class="rsImg" src="/images/works/colors/03.jpg" data-rsTmb="/images/works/colors/thumb/03.jpg" alt="This text will be IGNORED!" />
+			<div class="rsCaption"><strong>[專案]Coming soon...</strong> - Coming soon...</div>
+		</div>
+	</div>
+  <style type="text/css">
+  /* just some styles to define the size of slider */
+
+  .sliderInLightbox {
+    width: 100%;
+	height:100%;
+  }
+  .sliderContainer {
+    box-shadow: 0 0 8px rgba(0, 0, 0, .6);
+  }
+  </style>
+  <script>
+  jQuery(document).ready(function($) {
+    $('.sliderInLightbox').royalSlider({
+		controlNavigation:'thumbnails',
+		globalCaption: true,
+		imageScalePadding: 30
+	});
+  });
+  </script>
+</div>
