@@ -16,7 +16,10 @@ h3{font-weight:bold; text-shadow: 0 0 0 black;}
 a{font:inherit; color:#0087FF;}
 p{margin-bottom:20px;}
 strong, b{font-weight:bold;}
-ol, ul{margin-left:15px;}
+ol, ul{padding-left:15px;}
+ol li::marker, ul li::marker{
+	content: "• ";
+}
 
 /*design start*/
 .header{border-bottom:4px solid #00C4FF; background:#292963; text-align:center; /* position:fixed; z-index:1;  */width:100%; padding:36px 0 12px 0;}

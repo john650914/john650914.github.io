@@ -665,8 +665,33 @@ document.querySelectorAll("#leftcolumn, #rightcolumn")
 	<tr id="write()">
 		<td>write()</td>
 		<td>方法</td>
-		<td>在html中插入內容，&lt;script&gt;&lt;/script&gt;寫在哪就插在哪，參數中可以是字串或是算式等。<br />
-			要注意如果document.write()是被放在window.onload = function(){}的函數裡，在文件一載入時document.write()會把原本的的內容全部覆蓋掉。</td>
+		<td>在html文件中插入內容，&lt;script&gt;&lt;/script&gt;寫在哪就插在哪，接受純文字或是html標籤。<br>
+			要注意如果document.write()是被放在window.onload = function(){}的函數裡，在文件一載入時document.write()會把原本的的內容全部覆蓋掉。<br><br>
+			個人認為這個方法在應用上滿雜亂的，下例列出大概會發生的情形：
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;HTML5&lt;/title&gt;
+&lt;script class="myScript"&gt;
+document.write('&lt;script src="test.js"&gt;&lt;\/script&gt;'); //在「.myScript」後被插入，並且script的內容會被執行
+document.write('&lt;h1&gt;在&lt;body&gt;開頭插入&lt;/h1&gt;');
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;這是原本的內容&lt;/p&gt;
+&lt;p&gt;這是原本的內容&lt;/p&gt;
+&lt;p&gt;這是原本的內容&lt;/p&gt;
+&lt;p&gt;這是原本的內容&lt;/p&gt;
+&lt;script&gt;
+	document.write('&lt;h1&gt;在&lt;body&gt;結尾插入&lt;/h1&gt;');
+	/*window.onload = function(){
+		document.write('我會蓋掉所有&lt;body&gt;內的內容');
+	}*/
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+		</td>
 	</tr>
 	<tr id="writeln()">
 		<td>writeln()</td>

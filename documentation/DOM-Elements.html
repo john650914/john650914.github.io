@@ -658,6 +658,81 @@ if (window.addEventListener){
 }
 </pre></td>
 	</tr>
+
+	<tr id="after()">
+		<td>after()</td>
+		<td>方法</td>
+		<td>
+			在指定元素之後插入節點或字串，插入的字串會是文字節點的形式。<br>
+			語法：after(param1, param2...)<br><br>
+			範例1，插入元素：
+<pre>
+let container = document.createElement("div");
+let p = document.createElement("p");
+container.appendChild(p);
+let span = document.createElement("span");
+
+p.after(span);
+console.log(container.outerHTML); //"&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;"
+</pre>
+			範例2，插入文字：
+<pre>
+let container = document.createElement("div");
+let p = document.createElement("p");
+container.appendChild(p);
+
+p.after("Text");
+console.log(container.outerHTML); //"&lt;div&gt;&lt;p&gt;&lt;/p&gt;Text&lt;/div&gt;"
+</pre>
+			範例3，插入元素與文字：
+<pre>
+let container = document.createElement("div");
+let p = document.createElement("p");
+container.appendChild(p);
+let span = document.createElement("span");
+
+p.after(span, "Text");
+console.log(container.outerHTML); //"&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;span&gt;&lt;/span&gt;Text&lt;/div&gt;"
+</pre>
+		</td>
+	</tr>
+
+	<tr id="append()">
+		<td>append()</td>
+		<td>方法</td>
+		<td>
+			在指定元素中的last-child位置插入節點或字串，插入的字串會是文字節點的形式；它跟appendChild()非常相似，但功能上還是有些差異：
+			<ul>
+				<li>append()可插入字串節點，appendChild()則只能插入節點</li>
+				<li>append()沒有回傳值，appendChild()會回傳被插入的節點物件</li>
+				<li>append()接受多個節點，而appendChild()一次只能插入一個節點</li>
+			</ul><br>
+			語法：append(param1, param2...)<br><br>
+			範例1，插入元素：
+<pre>
+let div = document.createElement("div");
+let p = document.createElement("p");
+div.append(p);
+
+console.log(div.childNodes); // NodeList [p]
+</pre>
+			範例2，插入文字：
+<pre>
+let div = document.createElement("div")
+div.append("Some text")
+console.log(div.textContent) //"Some text"
+</pre>
+			範例3，插入元素與文字：
+<pre>
+let div = document.createElement("div")
+let p = document.createElement("p")
+div.append("Some text", p)
+
+console.log(div.childNodes); // NodeList [text, p]
+</pre>
+		</td>
+	</tr>
+
 	<tr id="appendChild()">
 		<td>appendChild()</td>
 		<td>方法</td>
@@ -681,6 +756,45 @@ function prependChild(parent, node){parent.insertBefore(node, parent.firstChild)
 			使用方法：直接呼叫該函數，在第一個參數中帶入父元素，在第二個參數帶入新的節點。
 		</td>
 	</tr>
+
+	<tr id="before()">
+		<td>before()</td>
+		<td>方法</td>
+		<td>
+			在指定元素之前插入節點或字串，插入的字串會是文字節點的形式。<br>
+			語法：before(param1, param2...)<br><br>
+			範例1，插入元素：
+<pre>
+let container = document.createElement("div");
+let p = document.createElement("p");
+container.appendChild(p);
+let span = document.createElement("span");
+
+p.before(span);
+console.log(container.outerHTML); //"&lt;div&gt;&lt;span&gt;&lt;/span&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;"
+</pre>
+			範例2，插入文字：
+<pre>
+let container = document.createElement("div");
+let p = document.createElement("p");
+container.appendChild(p);
+
+p.before("Text");
+console.log(container.outerHTML); //"&lt;div&gt;Text&lt;p&gt;&lt;/p&gt;&lt;/div&gt;"
+</pre>
+			範例3，插入元素與文字：
+<pre>
+let container = document.createElement("div");
+let p = document.createElement("p");
+container.appendChild(p);
+let span = document.createElement("span");
+
+p.before(span, "Text");
+console.log(container.outerHTML); //"&lt;div&gt;&lt;span&gt;&lt;/span&gt;Text&lt;p&gt;&lt;/p&gt;&lt;/div&gt;"
+</pre>
+		</td>
+	</tr>
+
 	<tr id="attachEvent()">
 		<td>attachEvent()</td>
 		<td>方法</td>
@@ -878,6 +992,7 @@ if (document.getElementById("mytable").hasAttribute("style"))
 			原文：Returns a Boolean value indicating whether the current element has any explicit attributes defined.
 		</td>
 	</tr>
+
 	<tr id="hasChildNodes()">
 		<td>hasChildNodes()</td>
 		<td>方法</td>
@@ -897,6 +1012,133 @@ alert(myMSG);
 			原文：Returns a Boolean value indicating whether the current element contains any child nodes.
 		</td>
 	</tr>
+
+	<tr id="insertAdjacentElement()">
+		<td>insertAdjacentElement()</td>
+		<td>方法</td>
+		<td>
+			感覺用到的機率不高，而且跟其它insertAdjacent系列超像的，先懶的寫說明了，附上範例：
+<pre>
+beforeBtn.addEventListener('click', () =&lt; {
+	const tempDiv = document.createElement('div');
+	tempDiv.style.backgroundColor = randomColor();
+	if (activeElem) {
+		activeElem.insertAdjacentElement('beforebegin', tempDiv);
+	}
+	setListener(tempDiv);
+});
+
+afterBtn.addEventListener('click', () =&lt; {
+	const tempDiv = document.createElement('div');
+	tempDiv.style.backgroundColor = randomColor();
+	if (activeElem) {
+		activeElem.insertAdjacentElement('afterend', tempDiv);
+	}
+	setListener(tempDiv);
+});
+</pre>
+		</td>
+	</tr>
+
+	<tr id="insertAdjacentHTML()">
+		<td>insertAdjacentHTML()</td>
+		<td>方法</td>
+		<td>
+			將HTML內容插入指定的位置，語法：ele.insertAdjacentHTML(position, text)；<br><br>
+			參數中的position指的是相對ele的位置，必須是以下的四個字串：<br>
+			<strong>"beforebegin"</strong>：在ele開頭標籤之前，並且這個元素要有父元素以及已經存在於DOM tree中才有效<br>
+			<strong>"afterbegin"</strong>：在ele開頭標籤之後，ele的first-child位置<br>
+			<strong>"beforeend"</strong>：在ele結尾標籤之前，ele的last-child位置<br>
+			<strong>"afterend"</strong>：在ele結尾標籤之後，並且這個元素要有父元素以及已經存在於DOM tree中才有效<br><br>
+			關於上述的四個位置可以參考以下的結構示意：
+<pre>
+&lt;!-- beforebegin --&gt;
+&lt;p&gt;
+	&lt;!-- afterbegin --&gt;
+	foo
+	&lt;!-- beforeend --&gt;
+&lt;/p&gt;
+&lt;!-- afterend --&gt;
+</pre>
+			另一個text參數會將指定的字串轉換為HTML或是XML格式，再插入到指定的位置。<br><br>
+			注意，如果我們需要插入純文字就必須使用insertAdjacentText()，而不是insertAdjacentHTML()。<br><br>
+			範例，插入HTML，同時可以觀察被插入的位置：
+<pre>
+// HTML
+&lt;select id="position"&gt;
+	&lt;option&gt;beforebegin&lt;/option&gt;
+	&lt;option&gt;afterbegin&lt;/option&gt;
+	&lt;option&gt;beforeend&lt;/option&gt;
+	&lt;option&gt;afterend&lt;/option&gt;
+&lt;/select&gt;
+&lt;button id="insert"&gt;Insert HTML&lt;/button&gt;
+&lt;button id="reset"&gt;Reset&lt;/button&gt;
+&lt;p&gt;Some text, with a &lt;code id="subject"&gt;code-formatted element&lt;/code&gt; inside it.&lt;/p&gt;
+
+// javascript
+const insert = document.querySelector('#insert');
+insert.addEventListener('click', () =&gt; {
+	const subject = document.querySelector('#subject');
+	const positionSelect = document.querySelector('#position');
+	subject.insertAdjacentHTML(positionSelect.value, '&lt;strong&gt;inserted text&lt;/strong&gt;');
+});
+const reset = document.querySelector('#reset');
+reset.addEventListener('click', () =&gt; {
+	document.location.reload();
+});
+</pre>
+		</td>
+	</tr>
+
+	<tr id="insertAdjacentText()">
+		<td>insertAdjacentText()</td>
+		<td>方法</td>
+		<td>
+			在指定的位置插入文字節點，語法：ele.insertAdjacentText(position, text)；<br><br>
+			參數中的position指的是相對ele的位置，必須是以下的四個字串：<br>
+			<strong>"beforebegin"</strong>：在ele開頭標籤之前，並且這個元素要有父元素以及已經存在於DOM tree中才有效<br>
+			<strong>"afterbegin"</strong>：在ele開頭標籤之後，ele的first-child位置<br>
+			<strong>"beforeend"</strong>：在ele結尾標籤之前，ele的last-child位置<br>
+			<strong>"afterend"</strong>：在ele結尾標籤之後，並且這個元素要有父元素以及已經存在於DOM tree中才有效<br><br>
+			關於上述的四個位置可以參考以下的結構示意：
+<pre>
+&lt;!-- beforebegin --&gt;
+&lt;p&gt;
+	&lt;!-- afterbegin --&gt;
+	foo
+	&lt;!-- beforeend --&gt;
+&lt;/p&gt;
+&lt;!-- afterend --&gt;
+</pre>
+			另一個text參數會將指定的字串轉換為文字節點再插入到指定的位置。<br><br>
+			範例，插入HTML，同時可以觀察被插入的位置：
+<pre>
+// HTML
+&lt;select id="position"&gt;
+	&lt;option&gt;beforebegin&lt;/option&gt;
+	&lt;option&gt;afterbegin&lt;/option&gt;
+	&lt;option&gt;beforeend&lt;/option&gt;
+	&lt;option&gt;afterend&lt;/option&gt;
+&lt;/select&gt;
+&lt;button id="insert"&gt;Insert Text&lt;/button&gt;
+&lt;button id="reset"&gt;Reset&lt;/button&gt;
+&lt;p&gt;Some text, with a &lt;code id="subject"&gt;code-formatted element&lt;/code&gt; inside it.&lt;/p&gt;
+
+// javascript
+const insert = document.querySelector('#insert');
+insert.addEventListener('click', () =&gt; {
+	const subject = document.querySelector('#subject');
+	const positionSelect = document.querySelector('#position');
+	subject.insertAdjacentText(positionSelect.value, ' INSERTED TEXT ');
+});
+const reset = document.querySelector('#reset');
+reset.addEventListener('click', () =&gt; {
+	document.location.reload();
+});
+</pre>
+		</td>
+	</tr>
+
 	<tr id="insertAfter()">
 		<td>insertAfter()</td>
 		<td>方法</td>
@@ -1029,6 +1271,7 @@ alert(mydivs.item(1).id) //alerts "div2"
 </pre>
 		</td>
 	</tr>
+
 	<tr id="normalize()">
 		<td>normalize()</td>
 		<td>方法</td>
@@ -1038,6 +1281,40 @@ alert(mydivs.item(1).id) //alerts "div2"
 			Note: In cases where the document contains CDATASections, the normalize operation alone may not be sufficient, since XPointers do not differentiate between Text nodes and CDATASection nodes.
 		</td>
 	</tr>
+
+	<tr id="prepend()">
+		<td>prepend()</td>
+		<td>方法</td>
+		<td>
+			在指定元素中的first-child位置插入節點或字串，插入的字串會是文字節點的形式。<br>
+			語法：prepend(param1, param2...)<br><br>
+			範例1，插入元素：
+<pre>
+let div = document.createElement("div");
+let p = document.createElement("p");
+div.prepend(p);
+
+console.log(div.childNodes); // NodeList [p]
+</pre>
+			範例2，插入文字：
+<pre>
+let div = document.createElement("div");
+div.append("Some text");
+div.prepend("Headline: ");
+
+console.log(div.textContent); // "Headline: Some text"
+</pre>
+			範例3，插入元素與文字：
+<pre>
+let div = document.createElement("div")
+let p = document.createElement("p")
+div.prepend("Some text", p)
+
+console.log(div.childNodes); // NodeList [text, p]
+</pre>
+		</td>
+	</tr>
+
 	<tr id="querySelector()">
 		<td>querySelector()</td>
 		<td>方法</td>
