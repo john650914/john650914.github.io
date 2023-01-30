@@ -610,58 +610,82 @@ var alltags=document.getElementsByTagName("*"); //returns all elements on page
 		<td>方法</td>
 		<td></td>
 	</tr>
+
 	<tr id="querySelector()">
 		<td>querySelector()</td>
 		<td>方法</td>
-		<td>語法：querySelector(selectors, [NSResolver])<br />
-			原文：Currently supported in FF3.1+, IE8+ (only in IE8 standards mode), and Safari 3.1+<br />
-			Accepts a CSS selector(s) and returns the first matching element (based on the document tree) within the document, or null. For Example:
+		<td>
+			回傳DOM tree中第一個符合指定CSS選擇器的元素，若找不到該元素就會回傳null（如此可以用來判斷頁面中有沒有某個元素）<br>
+			語法：document.querySelector(selectors)<br>
+			範例1，返回指定元素的html內容：
 <pre>
 &lt;ul id="mylist"&gt;
-&lt;li&gt;Item 1&lt;/li&gt;
-&lt;li&gt;Item 2&lt;/li&gt;
-&lt;li&gt;Item 3&lt;/li&gt;
+	&lt;li&gt;Item 1&lt;/li&gt;
+	&lt;li&gt;Item 2&lt;/li&gt;
+	&lt;li&gt;Item 3&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;script type="text/javascript"&gt;
-var item2=document.querySelector('#mylist li:nth-of-type(2)')
-alert(item2.innerHTML) //alerts "Item 2"
+	var item2=document.getElementById("mylist").querySelector('li:nth-of-type(2)')
+	alert(item2.innerHTML) //"Item 2"
 &lt;/script&gt;
 </pre>
-			You can enter multiple CSS selectors each separated by a comma (,), in which case the first matching element of any of the CSS selectors entered will be returned:
+			範例2, 使用逗號做分隔帶入串個CSS選擇器，例如：
 <pre>
-//returns either element "#leftcolumn" or "#rightcolumn", depending on which one is found first:
-document.querySelector("#leftcolumn, #rightcolumn")
+// html
+&lt;p class=""&gt;這是段落&lt;/p&gt;
+&lt;p class="ele2"&gt;這是段落&lt;/p&gt;
+&lt;p class="ele3"&gt;這是段落&lt;/p&gt;
+
+// javascript
+var myEle = document.querySelector('.ele1, .ele2');
 </pre>
-			querySelector() supports an optional 2nd "NSResolver" parameter to resolve namespace prefixes in XHTML documents. Not supported in IE8.</td>
+			上例html中並沒有ele1這個class，所以第一個符合的元素為ele2。<br><br>
+			範例3，在Dom元素上使用querySelector()：
+<pre>
+document.querySelector('.outer').querySelector('.inner:nth-child(2)').classList.add('myclass');
+</pre>
+			上例基本上等於：
+<pre>
+document.querySelector('.outer .inner:nth-child(2)').classList.add('myclass');
+</pre>
+		</td>
 	</tr>
 	<tr id="querySelectorAll()">
 		<td>querySelectorAll()</td>
 		<td>方法</td>
-		<td>語法：querySelectorAll(selectors, [NSResolver])<br />
-			原文：Currently supported in FF3.1+, IE8+ (only in IE8 standards mode), and Safari 3.1+<br />
-			Accepts a CSS selector(s) and returns all matching elements (based on the document tree) within the document as a staticNodeList, or null. A staticNodeList is a static collection of elements that are not affected by any subsequent changes occuring on the document tree. For example:
+		<td>
+			回傳DOM tree中所有符合指定CSS選擇器的NodeList（節點的集合），找不到符合的選擇器就傳回空陣列（如此可以用陣列的length來判斷頁面中有沒有某個元素）<br>
+			語法：document.querySelectorAll(selectors)<br><br>
+			範例1，選擇所有li元素：
 <pre>
-&lt;ul id="mylist"&gt;
-&lt;li&gt;Item 1&lt;/li&gt;
-&lt;li&gt;Item 2&lt;/li&gt;
-&lt;li&gt;Item 3&lt;/li&gt;
+// HTML
+&lt;ul&gt;
+	&lt;li&gt;Item 1&lt;/li&gt;
+	&lt;li&gt;Item 2&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;script type="text/javascript"&gt;
-var odditems=document.querySelectorAll('#mylist li:nth-of-type(odd)')
-for (var i=0; i&lt;odditems.length; i++)
- alert(odditems[i].innerHTML) //alerts "Item 1", "Item 3" etc.
-&lt;/script&gt;
+// javascript
+var listItem = document.querySelectorAll('li');
+for(var v of listItem){
+	alert(v.innerHTML);
+}
 </pre>
-			You can enter multiple CSS selectors each separated by a comma (,), in which case all matching elements found using the entered CSS selectors will be returned:
+			範例2，我們可以像一般CSS選擇器以逗號分隔選擇多個元素：
 <pre>
-//returns both elements "#leftcolumn" or "#rightcolumn", or one of them if only one defined:
-document.querySelectorAll("#leftcolumn, #rightcolumn")
+document.querySelectorAll("#div1, #div2")
 </pre>
-			querySelectorAll() supports an optional 2nd "NSResolver" parameter to resolve namespace prefixes in XHTML documents. Not supported in IE8.<br />
-			See "<a href="http://www.javascriptkit.com/dhtmltutors/structuralcss.shtml" target="_blank">Overview of CSS3 Structural puesdo-classes</a>" for advanced CSS selectors you can use with the query selector methods.</td>
+			範例3，在Dom元素上使用querySelectorAll()：
+<pre>
+var childAry = document.querySelector('.outer').querySelectorAll('.inner');
+</pre>
+			上例基本上等於：
+<pre>
+var childAry = document.querySelectorAll('.outer .inner');
+</pre>
+		</td>
 	</tr>
+
 	<tr id="write()">
 		<td>write()</td>
 		<td>方法</td>

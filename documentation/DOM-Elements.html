@@ -76,7 +76,7 @@ if (mylist.childNodes[i].nodeName=="LI")
 		<td>classList</td>
 		<td>屬性</td>
 		<td>
-			頁面DOM裡的每個節點上都有一個classList物件，我們可以使用它提供的一系列方法來達到新增、刪除、修改節點class名稱等等的操作：<br><br>
+			頁面DOM元素裡的每個節點上都有一個classList物件，我們可以使用它提供的一系列方法來對該元素達到即時新增、刪除、修改節點class名稱等等的操作：<br><br>
 			<h3>取得某個DOM節點所有的class名稱：</h3>
 			結果將傳回一個陣列
 <pre>
@@ -84,6 +84,7 @@ var x = document.getElementById("myDIV").classList;
 x.length; //3
 </pre>
 			<h3>add() - 新增class名稱：</h3>
+			如果要加入的class是已經存在則會被忽略
 <pre>
 //新增一個
 document.getElementById("myDIV").classList.add("mystyle");
@@ -98,11 +99,15 @@ document.getElementById("myDIV").classList.remove("mystyle");
 document.getElementById("myDIV").classList.remove("mystyle", "anotherClass", "thirdClass");
 </pre>
 			<h3>toggle() - 切換class名稱：</h3>
-			這個方法的作用就是，當myDiv元素上沒有這個CSS類時，它就新增這個名稱；如果myDiv元素已經有了這個名稱，它就是刪除它。就是反轉操作。
+			這個方法的作用就是，當myDiv元素上沒有這個CSS類時，它就新增這個名稱；如果myDiv元素已經有了這個名稱，它就是刪除它。就是反轉操作。<br>
+			另外，當只設定一個參數時，toggle()就按照上述的方式運作，並且在加入class時返回true、刪除時返回false；而當設定第二個參數時（只接受true/false），如果設定true則強制加入class並只會傳回true，設定為false則相反
 <pre>
 document.getElementById("myDIV").classList.toggle("newClassName");
 myDiv.classList.toggle('myCssClass'); //現在是增加
 myDiv.classList.toggle('myCssClass'); //現在是刪除
+
+//根據條件做toggle（i小於10的時候加入class）
+ele.classList.toggle("visible", i < 10 );
 </pre>
 			<h3>contains() - 檢查是否含有某個名稱：</h3>
 			結果將傳回布林值
@@ -1315,62 +1320,20 @@ console.log(div.childNodes); // NodeList [text, p]
 		</td>
 	</tr>
 
-	<tr id="querySelector()">
-		<td>querySelector()</td>
+	<tr id="remove()">
+		<td>remove()</td>
 		<td>方法</td>
 		<td>
-			語法：querySelector(selectors, [NSResolver])<br>
-			原文：Currently supported in FF3.1+, IE8+ (only in IE8 standards mode), and Safari 3.1+<br>
-			Accepts a CSS selector(s) and returns the first matching element (based on the document tree) within the invoking element, or null. For example:
+			從DOM中移除一個元素，此方法沒有參數，沒有回傳值<br>
+			語法：ele.remove()<br><br>
+			範例，將#div2移除：
 <pre>
-&lt;ul id="mylist"&gt;
-&lt;li&gt;Item 1&lt;/li&gt;
-&lt;li&gt;Item 2&lt;/li&gt;
-&lt;li&gt;Item 3&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;script type="text/javascript"&gt;
-var item2=document.getElementById("mylist").querySelector('li:nth-of-type(2)')
-alert(item2.innerHTML) //alerts "Item 2"
-&lt;/script&gt;
+const myEle = document.querySelector('#div2');
+myEle.remove();
 </pre>
-			You can enter multiple CSS selectors each separated by a comma (,), in which case the first matching element of any of the CSS selectors entered will be returned:
-<pre>
-//returns either element "#leftcolumn" or "#rightcolumn", depending on which one is found first:
-myelement.querySelector("#leftcolumn, #rightcolumn")
-</pre>
-			querySelector() supports an optional 2nd "NSResolver" parameter to resolve namespace prefixes in XHTML documents. Not supported in IE8.
 		</td>
 	</tr>
-	<tr id="querySelectorAll()">
-		<td>querySelectorAll()</td>
-		<td>方法</td>
-		<td>
-			語法：querySelectorAll(selectors, [NSResolver])<br>
-			原文：Currently supported in FF3.1+, IE8+ (only in IE8 standards mode), and Safari 3.1+<br>
-			Accepts a CSS selector(s) and returns all matching elements (based on the document tree) within the invoking element as a staticNodeList, or null. A staticNodeList is a static collection of elements that are not affected by any subsequent changes occuring on the document tree. For example:
-<pre>
-&lt;ul id="mylist"&gt;
-&lt;li&gt;Item 1&lt;/li&gt;
-&lt;li&gt;Item 2&lt;/li&gt;
-&lt;li&gt;Item 3&lt;/li&gt;
-&lt;/ul&gt;
 
-&lt;script type="text/javascript"&gt;
-var odditems=document.getElementById("mylist").querySelectorAll('li:nth-of-type(odd)')
-for (var i=0; i&lt;odditems.length; i++)
- alert(odditems[i].innerHTML) //alerts "Item 1", "Item 3" etc.
-&lt;/script&gt;
-</pre>
-			You can enter multiple CSS selectors each separated by a comma (,), in which case all matching elements found using the entered CSS selectors will be returned:
-<pre>
-//returns both elements "#leftcolumn" or "#rightcolumn", or one of them if only one defined:
-myelement.querySelectorAll("#leftcolumn, #rightcolumn")
-</pre>
-			querySelectorAll() supports an optional 2nd "NSResolver" parameter to resolve namespace prefixes in XHTML documents. Not supported in IE8.<br>
-			See CSS3 Structural puesdo-classes for advanced CSS selectors you can use with the query selector methods.
-		</td>
-	</tr>
 	<tr id="removeAttribute()">
 		<td>removeAttribute()</td>
 		<td>方法</td>
@@ -1382,6 +1345,7 @@ document.getElementById("test").removeAttribute("href")
 </pre>
 		</td>
 	</tr>
+
 	<tr id="removeAttributeNode()">
 		<td>removeAttributeNode()</td>
 		<td>方法</td>
