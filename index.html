@@ -52,15 +52,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VS4CP3BJYZ"></script>
 <script>
-setTimeout(function(){
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-VS4CP3BJYZ', {
-		'user_id': '"ID1":"abcd1234","ID2":"efgh5678"',
-		'test_key': 'my_test_key'
-	});
-}, 2000);
+window.onload = function(){
+	setTimeout(function(){
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-VS4CP3BJYZ', {
+			'user_id': '"ID1":"abcd1234","ID2":"efgh5678"',
+			'test_key': 'my_test_key'
+		});
+	}, 2000);
+};
 </script>
 
 </body>
