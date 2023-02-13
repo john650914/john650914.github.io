@@ -7,11 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://beangochat.blob.core.windows.net/beango-static-prod/sdk/beanfun.min.js"></script>
-<script src="https://chat-content.beanfun.com/beango-static-prod/web-tracing-jssdk/web_tracing_sdk.prod.js"></script>
+<!-- <script src="https://beangochat.blob.core.windows.net/beango-static-prod/sdk/beanfun.min.js"></script>
+<script src="https://chat-content.beanfun.com/beango-static-prod/web-tracing-jssdk/web_tracing_sdk.prod.js"></script> -->
 <script src="https://tw.hicdn.beanfun.com/plugins/vconsole/3.10.0/vconsole.min.js"></script>
 <script>
-    var vConsole = new window.VConsole();
+	var vConsole = new window.VConsole();
 </script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -19,30 +19,59 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-T5P5JHL');</script>
-    <!-- End Google Tag Manager -->
+	<!-- End Google Tag Manager -->
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
 <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5P5JHL" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
 <!-- End Google Tag Manager (noscript) -->
 
-<h1>這個網頁是用來測試GA4</h1>
+<h1>這是john650914.github.io</h1>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VS4CP3BJYZ"></script>
+
 <script>
-sender = beanfunWebTraceSDK.init({
-	BUID: 'test-BUID',
-	property: 'test-property',
-	sourceProperty: 'test-sourceProperty'
+appendScript('https://beangochat.blob.core.windows.net/beango-static-prod/sdk/beanfun.min.js', function(){
+	BGO.check_app_exist(function (rp) {
+		if (rp.result !== null && rp.result !== undefined && rp.result === "ok") {
+			console.log('是h5');
+			BGO.init({
+				token: '20dcad5fd2734008b4bab37727dc15e0_oat',
+				official_account_id: '5b2c64bc9e974b0c92a660c0d942f96e_oa'
+			});
+			BGO.get_me_openid_access_token(client_id, '', function(res){
+				
+			});
+		} else {
+			console.log('不是h5');
+		}
+	});
 });
-sender.passEvent(
-	new beanfunWebTraceSDK.events.PageViewEvent({
-		eventId: '9527',
-		event: 'the-pageview',
-		pageInfo: { page: 'test-page' }
-	})
-);
+var sender = null;
+appendScript('https://chat-content.beanfun.com/beango-static-prod/web-tracing-jssdk/web_tracing_sdk.prod.js', function(){
+	/* sender = beanfunWebTraceSDK.init({
+		BUID: 'test-BUID',
+		property: 'test-property',
+		sourceProperty: 'test-sourceProperty'
+	});
+	sender.passEvent(
+		new beanfunWebTraceSDK.events.PageViewEvent({
+			eventId: '9527',
+			event: 'the-pageview',
+			pageInfo: { page: 'test-page' }
+		})
+	); */
+	beanfunWebTraceSDK.status.getTrackId().then((res) => {
+		console.log(res);
+	});
+});
+
+
+
+
+//console.log('這是OPID：'+getCookie('opid'));
+
 
 
 setTimeout(function(){
@@ -50,10 +79,46 @@ setTimeout(function(){
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
 	gtag('config', 'G-VS4CP3BJYZ', {
-		'user_id': 'JOHNJOHNJOHNJOHN',
+		'user_id': '"ID1":"abcd1234","ID2":"efgh5678"',
 		'test_key': 'my_test_key'
 	});
+
+	console.oldLog = console.log;
+	console.log = function(value)
+	{
+		console.oldLog(value);
+		window.$log = value;
+	};
+
 }, 2000);
+
+
+//取cookie的值
+function getCookie(cookie_name) {
+	var name = cookie_name + "=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var ca = decodedCookie.split(';');
+	for(var i = 0; i <ca.length; i++) {
+		var c = ca[i];
+			while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+			if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+}
+
+//插入<script>
+function appendScript(src, fn, async = false){
+	let script = document.createElement('script');
+	script.type = 'text/javascript';
+	if(async) script.async = true;
+	script.src = src;
+	document.getElementsByTagName('head')[0].appendChild(script);
+	script.onload = fn;
+};
 </script>
 </body>
 </html>
