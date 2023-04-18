@@ -1022,25 +1022,11 @@ alert(myMSG);
 		<td>insertAdjacentElement()</td>
 		<td>方法</td>
 		<td>
-			感覺用到的機率不高，而且跟其它insertAdjacent系列超像的，先懶的寫說明了，附上範例：
+			插入一個HTML元素，很適合用在插入script或是style標籤，用法跟其它insertAdjacent系列超像的，先懶的寫說明了，附上範例：
 <pre>
-beforeBtn.addEventListener('click', () =&lt; {
-	const tempDiv = document.createElement('div');
-	tempDiv.style.backgroundColor = randomColor();
-	if (activeElem) {
-		activeElem.insertAdjacentElement('beforebegin', tempDiv);
-	}
-	setListener(tempDiv);
-});
-
-afterBtn.addEventListener('click', () =&lt; {
-	const tempDiv = document.createElement('div');
-	tempDiv.style.backgroundColor = randomColor();
-	if (activeElem) {
-		activeElem.insertAdjacentElement('afterend', tempDiv);
-	}
-	setListener(tempDiv);
-});
+var myScript = document.createElement('script');
+myScript.src = 'script01.js';
+document.querySelector('head').insertAdjacentElement('beforebegin', myScript);
 </pre>
 		</td>
 	</tr>

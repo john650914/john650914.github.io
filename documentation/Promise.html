@@ -1,0 +1,371 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta property="og:title" content="Javascript字典" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://javascript.john650914.com" />
+<meta property="og:image" content="https://john650914.github.io/f_b.jpg" />
+<meta name="keywords" content="Javascript,Promise,物件,object,字典,方法,屬性,使用說明,文件,範例" />
+<meta name="description" content="提供完整的Promise物件及其方法、屬性的說明文件與範例" />
+<title>Promise物件 - Javascript字典</title>
+<link type="text/css" rel="stylesheet" href="../css/default.css"/>
+<script src="/js/jquery-1.11.3.min.js"></script>
+<script src="/js/default.js"></script>
+</head>
+<body>
+<main class="main">
+<h1>Javascript - Promise物件</h1>
+<table class="doc-table">
+	<tr>
+		<th>名稱</th>
+		<th>類形</th>
+		<th>說明</th>
+	</tr>
+	<tr id="Promise">
+		<td>Promise</td>
+		<td>物件</td>
+		<td>
+			Promise是一種處理非同步操作的解決方案，所謂的Promise，簡單來說它是一個等待非同步操作完成的物件，當事件完成時，Promise根據操作結果是成功、或者失敗，做相對應的處理動作。<br><br>
+			一個Promise物件只會處於下面三種狀態之一：
+			<ol>
+				<li>pending - 初始狀態（進行中）</li>
+				<li>fulfilled - 事件已完成</li>
+				<li>rejected - 事件已失敗</li>
+			</ol>
+			<br>
+			而Promise狀態的改變只有下面兩種可能的結果，且一但狀態改變就會固定永遠不會再改變了：
+			<ol>
+				<li>從pending變成fulfilled</li>
+				<li>從pending變成rejected</li>
+			</ol>
+			<br>
+			非同步最常見的例子像是AJAX，傳統在處理非同步事件時會用一堆nested callbacks來處理結果，Promise則是提供另外一種解決方案，讓你更直觀地控制非同步操作；以下是使用Promise物件的基本語法：
+<pre>
+var promise = new Promise(function(resolve, reject) {
+	// ...
+	if (非常步操作成功) {
+		resolve(value);
+	} else {
+		reject(error);
+	}
+});
+</pre>
+			Promise構造函數(constructor)接受一個函數作為參數，這個函數會在建立Promise物件的同時立刻被執行，該函數有兩個參數分別是resolve函數和reject函數，resolve/reject這兩個函數會由JavaScript interpreter自動傳入。<br><br>
+			<ul>
+				<li>resolve(value)函數的用途是用來將Promise物件的狀態變為fulfilled（已完成），在非同步操作成功時調用，你可以將非同步操作的結果當作參數一起傳入</li>
+				<li>reject(error)函數的用途是用來將Promise物件的狀態變為rejected（已失敗），在非同步操作失敗時調用，你可以將非同步操作的錯誤當作參數一起傳入</li>
+			</ul>
+			<br>
+			<strong>※當Promise constructor的函數參數執行時，如果內部發生錯誤throw error，Promise物件的狀態會自動變成rejected。</strong><br><br>
+			Promise物件生成後，可以用then()方法來綁定當fulfilled或rejected狀態時，分別要執行的函數：
+<pre>
+promise.then(function(value) {
+	//當狀態是fulfilled（成功）時，執行這個函數
+	//value是透過resolve()傳進來的參數
+},function(error){
+	//當狀態是rejected（失敗）時，執行這個函數
+	//error是透過reject()傳進來的參數
+});
+</pre>
+			then()方法接受兩個函數作為參數：
+			<ul>
+				<li>第一個函數是當Promise狀態變為成功時會被調用</li>
+				<li>第二個函數是當Promise狀態變為失敗時會被調用，這個參數是選擇性的不一定需要</li>
+			</ul>
+			<br>
+			實際使用範例(1)，這個範例展示了Promise狀態只會有「成功或失敗」其中一種結果：
+<pre>
+var myPromise = new Promise(function(res, rej){
+	if(true){
+		res('成功');
+	}else{
+		rej('失敗');
+	}
+});
+
+myPromise.then(function(R){
+	console.log(R); //console "成功"
+}, function(R){
+	console.log(R);
+});
+</pre>
+			實際使用範例(2)，此範例加入了setTimeout來模擬非同步的操作：
+<pre>
+var myPromise = new Promise(function(rs, rj){
+	setTimeout(function(){
+		rs('成功');
+	}, 1000);
+	// rj('我比rs還快！'); //如果在這裡執行rj()則會直接輸出失敗的結果，而不會執行rs()
+});
+
+myPromise.then(function(V){
+	console.log(V); //一秒後console "成功"
+}, function(V){
+	console.log(V);
+});
+</pre>
+		</td>
+	</tr>
+	<tr id="all()">
+		<td>all()</td>
+		<td>方法</td>
+		<td>
+			需要同時處理多個Promise時就可以使用Promise.all()方法，當所有Promise的狀態轉變為fulfilled時所有Promise的返回值會被組成一個陣列傳進Promise.all().then()的callback function。<br><br>
+			Promise.all()用來將多個Promise物件包裝成一個Promise物件，它的參數接受一個存放不同Promise物件的陣列（如果陣列中有元素的型態不是 Promise，會先執行 Promise.resolve()），以下為一個簡單的基本範例：
+<pre>
+const delayFN = (val, n) => {
+	return new Promise(function(resolve, reject){
+		setTimeout(function(){
+			resolve(val);
+		}, n);
+	});
+}
+
+const promises = [
+	delayFN('AAA', 2000, ).then((val) => val).catch((res) => res),
+	delayFN('BBB', 1000).then((val) => val).catch((res) => res)
+];
+
+Promise.all(promises).then(values=>console.log(values)); //兩秒後將返回 ['AAA', 'BBB']
+</pre>
+			Promise.all有一個特性，如果我們在Promise陣列中沒有設定catch()方法，而當某一個Promise拋出錯誤時，Promise.all會直接進入catch()方法傳回該Promise錯誤訊息，而不是傳回陣列；這個特性將Promise陣列視為一個整體，儘管全部的Promise都執行成功，只要有其中一個Promise出錯就乎略所有成功的Promise，也就是說要嘛全部成功，要嘛全部重來，如下例：
+<pre>
+const delayFN = (val, n) => {
+	return new Promise(function(resolve, reject){
+		setTimeout(function(){
+			resolve(val);
+		}, n);
+	});
+}
+const delayFN2 = () => {
+	return new Promise(function(resolve, reject){
+		reject('err');
+	});
+}
+
+const promises = [
+	delayFN('AAA', 2000).then((val) => val),
+	delayFN2().then((val) => val)
+];
+
+Promise.all(promises)
+	.then(values=>console.log(values))
+	.catch(res=>console.log(res)); //回傳'err'
+</pre>
+			相反的，如果我們不希望某一個Promise出錯時就放棄其它Promise的資料，在Promise陣列中所有的Promise加入catch()方法就會照常回傳結果的陣列，只是陣列中該Promise的結果就會是錯誤訊息，如下例：
+<pre>
+const delayFN = (val, n) => {
+	return new Promise(function(resolve, reject){
+		setTimeout(function(){
+			resolve(val);
+		}, n);
+	});
+}
+const delayFN2 = () => {
+	return new Promise(function(resolve, reject){
+		reject('err');
+	});
+}
+
+const promises = [
+	delayFN('AAA', 2000).then((val) => val).catch((res) => res),
+	delayFN2().then((val) => val).catch((res) => res)
+];
+
+Promise.all(promises)
+	.then(values=>console.log(values)) //回傳 ['AAA', 'err']
+	.catch(res=>console.log(res));
+</pre>
+			更新：雖然上例可以取回所有Promise傳回的資料，但並不能有效的分析每個Promise最終的狀態，在後來的版本的Javascript api新增了Promise.allSettled()方法，使用的結果與上例類似，但在輸出的內容增加了狀態的結果方便我們做判斷，詳細說明見Promise.allSettled()。
+		</td>
+	</tr>
+	<tr id="allSettled()">
+		<td>allSettled()</td>
+		<td>方法</td>
+		<td>
+			Promise.allSettled()感覺有點像是另一個補釘版本的Promise.all()，使用方式和Promise.all()大同小異，不同在於最後輸出的結果，Promise.allSettled()會將輸出的狀態及輸出的值一起存到陣列中的物件，如此我們可以利用輸出的狀態來判斷Promise是否有出錯，如下例：
+<pre>
+const delayFN = (val, n) => {
+	return new Promise(function(resolve, reject){
+		setTimeout(function(){
+			resolve(val);
+		}, n);
+	});
+}
+const delayFN2 = () => {
+	return new Promise(function(resolve, reject){
+		reject('err');
+	});
+}
+
+const promises = [
+	delayFN('AAA', 2000).then((val) => val),
+	delayFN2().then((val) => val)
+];
+
+Promise.allSettled(promises)
+	.then(values=>console.log(values)) //回傳 ['AAA', 'err']
+	.catch(res=>console.log(res));
+//	最終回傳：
+//	[
+//		{status: 'fulfilled', value: 'AAA'}
+//		{status: 'rejected', reason: 'err'}
+//	]
+</pre>
+			可以看到所有Promise的數據都被包含在then語句中（不需要使用catch()方法），且每個Promise的返回值多了一個status的key，表示Promise的狀態，沒有任何一個Promise資料被丟失。<br><br>
+			另外再補一個網路示範的範例：
+<pre>
+const delay = n => new Promise(resolve => setTimeout(resolve, n));
+const promises = [
+delay(100).then(() => 1),
+delay(200).then(() => 2),
+Promise.reject(3)
+]
+
+Promise.allSettled(promises).then(values=>console.log(values))
+// 最终输出： 
+//    [
+//      {status: "fulfilled", value: 1},
+//      {status: "fulfilled", value: 2},
+//      {status: "rejected", value: 3},
+//    ]
+</pre>
+		</td>
+	</tr>
+	<tr id="any()">
+		<td>any()</td>
+		<td>方法</td>
+		<td>待補</td>
+	</tr>
+	<tr id="catch()">
+		<td>catch()</td>
+		<td>方法</td>
+		<td>
+			Promise物件生成後，可以用catch()方法來綁定當rejected狀態時，要執行的函數。catch()的用途就像是then(undefined, onRejected)，如下例：
+<pre>
+var myPromise = new Promise(function(rs, rj){
+	rj('失敗'); //rj()一旦被執行就會乎略rs()
+	rs('成功');
+});
+
+myPromise.then(function(v){
+	console.log(v);
+}).catch(function(v){
+	console.log(v); //console "失敗"
+});
+</pre>
+			當Promise constructor的函數參數執行時，如果內部發生錯誤throw error，Promise物件的狀態會自動變成rejected：
+<pre>
+var myPromise = new Promise(function(rs, rj){
+	throw '失敗';
+});
+
+myPromise
+.then(function(v){
+	console.log(v);
+}).catch(function(v){
+	console.log(v); //console "失敗"
+});
+</pre>
+		</td>
+	</tr>
+	<tr id="finally()">
+		<td>finally()</td>
+		<td>方法</td>
+		<td>
+			當promise被settled後（無論其結果是fulfilled還是rejected）就會執行finally()方法；它提供了一個讓Promise在被確認後，無論是fulfilled或是rejected都會執行某些程式碼的一種手段。這樣可以避免你在promise的then()和catch()重複處理相同的程式碼。另外因為我們不知道Promise的狀態是fulfilled或是rejected，所以finally()方法不接受參數，一個簡單的範例如下：
+<pre>
+var myPromise = new Promise(function(rs, rj){
+	setTimeout(function(){
+		rs('成功');
+	}, 1000);
+});
+
+myPromise.then(function(val){
+	console.log(val);
+}, function(res){
+	console.log(res);
+}).finally(function(){
+	alert('所有Promise都完成了喔！');
+});
+</pre>
+		</td>
+	</tr>
+	<tr id="reject()">
+		<td>reject()</td>
+		<td>方法</td>
+		<td>
+			Promise.reject()函數用來將一個物件轉型為Promise（如果它不是一個Promise物件），然後立刻reject它：
+<pre>
+Promise.reject(new Error('Fail')).then(function(error) {
+	console.log('Success');
+}, function(error) {
+	console.log('Fail'); // 輸出 "Fail"
+});
+</pre>
+		</td>
+	</tr>
+	<tr id="race()">
+		<td>race()</td>
+		<td>方法</td>
+		<td>待補</td>
+	</tr>
+	<tr id="resolve()">
+		<td>resolve()</td>
+		<td>方法</td>
+		<td>
+			Promise.resolve(value)函數用來將一個物件轉型為Promise（如果它不是一個Promise物件），然後立刻resolve它：
+<pre>
+Promise.resolve('Success').then(function(value) {
+	console.log(value); // 輸出 "Success"
+}, function(value) {
+	console.log('Fail');
+});
+</pre>
+		</td>
+	</tr>
+	<tr id="then()">
+		<td>then()</td>
+		<td>方法</td>
+		<td>
+			Promise物件生成後，可以用then()方法來綁定當fulfilled或rejected狀態時，分別要執行的函數：
+<pre>
+promise.then(function(value) {
+	// 當狀態是 fulfilled (成功) 時，執行這個函數
+	// value 是透過 resolve() 傳進來的參數
+}, function(error) {
+	// 當狀態是 rejected (失敗) 時，執行這個函數
+	// error 是透過 reject() 傳進來的參數
+});
+</pre>
+			then()方法接受兩個函數作為參數：
+			<ul>
+				<li>第一個函數是當 Promise 狀態變為成功時會被調用</li>
+				<li>第二個函數是當 Promise 狀態變為失敗時會被調用，這個參數是選擇性的不一定需要</li>
+			</ul>
+			舉一個Promise實際使用的例子：
+<pre>
+let promise = new Promise(function(resolve, reject) {
+	// 執行非同步的 setTimeout
+	setTimeout(function(){
+		// 250ms 過後，將 Promise 物件狀態改為成功
+		resolve('Success!');
+	}, 250);
+});
+
+promise.then(function(successMessage) {
+	// 當 Promise 物件狀態變成功後執行這個函數
+	console.log('Yay! ' + successMessage);
+});
+
+// 250ms 後你會看到輸出 "Yay! Success!"
+</pre>
+		</td>
+	</tr>
+</table>
+</main>
+</body>
+</html>

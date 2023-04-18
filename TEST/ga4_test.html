@@ -10,9 +10,9 @@
 <!-- <script src="https://beangochat.blob.core.windows.net/beango-static-prod/sdk/beanfun.min.js"></script>
 <script src="https://chat-content.beanfun.com/beango-static-prod/web-tracing-jssdk/web_tracing_sdk.prod.js"></script> -->
 <script src="https://tw.hicdn.beanfun.com/plugins/vconsole/3.10.0/vconsole.min.js"></script>
-<script>
+<!-- <script>
 	var vConsole = new window.VConsole();
-</script>
+</script> -->
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -29,10 +29,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h1>這是john650914.github.io</h1>
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VS4CP3BJYZ"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-VS4CP3BJYZ"></script> -->
 
 <script>
-appendScript('https://beangochat.blob.core.windows.net/beango-static-prod/sdk/beanfun.min.js', function(){
+
+document.addEventListener('DOMContentLoaded',function(){
+	/* if(!!document.getElementById('myId')){
+		console.log('頁面中有myId');
+	} */
+	setTimeout(function(){
+		appendScript('https://www.googletagmanager.com/gtag/js?id=G-VS4CP3BJYZ', function(){
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-VS4CP3BJYZ', {
+				'user_id': '"ID1":"abcd1234","ID2":"efgh5678"',
+				'test_key': 'my_test_key'
+			});
+		}, '', '', true);
+	}, 2000);
+});
+
+/* appendScript('https://beangochat.blob.core.windows.net/beango-static-prod/sdk/beanfun.min.js', function(){
 	BGO.check_app_exist(function (rp) {
 		if (rp.result !== null && rp.result !== undefined && rp.result === "ok") {
 			console.log('是h5');
@@ -65,7 +83,7 @@ appendScript('https://chat-content.beanfun.com/beango-static-prod/web-tracing-js
 	beanfunWebTraceSDK.status.getTrackId().then((res) => {
 		console.log(res);
 	});
-});
+}, '', 'myId'); */
 
 
 
@@ -74,17 +92,6 @@ appendScript('https://chat-content.beanfun.com/beango-static-prod/web-tracing-js
 
 
 
-window.onload = function(){
-	setTimeout(function(){
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-VS4CP3BJYZ', {
-			'user_id': '"ID1":"abcd1234","ID2":"efgh5678"',
-			'test_key': 'my_test_key'
-		});
-	}, 2000);
-};
 
 
 //取cookie的值
@@ -105,13 +112,15 @@ function getCookie(cookie_name) {
 }
 
 //插入<script>
-function appendScript(src, fn, async = false){
+function appendScript(src, loadedFn, errorFn, id, async = false){
 	let script = document.createElement('script');
 	script.type = 'text/javascript';
+	if(id) script.id = id;
 	if(async) script.async = true;
 	script.src = src;
 	document.getElementsByTagName('head')[0].appendChild(script);
-	script.onload = fn;
+	script.onload = loadedFn;
+	script.onerror = errorFn;
 };
 </script>
 </body>

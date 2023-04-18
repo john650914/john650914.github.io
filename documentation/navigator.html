@@ -154,7 +154,19 @@ if(isWinXP){document.write("這是WinXP");} else{document.write("這不是WinXP"
 	<tr id="language">
 		<td>language</td>
 		<td>屬性</td>
-		<td>要來補</td>
+		<td>
+			navigator.language返回瀏覽器預設的語系字串，通常用於判斷瀏覽器預設的語系，如果要判斷訪客的國家就不夠精準了；以下是常用的語系列表：<br>
+<pre>
+["af", "sq", "ar-SA", "ar-IQ", "ar-EG", "ar-LY", "ar-DZ", "ar-MA", "ar-TN", "ar-OM", "ar-YE", "ar-SY", "ar-JO", "ar-LB", "ar-KW", "ar-AE", "ar-BH", "ar-QA", "eu", "bg", "be", "ca", "zh-TW", "zh-CN", "zh-HK", "zh-SG", "hr", "cs", "da", "nl", "nl-BE", "en", "en-US", "en-EG", "en-AU", "en-GB", "en-CA", "en-NZ", "en-IE", "en-ZA", "en-JM", "en-BZ", "en-TT", "et", "fo", "fa", "fi", "fr", "fr-BE", "fr-CA", "fr-CH", "fr-LU", "gd", "gd-IE", "de", "de-CH", "de-AT", "de-LU", "de-LI", "el", "he", "hi", "hu",  "is", "id", "it", "it-CH", "ja", "ko", "lv", "lt", "mk", "mt", "no", "pl", "pt-BR", "pt", "rm", "ro", "ro-MO", "ru", "ru-MI", "sz", "sr", "sk", "sl", "sb", "es", "es-AR", "es-GT", "es-CR", "es-PA", "es-DO", "es-MX", "es-VE", "es-CO",  "es-PE", "es-EC", "es-CL", "es-UY", "es-PY", "es-BO", "es-SV", "es-HN", "es-NI",  "es-PR", "sx", "sv", "sv-FI", "th", "ts", "tn", "tr", "uk", "ur", "ve", "vi", "xh", "ji", "zu"];
+</pre>
+			下例示範判斷使用者瀏覽器預設語系是否為中文：
+<pre>
+var lan = navigator.language;
+if(lan == 'zh-TW' || lan == 'zh-CN' || lan == 'zh-HK' || lan == 'zh-SG'){
+	alert('語系是中文');
+}
+</pre>
+		</td>
 	</tr>
 	<tr id="onLine">
 		<td>onLine</td>
