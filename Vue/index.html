@@ -109,7 +109,7 @@
 	<section>
 		<span id="basic_hello_world" class="anchor-offset"></span>
 		<h2>Hello World!</h2>
-		<p>Vue.js的核心是一個採用模板語法（template）來聲明式地將數據渲染進DOM的系統，現在直接來看一個最基本的範例：</p>
+		<p>Vue的核心是一個採用模板語法（template）來聲明式地將數據渲染進DOM的系統，現在直接來看一個最基本的範例：</p>
 		<pre><code>
 			//HTML
 			<div id="app">
@@ -1592,7 +1592,7 @@
 				<input type="text" v-model="message" />
 				<span>{{ message }}</span>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1601,7 +1601,60 @@
 					message: 'Hello World!',
 				},
 			});
-		</pre></code>
+		</code></pre>
+		<p>上例展示了當使用者對綁定<code>v-model</code>表單元素輸入資料時會即時更新Vue的data，其它表單元素像是checkbox的勾選會是一種輸入的行為所以也會更新data。</p>
+		<p>我們再使用文字輸入框來做一個實用的表單驗證範例，當使用者按下送出時檢查輸入框的資料是否為數值：</p>
+		<div class="example">
+			<div id="app26_1">
+				<input type="text" placeholder="請輸入數值" v-model="inputValue">
+				<button @click="checkForm">送出</button>
+			</div>
+			<script>
+				var vm26 = new Vue({
+					el: '#app26_1',
+					data: {
+						inputValue: '',
+					},
+					methods: {
+						checkForm(){
+							const value = parseFloat(this.inputValue);
+							if(isNaN(value)) {
+								alert('輸入值不是數值');
+							}else{
+								alert('資料正確');
+							}
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<input type="text" placeholder="請輸入數值" v-model="inputValue">
+				<button @click="checkForm">送出</button>
+			</div>
+		</code></pre>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					inputValue: '',
+				},
+				methods: {
+					checkForm(){
+						const value = parseFloat(this.inputValue);
+						if(isNaN(value)) {
+							alert('輸入值不是數值');
+						}else{
+							alert('資料正確');
+						}
+					}
+				}
+			});
+		</code></pre>
+		<p>※ 如果我們要即時監看某個<code>v-model</code>的值，可以使用Vue的<code>watch</code>功能，例如在輸入資料時同時顯示輸入的資料是否合法，在「監聽器」章節有詳細介紹。</p>
 		<br>
 		<h3>input[type=checkbox]（單個）：</h3>
 		<p>單個checkbox，綁定到布林值：</p>
