@@ -132,9 +132,9 @@
 	<section>
 		<span id="basic_reactivity" class="anchor-offset"></span>
 		<h2>Vue的數據響應系統</h2>
-		<p>每個Vue應用都是通過創建一個新的Vue實例開始的；當一個Vue實例被創建時，它將「data」對像中的所有的屬性加入到Vue的響應式系統中。當這些屬性的值發生改變時，視圖將會產生"響應"，即匹配更新為新的值。</p>
+		<p>每個Vue應用都是通過創建一個新的Vue實例開始的；當一個Vue實例被創建時，它將「data」物件中的所有的屬性加入到Vue的響應式系統中。當這些屬性的值發生改變時，視圖或是資料將會產生「響應」，立即更新匹配為新的值。</p>
 		<p>我們可以在console中觀察此範例的資訊，例如輸入<code>vm.a == data.a</code>會得到<code>true</code>，代表data物件中的資料和vm實例中的data是完全相同的。</p>
-		<p>再來我們輸入<code>vm.a = 2</code>，試著改變vm實例的值，再輸入<code>data.a</code>，發現傳回<code>2</code>，代表這些資料都已存在Vue的響應式系統中了。</p>
+		<p>再來我們輸入<code>vm.a = 2</code>試著改變vm實例的值，再輸入<code>data.a</code>，發現傳回<code>2</code>，代表這些資料都已存在Vue的響應式系統中了。</p>
 		<p>反過來輸入<code>data.a = 3</code>，再輸入<code>vm.a</code>也會得到同樣的效果。</p>
 		<pre><code>
 			//數據物件
@@ -145,7 +145,7 @@
 				data: data
 			})
 		</code></pre>
-		<p>要注意只有當實例被創建時就已經存在於data中的屬性才是響應式的，如果你知道你會在晚些時候需要一個屬性，但是一開始它為空或不存在，那麼你僅需要設置一些初始值。比如：</p>
+		<p>要注意只有當實例被建立時就已經存在於data中的屬性才是響應式的，如果你知道你會在晚些時候需要一個屬性，但是一開始它為空或不存在，那麼你僅需要設置一些初始值。比如：</p>
 		<pre><code>
 			data: {
 				newTodoText: '',
@@ -161,8 +161,8 @@
 	<section>
 		<span id="basic_bind_data" class="anchor-offset"></span>
 		<h2>綁定數據</h2>
-		<p>首先在HTML中使用兩個大括號來標記要繫結資料的物件key值，再來在JavaScript中建構一個Vue物件，並且在el屬性中指定這個Vue物件要連繫的DOM id；data屬性內是個物件，裡面包含了我們要綁定到HTML的資料，在這裡的content值為Hello world!，該值會被綁到 {{ }} 中的content。</p>
-		<p>先前提到Vue實例中的資料是響應式的，也就是說是動態綁定的，我們在console中輸入<code>vm1.content = 'changed text!'</code>就會發現網頁中的字串也跟著改變了。</p>
+		<p>首先在HTML中使用兩個大括號來標記要綁定資料的物件key值，再來在JavaScript中建構一個Vue實例，並且在其el屬性中指定這個Vue實例要連繫的DOM id；data屬性指派了一個物件，裡面包含了我們要綁定到HTML的資料，在這裡的message值為Hello world!，該值會被綁到 {{ }} 中的message。</p>
+		<p>先前提到Vue實例中的資料是響應式的，也就是說是動態綁定的，我們在console中輸入<code>vm.content = 'changed text!'</code>就會發現網頁中的字串也跟著改變了。</p>
 		<pre><code>
 			//HTML
 			<div id="app">
@@ -317,7 +317,7 @@
 	<section>
 		<span id="basic_javascript_expression" class="anchor-offset"></span>
 		<h2>使用JavaScript表達式</h2>
-		<p>迄今為止，在我們的模板中，我們一直都只綁定簡單的屬性鍵值。但實際上，對於所有的數據綁定，Vue.js都提供了完全的JavaScript表達式支持。</p>
+		<p>迄今為止，在我們的模板中，我們一直都只綁定簡單的屬性鍵值。但實際上，對於所有的數據綁定，Vue都提供了完整JavaScript表達式的操作方式。</p>
 		<p>PS. 表達式跟陳述式不一樣喔，千萬不要認為可以在表達式裡宣告變數</p>
 		<div class="example">
 			<div id="app4">
@@ -382,7 +382,7 @@
 	<section>
 		<span id="basic_v_once" class="anchor-offset"></span>
 		<h2>執行一次性的插值</h2>
-		<p>透過使用<code>v-once</code>指令，你也能執行一次性地插值，當數據改變時，插值處的內容不會更新（但請留心這會影響到該節點上的其它數據綁定），如下例<code>mounted</code>時改變了<code>boundVal</code>的值是不會有作用的，在console裡下<code>app.boundVal</code>也不會改變一開始的值：</p>
+		<p>透過使用<code>v-once</code>指令，你也能執行一次性地插值，當數據改變時，插值處的內容不會更新（但請留心這會影響到該節點上的其它數據綁定），如下例<code>mounted</code>時改變了<code>boundVal</code>的值是不會有作用的，在console裡下<code>vm.boundVal = '再改一次！';</code>也不會改變一開始插入HTML中的值：</p>
 		<div class="example">
 			<div id="app5" :title="boundVal" v-once>
 				{{boundVal}}
@@ -391,7 +391,7 @@
 				var vm5 = new Vue({
 					el: '#app5',
 					data: {
-						boundVal: '一開始的文字'
+						boundVal: '初使的文字'
 					},
 					mounted: function(){
 						this.boundVal = '改變他！'
@@ -402,7 +402,7 @@
 		</div>
 		<pre><code>
 			//HTML
-			<div id="app" :title="boundVal" v-once>
+			<div id="app" :title="boundVal" v-once> //有人會寫成 v-once=""
 				{{boundVal}}
 			</div>
 		</pre></code>
@@ -425,7 +425,7 @@
 	<section>
 		<span id="basic_bind_event" class="anchor-offset"></span>
 		<h2>綁定事件</h2>
-		<p>數據和屬性都有了，絕對少不了事件，vue.js提供了<code>v-on</code>來綁定DOM的事件，我們直接修改上面「綁定屬性」的範例，讓他變成透過<code>click</code>事件顯示時間。</p>
+		<p>數據和屬性都有了，絕對少不了事件，Vue提供了<code>v-on</code>來綁定DOM的事件，我們直接修改上面「綁定屬性」的範例，讓他變成透過<code>click</code>事件顯示時間。</p>
 		<div class="example">
 			<div id="app6" v-on:click="getNowTime">
 				{{content}}
@@ -471,7 +471,7 @@
 	<section>
 		<span id="basic_event_target" class="anchor-offset"></span>
 		<h2>取得event.target</h2>
-		<p>Vue處理事件有很多眉角，以下例的<code>getTarget</code>來說：</p>
+		<p>Vue處理事件物件有很多眉角，以下例的<code>getTarget</code>來說：</p>
 		<ul class="spaced">
 			<li>如果<code>getTarget</code>沒有帶任何參數可以直接取到event物件（指派function名稱不帶括弧，例&lt;div @click="fn"&gt;）</li>
 			<li>如果<code>getTarget</code>需要帶參數又要取到event物件必需使用vue的<code>$event</code>變數</li>
@@ -496,14 +496,14 @@
 		</div>
 		<pre><code>
 			//HTML
-			<div id="app" @click="getTarget('我是FN帶的參數', $event)">
+			<div id="app7" @click="getTarget('我是FN帶的參數', $event)">
 				<a ID="inner" href="javascript:;">點我(click事件在外層)</a>
 			</div>
 		</pre></code>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
-				el: '#app',
+				el: '#app7',
 				methods: {
 					getTarget(p, e){
 						alert(p);
@@ -874,7 +874,7 @@
 	<section>
 		<span id="loop_modify" class="anchor-offset"></span>
 		<h2>修改陣列的內容</h2>
-		<p>一般在測試更新data資料時我們可以在console裡輸入<code>vm.someData = newData;</code>指令，但在更新陣列項目的內容時千萬不要寫成<code>vm.someAry[0] = newData;</code>，這種做法是無法更新畫面的，因為Vue的底層機制就是這樣設計的，我們無法直接改變data中的陣列某個ietm的值或是直接修改陣列的長度來更新畫面；以下介紹如何正確修改陣列資料的方式。</p>
+		<p>一般在測試更新data資料時我們可以在console裡輸入<code>vm.someData = newData;</code>指令，但在更新陣列項目的內容時千萬不要寫成<code>vm.someAry[0] = newValue;</code>，這種做法是無法更新畫面的，因為Vue的底層機制就是這樣設計的，我們無法直接改變data中的陣列某個ietm的值或是直接修改陣列的長度來更新畫面；以下介紹如何正確修改陣列資料的方式。</p>
 		<p>Vue將原本Javascript修改陣列的幾個方法做了包裝，使用這些方法也將會觸發畫面更新。這些被包裝過的方法包括：</p>
 		<ul>
 			<li><code>push()</code></li>
@@ -1118,6 +1118,7 @@
 	<section>
 		<span id="loop_dom_modification" class="anchor-offset"></span>
 		<h2>DOM的異動</h2>
+		<p>ㄟ？這個不是跟上面「使用key屬性重新繪製DOM」講差不多的事？</p>
 		<p>Vue的設計在預設情況下，如果數據項的順序被改變，Vue將不會移動DOM元素來匹配數據項的順序，而是就地更新每個元素，如此可以獲得最好的效能，例如下例將反轉陣列內容的順序，我們可以在開發工具中觀察，只有<code>placeholder</code>的值被更新：</p>
 		<div class="example">
 			<div id="app20">
