@@ -425,7 +425,7 @@
 	<section>
 		<span id="basic_bind_event" class="anchor-offset"></span>
 		<h2>綁定事件</h2>
-		<p>數據和屬性都有了，絕對少不了事件，vue.js提供了<code>v-on</code>來綁定DOM的事件，我們直接修改上面「綁定屬性」的範例，讓他變成透過<code>click</code>事件顯示時間。</p>
+		<p>數據和屬性都有了，絕對少不了事件，Vue提供了<code>v-on</code>來綁定DOM的事件，我們直接修改上面「綁定屬性」的範例，讓他變成透過<code>click</code>事件顯示時間。</p>
 		<div class="example">
 			<div id="app6" v-on:click="getNowTime">
 				{{content}}
@@ -471,7 +471,7 @@
 	<section>
 		<span id="basic_event_target" class="anchor-offset"></span>
 		<h2>取得event.target</h2>
-		<p>Vue處理事件有很多眉角，以下例的<code>getTarget</code>來說：</p>
+		<p>Vue處理事件物件有很多眉角，以下例的<code>getTarget</code>來說：</p>
 		<ul class="spaced">
 			<li>如果<code>getTarget</code>沒有帶任何參數可以直接取到event物件（指派function名稱不帶括弧，例&lt;div @click="fn"&gt;）</li>
 			<li>如果<code>getTarget</code>需要帶參數又要取到event物件必需使用vue的<code>$event</code>變數</li>
@@ -496,14 +496,14 @@
 		</div>
 		<pre><code>
 			//HTML
-			<div id="app" @click="getTarget('我是FN帶的參數', $event)">
+			<div id="app7" @click="getTarget('我是FN帶的參數', $event)">
 				<a ID="inner" href="javascript:;">點我(click事件在外層)</a>
 			</div>
 		</pre></code>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
-				el: '#app',
+				el: '#app7',
 				methods: {
 					getTarget(p, e){
 						alert(p);
@@ -874,7 +874,7 @@
 	<section>
 		<span id="loop_modify" class="anchor-offset"></span>
 		<h2>修改陣列的內容</h2>
-		<p>一般在測試更新data資料時我們可以在console裡輸入<code>vm.someData = newData;</code>指令，但在更新陣列項目的內容時千萬不要寫成<code>vm.someAry[0] = newData;</code>，這種做法是無法更新畫面的，因為Vue的底層機制就是這樣設計的，我們無法直接改變data中的陣列某個ietm的值或是直接修改陣列的長度來更新畫面；以下介紹如何正確修改陣列資料的方式。</p>
+		<p>一般在測試更新data資料時我們可以在console裡輸入<code>vm.someData = newData;</code>指令，但在更新陣列項目的內容時千萬不要寫成<code>vm.someAry[0] = newValue;</code>，這種做法是無法更新畫面的，因為Vue的底層機制就是這樣設計的，我們無法直接改變data中的陣列某個ietm的值或是直接修改陣列的長度來更新畫面；以下介紹如何正確修改陣列資料的方式。</p>
 		<p>Vue將原本Javascript修改陣列的幾個方法做了包裝，使用這些方法也將會觸發畫面更新。這些被包裝過的方法包括：</p>
 		<ul>
 			<li><code>push()</code></li>
@@ -1118,6 +1118,7 @@
 	<section>
 		<span id="loop_dom_modification" class="anchor-offset"></span>
 		<h2>DOM的異動</h2>
+		<p>ㄟ？這個不是跟上面「使用key屬性重新繪製DOM」講差不多的事？</p>
 		<p>Vue的設計在預設情況下，如果數據項的順序被改變，Vue將不會移動DOM元素來匹配數據項的順序，而是就地更新每個元素，如此可以獲得最好的效能，例如下例將反轉陣列內容的順序，我們可以在開發工具中觀察，只有<code>placeholder</code>的值被更新：</p>
 		<div class="example">
 			<div id="app20">
