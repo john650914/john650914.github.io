@@ -132,7 +132,7 @@
 	<section>
 		<span id="basic_reactivity" class="anchor-offset"></span>
 		<h2>Vue的數據響應系統</h2>
-		<p>每個Vue應用都是通過創建一個新的Vue實例開始的；當一個Vue實例被創建時，它將「data」物件中的所有的屬性加入到Vue的響應式系統中。當這些屬性的值發生改變時，視圖或是資料將會產生「響應」，立即更新匹配為新的值。</p>
+		<p>每個Vue應用都是通過建立一個新的Vue實例開始的；當一個Vue實例被建立時，它將「data」物件中的所有的屬性加入到Vue的響應式系統中。當這些屬性的值發生改變時，視圖或是資料將會產生「響應」，立即更新匹配為新的值。</p>
 		<p>我們可以在console中觀察此範例的資訊，例如輸入<code>vm.a == data.a</code>會得到<code>true</code>，代表data物件中的資料和vm實例中的data是完全相同的。</p>
 		<p>再來我們輸入<code>vm.a = 2</code>試著改變vm實例的值，再輸入<code>data.a</code>，發現傳回<code>2</code>，代表這些資料都已存在Vue的響應式系統中了。</p>
 		<p>反過來輸入<code>data.a = 3</code>，再輸入<code>vm.a</code>也會得到同樣的效果。</p>
@@ -496,14 +496,14 @@
 		</div>
 		<pre><code>
 			//HTML
-			<div id="app7" @click="getTarget('我是FN帶的參數', $event)">
+			<div id="app" @click="getTarget('我是FN帶的參數', $event)">
 				<a ID="inner" href="javascript:;">點我(click事件在外層)</a>
 			</div>
 		</pre></code>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
-				el: '#app7',
+				el: '#app',
 				methods: {
 					getTarget(p, e){
 						alert(p);
