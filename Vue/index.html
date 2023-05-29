@@ -203,7 +203,7 @@
 			<div id="app" v-bind:title="newDate">
 				將滑鼠移到這裡顯示Title內容
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -212,7 +212,7 @@
 					newDate: 'Title：' + new Date()
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p><code>v-bind</code>可以直接以一個「<code>:</code>」表示縮寫，例如上例的<code>v-bind:title="newDate"</code>可以寫成<code>:title="newDate"</code>。</p>
 	</section>
 
@@ -262,7 +262,7 @@
 					isSelected的值決定第二個option是否被選中
 				</p>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -272,7 +272,7 @@
 					isSelected: true
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -301,7 +301,7 @@
 				<div>{{myHTML}}</div>
 				<div v-html="myHTML"></div>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -310,7 +310,7 @@
 					myHTML: '<b>這是用html標籤加粗的文字</b>'
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -355,7 +355,7 @@
 				<button @click="alert1(1)">aler1</button>
 				<button @click="alert2({num:numData})">aler2</button>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -374,7 +374,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>Vue的模板還可以做到「動態參數」，但覺得用到的機會不高就不做筆記了，參考網址：https://cn.vuejs.org/v2/guide/syntax.html#%E5%8A%A8%E6%80%81%E5%8F%82%E6%95%B0</p>
 	</section>
 
@@ -405,7 +405,7 @@
 			<div id="app" :title="boundVal" v-once> //有人會寫成 v-once=""
 				{{boundVal}}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -418,7 +418,7 @@
 					console.log(this.boundVal);
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -449,7 +449,7 @@
 			<div id="app" v-on:click="getNowTime">
 				{{content}}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -463,8 +463,58 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p><code>v-on</code>也是供了<code>@</code>做為簡寫，上例的<code>v-on:click="getNowTime"</code>就可以寫成<code>@click="getNowTime"</code></p>
+		<p>下拉選單也是一個常用的元素，當<code>&lt;optiion&gt;</code>被選中時會觸發<code>change</code>事件，範例如下：</p>
+		<div class="example">
+			<div id="app6_1">
+				<select v-model="selectedValue" @change="handleSelectionChange">
+					<option value="" selected disabled>請選擇</option>
+					<option value="option1">選項1</option>
+					<option value="option2">選項2</option>
+					<option value="option3">選項3</option>
+				</select>
+			</div>
+			<script>
+				var vm6_1 = new Vue({
+					el: '#app6_1',
+					data: {
+						selectedValue: ''
+					},
+					methods: {
+						handleSelectionChange(){
+							alert('選項改變了，當前選擇的是：' + this.selectedValue);
+						}
+					}
+				});
+			</script>
+		</div>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<select v-model="selectedValue" @change="handleSelectionChange">
+					<option value="" selected disabled>請選擇</option>
+					<option value="option1">選項1</option>
+					<option value="option2">選項2</option>
+					<option value="option3">選項3</option>
+				</select>
+			</div>
+		</code></pre>
+		<pre><code>
+			//Javascript
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					selectedValue: ''
+				},
+				methods: {
+					handleSelectionChange(){
+						alert('選項改變了，當前選擇的是：' + this.selectedValue);
+					}
+				}
+			});
+		</code></pre>
+		<p>其它input像是checkbox、radio button在Vue中都是使用<code>change</code>事件；資料綁定相關資訊可以參考「表單元素數據綁定」單元。</p>
 	</section>
 
 
@@ -499,7 +549,7 @@
 			<div id="app" @click="getTarget('我是FN帶的參數', $event)">
 				<a ID="inner" href="javascript:;">點我(click事件在外層)</a>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -512,7 +562,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -541,7 +591,7 @@
 			<div id="app">
 				<p v-if="visibility">如果visibility的值是false你就見不到我了 T_T</p>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -550,7 +600,7 @@
 					visibility: true
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -580,7 +630,7 @@
 				<span v-else-if="person == '你爸'">我是你爸</span>
 				<span v-else="'都不是'">我誰都不是</span>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -589,7 +639,7 @@
 					person: '你爸'
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -626,7 +676,7 @@
 				<input v-else="state" placeholder="輸入mail">
 				<input type="button" value="切換輸入" @click="changeState">
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -640,7 +690,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>為了處理不同的需求，Vue提供了「<code>key</code>」屬性來為每個需要的DOM做一個識別，這裡只需為兩個輸入框加入<code>key</code>屬性並給不同值就會重新繪製了！</p>
 		<div class="example">
 			<div id="app11">
@@ -669,7 +719,7 @@
 				<input v-else="state" placeholder="輸入mail" key="email">
 				<input type="button" value="切換輸入" @click="changeState">
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -683,7 +733,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>上例我們成功使用了<code>key</code>屬性做到「移除及插入的動作」來更新畫面，但如果我們有輸入資料再做切換會發現我們輸入的資料也一併被移除了, 如果需要保留輸入的資料可以換個做法：使用「<code>v-show</code>」這個屬性。</p>
 		<p><code>v-show</code>只是單純的使用行內CSS顯示或隱藏DOM元素，不像<code>v-if</code>會有條件的銷毀和重建DOM。</p>
 		<p>一般來說，<code>v-if</code>有更高的切換開銷，而<code>v-show</code>有更高的初始渲染開銷。因此，如果需要非常頻繁地切換，則使用<code>v-show</code>較好；如果在運行時條件很少改變，則使用<code>v-if</code>較好。</p>
@@ -714,7 +764,7 @@
 				<input v-show="state == false" placeholder="輸入mail">
 				<input type="button" value="切換輸入" @click="changeState">
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -728,7 +778,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>我自己的看法，大部份的情況下只要綁定屬性的值就可以處理這種切換input的情境了，但上面那些範例可以幫助理解Vue在處理DOM的原理。</p>
 	</section>
 
@@ -766,7 +816,7 @@
 					<li v-for="v in names">{{v}}</li>
 				</ul>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -779,7 +829,7 @@
 					]
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>也可以加入<code>索引值</code>，以及在迴圈綁定陣列以外的資料：</p>
 		<div class="example">
 			<div id="app14">
@@ -808,7 +858,7 @@
 					<li v-for="(v, i) in names">{{label}}({{i+1}})：{{v}}</li>
 				</ul>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -822,11 +872,11 @@
 					]
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>PS. Vue可以用<code>of</code>替代<code>in</code>作為分隔符：</p>
 		<pre><code>
 			<li v-for="v of names">{{v}}</li>
-		</pre></code>
+		</code></pre>
 		<p>另外<code>v-for</code>也接受物件，下例以一個物件的<code>鍵</code>、<code>值</code>、<code>索引值</code>來渲染畫面：</p>
 		<div class="example">
 			<div id="app15">
@@ -854,7 +904,7 @@
 					<li v-for="(value, key, index) of personalData">{{index+1}}. {{key}}：{{value}}</li>
 				</ul>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -867,7 +917,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -888,7 +938,7 @@
 		<p>可以發現上列的方法都是呼叫後會直接改變原始陣列的，所以Vue包裝這些方法用來更新陣列內容不無道理；以「v-for的基本使用方法」的第一個例子來說，我們可以在console中輸入下方語法來新增一個陣列的item並同時更新畫面（但是jsfiddle怪怪的，第一次<code>push</code>會出現兩個Jordan）：</p>
 		<pre><code>
 			vm.names.push('Jordan');
-		</pre></code>
+		</code></pre>
 		<p>接著我們用陣列的<code>splice()</code>方法來看一個實例：</p>
 		<div class="example">
 			<div id="app16">
@@ -925,7 +975,7 @@
 				<button @click="fn1">移除2、3筆資料，並插入新的資料</button>
 				<button @click="fn2">移除第一筆資料</button>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -947,7 +997,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>除了內建的陣列方法外Vue還提供了<code>Vue.set()</code>方法用來修改指定的item內容：</p>
 		<div class="example">
 			<div id="app17">
@@ -978,7 +1028,7 @@
 				<div v-for="v of myAry">{{v}}</div>
 				<button @click="fn1">更新第一筆資料</button>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -996,7 +1046,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>PS. 官方教學還有提到全域的<code>vm.$set()</code>方法，再找時間來把內容補上。</p>
 	</section>
 
@@ -1047,7 +1097,7 @@
 				</div>
 				<button @click="concatAry">連接陣列</button>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var addlData = [
@@ -1068,7 +1118,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>有時，我們想要顯示一個經過過濾或排序後的陣列，而不實際變更或重置原始陣列。在這種情況下，可以創建一個計算屬性（<code>computed</code>），來返回過濾或排序後的陣列（原來<code>0</code>是偶數啊）。</p>
 		<div class="example">
 			<div id="app19">
@@ -1095,7 +1145,7 @@
 			<div id="app">
 				<span v-for="v in evenNumbers">{{v}} </span>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1111,7 +1161,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -1153,7 +1203,7 @@
 				</div>
 				<button @click="reverseAry">反轉陣列</button>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1171,7 +1221,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>雖說上例可以在效能很高的狀態下更新網頁，但如果我們輸入了內容再按下反轉陣列的按鈕會發現輸入的資料都沒有更新，這是因為Vue只更新了<code>placeholder</code>的值而沒有更新整個DOM內容。</p>
 		<p>為了給Vue一個提示，以便它能跟踪每個節點的身份，從而重用和重新排序現有元素，你需要為每項提供一個唯一「<code>key</code>」屬性；建議盡可能在使用<code>v-for</code>時提供<code>key</code>屬性，除非遍歷輸出的DOM內容非常簡單，或者是刻意只更新部份內容以獲取性能上的提升。</p>
 		<p>我們在下例<code>hints</code>陣列裡的每個項目加入一個<code>id</code>的<code>鍵</code>與<code>值</code>，在開發工具中觀察可以發現當我們按下反轉陣列按鈕時<code>&lt;input&gt;</code>都被更新了。</p>
@@ -1208,7 +1258,7 @@
 				</div>
 				<button @click="reverseAry">反轉陣列</button>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1226,7 +1276,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>上例使用<code>key</code>屬性成功更新了DOM，但發現個問題，如果input中有輸入資料再按反轉按鈕資料就都不見了，也找不到相關說明，後來用<code>v-model</code>來修改這個範例可以達到預期效果：</p>
 		<div class="example">
 			<div id="app22" class="vue-result">
@@ -1261,7 +1311,7 @@
 				</div>
 				<button @click="reverseAry">反轉陣列</button>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1279,7 +1329,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -1299,7 +1349,7 @@
 					<li v-for="v of users" v-if="v.isActive">{{v.name}}</li>
 				</ul>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1312,7 +1362,7 @@
 					]
 				}
 			});			
-		</pre></code>
+		</code></pre>
 		<p>情況1正確範例，使用<code>計算屬性</code>先過濾需要的資料：</p>
 		<div class="example">
 			<div id="app23">
@@ -1347,7 +1397,7 @@
 					<li v-for="v of activeUsers">{{v.name}}</li>
 				</ul>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1367,7 +1417,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>情況2錯誤範例，將是否顯示整個列表的判斷和<coe>v-for</coe>寫在一起：</p>
 		<pre><code>
 			//HTML
@@ -1376,7 +1426,7 @@
 					<li v-for="v of users" v-if="shouldShowUsers">{{v.name}}</li>
 				</ul>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1390,7 +1440,7 @@
 					]
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>情況2正確範例，將是否顯示整個列表的判斷寫在父層（視情況也可以使用陣列的長度來做到這個效果，例如長度為0則不顯示）：</p>
 		<div class="example">
 			<div id="app24">
@@ -1419,7 +1469,7 @@
 					<li v-for="v of users">{{v.name}}</li>
 				</ul>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1433,7 +1483,7 @@
 					]
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -1443,7 +1493,7 @@
 		<p>在自定義元件上，你可以像在任何普通元素上一樣使用<code>v-for</code>，要記得當在元件上使用<code>v-for</code>時，<code>key</code>屬性是必須的。</p>
 		<pre><code>
 			<my-component v-for="item in items" :key="item.id"></my-component>
-		</pre></code>
+		</code></pre>
 		<p>如果陣列的資料需要在其它地方重覆使用時，我們必須把每一迴圈的資料使用<code>prop</code>傳遞到元件裡，例如下面的todolist範例：</p>
 		<div class="example">
 			<div id="app25">
@@ -1504,7 +1554,7 @@
 					<todo-item v-for="(v, i) in tasks" :item="v" @remove="removeTask(i)"></todo-item>
 				</ul>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			Vue.component('todo-item', {
@@ -1540,7 +1590,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -1553,10 +1603,10 @@
 		<p>所謂表單數據綁定指的就是使用<code>v-model</code>屬性將表單元素（input, textarea, select）的值和<code>data</code>內的資料做到雙向綁定，它負責監聽用戶的輸入事件以更新數據；事實上<code>v-model</code>等於<code>v-bind</code>+<code>v-on</code>的語法糖，下面兩種寫法可以達到一樣的結果：</p>
 		<pre><code>
 			<input v-model="message">
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			<input :value="message" @input="message=$event.target.value">
-		</pre></code>
+		</code></pre>
 		<p><code>v-model</code>在內部為不同的輸入元素使用不同的property 並拋出不同的事件：</p>
 		<ul class="spaced">
 			<li>text和textarea元素使用valueproperty和input事件</li>
@@ -1679,7 +1729,7 @@
 				<input type="checkbox" id="checkbox" v-model="checked">
 				<label for="checkbox">{{ checked }}</label>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1688,7 +1738,7 @@
 					checked: true,
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>input[type=checkbox]（多個）：</h3>
 		<p>多個複選框，取回value的值綁定到同一個陣列：</p>
@@ -1724,7 +1774,7 @@
 				<br>
 				<span>Checked names: {{ checkedNames }}</span>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1733,7 +1783,7 @@
 					checkedNames: [],
 				},
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>input[type=radio]</h3>
 		<p>綁定被選中的值（value）：</p>
@@ -1767,7 +1817,7 @@
 				<br>
 				<span>Picked: {{ picked }}</span>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1776,7 +1826,7 @@
 					picked: ''
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>select</h3>
 		<p>綁定被選中的值，沒有設定值的話就會直接抓option裡的字串：</p>
@@ -1810,7 +1860,7 @@
 				</select>
 				<span>Selected: {{ selected }}</span>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1819,7 +1869,7 @@
 					selected: ''
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -1848,7 +1898,7 @@
 				<input type="checkbox" v-model="toggle" true-value="真香" false-value="噁心">
 				{{toggle}}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1857,13 +1907,13 @@
 					toggle: '請選擇'
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<p>範例2，這裡示範開頭提到的動態屬性，使用<code>:value</code>綁定<code>data</code>裡的值，如此操作表單時可以做更靈活的運用（這個作法範例1同樣也適用）：</p>
 		<pre><code>
 			//當第一個radio被選中時：
 			vm.checked == vm.opt1 //true
-		</pre></code>
+		</code></pre>
 		<div class="example">
 			<div id="app32">
 				<input type="radio" v-model="checked" :value="opt1">
@@ -1888,7 +1938,7 @@
 				<input type="radio" v-model="checked" :value="opt2">
 				<div>{{checked}}</div>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1899,13 +1949,13 @@
 				opt2: '打電動'
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<p>範例3，將select的option直接綁定為一個物件，當選中某個選項時：</p>
 		<pre><code>
 			typeof vm.selected // => 'object'
 			vm.selected.hobby // => 爬山 || 睡覺
-		</pre></code>
+		</code></pre>
 		<div class="example">
 			<div id="app33">
 				<select v-model="selected">
@@ -1934,7 +1984,7 @@
 				</select>
 				{{selected.hobby}}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1943,7 +1993,7 @@
 					selected: ''
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -1976,7 +2026,7 @@
 				<br>
 				<input type="text" placeholder="v-model.lazy" v-model.lazy="msg2">{{ msg2 }}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -1986,7 +2036,7 @@
 					msg2: ''
 				},
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>v-model.number</h3>
 		<p>如果想自動將用戶的輸入值轉為數值類型，可以給<code>v-model</code>添加<code>number</code>修飾符；使用方式是將<code>input</code>的<code>type</code>指定為<code>number</code>，綁定的<code>data</code>資料的格式就會是數值（如果收到的資料Vue無法解析則會解析為字串）：</p>
@@ -2005,13 +2055,13 @@
 		</div>
 		<pre><code>
 			typeof vm.val //有輸入資料時會傳回number
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//HTML
 			<div id="app">
 				<input type="number" placeholder="v-model.number" v-model.number="val">{{ val }}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -2020,7 +2070,7 @@
 					val: ''
 				},
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>v-model.trim</h3>
 		<p>如果要自動過濾用戶輸入的首尾空白字符，可以給<code>v-model</code>添加<code>trim</code>修飾符（輸入時data綁定的資料就會先trim掉，但輸入框會在onblur時才會顯示trim掉的樣子）：</p>
@@ -2042,7 +2092,7 @@
 			<div id="app">
 				<input type="text" placeholder="v-model.trim" v-model.trim="msg">{{ msg }}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -2051,12 +2101,12 @@
 					msg: ''
 				},
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<p>修飾符也可混合使用，像是下例是可以作用的：</p>
 		<pre><code>
 			v-model.trim.number
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -2094,7 +2144,7 @@
 			<div id="app">
 				<base-checkbox v-model="iAmHandsome"></base-checkbox>{{ iAmHandsome }}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			Vue.component('base-checkbox', {
@@ -2114,7 +2164,7 @@
 					iAmHandsome: true
 				},
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -2143,7 +2193,7 @@
 			<div id="app">
 				{{ message.split('').reverse().join('') }}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -2152,7 +2202,7 @@
 					message: 'Hello World!'
 				},
 			});
-		</pre></code>
+		</code></pre>
 		<p>在這個地方，模板不再是簡單的<code>聲明式邏輯</code>。你必須看一段時間才能意識到，這裡是想要顯示<code>message</code>變數的字串翻轉結果。當你想要在模板中的多處包含此翻轉字串時，就會更加難以處理，所以對於任何復雜邏輯，我們應該使用計算屬性：</p>
 		<div class="example">
 			<div id="app41">
@@ -2179,7 +2229,7 @@
 				原始的message：{{ message }}<br>
 				反轉的message：{{ reversedMessage }}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -2193,7 +2243,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>這裡我們聲明了一個計算屬性<code>reversedMessage</code>，我們可以在console裡改變<code>vm.message</code>的值，如此可以發現當<code>vm.message</code>發生改變時，所有依賴<code>vm.reversedMessage</code>的綁定也會更新。</p>
 		<p><code>vm.reversedMessage</code>就等於<code>vm.reversedMessage</code>的<code>getter</code>函數，計算屬性的<code>getter</code>函數是不會影響原始數據的。</p>
 	</section>
@@ -2226,7 +2276,7 @@
 			<div id="app">
 				反轉的message：{{ reversedMessage() }}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -2240,7 +2290,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>我們可以將同一函數定義為一個方法而不是一個計算屬性。兩種方式的最終結果確實是完全相同的。然而，不同的是計算屬性是基於它們觀察的資進行緩存的。只在相關資料發生改變時它們才會重新求值。這就代表只要<code>message</code>沒有發生改變，多次訪問<code>reversedMessage</code>計算屬性會立即返回之前的計算結果，而不必再次執行函數。</p>
 		<p>這也同樣意味著下面的計算屬性將不再更新，因為<code>Date.now()</code>不是響應式依賴：</p>
 		<pre><code>
@@ -2249,7 +2299,7 @@
 					return Date.now()
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>相比之下，每當觸發重新渲染時，調用方法將總會再次執行函數。</p>
 		<p>我們為什麼需要緩存？假設我們有一個性能開銷比較大的計算屬性A，它需要遍歷一個巨大的數組並做大量的計算。然後我們可能有其他的計算屬性依賴於A。如果沒有緩存，我們將不可避免的多次執行A的getter！如果你不希望有緩存，請用方法來替代。</p>
 	</section>
@@ -2271,7 +2321,7 @@
 					}
 				}
 			})
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//有setter和getter的computed
 			new Vue({
@@ -2286,7 +2336,7 @@
 					}
 				}
 			})
-		</pre></code>
+		</code></pre>
 		<p>在一般的情況下，我們可以這樣使用computed（只有getter）來更新資料：</p>
 		<div class="example">
 			<div id="app39">
@@ -2322,7 +2372,7 @@
 				<input type="text" v-model="lastName"/>
 				<p>{{fullName}}</p>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -2341,14 +2391,14 @@
 					console.log('updated')
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>在這個情況下，我們只要輸入<code>input</code>的內容，改變了<code>this.firstName</code>或<code>this.lastName</code>時，就會觸發<code>getter</code>，也就是說，computed的getter會觀察被寫在裡面的資料，一般來說，當被觀察的資料改變時，這個getter就會被觸發。</p>
 		<p>聽起來非常合理，但是我們用console.log()看一下，分別看computed、getter和updated的時間點，你會發現，當我們在input輸入資料，會觸發<code>computed</code>，同時也會觸發這個<code>vm</code>的<code>updated</code>。</p>
 		<p>但是還是有資料變更但getter不會被觸發的例外情況，剛剛我們提到當getter裡面被觀察的資料有變更時，就會觸發computed，但這個說其實並不完全正確，有些時候畫面更新了，資料變更了，但其實不會觸發computed裡面的getter。</p>
 		<p>如果我們把template中的fullName拿掉，換成firstName和lastName時：</p>
 		<pre><code>
 			<p> firstName: {{ firstName }}, lastName: {{ lastName }} </p>
-		</pre></code>
+		</code></pre>
 		<p>也就是當我們的template中沒有馬上用到這個computed的資料時（這裡的話就是指fullName），那麼Vue不知道你要用到fullName，因此即使我們變更了<code>this.firstName</code>和<code>this.lastName</code>，依然不會觸發getter。</p>
 		<p>我們可以在console中看到，firstName和lastName資料變更的情況下，只會一直得到updated而已，computed中的getter並不會被觸發。</p>
 		<hr><br>
@@ -2392,7 +2442,7 @@
 				<input type="text" v-model="fullName"/>
 				<p>firstName: {{ firstName }} <br/> lastName: {{ lastName }}</p>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -2418,7 +2468,7 @@
 					console.log('updated')
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>從<code>template</code>中，我們可以看到，我們的input是直接綁<code>v-model="fullName"</code>，因此他會直接去修改fullName的值，而當前fullName是computed中的一個屬性，我們說過computed中的屬性就和data類似可以取值（getter）和設值（setter），這時候因為我們要對fullName設值，自然就會對應到fullName裡面的setter（如果沒有設定setter是無法對fullName設值的）。</p>
 		<p>簡單來說，當computed的屬性要被設值時，就會觸發setter，從console中我們也可以看到，當我在input中輸入內容時，fullName會改變，fullName改變的情況會觸發setter，接著，因為我的setter中所做的事會變更到getter中所觀察的資料，這時候才又觸發getter執行，最後重新updated畫面。也就是從 setter -&gt; getter -&gt; updated 這樣的過程。</p>
 		<hr><br>
@@ -2430,7 +2480,7 @@
 				// this.firstName = value.split(' ')[0]
 				// this.lastName = value.split(' ')[1]
 			}
-		</pre></code>
+		</code></pre>
 		<p>那麼即時我們在input中輸入內容，都只會觸發setter而不會觸發getter。換句話說，setter和getter是獨立觸發的，兩個被觸發的時間點是不同的。</p>
 		<p>總結，我們進一步瞭解了Vue computed中的<code>getter</code>和<code>setter</code>，有幾個重點可以整理一下：</p>
 		<ol>
@@ -2478,7 +2528,7 @@
 				<input type="text" v-model="name" /><br>
 				{{ msg }}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -2498,7 +2548,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>從範例就可以看出我們<code>watch</code>了<code>name</code>的值，一但name的值有所改變就執行watch的<code>function</code>，這個function接受兩個參數，<code>新的value</code>和<code>舊的value</code>，這兩個value就方便我們的程式做出相對應的判斷，此例就判斷name的值來更新<code>msg</code>綁定的template來更新畫面。</p>
 		<br>
 		<h3>計算屬性vs監聽器：</h3>
@@ -2563,7 +2613,7 @@
 				<p>Ask a yes/no question: <input v-model="question"></p>
 				<p>{{ answer }}</p>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -2604,7 +2654,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -2639,7 +2689,7 @@
 			<div id="app">
 				<input type="number" v-model="inputNumber"> + 1 = {{ result }}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -2657,7 +2707,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -2693,7 +2743,7 @@
 			<div id="app">
 				<input type="text" v-model="obj.a"><br>{{ obj.a }}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -2711,7 +2761,7 @@
 					}
 				} 
 			});
-		</pre></code>
+		</code></pre>
 		<p>受現代Javascript的限制（以及棄用的<code>Object.observe</code>），Vue不能檢測到物件屬性的添加或刪除。由於Vue會在初始化實例時對屬性執行<code>getter/setter</code>轉化過程，所以屬性必須在<code>data</code>物件上存在才能讓Vue轉換它，這樣才能讓它是響應的。</p>
 		<p>預設情況下<code>handler</code>只監聽<code>obj</code>這個屬性它的引用的變化，我們只有給<code>obj</code>賦值的時候它才會監聽到，比如我們在<code>mounted</code>事件鉤子函數中對<code>obj</code>進行重新賦值，這樣我們的<code>handler</code>才會執行並console出「<code>obj.a changed</code>」：</p>
 		<pre><code>
@@ -2721,7 +2771,7 @@
 					a: '456'
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>但是如果我們一定（需要）監聽<code>obj</code>裡的屬性<code>a</code>的值呢？這時候<code>deep</code>屬性就派上用場了</p>
 		<div class="example">
 			<div id="app47">
@@ -2755,7 +2805,7 @@
 					deep: true
 				}
 			} 
-		</pre></code>
+		</code></pre>
 		<p>deep的意思就是深入觀察，監聽器會一層層的往下遍歷，給物件的所有屬性都加上這個監聽器，但是這樣性能開銷就會非常大了，任何修改obj裡面任何一個屬性都會觸發這個監聽器裡的handler，所以此例比較好的做法還是直接監聽字串：</p>
 		<pre><code>
 			watch: {
@@ -2766,7 +2816,7 @@
 					// deep: true
 				}
 			}
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -2798,7 +2848,7 @@
 			<div id="app">
 				<p id="demoText" class="demo" :class="activeClass + '-item'"></p>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -2810,7 +2860,7 @@
 					demoText.innerHTML = 'P標籤的class：' + demoText.classList;
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -2840,7 +2890,7 @@
 			<div id="app">
 				<p id="demoText" :class="{available: isAvailable, inStock: isInStock}"></p>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -2853,7 +2903,7 @@
 					demoText.innerHTML = 'P標籤的class：' + demoText.classList;
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>另外這個物件不一定要寫在模版裡，可以直接定義在<code>data</code>裡：</p>
 		<pre><code>
 			//HTML
@@ -2866,7 +2916,7 @@
 					inStock: true
 				}
 			}
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -2896,7 +2946,7 @@
 			<div id="app">
 				<p id="demoText" :class="[availableClass, inStockClass]"></p>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -2909,15 +2959,15 @@
 					demoText.innerHTML = 'P標籤的class：' + demoText.classList;
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>如果我們想根據條件切換列表中的class，可以用三目運算子，下例表示如果商品被預訂了（isBooked為true）就不顯示<code>availableClass</code>：</p>
 		<pre><code>
 			<p :class="[isBooked ? '' : availableClass, inStockClass]"></p>
-		</pre></code>
+		</code></pre>
 		<p>不過，當有多個class時這樣寫有些繁瑣。所以在陣列語法中也可以使用物件語法：</p>
 		<pre><code>
 			<p :class="[{available: !isBooked}, inStockClass]"></p>
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -2927,7 +2977,7 @@
 		<p>在前面的範例可以看到我們可以在<code>v-bind:class</code>中使用表達式加入各種程式來做判斷，例如：</p>
 		<pre><code>
 			:class="[condition1 != 0 && 'on', condition2 || condition3 ? data1 : data2, {data3: condition4}]"
-		</pre></code>
+		</code></pre>
 		<p>但有時要做比較多判斷時這樣的寫法會覺的冗長難閱讀，而且不好管理，比較好的做法就是綁定<code>計算屬性</code>返回一個物件：</p>
 		<div class="example">
 			<div id="app51">
@@ -2960,7 +3010,7 @@
 			<div id="app">
 				<p id="demoText" :class="classObject"></p>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -2982,7 +3032,7 @@
 					demoText.innerHTML = 'P標籤的class：' + demoText.classList;
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -2994,23 +3044,23 @@
 			Vue.component('my-component', {
 				template: '<p class="foo bar">Hi</p>'
 			})
-		</pre></code>
+		</code></pre>
 		<p>然後在使用它的時候添加一些class：</p>
 		<pre><code>
 			<my-component class="baz boo"></my-component>
-		</pre></code>
+		</code></pre>
 		<p>HTML將被渲染為：</p>
 		<pre><code>
 			<p class="foo bar baz boo">Hi</p>
-		</pre></code>
+		</code></pre>
 		<p>對於帶數據綁定class也同樣適用：</p>
 		<pre><code>
 			<my-component v-bind:class="{ active: isActive }"></my-component>
-		</pre></code>
+		</code></pre>
 		<p>當<code>isActive</code>為<code>true</code>時，HTML將被渲染成為：</p>
 		<pre><code>
 			<p class="foo bar active">Hi</p>
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -3040,7 +3090,7 @@
 			<div id="app">
 				<p :style="{ color: activeColor, fontSize: fontSize + 'px' }">範例文字</p>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -3050,7 +3100,7 @@
 					fontSize: 30
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>直接綁定到一個物件物件通常更好，這會讓模板更清晰：</p>
 		<pre><code>
 			//HTML
@@ -3063,7 +3113,7 @@
 					fontSize: '13px'
 				}
 			}
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -3098,7 +3148,7 @@
 			<div id="app">
 				<p :style="styleObject">範例文字</p>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -3116,7 +3166,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -3149,7 +3199,7 @@
 			<div id="app">
 				<p :style="[baseStyle, overridStyle]">範例文字</p>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -3165,7 +3215,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -3176,7 +3226,7 @@
 		<p>另外從Vue 2.3.0起我們可以為style綁定中的property提供一個包含多個值的陣列，常用於提供多個帶前綴的值，例如：</p>
 		<pre><code>
 			<div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
-		</pre></code>
+		</code></pre>
 		<p>這樣寫只會渲染陣列中最後一個被瀏覽器支持的值。在本例中，如果瀏覽器支持不帶瀏覽器前綴的flexbox，那麼就只會渲染<code>display:flex</code>。</p>
 	</section>
 
@@ -3190,7 +3240,7 @@
 		<p>在Vue.js中，修飾符（modifier）以半形句號「.」後綴在指令上，用來表示以什麼方式來觸發事件，下方模版內的<code>.once</code>就是一個修飾符，代表了所綁定的function只會被執行一次：</p>
 		<pre><code>
 			<div @click.once="someFN"></div>
-		</pre></code>
+		</code></pre>
 		<p>這邊引用的修飾符將在後面的範例做詳細說明，目前所有的修飾符總共分為以下三類：</p>
 		<ul>
 			<li>事件修飾符</li>
@@ -3241,7 +3291,7 @@
 			<style>
 			.outer{background:blue; width:120px; height:60px;}
 			</style>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -3255,7 +3305,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>.capture修飾符</h3>
 		<p>當有冒泡事件的情況發生時，有設定<code>.capture</code>的元素會最先被執行，下例不管點哪一個元素最先都會執行<code>clickOuter</code>：</p>
@@ -3302,7 +3352,7 @@
 			.inner{background:red; width:80px; height:40px;}
 			.outer{background:blue; width:120px; height:60px;}
 			</style>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -3320,7 +3370,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>.self修飾符</h3>
 		<p>這個修飾符會去判斷滑鼠觸發DOM事件的範圍內是否有子元素事件，如果有就執行子元素的事件，不會執行自身擁有<code>.self</code>修飾符的元素事件，換個說法，擁有<code>.self</code>的元素只會在確定點到自身DOM的時候才觸發事件，例如我們在最外層的div加上<code>.self</code>，如此只有點到藍色區域時才會執行<code>clickOuter</code>：</p>
@@ -3367,7 +3417,7 @@
 			.inner{background:red; width:80px; height:40px;}
 			.outer{background:blue; width:120px; height:60px;}
 			</style>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -3385,7 +3435,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>.once修飾符</h3>
 		<p>這個修飾符會讓事件只被觸發一次：</p>
@@ -3409,7 +3459,7 @@
 			<div id="app">
 				<input type="button" value="點我" @click.once="clickButton" />
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -3420,7 +3470,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>.prevent修飾符</h3>
 		<p>讓DOM失去原本的功能，只執行我們幫他設定的事件，例如當我們在&lt;a&gt;標籤下事件時，不跳轉到<code>href</code>設定的網址，效果同<code>event.preventDefault()</code>：</p>
@@ -3447,7 +3497,7 @@
 			<div id="app">
 				<a :href="urlText" @click.prevent="clickButton">我是連結，但點我不會導頁</a>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -3461,11 +3511,11 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>若在表單上使用<code>.prevent</code>就會防止表單的<code>submit</code>事件觸發，例如：</p>
 		<pre><code>
 			<form @submit.prevent="submitFN"></form>
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>.passive修飾符</h3>
 		<p>這個修飾符和<code>.prevent</code>的作用相反，<code>.prevent</code>會取消DOM的預設功能也就是<code>preventDefault()</code>，而<code>.passive</code>是死也不會讓<code>preventDefault()</code>執行。</p>
@@ -3506,7 +3556,7 @@
 			<div id="app">
 				<input v-model="inputVal" placeholder="輸入資料後按enter送出" @keyup.enter="submit">
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -3520,7 +3570,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>按鍵碼別名：</h3>
 		<p>有一些按鍵（esc以及所有的方向鍵）在IE9中有不同的key值，為了在必要的情況下支持舊瀏覽器，Vue內建了絕大多數常用的按鍵碼的別名做為修飾符，如果我們的專案需要支援IE9，下列內建的按鍵碼別名就很方便：</p>
@@ -3538,7 +3588,7 @@
 		<p>簡單示意：</p>
 		<pre><code>
 			<input @keyup.enter="submit">
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>以按鍵名來設定修飾符：</h3>
 		<p>直接將<code>KeyboardEvent.key</code>的按鍵名轉換為kebab-case來作為修飾符，如下示範的<code>PageDown</code>按鈕名轉為<code>page-down</code>：</p>
@@ -3546,18 +3596,18 @@
 		<p>PS. 但這個做法是否如內建的按鍵碼別名有支援IE9就要再測一下</p>
 		<pre><code>
 			<input v-on:keyup.page-down="onPageDown">
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>使用keyCode按鍵碼：</h3>
 		<p>也可以使用<code>keyCode</code>按鍵碼來做為修飾符（但<code>keyCode</code>的事件用法已經被廢棄了並可能不會被最新的瀏覽器支持）如下示範：</p>
 		<pre><code>
 			<input v-on:keyup.13="submit">
-		</pre></code>
+		</code></pre>
 		<p>另外還可以通過全域<code>config.keyCodes</code>物件自定義按鍵修飾符別名：</p>
 		<pre><code>
 			Vue.config.keyCodes.f1 = 112
 			//可以使用v-on:keyup.f1
-		</pre></code>
+		</code></pre>
 		<p>官方說明：https://cn.vuejs.org/v2/api/#keyCodes</p>
 	</section>
 
@@ -3579,7 +3629,7 @@
 
 			<!-- Ctrl + Click -->
 			<div v-on:click.ctrl="doSomething">Do something</div>
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>.exact修飾符</h3>
 		<p>.exact修飾符允許你控制由精確的系統修飾符組合觸發的事件：</p>
@@ -3592,7 +3642,7 @@
 
 			<!-- 没有任何系統修飾符被按下的的時候才會觸發 -->
 			<button v-on:click.exact="onClick">A</button>
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>滑鼠按鈕修飾符</h3>
 		<p>以下修飾符會限制滑鼠的左、中或右按鍵處理點擊事件：</p>
@@ -3621,7 +3671,7 @@
 			<div id="app">
 				<button @click.right="clickFN">以滑鼠右鍵點擊</button>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -3632,7 +3682,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -3671,7 +3721,7 @@
 			<div id="app">
 				<button-counter></button-counter>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			Vue.component('button-counter', {
@@ -3690,7 +3740,7 @@
 			var vm = new Vue({
 				el: '#app'
 			});
-		</pre></code>
+		</code></pre>
 		<p>從這個範例就可以看到，元件的組成包含<code>元件的名稱</code>以及<code>template</code>，還有和一般Vue實例非常類似的<code>data</code>、<code>methods</code>、<code>computed</code>、<code>watch</code>和<code>生命週期的hook</code>可以讓我們做設定。</p>
 		<p>使用元件有幾個要注意的地方：</p>
 		<ul class="spaced">
@@ -3738,7 +3788,7 @@
 				<button-counter></button-counter>
 				<button-counter></button-counter>
 			</div>
-		</pre></code>
+		</code></pre>
 		<p>在一開始介紹元件時提到了<code>data</code>必需包裝在一個function內，並<code>return</code>一個物件；如此我們每一次使用這個元件，都會重新<code>new</code>一個新的data，讓每次使用的元件都擁有自己獨立的data，這樣的設計有效的避免同一個元件互相影響到彼此的數據。</p>
 	</section>
 
@@ -3792,7 +3842,7 @@
 				<input-comp1></input-comp1>
 				<input-comp2></input-comp2>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			Vue.component('input-comp1', {
@@ -3826,7 +3876,7 @@
 			var vm = new Vue({
 				el: '#app'
 			});
-		</pre></code>
+		</code></pre>
 		<p>為了改善這個狀況，我們可以在元件上註冊的一些<code>自定義屬性</code>，使用這些屬性再透過元件中的<code>props</code>將不同的資料帶入同一個元件；<code>props</code>指定陣列裡的項目就是對應我們自定義的屬性，如下例程式重覆使用性變高，看起來也比較好理解：</p>
 		<div class="example">
 			<div id="app65">
@@ -3854,7 +3904,7 @@
 				<input-comp label="姓名" placeholder="請輸入姓名"></input-comp>
 				<input-comp label="暱稱" placeholder="請輸入暱稱"></input-comp>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			Vue.component('input-comp', {
@@ -3869,7 +3919,7 @@
 			var vm = new Vue({
 				el: '#app'
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -3907,7 +3957,7 @@
 			<div id="app">
 				<book-item v-for="v in bookList" :author="v.author" :name="v.name" :title="v.name" :key="v.id"></book-item>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			Vue.component('book-item', {
@@ -3928,7 +3978,7 @@
 					]
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>簡化Javascript及HTML</h3>
 		<p>如果覺得上例模版中的<code>&lt;book-item&gt;</code>太過冗長，可以直接把整個陣列的<code>單個項目</code>帶進props內，視需求可以讓程式更為簡潔，並且不用定義一大堆props名稱：</p>
@@ -3937,7 +3987,7 @@
 			<div id="app">
 				<book-item v-for="v in bookList" :ary="v" :key="v.id"></book-item>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			Vue.component('book-item', {
@@ -3958,7 +4008,7 @@
 					]
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -3998,7 +4048,7 @@
 			<div id="app">
 				<paragraph :parent-init-size="initSize" @do-enlarge="enlarge"></paragraph>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			Vue.component('paragraph', {
@@ -4021,7 +4071,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>上面的範例將fontSize的增幅設定為每次click時加1，我們也可以透過emit()的參數自訂增幅的量，如下例：</p>
 		<div class="example">
 			<div id="app68">
@@ -4055,7 +4105,7 @@
 			<div id="app">
 				<paragraph :parent-init-size="initSize" @emit-enlarge="enlarge"></paragraph>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			Vue.component('paragraph', {
@@ -4078,7 +4128,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -4113,7 +4163,7 @@
 			<div id="app">
 				<search-input v-model="searchText"></search-input>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			Vue.component('search-input', {
@@ -4131,16 +4181,16 @@
 					searchText: ''
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>這個範例中直接在元件上使用<code>v-model</code>綁定<code>searchText</code>，然後將<code>value</code>以<code>props</code>的方式帶入元件，並在元件內的<code>&lt;input&gt;</code>設定<code>input</code>事件。</p>
 		<p>記得「表單元素數據綁定」一開始說明的：</p>
 		<pre><code>
 			<input v-model="searchText">
-		</pre></code>
+		</code></pre>
 		<p>其實就等於：</p>
 		<pre><code>
 			<input v-bind:value="searchText" v-on:input="searchText = $event.target.value">
-		</pre></code>
+		</code></pre>
 		<p>所以為了讓<code>v-model</code>能正常工作，這個元件內的<code>&lt;input&gt;</code>必須將其<code>value</code> attribute綁定到一個名叫<code>value</code>的prop上，然後在其<code>input事件</code>被觸發時，將新的值透過元件自定義的<code>input</code>事件拋出，如此<code>v-model</code>就可以順利的在元件上運作了。</p>
 	</section>
 
@@ -4176,7 +4226,7 @@
 					Something bad happened.
 				</alert-box>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			Vue.component('alert-box', {
@@ -4190,7 +4240,7 @@
 			var vm = new Vue({
 				el: '#app'
 			});
-		</pre></code>
+		</code></pre>
 		<p>插槽內可以包含任何模板代碼，包括HTML，甚至其它的元件；可以觀察下例的各種花式寫法：</p>
 		<div class="example">
 			<div id="app71">
@@ -4238,7 +4288,7 @@
 					我是一些隨便打的字～
 				</slot-demo>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			Vue.component('slot-demo', {
@@ -4265,7 +4315,7 @@
 					demoHtml: '<h1>範例文字</h1>'
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>※ 注意如果元件的template中沒有包含一個&lt;slot&gt;元素，則該元件起始標籤和結束標籤之間的任何內容都會被拋棄。</p>
 		<p>關於插槽還有一些其它的功能及補充說明，需要的話再來這裡參考：https://cn.vuejs.org/v2/guide/components-slots.html</p>
 	</section>
@@ -4317,7 +4367,7 @@
 				<button v-for="tab in tabs" @click="switchTab(tab)" :class="{active: currentTab == tab}">{{tab}}</button>
 				<component :is="currentTabComp"></component>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			Vue.component('content-about', {
@@ -4346,7 +4396,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p><code>is</code>屬性可以用於常規HTML元素（div、li、input…），但這些元素將被視為元件，這代表所有的<code>attribute</code>都會作為DOM attribute被綁定。對於像<code>value</code>這樣的<code>property</code>，若想讓其如預期般工作，我們需要使用<code>.prop</code>修飾符。個人認為應該很難遇到這個狀況，需要更詳細的資訊可以再到這裡參考：https://cn.vuejs.org/v2/api/#v-bind。</p>
 	</section>
 
@@ -4359,7 +4409,7 @@
 			Vue.component('my-component-name', {
 				// ... ...
 			})
-		</pre></code>
+		</code></pre>
 		<p>這些元件是全域註冊的。也就是說它們在註冊之後可以用在任何新建立的Vue根實例（new Vue）的模板中，例如：</p>
 		<pre><code>
 			//HTML
@@ -4368,7 +4418,7 @@
 				<component-b></component-b>
 				<component-c></component-c>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			Vue.component('component-a', { /* ... */ })
@@ -4376,7 +4426,7 @@
 			Vue.component('component-c', { /* ... */ })
 
 			new Vue({ el: '#app' })
-		</pre></code>
+		</code></pre>
 		<p>在所有子元件件中也是如此，也就是說這三個元件在各自內部也都可以相互使用。</p>
 		<br>
 		<h3>區域註冊</h3>
@@ -4386,7 +4436,7 @@
 			var ComponentA = { /* ... */ }
 			var ComponentB = { /* ... */ }
 			var ComponentC = { /* ... */ }
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			new Vue({
 				el: '#app',
@@ -4395,7 +4445,7 @@
 					'component-b': ComponentB
 				}
 			})
-		</pre></code>
+		</code></pre>
 		<p>對於<code>components</code>物件中的每個property來說，其<code>property名</code>就是自定義元素的名字，其<code>property值</code>就是這個元件的選項物件。</p>
 		<p>注意區域註冊的元件在其子元件中不可用。例如，如果我們想要在<code>ComponentB</code>中使用<code>ComponentA</code>，則需要這樣寫：</p>
 		<pre><code>
@@ -4407,7 +4457,7 @@
 				},
 				// ...
 			}
-		</pre></code>
+		</code></pre>
 		<p>或者如果我們透過Babel和webpack使用ES2015模組，那麼程式看起來會是這樣：</p>
 		<pre><code>
 			//HTML
@@ -4419,7 +4469,7 @@
 				},
 				// ...
 			}
-		</pre></code>
+		</code></pre>
 		<p>（在ES2015+的語法，上述的<code>ComponentA</code>變數其實是<code>ComponentA: ComponentA</code>的縮寫，即這個變數名同時是用在模板中的自定義元素的名稱，以及包含了這個元件選項的變數）</p>
 		<br>
 		<h3>模組系統</h3>
@@ -4436,7 +4486,7 @@
 				},
 				// ...
 			}
-		</pre></code>
+		</code></pre>
 		<p>現在<code>ComponentA</code>和<code>ComponentC</code>都可以在<code>ComponentB</code>的模板中使用了。</p>
 		<br>
 		<p>這裡遇到了一個問題，如果我有一些元件內只包含了一個輸入框或一個按鈕，而這些元件是相對需要被共用的；這些會被頻繁使用的元件我們把它們稱為基礎元件，而這些基礎元件常常導致很多元件裡都會有一個包含基礎元件的冗長列表：</p>
@@ -4452,14 +4502,14 @@
 					BaseInput
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>而使用時只是模板中的一小部分：</p>
 		<pre><code>
 			<!-- <BaseInput v-model="searchText" @keydown.enter="search"/>
 			<BaseButton @click="search">
 				<BaseIcon name="search"/>
 			</BaseButton> -->
-		</pre></code>
+		</code></pre>
 		<p>以webpack為例，就可以使用<code>require.context</code>只全域註冊這些常被使用的基礎元件來解決導入列表過長的問題，下面的範例是在應用入口文件（比如<code>src/main.js</code>）中全域導入基礎元件的示範：</p>
 		<pre><code>
 			import Vue from 'vue'
@@ -4499,7 +4549,7 @@
 					componentConfig.default || componentConfig
 				)
 			})
-		</pre></code>
+		</code></pre>
 		<p>記住全域註冊的行為必須在根Vue實例（通過new Vue）創建之前發生。這裡有一個真實項目情景下的示例：https://github.com/bencodezen/vue-enterprise-boilerplate/blob/main/src/components/_globals.js</p>
 	</section>
 
@@ -4614,7 +4664,7 @@
 			// 注意！ 若未執行 mount 動作，
 			// 則後續所有的 lifecycle hook 都將不會繼續執行！
 			vm.mount('#app');
-		</pre></code>
+		</code></pre>
 		<p>教學網頁也提供了一個很棒的真實範例，讓我們可以動態的觀察各個hooks的作用：</p>
 		<div class="example">
 			<div id="app73">
@@ -4733,7 +4783,7 @@
 				<button @click="toggle">{{ (!isActive) ? 'Active' : 'Destroy' }} the Vue instance</button>
 				<button @click="empty">Empty the inspector</button>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			const vm = new Vue({
@@ -4815,7 +4865,7 @@
 					this.$emit('update', `=== unmount! === `);
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<p>補充說明：</p>
 		<ul class="spaced">
@@ -4891,7 +4941,7 @@
 					<div v-for="m in messages">{{ m }}</div>
 				</div>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -4911,7 +4961,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>在這個例子中當使用者按下enter鍵時會將輸入的文字送進<code>data</code>的<code>messages</code>陣列，並且當訊息增加的時候，訊息列表的捲軸自動捲至最底。</p>
 		<p>但當我們操作時會發現輸入訊息後雖然<code>messages</code>的內容增加了，但是捲軸長度始終與DOM實際的<code>scrollHeight</code>有一行的落差。</p>
 		<p>原因前面說過，雖然我們<code>data</code>裡的<code>messages</code>已經更新了，但是執行到<code>el.scrollTop = el.scrollHeight</code>的時候，畫面還未更新，所以這時的<code>el.scrollHeight</code>總是會取得更新前的數字。</p>
@@ -4924,7 +4974,7 @@
 				el.scrollTop = el.scrollHeight;
 			});
 			.........
-		</pre></code>
+		</code></pre>
 		<p>簡單來說，<code>$nextTick</code>的使用時機在當狀態更新時，需要手動存取DOM的時候，需要確保畫面都已更新完成。雖說Vue.js開發大多都將關注點放在狀態管理上，但有時候我們還是需要自行處理DOM API，這時<code>$nextTick</code>的重要性便不言而喻。</p>
 		<p>疑？說好的watch跟Queue呢？？算了作者的重點應該是放在不使用生命週期時處理DOM搭配$nextTick的做法。</p>
 	</section>
@@ -4961,12 +5011,12 @@
 					}
 				}
 			})
-		</pre></code>
+		</code></pre>
 		<p>現在，我們可以使用瀏覽器的開發工具執行store.commit方法觸發狀態變更，以及store.state來讀取狀態內容：</p>
 		<pre><code>
 			store.commit('increment');
 			store.state.count // 1
-		</pre></code>
+		</code></pre>
 		<p>Vuex為Vue實例提供了一個store的選項，透過這個選項可以將我們的store（定義好的store物件）帶入Vue的元件及其子元件，如此我們便可以在元件中透過this.$store來訪問store物件：</p>
 		<pre><code>
 			new Vue({
@@ -4979,7 +5029,7 @@
 					}
 				}
 			})
-		</pre></code>
+		</code></pre>
 		<p>以下為結合了上述的各項重點的基本範例：</p>
 		<div class="example">
 			<div id="app75">
@@ -5015,7 +5065,7 @@
 				<button @click="increment">+</button>
 				{{store.state.count}}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			const store = new Vuex.Store({
@@ -5038,7 +5088,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>以store選項帶入store的元件，其子元件皆能透過this.$store訪問到該store，例如：</p>
 		<div class="example">
 			<div id="app77">
@@ -5085,7 +5135,7 @@
 			<div id="app">
 				<increase-btn></increase-btn>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			const store = new Vuex.Store({
@@ -5121,7 +5171,7 @@
 				el: '#app',
 				store: store
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		※ 使用Vuex並不代表我們一定要將所有的狀態放入Vuex；雖然這樣做非常方便，但也會使程式變得冗長和不直觀。如果有些狀態嚴格屬於某個元件，最好還是將他們設計為元件的局部狀態；總之我們應該根據開發需要進行權衡來做規劃。
 	</section>
@@ -5172,7 +5222,7 @@
 				<button @click="increment">+</button>
 				{{count}}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			const store = new Vuex.Store({
@@ -5200,7 +5250,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>mapState輔助函式</h3>
 		<p>當一個元件需要獲取多個狀態時候，將這些狀態都聲明為計算屬性會有些重複和冗餘。為了解決這個問題，我們可以使用mapState輔助函數幫助我們生成計算屬性，讓我們少打幾個字：</p>
@@ -5248,7 +5298,7 @@
 				<div>count3: {{count3}}</div>
 				<div>count4: {{count4}}</div>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			const store = new Vuex.Store({
@@ -5277,7 +5327,7 @@
 					this.localCount = 1;
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>另外，當計算屬性的名稱與state的子節點名稱相同時，我們也可以給mapState傳一個字串陣列：</p>
 		<pre><code>
 			const store = new Vuex.Store({
@@ -5296,7 +5346,7 @@
 					'gender'
 				])
 			});
-		</pre></code>
+		</code></pre>
 		<p>computed不會因為引入mapState方法而失去原有的功能，如果我們之前已經寫了一大堆的computed計算屬性，做了一半發現想要引入vuex，又想使用mapState()，我們可以直接把舊的計算屬性直接貼到mapState中：</p>
 		<pre><code>
 			const store = new Vuex.Store({
@@ -5327,7 +5377,7 @@
 					}
 				})
 			});
-		</pre></code>
+		</code></pre>
 		<p>mapState傳回的是一個物件，上例中我們把舊的計算屬性中的資料複製到一個新的算計屬性中來使用mapState，這樣搬來搬去的的做法實在不體面要做註解也很難說的清楚，取而代之我們直接保留舊的程式碼，在計算屬性中直接展開mapState也是一個聰明的做法：</p>
 		<pre><code>
 			var vm = new Vue({
@@ -5346,7 +5396,7 @@
 					})
 				}
 			});
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -5361,7 +5411,7 @@
 					return this.$store.state.todos.filter(todo => todo.done).length
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>如果有多個元件需要用到此屬性，我們要嘛複製這個函數，或者抽取到一個共享函數然後在多處導入它，無論哪種方式都不是很理想。</p>
 		<p>Vuex允許我們在store中定義getter（可以理解為是store的計算屬性）。就像計算屬性一樣，getter的返回值會根據它的依賴被緩存起來，且只有當它的依賴值發生了改變才會被重新計算。說白了就是vue的computed，如果你了解computed的話，那你可以像使用computed一樣去使用getters，當然還是有點區別的。</p>
 		<p>Getter接受state作為其第一個參數：</p>
@@ -5404,7 +5454,7 @@
 					<li v-for="v in doneTodos">{{v.text}}</li>
 				</ul>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			const store = new Vuex.Store({
@@ -5430,11 +5480,11 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>也可以從store物件直接訪問到getters的值：<br>（訪問getters時它是作為Vue的響應式系統的一部分緩存其中的）</p>
 		<pre><code>
 			store.getters.doneTodos; //[{"id":1,"text":"buy milk","done":true},{"id":2,"text":"take out garbage","done":true}]
-		</pre></code>
+		</code></pre>
 		<p>Getter也可以接受其他getter作為第二個參數：</p>
 		<pre><code>
 			getters: {
@@ -5445,10 +5495,10 @@
 					return getters.doneTodos.length;
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			store.getters.doneTodoCount //2
-		</pre></code>
+		</code></pre>
 		<p>如果需要對某個getter傳遞參數，可以透過讓getter返回一個函式的方式帶入；這個做法在我們對store裡的陣列進行查詢時非常有用：<br>（但是要注意的是getter在通過方法訪問時，每次都會去進行調用，而不會緩存結果）</p>
 		<pre><code>
 			const store = new Vuex.Store({
@@ -5474,7 +5524,7 @@
 					}
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>備註一下：範例中的state => id => {...}看起來是柯里化(curried function)的結構，想瞭解的話再去google一下吧</p>
 		<br>
 		<h3>mapGetters輔助函式</h3>
@@ -5506,7 +5556,7 @@
 					])
 				}
 			});
-		</pre></code>
+		</code></pre>
 		<p>如果你想將一個getter屬性另取一個名字，使用物件形式：</p>
 		<pre><code>
 			mapGetters({
@@ -5514,7 +5564,7 @@
 				done: 'doneTodos',
 				doneCount: 'doneTodosCount'
 			})
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -5533,11 +5583,11 @@
 					}
 				}
 			})
-		</pre></code>
+		</code></pre>
 		<p>我們不能直接呼叫mutation的函式，只能透過store的commit方法：</p>
 		<pre><code>
 			store.commit('increment')
-		</pre></code>
+		</code></pre>
 		<p>可以在commit的時候將額外的參數（即mutation的payload載荷）帶入mutation的函式；這邊來補一個完整的範例：</p>
 		<div class="example">
 			<div id="app80">
@@ -5575,7 +5625,7 @@
 				<button @click="increment(1)">+</button>
 				{{count}}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			const store = new Vuex.Store({
@@ -5600,7 +5650,7 @@
 					'count'
 				])
 			});
-		</pre></code>
+		</code></pre>
 		<p>官方對於帶入mutation的載荷撰寫風格有以下兩點建議：</p>
 		<ol class="spaced">
 			<li>使用物件方式帶入，如此可以一次帶入多個參數，在撰mutation回調函式時較為單純，並且也增加函式內程式的易讀性；此外，如果我們的程式有使用到mapMutations，Vuex預設就會帶入state跟另一個載荷的參數，如果要帶入多個值就必需要用物件型式帶入了</li>
@@ -5612,13 +5662,13 @@
 					state.count += payload.amount
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			store.commit({
 				type: 'increment',
 				amount: 10
 			})
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>mapMutations</h3>
 		<p>我們可以在元件中使用this.$store.commit('xxx')提交mutation，或者使用mapMutations輔助函數將元件中的methods映射為store.commit調用（需要在根節點注入store）。</p>
@@ -5634,7 +5684,7 @@
 					add: 'increment' // 將this.add()映射為this.$store.commit('increment')
 				})
 			}
-		</pre></code>
+		</code></pre>
 		<p>來看一個實際範例：</p>
 		<div class="example">
 			<div id="app81">
@@ -5683,7 +5733,7 @@
 				<button @click="incrementBy({amount:2})">+n</button>
 				{{count}}
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			const store = new Vuex.Store({
@@ -5715,7 +5765,7 @@
 					'count'
 				])
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>Mutation需遵守Vue的響應規則</h3>
 		<p>Vuex的store中的狀態是響應式的，那麼當我們變更狀態時，監視Vuex狀態的Vue元件也會自動更新。這也意味著Vuex中的mutation也需要與使用Vue一樣遵守一些注意事項：</p>
@@ -5727,10 +5777,10 @@
 		</ul>
 		<pre><code>
 			Vue.set(obj, 'newProp', 123)
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			state.obj = { ...state.obj, newProp: 123 }
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>Mutation必須是同步函式</h3>
 		<p>Mutation必須是同步函式，這是Vuex運作的一個重要原則；官網的說明有點太深入，總之意思就是：mutation不能進行非同步工作，如果要非同步處理資料就得使用可進行非同步操作的action，在action處理完非同步的作業後再進行mutation的提交。</p>
@@ -5743,7 +5793,7 @@
 					})
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>現在想像，我們正在debug一個app並且觀察devtool中的mutation記錄。每一條mutation被記錄，devtools都需要捕捉到前一狀態和後一狀態的快照。然而，在上面的例子中mutation中的異步函數中的回調讓這不可能完成：因為當mutation觸發的時候，回調函式還沒有被調用，devtools不知道什麼時候回調函式實際上被調用——實質上任何在回調函數中進行的狀態的改變都是不可追蹤的。</p>
 	</section>
 
@@ -5769,7 +5819,7 @@
 					}
 				}
 			})
-		</pre></code>
+		</code></pre>
 		<p>Action函式接受一個與store實例具有相同方法和屬性的context物件，因此你可以調用context.commit提交一個mutation，或者通過context.state和context.getters來獲取state和getters。</p>
 		<p>我們會經常用到ES2015的參數解構來簡化程式（特別是我們需要調用commit很多次的時候）：</p>
 		<pre><code>
@@ -5778,11 +5828,11 @@
 					commit('increment')
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>Action透過store.dispatch()方法觸發：</p>
 		<pre><code>
 			store.dispatch('increment')
-		</pre></code>
+		</code></pre>
 		<p>乍看之下感覺多此一舉，直接提交mutation不是簡省一個步驟？事實並非如此，mutation只能執行同步作業（前面的段落有作說明），而action就是專門用來執行非同步的操作，例如當我們的應用需要呼叫非同步的api再更新狀態時，就需要在action裡處完資料再交由mutation更新狀態：</p>
 		<pre><code>
 			actions: {
@@ -5792,7 +5842,7 @@
 					}, 1000)
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>dispatch()方法也接受載荷參數：</p>
 		<pre><code>
 			store.dispatch('incrementAsync', {
@@ -5804,7 +5854,7 @@
 				type: 'incrementAsync',
 				amount: 10
 			})
-		</pre></code>
+		</code></pre>
 		<p>下例是官網的一個購物車範例，它示範了調用異步API和分發多個mutation：</p>
 		<pre><code>
 			actions: {
@@ -5823,7 +5873,7 @@
 					)
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>官網的範例有許多自訂的資料及方法，還是自己來做一個比較完整的：</p>
 		<div class="example">
 			<div id="app82">
@@ -5879,7 +5929,7 @@
 					<student v-for="v of studentList" :info="v"></student>
 				</ul>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			const store = new Vuex.Store({
@@ -5918,7 +5968,7 @@
 					studentList: 'list'
 				})
 			});
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>mapActions</h3>
 		<p>我們可以在元件中使用this.$store.dispatch('xxx')分發action，或者使用mapActions輔助函數將元件中的methods映射為store.dispatch調用（需要在根節點注入store）。</p>
@@ -5934,7 +5984,7 @@
 					add: 'increment' // 將this.add()映射為this.$store.dispatch('increment')
 				})
 			}
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>Action的Promise</h3>
 		<p>Action通常是異步的，那麼如何知道action什麼時候結束呢？首先我們要知道action被觸發時可以返回的Promise：</p>
@@ -5949,13 +5999,13 @@
 					})
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>現在我們可以這樣做：</p>
 		<pre><code>
 			store.dispatch('actionA').then(() => {
 				// ...
 			})
-		</pre></code>
+		</code></pre>
 		<p>在另外一個action中也可以：</p>
 		<pre><code>
 			actions: {
@@ -5966,7 +6016,7 @@
 					})
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>最後，如果我們利用async/await，我們可以如下組合action：</p>
 		<pre><code>
 			// 假設getData()和getOtherData()返回的是Promise
@@ -5980,7 +6030,7 @@
 					commit('gotOtherData', await getOtherData())
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>※一個store.dispatch在不同模組（指的應該是Module吧）中可以觸發多個action函數。在這種情況下，只有當所有觸發函數完成後，返回的Promise才會執行。</p>
 	</section>
 
@@ -6013,7 +6063,7 @@
 			
 			store.state.a // -> moduleA的狀態
 			store.state.b // -> moduleB的狀態
-		</pre></code>
+		</code></pre>
 		<p>對於模組內部的mutation 和getter，接收的第一個參數是模組的局部狀態物件：</p>
 		<pre><code>
 			const moduleA = {
@@ -6033,7 +6083,7 @@
 					}
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>同樣，對於模組內部的action，局部狀態通過context.state暴露出來，根節點狀態則為context.rootState：</p>
 		<pre><code>
 			const moduleA = {
@@ -6046,7 +6096,7 @@
 					}
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>對於模組內部的getter，根節點狀態會作為第三個參數暴露出來：</p>
 		<pre><code>
 			const moduleA = {
@@ -6057,7 +6107,7 @@
 					}
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>命名空間</h3>
 		<p>默認情況下，模組內部的action、mutation 和getter是註冊在全局命名空間的——這樣使得多個模組能夠對同一mutation或action作出響應。</p>
@@ -6103,7 +6153,7 @@
 					}
 				}
 			})
-		</pre></code>
+		</code></pre>
 		<p>啟用了命名空間的getter和action會收到局部化的getter，dispatch和commit。換言之，你在使用模組內容（module assets）時不需要在同一模組內額外添加空間名前綴。更改namespaced屬性後不需要修改模組內的代碼。</p>
 		<p>在帶命名空間的模組內訪問全局內容（Global Assets）；如果你希望使用全局state 和getter，rootState和 rootGetters 會作為第三和第四參數傳入getter，也會通過 context 物件的屬性傳入action。</p>
 		<p>若需要在全局命名空間內分發action 或提交mutation，將{root:true}作為第三參數傳給dispatch或commit即可：</p>
@@ -6139,7 +6189,7 @@
 					}
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>在帶命名空間的模組註冊全局action；若需要在帶命名空間的模組註冊全局action，你可添加root:true，並將這個action的定義放在函數handler中。例如：</p>
 		<pre><code>
 			{
@@ -6161,7 +6211,7 @@
 					}
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>帶命名空間的綁定函數；當使用mapState, mapGetters, mapActions和mapMutations這些函數來綁定帶命名空間的模組時，寫起來可能比較繁瑣：</p>
 		<pre><code>
 			computed: {
@@ -6176,7 +6226,7 @@
 					'some/nested/module/bar' // -> this['some/nested/module/bar']()
 				])
 			}
-		</pre></code>
+		</code></pre>
 		<p>對於這種情況，你可以將模組的空間名稱字符串作為第一個參數傳遞給上述函數，這樣所有綁定都會自動將該模組作為上下文。於是上面的例子可以簡化為：</p>
 		<pre><code>
 			computed: {
@@ -6191,7 +6241,7 @@
 					'bar' // -> this.bar()
 				])
 			}
-		</pre></code>
+		</code></pre>
 		<p>而且，你可以通過使用createNamespacedHelpers創建基於某個命名空間輔助函數。它返回一個物件，物件裡有新的綁定在給定命名空間值上的元件綁定輔助函數：</p>
 		<pre><code>
 			import { createNamespacedHelpers } from 'vuex'
@@ -6214,7 +6264,7 @@
 					])
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<br>
 		<h3>模組動態註冊</h3>
 		<p>在store創建之後，你可以使用store.registerModule方法註冊模組：</p>
@@ -6231,7 +6281,7 @@
 			store.registerModule(['nested', 'myModule'], {
 			// ...
 			})
-		</pre></code>
+		</code></pre>
 		<p>之後就可以通過store.state.myModule和store.state.nested.myModule訪問模組的狀態。</p>
 		<p>模組動態註冊功能使得其他Vue插件可以通過在store中附加新模組的方式來使用Vuex管理狀態。例如，vuex-router-sync（打開新窗口）插件就是通過動態註冊模組將vue-router和vuex結合在一起，實現應用的路由狀態管理。</p>
 		<p>你也可以使用store.unregisterModule(moduleName)來動態卸載模組。注意，你不能使用此方法卸載靜態模組（即創建store時聲明的模組）。</p>
@@ -6254,7 +6304,7 @@
 				}),
 				// mutation, action 和 getter 等等...
 			}
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -6333,7 +6383,7 @@
 					<p v-if="show">測試文字</p>
 				</transition>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			new Vue({
@@ -6342,7 +6392,7 @@
 					show: true
 				}
 			})
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//CSS
 			.my-enter-active, .my-leave-active{
@@ -6351,7 +6401,7 @@
 			.my-enter, .my-leave-to{
 				opacity: 0;
 			}
-		</pre></code>
+		</code></pre>
 		<p>這個範例就展示了當<code>插入/移除</code>在transition元件中的元素時，Vue就會針對在的動作<code>添加/刪除</code>對應的class名稱，例如在顯示出&lt;p&gt;元素的過程時會加上my-enter-active及my-enter-to的class名稱。</p>
 		<p>範例中的CSS其實省略了許多設置，完整Vue的過渡設置如下：</p>
 		<pre><code>
@@ -6373,13 +6423,13 @@
 			.my-leave-to{
 				opacity: 0;
 			}
-		</pre></code>
+		</code></pre>
 		<p>這就代表我們可以為過渡的每個階段計計不同的樣式，例如在離開時調整transition的時間，以及timing-function：</p>
 		<pre><code>
 			.my-leave-active{
 				transition: opacity 2s cubic-bezier(0, 1, 1, 0);
 			}
-		</pre></code>
+		</code></pre>
 		<p>由於過渡完成後會將過渡的class名稱移除掉，如果希望&lt;p&gt;在my-enter-to移除後維持某種樣式（例如opacity:.5），就要在CSS中預先定義&lt;p&gt;的樣式：</p>
 		<pre><code>
 			p{
@@ -6389,7 +6439,7 @@
 			.my-enter-to{
 				opacity: .5;
 			}
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -6445,7 +6495,7 @@
 					<p v-if="show">測試文字</p>
 				</transition>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -6454,7 +6504,7 @@
 					show: true
 				}
 			})
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//CSS
 			p {
@@ -6477,7 +6527,7 @@
 					transform: scale(1);
 				}
 			}
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -6492,7 +6542,7 @@
 				</ul>
 				<p v-else>Sorry, no items found.</p>
 			</transition>
-		</pre></code>
+		</code></pre>
 		<p>上例的操作沒有什麼問題，但是有一點需要注意：</p>
 		<p>當有相同元素名的元素切換時，需要通過key attribute設置唯一的值來標記以讓Vue區分它們，否則Vue為了效率只會替換相同元素內部的內容。即使在技術上沒有必要，給在transition元件中的多個元素設置key才是一個正確的做法：</p>
 		<pre><code>
@@ -6504,7 +6554,7 @@
 					Edit
 				</button>
 			</transition>
-		</pre></code>
+		</code></pre>
 		<p>在某些情況下，也可以給同一個元素的key attribute設定不同的狀態來代替v-if和v-else，上面的例子可以重寫為：</p>
 		<pre><code>
 			<transition>
@@ -6512,7 +6562,7 @@
 					{{ isEditing ? 'Save' : 'Edit' }}
 				</button>
 			</transition>
-		</pre></code>
+		</code></pre>
 		<p>使用多個v-if的多個元素的過渡可以重寫為綁定了動態property的單個元素過渡。例如：</p>
 		<pre><code>
 			<transition>
@@ -6526,7 +6576,7 @@
 					Cancel
 				</button>
 			</transition>			
-		</pre></code>
+		</code></pre>
 		<p>也可以重寫為：</p>
 		<pre><code>
 			//HTML
@@ -6535,7 +6585,7 @@
 					{{ buttonMessage }}
 				</button>
 			</transition>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			...
@@ -6548,7 +6598,7 @@
 					}
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<br>
 		<p>以上即為多個元素過渡常見的用法，但實際製作時會發現兩個元素在切換的過程中位置不斷的被推擠，我們試著點擊下例的按鈕：</p>
 		<div class="example">
@@ -6591,7 +6641,7 @@
 				</transition>
 				<hr>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -6600,7 +6650,7 @@
 					show: true
 				}
 			})
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//CSS
 			h1, p {
@@ -6613,7 +6663,7 @@
 			.toggle-enter, .toggle-leave-to{
 				opacity: 0;
 			}
-		</pre></code>
+		</code></pre>
 		<p>上面的現象是因為transition元件預設進入和離開的過渡是同時發生的，Vue另外提供了mode屬性來解決這個問題，讓當前元素和新元素分開過渡：</p>
 		<div class="example">
 			<div id="app86" class="app86">
@@ -6649,7 +6699,7 @@
 			<transition name="toggle" mode="out-in">
 				...
 			</transition>
-		</pre></code>
+		</code></pre>
 		<p>加上mode屬性並設定值為out-in，現在切換時就正常了；說明一下mode屬性可接受的值：</p>
 		<ul>
 			<li>in-out：新元素先進行過渡，完成之後當前元素過渡離開。</li>
@@ -6705,7 +6755,7 @@
 					<component v-bind:is="comp"></component>
 				</transition>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -6722,7 +6772,7 @@
 					comp: 'compA'
 				}
 			})
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//CSS
 			.toggle-comp-enter-active, .toggle-comp-leave-active{
@@ -6731,7 +6781,7 @@
 			.toggle-comp-enter, .toggle-comp-leave-to{
 				opacity: 0;
 			}
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -6781,7 +6831,7 @@
 					<p v-if="show">測試文字</p>
 				</transition>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -6790,7 +6840,7 @@
 					show: true
 				}
 			})
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//CSS
 			.v-enter-active, .v-leave-active{
@@ -6800,14 +6850,14 @@
 				opacity: 0;
 				color: lime;
 			}
-		</pre></code>
+		</code></pre>
 		<p>上例當&lt;p&gt;元素消失時他的class名稱就會是："v-leave-active custom-leave-to"。</p>
 		<p>這樣的作法很適合運用在有使用第三方CSS動畫的library，直接把library的class名稱直接代入，例如使用Animate.css時就可以做以下的設定：</p>
 		<pre><code>
 			<transition enter-active-class="animated tada" leave-active-class="animated bounceOutRight">
 				...
 			</transition>
-		</pre></code>
+		</code></pre>
 	</section>
 
 
@@ -6819,7 +6869,7 @@
 			<transition v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:after-enter="afterEnter" v-on:enter-cancelled="enterCancelled" v-on:before-leave="beforeLeave" v-on:leave="leave" v-on:after-leave="afterLeave" v-on:leave-cancelled="leaveCancelled">
 				<!-- ... -->
 			</transition>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			// ...
 			methods: {
@@ -6864,7 +6914,7 @@
 					// ...
 				}
 			}
-		</pre></code>
+		</code></pre>
 		<p>這些鉤子函數可以結合CSStransitions/animations使用，也可以單獨使用。</p>
 		<p>注意：當只用Javascript過渡的時候，在enter和leave中必須使用done進行回調。否則，它們將被同步調用，過渡會立即完成。</p>
 		<p>注意：推薦對於僅使用Javascript過渡的元素添加v-bind:css="false"，Vue會跳過CSS的檢測。這也可以避免過渡過程中CSS的影響。</p>
@@ -6918,7 +6968,7 @@
 					<p v-if="show">Demo</p>
 				</transition>
 			</div>
-		</pre></code>
+		</code></pre>
 		<pre><code>
 			//Javascript
 			var vm = new Vue({
@@ -6947,7 +6997,7 @@
 					}
 				}
 			})
-		</pre></code>
+		</code></pre>
 	</section>
 
 
