@@ -108,7 +108,7 @@
 	<h1 id="basic">簡介</h1>
 	<section>
 		<span id="basic_hello_world" class="anchor-offset"></span>
-		<h2>Hello World!</h2>
+		<h2>Hello World!<span class="instance">簡介</span></h2>
 		<p>Vue的核心是一個採用模板語法（template）來聲明式地將數據渲染進DOM的系統，現在直接來看一個最基本的範例：</p>
 		<pre><code>
 			//HTML
@@ -131,7 +131,7 @@
 
 	<section>
 		<span id="basic_reactivity" class="anchor-offset"></span>
-		<h2>Vue的數據響應系統</h2>
+		<h2>Vue的數據響應系統<span class="instance">簡介</span></h2>
 		<p>每個Vue應用都是通過建立一個新的Vue實例開始的；當一個Vue實例被建立時，它將「data」物件中的所有的屬性加入到Vue的響應式系統中。當這些屬性的值發生改變時，視圖或是資料將會產生「響應」，立即更新匹配為新的值。</p>
 		<p>我們可以在console中觀察此範例的資訊，例如輸入<code>vm.a == data.a</code>會得到<code>true</code>，代表data物件中的資料和vm實例中的data是完全相同的。</p>
 		<p>再來我們輸入<code>vm.a = 2</code>試著改變vm實例的值，再輸入<code>data.a</code>，發現傳回<code>2</code>，代表這些資料都已存在Vue的響應式系統中了。</p>
@@ -160,7 +160,7 @@
 
 	<section>
 		<span id="basic_bind_data" class="anchor-offset"></span>
-		<h2>綁定數據</h2>
+		<h2>綁定數據<span class="instance">簡介</span></h2>
 		<p>首先在HTML中使用兩個大括號來標記要綁定資料的物件key值，再來在JavaScript中建構一個Vue實例，並且在其el屬性中指定這個Vue實例要連繫的DOM id；data屬性指派了一個物件，裡面包含了我們要綁定到HTML的資料，在這裡的message值為Hello world!，該值會被綁到 {{ }} 中的message。</p>
 		<p>先前提到Vue實例中的資料是響應式的，也就是說是動態綁定的，我們在console中輸入<code>vm.content = 'changed text!'</code>就會發現網頁中的字串也跟著改變了。</p>
 		<pre><code>
@@ -183,7 +183,7 @@
 
 	<section>
 		<span id="basic_bind_property" class="anchor-offset"></span>
-		<h2>綁定屬性</h2>
+		<h2>綁定屬性<span class="instance">簡介</span></h2>
 		<p>除了綁定數據外，Vue也可以使用<code>v-bind</code>直接綁定DOM的屬性，原理和上方綁定數據一樣，首先在HTML中使用<code>v-bind</code>去設定該DOM的屬性，這裡是綁定<code>title</code>屬性。
 		<div class="example">
 			<div id="app1" v-bind:title="newDate">
@@ -219,7 +219,7 @@
 
 	<section>
 		<span id="basic_bind_boolean" class="anchor-offset"></span>
-		<h2>綁定屬性為布林值</h2>
+		<h2>綁定屬性為布林值<span class="instance">簡介</span></h2>
 		<p><code>disabled</code>、<code>checked</code>等的值可以用布林值來指定：</p>
 		<div class="example">
 			<div id="app2">
@@ -278,7 +278,7 @@
 
 	<section>
 		<span id="basic_bind_html" class="anchor-offset"></span>
-		<h2>綁定含html的資料</h2>
+		<h2>綁定含html的資料<span class="instance">簡介</span></h2>
 		<p>雙大括號會將數據解釋為普通內文，而非HTML代碼。為了輸出真正的HTML，你需要使用<code>v-html</code>指令：</p>
 		<p>網站內動態渲染的任意HTML可能會非常危險，因為它很容易導致XSS攻擊。請只對可信內容使用HTML插值，絕不要對用戶提供的內容使用插值。</p>
 		<div class="example">
@@ -316,7 +316,7 @@
 
 	<section>
 		<span id="basic_javascript_expression" class="anchor-offset"></span>
-		<h2>使用JavaScript表達式</h2>
+		<h2>使用JavaScript表達式<span class="instance">簡介</span></h2>
 		<p>迄今為止，在我們的模板中，我們一直都只綁定簡單的屬性鍵值。但實際上，對於所有的數據綁定，Vue都提供了完整JavaScript表達式的操作方式。</p>
 		<p>PS. 表達式跟陳述式不一樣喔，千萬不要認為可以在表達式裡宣告變數</p>
 		<div class="example">
@@ -381,7 +381,7 @@
 
 	<section>
 		<span id="basic_v_once" class="anchor-offset"></span>
-		<h2>執行一次性的插值</h2>
+		<h2>執行一次性的插值<span class="instance">簡介</span></h2>
 		<p>透過使用<code>v-once</code>指令，你也能執行一次性地插值，當數據改變時，插值處的內容不會更新（但請留心這會影響到該節點上的其它數據綁定），如下例<code>mounted</code>時改變了<code>boundVal</code>的值是不會有作用的，在console裡下<code>vm.boundVal = '再改一次！';</code>也不會改變一開始插入HTML中的值：</p>
 		<div class="example">
 			<div id="app5" :title="boundVal" v-once>
@@ -424,7 +424,7 @@
 
 	<section>
 		<span id="basic_bind_event" class="anchor-offset"></span>
-		<h2>綁定事件</h2>
+		<h2>綁定事件<span class="instance">簡介</span></h2>
 		<p>數據和屬性都有了，絕對少不了事件，Vue提供了<code>v-on</code>來綁定DOM的事件，我們直接修改上面「綁定屬性」的範例，讓他變成透過<code>click</code>事件顯示時間。</p>
 		<div class="example">
 			<div id="app6" v-on:click="getNowTime">
@@ -520,7 +520,7 @@
 
 	<section>
 		<span id="basic_event_target" class="anchor-offset"></span>
-		<h2>取得event.target</h2>
+		<h2>取得event.target<span class="instance">簡介</span></h2>
 		<p>Vue處理事件物件有很多眉角，以下例的<code>getTarget</code>來說：</p>
 		<ul class="spaced">
 			<li>如果<code>getTarget</code>沒有帶任何參數可以直接取到event物件（指派function名稱不帶括弧，例&lt;div @click="fn"&gt;）</li>
@@ -571,7 +571,7 @@
 
 	<section>
 		<span id="condition_v_if" class="anchor-offset"></span>
-		<h2>使用Vue的條件判斷式</h2>
+		<h2>使用Vue的條件判斷式<span class="instance">條件判斷</span></h2>
 		<p>在HTML中使用<code>v-if</code>指令，它將根據表達式<code>visibility</code>值的真偽來宣染是否顯示<code>&lt;p&gt;</code>元素。</p>
 		<div class="example">
 			<div id="app8">
@@ -606,7 +606,7 @@
 
 	<section>
 		<span id="condition_v_else_if" class="anchor-offset"></span>
-		<h2>v-else-if和v-else</h2>
+		<h2>v-else-if和v-else<span class="instance">條件判斷</span></h2>
 		<p>我們可以透過程式般的方式去控制目前要顯示的DOM，要注意的是<code>v-else-if</code>和<code>v-else</code>都是跟著<code>v-if</code>一起運作的，如果在他們上面沒有<code>v-if</code>，<code>v-else</code>是不會有任何作用的。</p>
 		<div class="example">
 			<div id="app9">
@@ -645,8 +645,8 @@
 
 	<section>
 		<span id="condition_key" class="anchor-offset"></span>
-		<h2>使用key屬性重新繪製DOM</h2>
-		<p>這邊要長篇大論了；Vue的條件判斷為了更有效率的做切換DOM的動作，如果是目前已經在畫面上的DOM，就不會把他移除再建立一個，而是直接改變兩個DOM不同的地方而已，官方有舉一個例子說明這件事情：</p>
+		<h2>使用key屬性重新繪製DOM<span class="instance">條件判斷</span></h2>
+		<p>Vue的條件判斷為了更有效率的做切換DOM的動作，如果是目前已經在畫面上的DOM，就不會把他移除再建立一個，而是直接改變兩個DOM不同的地方而已，官方有舉一個例子說明這件事情：</p>
 		<p>當使用者按下「切換輸入」的按鈕時會改變<code>state</code>的值，同時input的<code>placeholder</code>屬性值也會變，但是這並不代表他是把input換掉了，這是因為Vue.js為了提高效能只會重新繪製不同的地方，這種做法類似於<code>replace()</code>，可以試著把input填入值，在點擊按鈕切換input會發現我們輸入的value不會消失，他只替換掉<code>placeholder</code>屬性值。</p>
 		<p>這樣的做法有好有壞！如果是想要完全獨立兩個input反而會有點麻煩。</p>
 		<div class="example">
@@ -788,7 +788,7 @@
 
 	<section>
 		<span id="loop_v_for" class="anchor-offset"></span>
-		<h2>v-for的基本使用方法</h2>
+		<h2>v-for的基本使用方法<span class="instance">迴圈</span></h2>
 		<p>我們可以用<code>v-for</code>指令基於一個陣列來渲染一個列表，如下例：</p>
 		<div class="example">
 			<div id="app13">
@@ -923,7 +923,7 @@
 
 	<section>
 		<span id="loop_modify" class="anchor-offset"></span>
-		<h2>修改陣列的內容</h2>
+		<h2>修改陣列的內容<span class="instance">迴圈</span></h2>
 		<p>一般在測試更新data資料時我們可以在console裡輸入<code>vm.someData = newData;</code>指令，但在更新陣列項目的內容時千萬不要寫成<code>vm.someAry[0] = newValue;</code>，這種做法是無法更新畫面的，因為Vue的底層機制就是這樣設計的，我們無法直接改變data中的陣列某個ietm的值或是直接修改陣列的長度來更新畫面；以下介紹如何正確修改陣列資料的方式。</p>
 		<p>Vue將原本Javascript修改陣列的幾個方法做了包裝，使用這些方法也將會觸發畫面更新。這些被包裝過的方法包括：</p>
 		<ul>
@@ -1053,7 +1053,7 @@
 
 	<section>
 		<span id="loop_replace" class="anchor-offset"></span>
-		<h2>替換整個陣列</h2>
+		<h2>替換整個陣列<span class="instance">迴圈</span></h2>
 		<p>修改陣列內容可以使用許多直接更新被綁定的陣列的方法（如<code>push()</code>, <code>reverse()</code>等…），但也有一些處理陣列的方法不會改變原始的陣列而是傳回一個新的陣列，這些方法如下：</p>
 		<ul>
 			<li><code>filter()</code></li>
@@ -1167,8 +1167,7 @@
 
 	<section>
 		<span id="loop_dom_modification" class="anchor-offset"></span>
-		<h2>DOM的異動</h2>
-		<p>ㄟ？這個不是跟上面「使用key屬性重新繪製DOM」講差不多的事？</p>
+		<h2>DOM的異動<span class="instance">迴圈</span></h2>
 		<p>Vue的設計在預設情況下，如果數據項的順序被改變，Vue將不會移動DOM元素來匹配數據項的順序，而是就地更新每個元素，如此可以獲得最好的效能，例如下例將反轉陣列內容的順序，我們可以在開發工具中觀察，只有<code>placeholder</code>的值被更新：</p>
 		<div class="example">
 			<div id="app20">
@@ -1277,7 +1276,7 @@
 				}
 			});
 		</code></pre>
-		<p>上例使用<code>key</code>屬性成功更新了DOM，但發現個問題，如果input中有輸入資料再按反轉按鈕資料就都不見了，也找不到相關說明，後來用<code>v-model</code>來修改這個範例可以達到預期效果：</p>
+		<p>這個段落本來是在講以迴圈產生DOM資料的更新，但範例使用input來說明結果延申出新的問題；上例使用<code>key</code>屬性成功更新了DOM，但如果input中有輸入資料再按反轉按鈕資料就都不見了，也找不到相關說明，後來用<code>v-model</code>來修改這個範例可以達到預期效果：</p>
 		<div class="example">
 			<div id="app22" class="vue-result">
 				<div v-for="v of hints">
@@ -1335,7 +1334,7 @@
 
 	<section>
 		<span id="loop_avoid_v_if_with_v_for" class="anchor-offset"></span>
-		<h2>避免v-if和v-for用在一起</h2>
+		<h2>避免v-if和v-for用在一起<span class="instance">迴圈</span></h2>
 		<p>基於宣染效能的考量，永遠不要把<code>v-if</code>和<code>v-for</code>同時用在同一個元素上，一般我們在兩種常見的情況下會想要這樣做：</p>
 		<ol>
 			<li>為了過濾一個列表中的項目（比如<code>v-for="user in users" v-if="user.isActive"</code>）。在這種情形下，請將<code>users</code>替換為一個計算屬性（比如<code>activeUsers</code>），讓其返回過濾後的列表。</li>
@@ -1489,7 +1488,7 @@
 
 	<section>
 		<span id="loop_with_component" class="anchor-offset"></span>
-		<h2>在元件上使用 v-for</h2>
+		<h2>在元件上使用 v-for<span class="instance">迴圈</span></h2>
 		<p>在自定義元件上，你可以像在任何普通元素上一樣使用<code>v-for</code>，要記得當在元件上使用<code>v-for</code>時，<code>key</code>屬性是必須的。</p>
 		<pre><code>
 			<my-component v-for="item in items" :key="item.id"></my-component>
@@ -1599,7 +1598,7 @@
 
 	<section>
 		<span id="v_model_basic" class="anchor-offset"></span>
-		<h2>v-model基本介紹</h2>
+		<h2>v-model基本介紹<span class="instance">表單元素數據綁定</span></h2>
 		<p>所謂表單數據綁定指的就是使用<code>v-model</code>屬性將表單元素（input, textarea, select）的值和<code>data</code>內的資料做到雙向綁定，它負責監聽用戶的輸入事件以更新數據；事實上<code>v-model</code>等於<code>v-bind</code>+<code>v-on</code>的語法糖，下面兩種寫法可以達到一樣的結果：</p>
 		<pre><code>
 			<input v-model="message">
@@ -1620,7 +1619,7 @@
 
 	<section>
 		<span id="v_model_input" class="anchor-offset"></span>
-		<h2>表單元素使用v-model</h2>
+		<h2>表單元素使用v-model<span class="instance">表單元素數據綁定</span></h2>
 		<h3>input[type=text]：</h3>
 		<p>綁定Instance的data message，在輸入框打字的同時，顯示的文字就會與輸入框的值同步：</p>
 		<div class="example">
@@ -1875,7 +1874,7 @@
 
 	<section>
 		<span id="v_model_bind_balue" class="anchor-offset"></span>
-		<h2>綁定值</h2>
+		<h2>綁定值<span class="instance">表單元素數據綁定</span></h2>
 		<p>有時我們可能想把值綁定到Vue實例的一個動態屬性上，這時可以用<code>v-bind</code>實現，並且這個屬性的值可以不是字符串。</p>
 		<p>範例1，本來checkbox綁定的toggle的值只有true或是false兩種選項，但我們可以透過<code>true-value</code>、<code>false-value</code>來賦與toggle其它的值：</p>
 		<div class="example">
@@ -1999,7 +1998,7 @@
 
 	<section>
 		<span id="v_model_modifier" class="anchor-offset"></span>
-		<h2>修飾符</h2>
+		<h2>修飾符<span class="instance">表單元素數據綁定</span></h2>
 		<p><code>v-model</code>除了執行雙向綁定，還提供了額外的修飾符（modifiers）達到更多的自訂效果：</p>
 		<h3>v-model.lazy</h3>
 		<p>在默認情況下，<code>v-model</code>在每次<code>input</code>事件觸發後將輸入框的值與數據進行同步，添加<code>lazy</code>修飾符將改為<code>change</code>事件之後進行同步：</p>
@@ -2112,7 +2111,7 @@
 
 	<section>
 		<span id="v_model_component" class="anchor-offset"></span>
-		<h2>在元件上使用v-model</h2>
+		<h2>在元件上使用v-model<span class="instance">表單元素數據綁定</span></h2>
 		<p>HTML原生的輸入元素類型並不總能滿足需求。幸好，Vue的元件系統允許你創建具有完全自定義行為且可複用的輸入元件。這些輸入元件甚至可以和<code>v-model</code>一起使用！</p>
 		<p>一個元件上的<code>v-model</code>默認會利用名為<code>value</code>的<code>prop</code>和名為<code>input</code>的事件，但是像單選框、複選框等類型的輸入控件可能會將<code>value</code>attribute用於不同的目的。<code>model</code>選項可以用來避免這樣的衝突：</p>
 		<div class="example">
@@ -2173,7 +2172,7 @@
 
 	<section>
 		<span id="computed_basic" class="anchor-offset"></span>
-		<h2>computed基本介紹</h2>
+		<h2>computed基本介紹<span class="instance">計算屬性</span></h2>
 		<p>模板內的<code>表達式</code>非常便利，但是設計它們的初衷是用於簡單運算的。在模板中放入太多的邏輯會讓模板過重且難以維護。例如：</p>
 		<div class="example">
 			<div id="app38">
@@ -2251,7 +2250,7 @@
 
 	<section>
 		<span id="computed_cache" class="anchor-offset"></span>
-		<h2>觀察computed的暫存特性</h2>
+		<h2>觀察computed的暫存特性<span class="instance">計算屬性</span></h2>
 		<p>其實我們可以通過在表達式中調用方法來達到同樣的效果：</p>
 		<div class="example">
 			<div id="app42">
@@ -2307,7 +2306,7 @@
 
 	<section>
 		<span id="computed_setter" class="anchor-offset"></span>
-		<h2>computed的getter與setter</h2>
+		<h2>computed的getter與setter<span class="instance">計算屬性</span></h2>
 		<p>資料來源：https://pjchender.blogspot.com/2017/05/vue-computed-getter-setter.html</p>
 		<p>在Vue中，<code>computed</code>的屬性可以被視為像是<code>data</code>，可以讀取和設值，因此在computed中可以分成<code>getter</code>（讀取）和<code>setter</code>（設值），在沒有寫<code>setter</code>的情況下，computed預設只有<code>getter</code>，也就是只能讀取，不能改變設值。</p>
 		<p>雖然說computed內的屬性可以被視為像是data，但在使用上，一般還是會讓<code>computed</code>類似唯讀的狀態，也就是去處理<c<code>data</code>後把它吐出來使用。</p>
@@ -2495,7 +2494,7 @@
 
 	<section>
 		<span id="watch_basic" class="anchor-offset"></span>
-		<h2>watch基本介紹</h2>
+		<h2>watch基本介紹<span class="instance">監聽器</span></h2>
 		<p><code>watch</code>可以讓我們監聽某個值，當這個值變動的時候，就更新畫面或去做某些事情，直接看範例：</p>
 		<div class="example">
 			<div id="app43">
@@ -2558,7 +2557,7 @@
 
 	<section>
 		<span id="watch_officail_example" class="anchor-offset"></span>
-		<h2>官網範例</h2>
+		<h2>官網範例<span class="instance">監聽器</span></h2>
 		<p>Vue的官網提供了一個完整又實用的範例，範例中的<code>input</code>使用<code>v-model</code>和<code>question</code>的值做雙向綁定，當使用者輸入問題時會執行<code>watch</code>的<code>question</code>函式，並執行<code>getAnswer</code>，再送出非同步請求去取得問題的答案。</p>
 		<p>另外此例引用了axios和lodash這兩個第三方工具，官網說目地是讓我們更了解Vue和其它工具可以做很好的整合。</p>
 		<div class="example">
@@ -2660,7 +2659,7 @@
 
 	<section>
 		<span id="watch_immediate" class="anchor-offset"></span>
-		<h2>immediate屬性</h2>
+		<h2>immediate屬性<span class="instance">監聽器</span></h2>
 		<p><code>watch</code>在最初綁定時是不會執行的，要等到被監視的值改變時才會執行計算；如果我們想要一開始綁定時就執行的話就要使用<code>immediate</code>屬性並將值設定為<code>true</code>，使用時必需撘配一個<code>handler</code>（其實預設的watch方法就是使用這個handler），下例就在<code>inputNumber</code>被綁定的同就執行<code>watch</code>的函式了：</p>
 		<div class="example">
 			<div id="app45">
@@ -2713,7 +2712,7 @@
 
 	<section>
 		<span id="watch_deep" class="anchor-offset"></span>
-		<h2>deep屬性</h2>
+		<h2>deep屬性<span class="instance">監聽器</span></h2>
 		<p>資料來源：杭州程序員張張</p>
 		<p>watch裡面還有一個<code>deep</code>屬性，默認值是<code>false</code>，代表是否深度監聽，比如我們data裡有一個<code>obj</code>屬性，當我們在在輸入框中輸入數據試圖改變<code>obj.a</code>的值時<code>watch</code>是不會有反應的（沒有執行console.log）：</p>
 		<div class="example">
@@ -2825,7 +2824,7 @@
 
 	<section>
 		<span id="class_v_bind" class="anchor-offset"></span>
-		<h2>v-bind綁定class的值</h2>
+		<h2>v-bind綁定class的值<span class="instance">class</span></h2>
 		<p><code>class</code>和一般屬性一樣可以透過<code>v-bind</code>使用<code>模板語法</code>來綁定<code>data</code>的值或是在模板內使用<code>表達式</code>；下例就綁定了<code>data</code>的<code>activeClass</code>，另外可以看到<code>v-bind:class</code>和原本的<code>class</code>屬性並不衝突：</p>
 		<div class="example">
 			<div id="app48">
@@ -2866,7 +2865,7 @@
 
 	<section>
 		<span id="class_obj" class="anchor-offset"></span>
-		<h2>物件語法</h2>
+		<h2>物件語法<span class="instance">class</span></h2>
 		<p>我們可以傳給<code>v-bind:class</code>一個物件來動態地切換class，如果物件內<code>key</code>的值為<code>true</code>則會以它的<code>key</code>做為class名稱顯示出來：</p>
 		<div class="example">
 			<div id="app49">
@@ -2922,7 +2921,7 @@
 
 	<section>
 		<span id="class_array" class="anchor-offset"></span>
-		<h2>陣列語法</h2>
+		<h2>陣列語法<span class="instance">class</span></h2>
 		<p>我們可以把一個陣列傳給v-bind:class來以顯示每一個class名稱：</p>
 		<div class="example">
 			<div id="app50">
@@ -2973,7 +2972,7 @@
 
 	<section>
 		<span id="class_computed" class="anchor-offset"></span>
-		<h2>綁定計算屬性</h2>
+		<h2>綁定計算屬性<span class="instance">class</span></h2>
 		<p>在前面的範例可以看到我們可以在<code>v-bind:class</code>中使用表達式加入各種程式來做判斷，例如：</p>
 		<pre><code>
 			:class="[condition1 != 0 && 'on', condition2 || condition3 ? data1 : data2, {data3: condition4}]"
@@ -3038,7 +3037,7 @@
 
 	<section>
 		<span id="class_component" class="anchor-offset"></span>
-		<h2>在元件使用class</h2>
+		<h2>在元件使用class<span class="instance">class</span></h2>
 		<p>當在一個自定義元件上使用class時，這些class將被添加到該元件的根元素上面。這個元素上已經存在的class不會被覆蓋，例如，如果我們宣告了這個元件：</p>
 		<pre><code>
 			Vue.component('my-component', {
@@ -3069,7 +3068,7 @@
 
 	<section>
 		<span id="style_basic" class="anchor-offset"></span>
-		<h2>style基本介紹</h2>
+		<h2>style基本介紹<span class="instance">綁定行內樣式</span></h2>
 		<p><code>v-bind:style</code>讓我們可以使用模版語法來設定行內樣式，寫法和jQuery十分相似，都是指派一個物件，屬性的寫法就和Javascript的規範一模一樣：屬性名稱有「-」的話必須使用駝峰式寫法或用引號包起來：</p>
 		<div class="example">
 			<div id="app52">
@@ -3119,7 +3118,7 @@
 
 	<section>
 		<span id="style_computed" class="anchor-offset"></span>
-		<h2>綁定計算屬性</h2>
+		<h2>綁定計算屬性<span class="instance">綁定行內樣式</span></h2>
 		<p>如果有複雜、冗長的判斷還是交給<code>計算屬性</code>吧：</p>
 		<div class="example">
 			<div id="app53">
@@ -3172,7 +3171,7 @@
 
 	<section>
 		<span id="style_array" class="anchor-offset"></span>
-		<h2>使用陣列來顯示多個樣式</h2>
+		<h2>使用陣列來顯示多個樣式<span class="instance">綁定行內樣式</span></h2>
 		<p><code>v-bind:style</code>的陣列語法可以將多個樣式物件應用到同一個元素上：</p>
 		<div class="example">
 			<div id="app54">
@@ -3221,7 +3220,7 @@
 
 	<section>
 		<span id="style_hack" class="anchor-offset"></span>
-		<h2>瀏覽器前綴詞</h2>
+		<h2>瀏覽器前綴詞<span class="instance">綁定行內樣式</span></h2>
 		<p>當<code>v-bind:style</code>使用需要添加瀏覽器引擎前綴的CSS property時，如<code>transform</code>，Vue.js 會自動偵測並添加相應的前綴。</p>
 		<p>另外從Vue 2.3.0起我們可以為style綁定中的property提供一個包含多個值的陣列，常用於提供多個帶前綴的值，例如：</p>
 		<pre><code>
@@ -3236,7 +3235,7 @@
 
 	<section>
 		<span id="modifier_basic" class="anchor-offset"></span>
-		<h2>修飾符基本介紹</h2>
+		<h2>修飾符基本介紹<span class="instance">修飾符</span></h2>
 		<p>在Vue.js中，修飾符（modifier）以半形句號「.」後綴在指令上，用來表示以什麼方式來觸發事件，下方模版內的<code>.once</code>就是一個修飾符，代表了所綁定的function只會被執行一次：</p>
 		<pre><code>
 			<div @click.once="someFN"></div>
@@ -3253,7 +3252,7 @@
 
 	<section>
 		<span id="modifier_event" class="anchor-offset"></span>
-		<h2>事件修飾符</h2>
+		<h2>事件修飾符<span class="instance">修飾符</span></h2>
 		<p>在事件處理程序中調用<code>event.preventDefault()</code>或<code>event.stopPropagation()</code>是非常常見的需求。儘管我們可以在方法中輕鬆實現這點，但更好的方式是：方法只有純粹的數據邏輯，而不是去處理DOM事件細節。</p>
 		<p>為了解決這個問題，Vue.js為<code>v-on</code>提供了事件修飾符。之前提過，修飾符是由點開頭的指令後綴來表示的。</p>
 		<h3>.stop修飾符</h3>
@@ -3531,7 +3530,7 @@
 
 	<section>
 		<span id="modifier_key" class="anchor-offset"></span>
-		<h2>按鍵修飾符</h2>
+		<h2>按鍵修飾符<span class="instance">修飾符</span></h2>
 		<p>在監聽鍵盤事件時，我們可以透過<code>v-on</code>在監聽鍵盤事件時添加按鍵修飾符，如此便可以設定我們指定的按鍵，如下例當按下<code>enter</code>時執行<code>submit</code> function：</p>
 		<div class="example">
 			<div id="app60">
@@ -3614,7 +3613,7 @@
 
 	<section>
 		<span id="modifier_system" class="anchor-offset"></span>
-		<h2>系統修飾符</h2>
+		<h2>系統修飾符<span class="instance">修飾符</span></h2>
 		<p>可以用如下修飾符來實現僅在按下相應按鍵時才觸發鼠標或鍵盤事件的監聽器：</p>
 		<ul>
 			<li>.ctrl</li>
@@ -3691,7 +3690,7 @@
 
 	<section>
 		<span id="component_basic" class="anchor-offset"></span>
-		<h2>元件基本介紹</h2>
+		<h2>元件基本介紹<span class="instance">元件</span></h2>
 		<p>元件是可以在new Vue創建的實例中當作自訂的元素來使用，如下例的<code>button-counter</code>元件：</p>
 		<div class="example">
 			<div id="app62">
@@ -3754,7 +3753,7 @@
 
 	<section>
 		<span id="component_reuse" class="anchor-offset"></span>
-		<h2>重複使用同一個元件</h2>
+		<h2>重複使用同一個元件<span class="instance">元件</span></h2>
 		<p>我們定義的元件是可以被重覆使用的，例如基本介紹裡面的範例就可以這樣重覆使用：</p>
 		<div class="example">
 			<div id="app63">
@@ -3795,7 +3794,7 @@
 
 	<section>
 		<span id="component_props" class="anchor-offset"></span>
-		<h2>透過props向元件傳遞數據</h2>
+		<h2>透過props向元件傳遞數據<span class="instance">元件</span></h2>
 		<p>在介紹<code>props</code>之前，先看這個範例，範例中有宣告兩個非常相似的元件，但他們明明就差不多卻因為某些地方不同，就要再另外新建立一個元件真的有點煩人：</p>
 		<div class="example">
 			<div id="app64">
@@ -3925,7 +3924,7 @@
 
 	<section>
 		<span id="component_loop" class="anchor-offset"></span>
-		<h2>用迴圈來宣染元件</h2>
+		<h2>用迴圈來宣染元件<span class="instance">元件</span></h2>
 		<p>很多時候我們會希望以陣列的內容來呈現畫面，如果我們<code>data</code>中有一個陣列資料，我們便可以使用這個陣列來宣染每個元件，就像一般在模版語法以迴圈方式來宣染列表：</p>
 		<div class="example">
 			<div id="app66">
@@ -4014,7 +4013,7 @@
 
 	<section>
 		<span id="component_listen_child_comp" class="anchor-offset"></span>
-		<h2>監聽元件內的事件</h2>
+		<h2>監聽元件內的事件<span class="instance">元件</span></h2>
 		<p>我們在設計元件時，它的一些功能可能需要和父級元件進行溝通（vue model視為父層元件）。例如我們的元件內想要有一個機制來放大元件的文字尺寸，而數據來源必須改變父層元件的資料，這時候就可以透過emit()方法派送事件讓父層元件做監聽的動作就可以達到這樣的需求，如下例：</p>
 		<div class="example">
 			<div id="app67">
@@ -4134,7 +4133,7 @@
 
 	<section>
 		<span id="component_v_model" class="anchor-offset"></span>
-		<h2>在元件上使用v-model</h2>
+		<h2>在元件上使用v-model<span class="instance">元件</span></h2>
 		<p>在「表單元素數據綁定」段落中也說明了「在元件上使用v-model」的方法，這邊就以元件的角度來解釋其基本原理，先看範例：</p>
 		<div class="example">
 			<div id="app69">
@@ -4197,7 +4196,7 @@
 
 	<section>
 		<span id="component_slot" class="anchor-offset"></span>
-		<h2>透過插槽分配内容</h2>
+		<h2>透過插槽分配内容<span class="instance">元件</span></h2>
 		<p>如果我們要向元件傳遞內容，除了使用<code>props</code>，Vue還另外提供了一個<code>&lt;slot&gt;</code>接口（稱為插槽），如下例的「<code>Something bad happened.</code>」即會被插入元件內<code>template</code>的<code>slot</code>然後被宣染出來：</p>
 		<div class="example">
 			<div id="app70">
@@ -4323,7 +4322,7 @@
 
 	<section>
 		<span id="component_is" class="anchor-offset"></span>
-		<h2>動態元件</h2>
+		<h2>動態元件<span class="instance">元件</span></h2>
 		<p>有的時候我們會想以動態的方式切換不同的元件，例如點擊頁籤時更換頁面內容，這時可以使用Vue的<code>&lt;component&gt;</code>元素，再搭配一個特殊的<code>is</code>屬性來實現，如下例當點擊頁籤時更新<code>is</code>屬性的值：</p>
 		<div class="example">
 			<style>.active{color:blue;}</style>
@@ -4403,7 +4402,7 @@
 
 	<section>
 		<span id="component_local" class="anchor-offset"></span>
-		<h2>區域元件</h2>
+		<h2>區域元件<span class="instance">元件</span></h2>
 		<p>到目前為止，我們都是用<code>Vue.component</code>來建立元件：</p>
 		<pre><code>
 			Vue.component('my-component-name', {
@@ -4559,7 +4558,7 @@
 
 	<section>
 		<span id="lifecycle_basic" class="anchor-offset"></span>
-		<h2>元件的生命週期與更新機制</h2>
+		<h2>元件的生命週期與更新機制<span class="instance">生命周期</span></h2>
 		<p>資料來源：https://book.vue.tw/CH1/1-7-lifecycle.html</p>
 		<p>一個Vue.js的網頁應用程式是由各種大小元件組合而成，而每個Vue的實體物件，實際上就是一個元件，而每個Vue元件從建立、掛載、更新，到銷毀移除，都有它的生命週期階段，這一連串的過程，我們將它稱作生命週期。在這個過程中，Vue.js提供了開發者在這些週期階段做對應處理的callback function，這些callback function我們就稱它叫生命週期的Hooks function。</p>
 		<p><img src="assets/img/lifecycle.png" /></p>
@@ -4878,7 +4877,7 @@
 
 	<section>
 		<span id="lifecycle_create" class="anchor-offset"></span>
-		<h2>Vue實體的建立</h2>
+		<h2>Vue實體的建立<span class="instance">生命周期</span></h2>
 		<p>Vue的實體從建立、掛載到渲染至各位的瀏覽器畫面上，會經歷這幾個階段：<code>beforeCreate</code>、<code>created</code>、<code>beforeMount</code>、<code>mounted</code>。</p>
 		<p>在<code>beforeCreate</code>期間，Vue實體剛被建立，狀態與事件都尚未初始化，此時我們還無法取得<code>data</code>、<code>prop</code>、<code>computed</code>等屬性。</p>
 		<p>直到Vue實體內的各種屬性、狀態的偵測(<code>getter</code>與<code>setter</code>)都已經初始化完成後，這才進入了<code>created</code>階段。換句話說，若是我們需要透過遠端API來取得資料，至少得在<code>created</code>階段以後才能存取實體的<code>data</code>屬性。</p>
@@ -4891,7 +4890,7 @@
 
 	<section>
 		<span id="lifecycle_update" class="anchor-offset"></span>
-		<h2>狀態的更新與畫面的同步</h2>
+		<h2>狀態的更新與畫面的同步<span class="instance">生命周期</span></h2>
 		<p>在 Vue 實體生命週期中，我們可以透過<code>beforeUpdate</code>與<code>updated</code>兩個Hooks來觀察到實體狀態的更新，而它們的執行會根據模板的畫面更新前/後時機來觸發。</p>
 		<p>可是，如果只需要觀察<code>data</code>或<code>computed</code>內某個狀態的時候，使用<code>beforeUpdate</code>又顯得太麻煩，這個時候我們就可以透過<code>watch</code>屬性來處理：</p>
 		<p>要注意的是DOM的更新動作在Vue.js裡是非同步執行的，當<code>setter</code>偵測到狀態被更新時，就會啟動一個排隊的隊伍（Queue），並且對同一個事件循環（Event Loop）內發生的所有變更進行緩衝，這樣做的好處，是若同一個<code>watch</code>在短時間內被多次觸發，它只會被送進等待隊伍一次，可以省去多餘重複的計算次數，直到下一個事件循環（Vue官方稱<code>tick</code>）才會刷新重整在等待隊伍內的任務，更新並且同步Vue實體內的DOM。</p>
@@ -4982,7 +4981,7 @@
 
 	<section>
 		<span id="lifecycle_destroy" class="anchor-offset"></span>
-		<h2>Vue實體的銷毀</h2>
+		<h2>Vue實體的銷毀<span class="instance">生命周期</span></h2>
 		<p>Vue實體在銷毀的時候，會先觸發<code>beforeUnmount</code> Hook，然後將實體內的各種事件、狀態的<code>watcher</code>、子元件（如果有）通通卸除，完成後觸發<code>unmount</code>Hook，結束這個實體的一生。此時，我們就再也無法對這個實體進行任何操作了。</p>
 	</section>
 
@@ -4992,7 +4991,7 @@
 
 	<section>
 		<span id="vuex_basic" class="anchor-offset"></span>
-		<h2>Vuex基本介紹</h2>
+		<h2>Vuex基本介紹<span class="instance">Vuex</span></h2>
 		<p>Vuex用一個物件就包含了全部應用層級的狀態，所以它就是一個「唯一數據源」的存在。這也代表，每個應用將僅僅包含一個store實例。</p>
 		<p>每一個Vuex應用的核心就是一個store（倉庫），它基本上就是一個容器，集中管理我們應用程式中大部分的狀態(state)，這簡化了在不同Vue實例或是元件中資料的溝通。Vuex和單純的全域物件有以下兩點不同：</p>
 		<ul class="spaced">
@@ -5179,7 +5178,7 @@
 
 	<section>
 		<span id="vuex_state" class="anchor-offset"></span>
-		<h2>State</h2>
+		<h2>State<span class="instance">Vuex</span></h2>
 		<p>Vuex的state和vue的data有很多相似之處，都是用於存儲一些數據或是狀態。這些數據都和DOM做了綁定，也就是當你改變值的時候可以觸發DOM的更新。</p>
 		<p>儘管state和data非常相似，但state在使用的時候一般被掛載到元件的computed（計算屬性）上，這樣有利於state的值發生改變的時候做到及時響應。如果你用data去接收$store.state，當然可以接收到值，但由於這只是一個簡單的賦值操作，因此state中的狀態改變的時候不能被vue中的data監聽到。</p>
 		<p>下例我們使用count計算屬性中返回狀態，每當store.state.count變化的時候，都會重新求取計算屬性，並且觸發更新相關聯的DOM：</p>
@@ -5347,6 +5346,37 @@
 				])
 			});
 		</code></pre>
+		<p>如果想要使用字串陣列傳入<code>mapState</code>，但同時需要其它的計算屬性時可以在<code>computed</code>中以展開計算子將<code>mapState</code>展開：</p>
+		<pre><code>
+			//HTML
+			<div id="app">
+				<div>{{firstName}}</div>
+				<div>{{lastName}}</div>
+				<div>{{fullName}}</div>
+			</div>
+		</code></pre>
+		<pre><code>
+			//Javascript
+			const store = new Vuex.Store({
+				state: {
+					firstName: 'John',
+					lastName: 'Zhang'
+				}
+			})
+			var vm = new Vue({
+				el: '#app',
+				store,
+				computed: {
+					...Vuex.mapState([
+						'firstName',
+						'lastName'
+					]),
+					fullName(){
+						return `${this.firstName} ${this.lastName}`
+					}
+				}
+			});
+		</code></pre>
 		<p>computed不會因為引入mapState方法而失去原有的功能，如果我們之前已經寫了一大堆的computed計算屬性，做了一半發現想要引入vuex，又想使用mapState()，我們可以直接把舊的計算屬性直接貼到mapState中：</p>
 		<pre><code>
 			const store = new Vuex.Store({
@@ -5402,7 +5432,7 @@
 
 	<section>
 		<span id="vuex_getter" class="anchor-offset"></span>
-		<h2>Getter</h2>
+		<h2>Getter<span class="instance">Vuex</span></h2>
 		<p>vuex本身就提供了類似於計算屬性的方式，getters可以讓你從store的state中派生出一些新的狀態，當然如果不是多個元件要用到這個狀態，或者說每個子元件用到的派生屬性不一樣，那麼，你完全可以不用getters。</p>
 		<p>例如有時候我們需要從store中的state中派生出一些狀態，例如對列表進行過濾併計數：</p>
 		<pre><code>
@@ -5570,7 +5600,7 @@
 
 	<section>
 		<span id="vuex_mutation" class="anchor-offset"></span>
-		<h2>Mutation</h2>
+		<h2>Mutation<span class="instance">Vuex</span></h2>
 		<p>更改Vuex store中的狀態的唯一方法是提交mutation；每個mutation都有一個回調函式，這個回調函式就是我們實際進行狀態更改的地方，並且它會接受state作為第一個參數：</p>
 		<pre><code>
 			const store = new Vuex.Store({
@@ -5800,7 +5830,7 @@
 
 	<section>
 		<span id="vuex_action" class="anchor-offset"></span>
-		<h2>Action</h2>
+		<h2>Action<span class="instance">Vuex</span></h2>
 		<p>Action使用起來很像mutation，但取向完全不同；action是用來執行非同步操作，完成非同步操作後再提交mutation來更新state；下面先介紹一下基本語法。</p>
 		<p>註冊一下action</p>
 		<pre><code>
@@ -6037,7 +6067,7 @@
 
 	<section>
 		<span id="vuex_module" class="anchor-offset"></span>
-		<h2>Module</h2>
+		<h2>Module<span class="instance">Vuex</span></h2>
 		<p>由於使用單一狀態樹，應用的所有狀態會集中到一個比較大的物件。當應用變得非常複雜時，store物件就有可能變得相當臃腫。</p>
 		<p>為了解決以上問題，Vuex允許我們將store分割成模組（module）。每個模組擁有自己的state、mutation、action、getter、甚至是嵌套子模組——從上至下進行同樣方式的分割：</p>
 		<pre><code>
@@ -6313,7 +6343,7 @@
 
 	<section>
 		<span id="transition_basic" class="anchor-offset"></span>
-		<h2>概述</h2>
+		<h2>概述<span class="instance">過渡效果</span></h2>
 		<p>我們常常會使用v-if或v-show控制元素的顯示與否，而顯示與不顯示的過程中，可以使用vue提供的transition元件協助我們控制過渡效果。</p>
 		<p>在官網文件中，清楚繪製出了Vue的過渡會有以下幾個過程（如字面所示，enter就是進入過渡、leave就是離開過渡）：</p>
 		<p><img src="assets/img/transition.png" /></p>
@@ -6342,7 +6372,7 @@
 
 	<section>
 		<span id="transition_single_ele" class="anchor-offset"></span>
-		<h2>單一元素/元件的過渡</h2>
+		<h2>單一元素/元件的過渡<span class="instance">過渡效果</span></h2>
 		<p>使用transition封裝元件在下例情形中，可以給任何元素和元件添加進入/離開過渡</p>
 		<ul>
 			<li>條件渲染（使用v-if）</li>
@@ -6445,7 +6475,7 @@
 
 	<section>
 		<span id="transition_animation" class="anchor-offset"></span>
-		<h2>以CSS animation設計過渡</h2>
+		<h2>以CSS animation設計過渡<span class="instance">過渡效果</span></h2>
 		<p>CSS動畫用法同CSS過渡，區別是在動畫中v-enter的class名稱在節點插入DOM後不會立即刪除，而是在animationend事件觸發時刪除，範例：</p>
 		<div class="example">
 			<div id="app84" class="app84">
@@ -6533,7 +6563,7 @@
 
 	<section>
 		<span id="transition_multiple_ele" class="anchor-offset"></span>
-		<h2>多個元素的過渡</h2>
+		<h2>多個元素的過渡<span class="instance">過渡效果</span></h2>
 		<p>對於原生html元素可以使用v-if/v-else產生過渡。最常見的多元素過渡是一個列表和描述這個列表為空消息的內容：</p>
 		<pre><code>
 			<transition>
@@ -6711,7 +6741,7 @@
 
 	<section>
 		<span id="transition_multiple_comp" class="anchor-offset"></span>
-		<h2>多個元件的過渡</h2>
+		<h2>多個元件的過渡<span class="instance">過渡效果</span></h2>
 		<p>多個元件的過渡寫法比較簡單，不需要使用keyattribute，我們只需要使用動態元件：</p>
 		<div class="example">
 			<div id="app87">
@@ -6787,7 +6817,7 @@
 
 	<section>
 		<span id="transition_custom_class" class="anchor-offset"></span>
-		<h2>自定義過渡的class名稱</h2>
+		<h2>自定義過渡的class名稱<span class="instance">過渡效果</span></h2>
 		<p>我們可以通過以下屬性來自定義過渡class名稱：</p>
 		<ul>
 			<li>enter-class</li>
@@ -6863,7 +6893,7 @@
 
 	<section>
 		<span id="transition_js_hooks" class="anchor-offset"></span>
-		<h2>Javascript勾子</h2>
+		<h2>Javascript勾子<span class="instance">過渡效果</span></h2>
 		<p>可以在attribute中聲明JavaScript鉤子：</p>
 		<pre><code>
 			<transition v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:after-enter="afterEnter" v-on:enter-cancelled="enterCancelled" v-on:before-leave="beforeLeave" v-on:leave="leave" v-on:after-leave="afterLeave" v-on:leave-cancelled="leaveCancelled">
