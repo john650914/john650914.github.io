@@ -24,7 +24,7 @@ $(function(){
 						<dd><a href="/documentation/Looping.html">Looping</a></dd>
 						<dd><a href="/documentation/Global-Functions.html">Global Functions</a></dd>
 						<dd><a href="/documentation/Others.html">Others</a></dd>
-					<dt>JS Objects</dt>
+					<dt>Web APIs</dt>
 						<dd><a href="/documentation/Ajax.html">Ajax</a></dd>
 						<dd><a href="/documentation/Array.html">Array</a></dd>
 						<dd><a href="/documentation/Boolean.html">Boolean</a></dd>
@@ -34,6 +34,7 @@ $(function(){
 						<dd><a href="/documentation/JSON.html">JSON</a></dd>
 						<dd><a href="/documentation/Map.html">Map</a></dd>
 						<dd><a href="/documentation/Math.html">Math</a></dd>
+						<dd><a href="/documentation/MutationObserver.html">MutationObserver</a></dd>
 						<dd><a href="/documentation/Number.html">Number</a></dd>
 						<dd><a href="/documentation/object-object.html">Object</a></dd>
 						<dd><a href="/documentation/Promise.html">Promise</a></dd>
@@ -97,6 +98,13 @@ $(function(){
 	$('.menu_toggler').click(function(){
 		$('.all-menus').toggle();
 		$('main').toggle();
+	});
+
+
+	$("pre code").each(function(){
+		var html = $(this).html().replace('<!-- ', '').replace(' -->', '');
+		var pattern = html.match(/\s*\n[\t\s]*/);
+		$(this).html(html.replace(new RegExp(pattern, "g"),'\n').slice(1, -3).replace(/</g, '&lt;').replace(/>/g, '&gt;'));
 	});
 	
 	/*$('#data-loader').load('experiment/ajax01.php');

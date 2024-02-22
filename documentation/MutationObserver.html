@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta property="og:title" content="MutationObserver - Javascript字典" />
+<meta property="og:description" content="MutationObserver 追蹤DOM的變化" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://javascript.john650914.com/documentation/ajax.php" />
+<meta property="og:image" content="https://john650914.github.io/f_b.jpg" />
+<meta name="description" content="MutationObserver 追蹤DOM的變化" />
+<title>MutationObserver - Javascript字典</title>
+<link type="text/css" rel="stylesheet" href="../css/default.css"/>
+<script src="/js/jquery-1.11.3.min.js"></script>
+<script src="/js/default.js"></script>
+</head>
+<body>
+<main class="main">
+<h1>Javascript - MutationObserver 物件</h1>
+<table class="doc-table">
+	<tr>
+		<th>名稱</th>
+		<th>類形</th>
+		<th>說明</th>
+	</tr>
+	<tr id="MutationObserver">
+		<td>MutationObserver</td>
+		<td>物件</td>
+		<td>
+			MutationObserver 是一個用來追蹤 DOM 變化的物件，它可以監聽 DOM 的變化，並且在變化發生時執行指定的 Callback Function。<br>
+			它本身是一個建構函式，所以我們需要用 new 關鍵字來建立實體，建立時需要傳入一個 Callback Function 作為參數，並使用 observe() 方法來設定觀察目標和觀察選項。<br><br>
+			以下是一個簡單的範例，當按下按鈕時，會在 #countContainer 內新增一個 span 元素，並且在控制台印出 "DOM被修改了"：
+			<pre><code>
+				//html
+				<div id="countContainer">
+					<span>0</span>
+				</div>
+				<button id="btn">修改文字</button>
+			</code></pre>
+			<pre><code>
+				//Javascript
+				const observer = new MutationObserver(function(){
+					console.log('DOM被修改了');
+				});
+				
+				observer.observe(document.querySelector('body'), {
+					childList: true,
+					subtree: true,
+					characterData: true
+				});
+				
+				var count = 0;
+				document.querySelector('#btn').addEventListener('click', function(){
+					count++;
+					document.querySelector('#countContainer').innerHTML += `<span>${count}</span> `;
+				});
+			</code></pre>
+			MutationObserver 的 Function 參數可以接到由 MutationObserver 提供的 MutationRecords 陣列和 MutationObserver 實體作為參數：
+			<br><br>
+			<ul>
+				<li><strong>records</strong>：這是一個陣列，裡面包含了所有被觀察的節點的變化紀錄。</li>
+				<li><strong>observer</strong>：這是 MutationObserver 的實體，這最常用來切斷 observer 的連結。</li>
+			</ul>
+			<br>
+			語法：
+			<pre><code>
+				const observer = new MutationObserver(function (records, observer) {
+					console.log(records, observer);
+				});
+			</code></pre>
+			records 參數的說明請見 observe()，observer 參數的說明請見 disconnect()。
+		</td>
+	</tr>
+	<tr id="observe()">
+		<td>observe()</td>
+		<td>方法</td>
+		<td>
+			observe() 方法用來設定 MutationObserver 的觀察目標和觀察選項，它有兩個參數：
+			<br><br>
+			<ul>
+				<li><strong>target</strong>：要觀察的目標節點。</li>
+				<li><strong>options</strong>：一個物件，用來設定觀察選項。</li>
+			</ul>
+			<br>
+			而 options 物件有以下屬性：
+			<ul>
+				<li><strong>childList</strong>：是否觀察子節點的增減，預設為 false。</li>
+				<li><strong>attributes</strong>：是否觀察節點的屬性變化，預設為 false。</li>
+				<li><strong>characterData</strong>：是否觀察節點的文字內容變化，預設為 false。</li>
+				<li><strong>subtree</strong>：是否觀察目標節點的所有子節點，預設為 false。</li>
+				<li><strong>attributeOldValue</strong>：是否在屬性變化時記錄舊的屬性值，預設為 false。</li>
+				<li><strong>characterDataOldValue</strong>：是否在文字內容變化時記錄舊的文字內容，預設為 false。</li>
+				<li><strong>attributeFilter</strong>：一個陣列，用來設定要觀察的屬性名稱，預設為空陣列。</li>
+			</ul>
+			<br>
+			語法：
+			<pre><code>
+				observer.observe(target, options);
+			</code></pre>
+			以下範例判斷 DOM 的變化類型，並且在控制台印出相對應的訊息：
+			<pre><code>
+				//HTML
+				<div id="contentBox">原始內容</div>
+				<button id="changeDOM">修改節點</button>
+				<button id="changeText">修改文字</button>
+			</code></pre>
+			<pre><code>
+				//Javascript
+				const observer = new MutationObserver(function(records, observer) {
+					for(let record of records) {
+						if (record.type === 'childList') {
+							console.log('DOM被修改了');
+						}
+						else if (record.type === 'characterData') {
+							console.log('文字被修改了');
+						}
+					}
+				});
+				
+				observer.observe(document.querySelector('body'), {
+					childList: true,
+					subtree: true,
+					characterData: true
+				});
+				
+				const contentBox = document.querySelector('#contentBox');
+				
+				document.querySelector('#changeDOM').addEventListener('click', function(){
+					contentBox.innerText = 'DOM被修改了';
+				});
+				document.querySelector('#changeText').addEventListener('click', function(){
+					contentBox.firstChild.textContent = '文字被修改了';
+				});
+			</code></pre>
+		</td>
+	</tr>
+	<tr id="disconnect()">
+		<td>disconnect()</td>
+		<td>方法</td>
+		<td>
+			disconnect() 方法用來切斷 MutationObserver 的連結，這樣就不會再觀察到任何變化，它沒有參數，語法如下：
+			<pre><code>
+				observer.disconnect();
+			</code></pre>
+			以下範例在按下按鈕時，會切斷 MutationObserver 的連結，這樣就不會再觀察到任何變化：
+			<pre><code>
+				//HTML
+				<p id="myNode">這是範例文字</p>
+				<button id="editMyNode">修改#myNode的內容</button>
+				<button id="disconnectObserver">斷開MutationObserver連接</button>
+				<div id="result"></div>
+			</code></pre>
+			<pre><code>
+				//Javascript
+				const myNode = document.querySelector('#myNode');
+				const result = document.querySelector('#result');
+				const observer = new MutationObserver(function(records, observer) {
+					result.innerHTML += 'DOM被修改了<br>';
+				});
+				
+				observer.observe(myNode, {
+					childList: true,
+					subtree: true,
+					characterData: true
+				});
+				
+				document.querySelector('#editMyNode').addEventListener('click', function(){
+					myNode.innerHTML = '這是修改後的文字';
+				});
+				document.querySelector('#disconnectObserver').addEventListener('click', function(){
+					observer.disconnect();
+				});
+			</code></pre>
+			如果需要再次觀察變化，可以再次使用 observe() 方法來設定觀察目標和觀察選項。<br><br>
+			另外，disconnect() 方法也可以在 MutationObserver 的 Function 內使用，這樣就可以在觸發變化時切斷連結：
+			<pre><code>
+				const observer = new MutationObserver(function(records, observer) {
+					//...
+					observer.disconnect();
+				});
+			</code></pre>
+		</td>
+</table>
+</main>
+</body>
+</html>
