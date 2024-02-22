@@ -322,6 +322,7 @@
 		<div class="example">
 			<div id="app4">
 				<div :title="numberVal + stringVal">div的title是：mumberVal + stringVal</div>
+				<div :title="`div的title是：${numberVal} ${stringVal}`">div的title是：mumberVal + stringVal（使用javascript模板語法）</div>
 				<div>{{numberVal + 999}}</div>
 				<div>{{stringVal + 'ttt'}}</div>
 				<button @click="alert1(1)">aler1</button>
@@ -350,6 +351,7 @@
 			//HTML
 			<div id="app">
 				<div :title="numberVal + stringVal">div的title是：mumberVal + stringVal</div>
+				<div :title="`div的title是：${numberVal} ${stringVal}`">div的title是：mumberVal + stringVal（使用javascript模板語法）</div>
 				<div>{{numberVal + 999}}</div>
 				<div>{{stringVal + 'ttt'}}</div>
 				<button @click="alert1(1)">aler1</button>
