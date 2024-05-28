@@ -8,32 +8,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://unpkg.com/@esotericsoftware/spine-player@4.0.*/dist/iife/spine-player.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/@esotericsoftware/spine-player@4.0.*/dist/spine-player.css">
+<link rel="stylesheet" href="default.css">
 </head>
-<style>
-body{
-	margin: 0;
-	padding: 0;
-	font-family: Arial, sans-serif;
-	color: #fff;
-	text-align: center;
-	line-height: 1.5;
-	background-color: #000;
-}
-h1{
-	margin: 1em 0 0.5em 0;
-	font-size: 2.5em;
-}
-p{
-	strong{
-		color: #fff;
-	}
-	color: silver;
-}
-</style>
 <body>
-<h1>Live2D範例</h1>
-<p><strong>圖檔大小：291KB</strong><br>以Spine軟體繪製的Live2D成品效果非常生動，同時支援去背，<br>此範例的圖檔也只需要291KB效能表現非常優秀</p>
-<div id="player-container" style="width: 1024px; height: 1024px; margin: 0 auto; position: relative; top: -60px;"></div>
+<div class="wrap">
+	<h1>Live2D範例</h1>
+	<p><strong>圖檔大小：291KB</strong><br>以Spine軟體繪製的Live2D成品效果非常生動，同時支援去背，<br>此範例的圖檔也只需要291KB效能表現非常優秀</p>
+	<div id="player-container"></div>
+</div>
 
 <script>
 /* new spine.SpinePlayer("player-container", {

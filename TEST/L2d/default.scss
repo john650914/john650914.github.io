@@ -1,0 +1,47 @@
+@function vw($size, $breakpoint:768) {
+	@return calc($size / $breakpoint) * 100vw;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	color: #fff;
+	text-align: center;
+	line-height: 1.5;
+	background-color: #000;
+}
+h1{
+	margin: 1em 0 0.5em 0;
+	font-size: 2.5em;
+}
+p{
+	strong{
+		color: #fff;
+	}
+	color: silver;
+}
+strong{
+	color: #fff;
+}
+#player-container{
+	width: 1024px; height: 1024px; margin: 0 auto; position: relative; top: -60px;
+}
+
+@media screen and (max-width: 768px) {
+	h1{
+		font-size: vw(80);
+	}
+	p{
+		font-size: vw(36);
+	}
+	.wrap{
+		padding: 0 vw(40);
+		overflow: hidden;
+	}
+	#player-container{
+		width: 200%; height: auto; top: vw(-100);
+		margin-left: 50%;
+		transform: translateX(-50%);
+	}
+}
