@@ -40,7 +40,7 @@ strong{
 		overflow: hidden;
 	}
 	#player-container{
-		width: 200%; height: auto; top: vw(-100);
+		width: 200%; height: vw(1200); top: vw(-100);
 		margin-left: 50%;
 		transform: translateX(-50%);
 	}

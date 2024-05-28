@@ -45,7 +45,7 @@ strong {
   }
   #player-container {
     width: 200%;
-    height: auto;
+    height: 156.25vw;
     top: -13.0208333333vw;
     margin-left: 50%;
     transform: translateX(-50%);
