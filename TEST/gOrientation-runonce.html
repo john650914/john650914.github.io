@@ -11,7 +11,7 @@
 
 <script>
 let myOri = new gOrientation({
-  runOnce: true;
+  runOnce: true,
 	callback: function(oriCheck){
 		document.querySelector('body').insertAdjacentHTML('beforeend', oriCheck.device+' '+oriCheck.orientation+'<br>');
 	}
