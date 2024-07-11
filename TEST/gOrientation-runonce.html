@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>測試GA4</title>
+<meta name="description" content="這個網頁是用來測試GA4">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<script src="gOrientation.js"></script>
+</head>
+<body>
+
+<script>
+let myOri = new gOrientation({
+  runOnce: true;
+	callback: function(oriCheck){
+		document.querySelector('body').insertAdjacentHTML('beforeend', oriCheck.device+' '+oriCheck.orientation+'<br>');
+	}
+});
+</script>
+</body>
+</html>
