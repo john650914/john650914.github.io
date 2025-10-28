@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	<script src="https://frontend.beanfun.com/plugins/Fech/1.1.0/Fech.js"></script>
+    <script>
+        fech.fetchData({
+			url: 'https://tw.hicdn.beanfun.com/beanfun/GamaWWW/TEST/fz/data.json',
+			method: 'get',
+			success: (res) => {
+				console.log('Success:', res)
+			}
+		});
+    </script>
+</body>
+</html>
